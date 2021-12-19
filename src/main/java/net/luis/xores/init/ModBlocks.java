@@ -19,5 +19,26 @@ public class ModBlocks {
 	public static final RegistryObject<Block> DEEPSLATE_JADE_ORE = BLOCKS.register("deepslate_jade_ore", () -> {
 		return new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE));
 	});
+	public static final RegistryObject<Block> LEMONITE_ORE = BLOCKS.register("limonite_ore", () -> {
+		return new Block(BlockBehaviour.Properties.copy(Blocks.STONE));
+	});
+	public static final RegistryObject<Block> DEEPSLATE_LEMONITE_ORE = BLOCKS.register("deepslate_limonite_ore", () -> {
+		return new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE));
+	});
+	public static final RegistryObject<Block> ROSITE_ORE = BLOCKS.register("rosite_ore", () -> {
+		return new Block(BlockBehaviour.Properties.copy(Blocks.STONE));
+	});
+	public static final RegistryObject<Block> DEEPSLATE_ROSITE_ORE = BLOCKS.register("deepslate_rosite_ore", () -> {
+		return new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE));
+	});
+	public static final RegistryObject<Block> SAPHIRE_ORE = BLOCKS.register("saphire_ore", () -> {
+		return new Block(BlockBehaviour.Properties.copy(Blocks.STONE));
+	});
+	public static final RegistryObject<Block> DEEPSLATE_SAPHIRE_ORE = BLOCKS.register("deepslate_saphire_ore", () -> {
+		return new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE));
+	});
+	public static final RegistryObject<Block> ENDERITE_ORE = BLOCKS.register("enderite_ore", () -> {
+		return new Block(BlockBehaviour.Properties.copy(Blocks.ANCIENT_DEBRIS));
+	});
 	
 }
