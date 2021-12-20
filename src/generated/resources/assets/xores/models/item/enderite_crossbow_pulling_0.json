@@ -1,0 +1,6 @@
+{
+  "parent": "xores:item/enderite_crossbow",
+  "textures": {
+    "layer0": "xores:item/enderite_crossbow_pulling_0"
+  }
+}

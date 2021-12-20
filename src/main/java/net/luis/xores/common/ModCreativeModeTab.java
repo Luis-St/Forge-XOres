@@ -16,5 +16,5 @@ public class ModCreativeModeTab extends CreativeModeTab {
 	public ItemStack makeIcon() {
 		return this.icon;
 	}
-
+	
 }

@@ -6,6 +6,8 @@ import net.luis.xores.data.provider.item.ModItemModelProvider;
 import net.luis.xores.data.provider.language.ModLanguageProvider;
 import net.luis.xores.data.provider.loottable.ModLootTableProvider;
 import net.luis.xores.data.provider.recipe.ModRecipeProvider;
+import net.luis.xores.data.provider.tag.ModBlockTagsProvider;
+import net.luis.xores.data.provider.tag.ModItemTagsProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -27,6 +29,9 @@ public class OnGatherDataEvent {
 			if (event.includeServer()) {
 				generator.addProvider(new ModLootTableProvider(generator));
 				generator.addProvider(new ModRecipeProvider(generator));
+				ModBlockTagsProvider blockTagsProvider = new ModBlockTagsProvider(generator, event.getExistingFileHelper());
+				generator.addProvider(blockTagsProvider);
+				generator.addProvider(new ModItemTagsProvider(generator, blockTagsProvider, event.getExistingFileHelper()));
 			}
 		}
 	}
