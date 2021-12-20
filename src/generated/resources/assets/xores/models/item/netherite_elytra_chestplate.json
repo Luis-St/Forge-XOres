@@ -1,0 +1,14 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "xores:item/netherite_elytra_chestplate"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "xores:broken": 1.0
+      },
+      "model": "xores:item/broken_netherite_elytra_chestplate"
+    }
+  ]
+}
