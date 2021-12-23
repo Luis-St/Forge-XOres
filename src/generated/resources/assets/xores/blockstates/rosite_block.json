@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "xores:block/rosite_block"
+    }
+  }
+}
