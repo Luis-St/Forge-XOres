@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "xores:jade_helmet",
+    "xores:blazing_helmet",
+    "xores:saphire_helmet",
+    "xores:limonite_helmet",
+    "xores:enderite_helmet",
+    "xores:night_helmet"
+  ]
+}

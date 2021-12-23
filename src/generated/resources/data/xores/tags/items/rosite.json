@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "xores:rosite_ingot",
+    "xores:rosite_sword",
+    "xores:rosite_pickaxe",
+    "xores:rosite_axe",
+    "xores:rosite_shovel",
+    "xores:rosite_hoe"
+  ]
+}
