@@ -6,8 +6,8 @@ import com.google.common.collect.Lists;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 
+import net.luis.xores.XOres;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraftforge.client.gui.ForgeIngameGui;
 import net.minecraftforge.client.gui.IIngameOverlay;
@@ -17,11 +17,9 @@ public class ModArmorOverlay implements IIngameOverlay {
 	public static final List<ArmorItem> VANILLA_ARMOR_ITEMS = Lists.newArrayList();
 	
 	protected final Minecraft minecraft;
-	protected final LocalPlayer player;
 	
 	public ModArmorOverlay(Minecraft minecraft) {
 		this.minecraft = minecraft;
-		this.player = minecraft.player;
 	}
 	
 	@Override
@@ -32,12 +30,14 @@ public class ModArmorOverlay implements IIngameOverlay {
 		}
 	}
 	
+	@SuppressWarnings("resource")
 	protected void renderArmor(ForgeIngameGui gui, PoseStack poseStack, float partialTicks, int width, int height) {
 		this.minecraft.getProfiler().push("armor");
 		RenderSystem.enableBlend();
 		int left = width / 2 - 91;
 		int top = height - gui.left_height;
-		int level = this.player.getArmorValue();
+		int level = Minecraft.getInstance().player.getArmorValue();
+		XOres.LOGGER.info(level);
 		for (int i = 21; level > 20 && i < 40; i += 2) {
 			if (i < level) {
 				gui.blit(poseStack, left, top, 34, 9, 9, 9); // full

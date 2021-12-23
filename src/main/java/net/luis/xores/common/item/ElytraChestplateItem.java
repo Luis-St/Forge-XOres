@@ -17,7 +17,7 @@ import net.minecraft.world.item.ItemStack;
 public class ElytraChestplateItem extends ArmorItem {
 
 	public static final Map<ElytraChestplateItem, Integer> ELYTRA_DAMAGE_VALUES = Maps.newHashMap();
-	public static final Random RNG = new Random(System.currentTimeMillis());
+	protected static final Random RNG = new Random(System.currentTimeMillis());
 	
 	public ElytraChestplateItem(ArmorMaterial armorMaterial, Properties properties) {
 		super(armorMaterial, EquipmentSlot.CHEST, properties);

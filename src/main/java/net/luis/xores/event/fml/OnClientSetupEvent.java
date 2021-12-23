@@ -30,17 +30,19 @@ public class OnClientSetupEvent {
 	@SubscribeEvent
 	public static void clientSetup(FMLClientSetupEvent event) {
 		OverlayRegistry.registerOverlayAbove(ForgeIngameGui.ARMOR_LEVEL_ELEMENT, "Armor Bar", new ModArmorOverlay(Minecraft.getInstance()));
-		for (Item item : ModItems.ITEMS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
-			if (item instanceof BowItem bowItem) {
-				registerBow(bowItem);
-			} else if (item instanceof CrossbowItem crossbowItem) {
-				registerCrossbow(crossbowItem);
-			} else if (item instanceof ShieldItem shieldItem) {
-				registerShield(shieldItem);	
-			} else if (item instanceof ElytraChestplateItem elytraChestplateItem) {
-				registerElytra(elytraChestplateItem);
+		event.enqueueWork(() -> {
+			for (Item item : ModItems.ITEMS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
+				if (item instanceof BowItem bowItem) {
+					registerBow(bowItem);
+				} else if (item instanceof CrossbowItem crossbowItem) {
+					registerCrossbow(crossbowItem);
+				} else if (item instanceof ShieldItem shieldItem) {
+					registerShield(shieldItem);	
+				} else if (item instanceof ElytraChestplateItem elytraChestplateItem) {
+					registerElytra(elytraChestplateItem);
+				}
 			}
-		}
+		});
 	}
 	
 	protected static void registerBow(BowItem bowItem) {
