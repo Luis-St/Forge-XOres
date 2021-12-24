@@ -11,11 +11,9 @@ import net.minecraft.world.level.block.Block;
 public class ModTags {
 	
 	public static class Blocks {
-		public static final Tag.Named<Block> MINING_LEVEL_2 = bind(new ResourceLocation(XOres.MOD_ID, "mining/level_2"));
-		public static final Tag.Named<Block> MINING_LEVEL_3 = bind(new ResourceLocation(XOres.MOD_ID, "mining/level_3"));
-		public static final Tag.Named<Block> MINING_LEVEL_4 = bind(new ResourceLocation(XOres.MOD_ID, "mining/level_4"));
-		public static final Tag.Named<Block> MINING_LEVEL_5 = bind(new ResourceLocation(XOres.MOD_ID, "mining/level_5"));
-		public static final Tag.Named<Block> MINING_LEVEL_6 = bind(new ResourceLocation(XOres.MOD_ID, "mining/level_6"));
+		public static final Tag.Named<Block> NEEDS_NETHERITE_TOOL = bind(new ResourceLocation(XOres.MOD_ID, "needs_netherite_tool"));
+		public static final Tag.Named<Block> NEEDS_ENDERITE_TOOL = bind(new ResourceLocation(XOres.MOD_ID, "needs_enderite_tool"));
+		public static final Tag.Named<Block> NEEDS_STEEL_TOOL = bind(new ResourceLocation(XOres.MOD_ID, "needs_steel_tool"));
 		
 		// Ores
 		public static final Tag.Named<Block> JADE_ORES = bind(new ResourceLocation(XOres.MOD_ID, "ores/jade_ore"));

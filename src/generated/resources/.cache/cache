@@ -177,6 +177,10 @@ bdd77e02929e82f2700a34b55223b6018949a7b9 assets/xores/models/item/steel_hoe.json
 b2a521b74972a0c7014e4f9b85fbee65ed802583 assets/xores/models/item/steel_shovel.json
 3c44e1b78ae8e73f03199f0b1666d417ff531268 assets/xores/models/item/steel_sword.json
 595635b519e8248ce8b766167ef094e7e49d71a3 data/forge/tags/items/ingots.json
+61883a87f61b57e43525df307d08847b4a5060e7 data/minecraft/tags/blocks/mineable/pickaxe.json
+94acaa7425fbcb0b5bba1b9f806fd3f9e81042c5 data/minecraft/tags/blocks/needs_diamond_tool.json
+c2580f68868c89208af536adc2648c672a87784a data/minecraft/tags/blocks/needs_iron_tool.json
+fddcc288c2adce64a2c0a280e36734d3aa6ea449 data/minecraft/tags/blocks/needs_stone_tool.json
 2f076e4c5353f28b0a70c4f6ededced25a8f704b data/xores/loot_tables/blocks/deepslate_jade_ore.json
 4c532dbbb50413c73aac07f76653eb32fb2fd5c3 data/xores/loot_tables/blocks/deepslate_limonite_ore.json
 a4c4a8c1d73ff428c751315cde91fc97483f7fdb data/xores/loot_tables/blocks/deepslate_rosite_ore.json
@@ -192,11 +196,9 @@ ca78f91cd998abe81fcdcbe072f83d2dbe2ecb07 data/xores/loot_tables/blocks/rosite_or
 fedf71b4c1fe6e93221f2345890c6651fea39a80 data/xores/loot_tables/blocks/saphire_block.json
 ce2de303d133f5c7c5223b6bd5dcac0d5c538923 data/xores/loot_tables/blocks/saphire_ore.json
 24900f8a1a59fb4fdddb41bfd546c1f24acfc8a3 data/xores/tags/blocks/base_stone_end.json
-74700d556ca80c7a1db5fd4efb09c3ddb26cad66 data/xores/tags/blocks/mining/level_2.json
-74700d556ca80c7a1db5fd4efb09c3ddb26cad66 data/xores/tags/blocks/mining/level_3.json
-74700d556ca80c7a1db5fd4efb09c3ddb26cad66 data/xores/tags/blocks/mining/level_4.json
-74700d556ca80c7a1db5fd4efb09c3ddb26cad66 data/xores/tags/blocks/mining/level_5.json
-74700d556ca80c7a1db5fd4efb09c3ddb26cad66 data/xores/tags/blocks/mining/level_6.json
+74700d556ca80c7a1db5fd4efb09c3ddb26cad66 data/xores/tags/blocks/needs_enderite_tool.json
+74700d556ca80c7a1db5fd4efb09c3ddb26cad66 data/xores/tags/blocks/needs_netherite_tool.json
+57bcc60dcc619144ca52c4c0ae517c6e9f6ec49f data/xores/tags/blocks/needs_steel_tool.json
 a18d2f6c171ccdc4b63aca5353779e40349b47b0 data/xores/tags/blocks/ore_blocks.json
 57bcc60dcc619144ca52c4c0ae517c6e9f6ec49f data/xores/tags/blocks/ores/enderite_ore.json
 6d6c67bfd6be9bcf722279b9b5937dfaf270023e data/xores/tags/blocks/ores/jade_ore.json
