@@ -5,6 +5,7 @@ import net.luis.xores.init.ModBlocks;
 import net.luis.xores.init.ModTags;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 public class ModBlockTagsProvider extends BlockTagsProvider {
@@ -27,6 +28,8 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
 		this.tag(ModTags.Blocks.ROSITE_ORES).add(ModBlocks.ROSITE_ORE.get(), ModBlocks.DEEPSLATE_ROSITE_ORE.get());
 		this.tag(ModTags.Blocks.ENDERITE_ORES).add(ModBlocks.ENDERITE_ORE.get());
 		this.tag(ModTags.Blocks.ORE_BLOCKS).add(ModBlocks.JADE_BLOCK.get(), ModBlocks.SAPHIRE_BLOCK.get(), ModBlocks.LIMONITE_BLOCK.get(), ModBlocks.ROSITE_BLOCK.get(), ModBlocks.ENDERITE_BLOCK.get());
+		
+		this.tag(ModTags.Blocks.BASE_STONE_END).add(Blocks.END_STONE);
 	}
 	
 	@Override

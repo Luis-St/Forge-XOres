@@ -25,6 +25,8 @@ public class ModTags {
 		public static final Tag.Named<Block> ENDERITE_ORES = bind(new ResourceLocation(XOres.MOD_ID, "ores/enderite_ore"));
 		public static final Tag.Named<Block> ORE_BLOCKS = bind(new ResourceLocation(XOres.MOD_ID, "ore_blocks"));
 		
+		public static final Tag.Named<Block> BASE_STONE_END = bind(new ResourceLocation(XOres.MOD_ID, "base_stone_end"));
+		
 		protected static Tag.Named<Block> bind(ResourceLocation location) {
 			return BlockTags.bind(location.toString());
 		}
