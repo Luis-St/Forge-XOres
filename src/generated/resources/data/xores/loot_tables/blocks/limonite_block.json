@@ -7,7 +7,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "xores:limonit_block"
+          "name": "xores:limonite_block"
         }
       ],
       "conditions": [

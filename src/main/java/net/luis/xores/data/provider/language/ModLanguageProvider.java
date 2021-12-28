@@ -21,15 +21,15 @@ public class ModLanguageProvider extends LanguageProvider {
 	@Override
 	protected void addTranslations() {
 		for (Block block : ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
-			this.add(block, this.getName(block.getRegistryName()));
+			this.add(block, getName(block.getRegistryName()));
 		}
 		for (Item item : ModItems.ITEMS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
-			this.add(item, this.getName(item.getRegistryName()));
+			this.add(item, getName(item.getRegistryName()));
 		}
 		this.add(XOres.XORES_TAB.getDisplayName().getString(), "XOres");
 	}
 	
-	public String getName(ResourceLocation location) {
+	public static String getName(ResourceLocation location) {
 		String[] nameParts = location.getPath().split("_");
 		String name = "";
 		for (String namePart : nameParts) {

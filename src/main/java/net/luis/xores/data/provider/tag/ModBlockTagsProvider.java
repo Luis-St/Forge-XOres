@@ -25,6 +25,7 @@ import static net.luis.xores.init.ModTags.Blocks.NEEDS_STEEL_TOOL;
 import static net.luis.xores.init.ModTags.Blocks.ORE_BLOCKS;
 import static net.luis.xores.init.ModTags.Blocks.ROSITE_ORES;
 import static net.luis.xores.init.ModTags.Blocks.SAPHIRE_ORES;
+import static net.luis.xores.init.ModTags.Blocks.STONES;
 import static net.minecraft.tags.BlockTags.MINEABLE_WITH_PICKAXE;
 import static net.minecraft.tags.BlockTags.NEEDS_DIAMOND_TOOL;
 import static net.minecraft.tags.BlockTags.NEEDS_IRON_TOOL;
@@ -69,6 +70,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
 		this.tag(ORE_BLOCKS).add(JADE_BLOCK.get(), SAPHIRE_BLOCK.get(), LIMONITE_BLOCK.get(), ROSITE_BLOCK.get(), ENDERITE_BLOCK.get());
 		
 		this.tag(BASE_STONE_END).add(Blocks.END_STONE);
+		this.tag(STONES).add(Blocks.STONE, Blocks.BLACKSTONE, Blocks.DEEPSLATE);
 	}
 	
 	@Override

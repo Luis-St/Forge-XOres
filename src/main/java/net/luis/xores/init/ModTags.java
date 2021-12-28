@@ -24,6 +24,7 @@ public class ModTags {
 		public static final Tag.Named<Block> ORE_BLOCKS = bind(new ResourceLocation(XOres.MOD_ID, "ore_blocks"));
 		
 		public static final Tag.Named<Block> BASE_STONE_END = bind(new ResourceLocation(XOres.MOD_ID, "base_stone_end"));
+		public static final Tag.Named<Block> STONES = bind(new ResourceLocation(XOres.MOD_ID, "stones"));
 		
 		protected static Tag.Named<Block> bind(ResourceLocation location) {
 			return BlockTags.bind(location.toString());
@@ -71,6 +72,8 @@ public class ModTags {
 		public static final Tag.Named<Item> ELYTRA_CHESTPLATES = bind(new ResourceLocation(XOres.MOD_ID, "armors/elytra_chestplate"));
 		public static final Tag.Named<Item> LEGGINGS = bind(new ResourceLocation(XOres.MOD_ID, "armors/leggings"));
 		public static final Tag.Named<Item> BOOTS = bind(new ResourceLocation(XOres.MOD_ID, "armors/boots"));
+		
+		public static final Tag.Named<Item> STONES = bind(new ResourceLocation(XOres.MOD_ID, "stones"));
 		
 		protected static Tag.Named<Item> bind(ResourceLocation location) {
 			return ItemTags.bind(location.toString());

@@ -129,6 +129,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 		this.copy(ModTags.Blocks.ROSITE_ORES, ModTags.Items.ROSITE_ORES);
 		this.copy(ModTags.Blocks.ENDERITE_ORES, ModTags.Items.ENDERITE_ORES);
 		this.copy(ModTags.Blocks.ORE_BLOCKS, ModTags.Items.ORE_BLOCKS);
+		this.copy(ModTags.Blocks.STONES, ModTags.Items.STONES);
 		
 		this.tag(Tags.Items.INGOTS).add(JADE_INGOT.get(), BLAZING_INGOT.get(), SAPHIRE_INGOT.get(), LIMONITE_INGOT.get(), ENDERITE_INGOT.get(), STEEL_INGOT.get(), NIGHT_INGOT.get());
 		this.tag(ModTags.Items.SCRAPS).add(Items.NETHERITE_SCRAP).add(ENDERITE_SCRAP.get());

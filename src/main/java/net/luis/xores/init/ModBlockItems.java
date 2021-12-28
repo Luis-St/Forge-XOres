@@ -21,7 +21,6 @@ public class ModBlockItems {
 	public static final RegistryObject<BlockItem> JADE_BLOCK = ITEMS.register("jade_block", () -> {
 		return new BlockItem(ModBlocks.JADE_BLOCK.get(), new Item.Properties().tab(XOres.XORES_TAB));
 	});
-	
 	public static final RegistryObject<BlockItem> SAPHIRE_ORE = ITEMS.register("saphire_ore", () -> {
 		return new BlockItem(ModBlocks.SAPHIRE_ORE.get(), new Item.Properties().tab(XOres.XORES_TAB));
 	});
@@ -37,7 +36,7 @@ public class ModBlockItems {
 	public static final RegistryObject<BlockItem> DEEPSLATE_LIMONITE_ORE = ITEMS.register("deepslate_limonite_ore", () -> {
 		return new BlockItem(ModBlocks.DEEPSLATE_LIMONITE_ORE.get(), new Item.Properties().tab(XOres.XORES_TAB));
 	});
-	public static final RegistryObject<BlockItem> LIMONITE_BLOCK = ITEMS.register("limonit_block", () -> {
+	public static final RegistryObject<BlockItem> LIMONITE_BLOCK = ITEMS.register("limonite_block", () -> {
 		return new BlockItem(ModBlocks.LIMONITE_BLOCK.get(), new Item.Properties().tab(XOres.XORES_TAB));
 	});
 	public static final RegistryObject<BlockItem> ROSITE_ORE = ITEMS.register("rosite_ore", () -> {
