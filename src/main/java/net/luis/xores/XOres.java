@@ -4,9 +4,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import net.luis.xores.common.ModCreativeModeTab;
+import net.luis.xores.init.MaterialSets;
 import net.luis.xores.init.ModBlockItems;
 import net.luis.xores.init.ModBlocks;
 import net.luis.xores.init.ModItems;
+import net.luis.xores.init.ModMaterialSets;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -27,6 +29,8 @@ public class XOres {
 		ModBlocks.BLOCKS.register(modEventBus);
 		ModBlockItems.ITEMS.register(modEventBus);
 		ModItems.ITEMS.register(modEventBus);
+		MaterialSets.MATERIALS.register(modEventBus);
+		ModMaterialSets.MATERIALS.register(modEventBus);		
 	}
 	
 }
