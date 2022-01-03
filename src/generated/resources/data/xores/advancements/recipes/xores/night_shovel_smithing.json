@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "xores:night_shovel_smithing"
+    ]
+  },
+  "criteria": {
+    "has_enderite_shovel": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "xores:enderite_shovel"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "xores:night_shovel_smithing"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_enderite_shovel",
+      "has_the_recipe"
+    ]
+  ]
+}

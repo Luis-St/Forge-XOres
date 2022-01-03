@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "xores:night_sword_smithing"
+    ]
+  },
+  "criteria": {
+    "has_enderite_sword": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "xores:enderite_sword"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "xores:night_sword_smithing"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_enderite_sword",
+      "has_the_recipe"
+    ]
+  ]
+}

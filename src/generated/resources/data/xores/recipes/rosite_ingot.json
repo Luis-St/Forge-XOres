@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "rosite",
+  "ingredients": [
+    {
+      "item": "xores:rosite_block"
+    }
+  ],
+  "result": {
+    "item": "xores:rosite_ingot",
+    "count": 9
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "saphire",
+  "ingredients": [
+    {
+      "item": "xores:saphire_ingot"
+    },
+    {
+      "item": "xores:saphire_ingot"
+    },
+    {
+      "item": "xores:saphire_ingot"
+    },
+    {
+      "item": "xores:saphire_ingot"
+    },
+    {
+      "item": "xores:saphire_ingot"
+    },
+    {
+      "item": "xores:saphire_ingot"
+    },
+    {
+      "item": "xores:saphire_ingot"
+    },
+    {
+      "item": "xores:saphire_ingot"
+    },
+    {
+      "item": "xores:saphire_ingot"
+    }
+  ],
+  "result": {
+    "item": "xores:saphire_block"
+  }
+}

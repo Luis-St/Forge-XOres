@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:blasting",
+  "group": "jade",
+  "ingredient": {
+    "item": "xores:deepslate_jade_ore"
+  },
+  "result": "xores:jade_ingot",
+  "experience": 1.125,
+  "cookingtime": 100
+}

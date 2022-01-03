@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "xores:night_shield_smithing"
+    ]
+  },
+  "criteria": {
+    "has_enderite_shield": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "xores:enderite_shield"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "xores:night_shield_smithing"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_enderite_shield",
+      "has_the_recipe"
+    ]
+  ]
+}

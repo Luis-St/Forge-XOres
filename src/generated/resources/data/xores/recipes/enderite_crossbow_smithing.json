@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "xores:netherite_crossbow"
+  },
+  "addition": {
+    "item": "xores:enderite_ingot"
+  },
+  "result": {
+    "item": "xores:enderite_crossbow"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "xores:rose_quartz_shovel"
+    ]
+  },
+  "criteria": {
+    "has_polished_rose_quartz": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "xores:polished_rose_quartz"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "xores:rose_quartz_shovel"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_polished_rose_quartz",
+      "has_the_recipe"
+    ]
+  ]
+}

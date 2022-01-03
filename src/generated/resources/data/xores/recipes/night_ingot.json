@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "night",
+  "ingredients": [
+    {
+      "item": "xores:night_scrap"
+    },
+    {
+      "item": "xores:night_scrap"
+    },
+    {
+      "item": "xores:night_scrap"
+    },
+    {
+      "item": "xores:night_scrap"
+    }
+  ],
+  "result": {
+    "item": "xores:night_ingot"
+  }
+}

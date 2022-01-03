@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "limonite",
+  "pattern": [
+    " # ",
+    " # ",
+    " I "
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:stick"
+    },
+    "#": {
+      "item": "xores:limonite_ingot"
+    }
+  },
+  "result": {
+    "item": "xores:limonite_sword"
+  }
+}

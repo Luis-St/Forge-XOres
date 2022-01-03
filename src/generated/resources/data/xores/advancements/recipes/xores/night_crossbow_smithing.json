@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "xores:night_crossbow_smithing"
+    ]
+  },
+  "criteria": {
+    "has_enderite_crossbow": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "xores:enderite_crossbow"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "xores:night_crossbow_smithing"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_enderite_crossbow",
+      "has_the_recipe"
+    ]
+  ]
+}

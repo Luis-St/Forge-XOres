@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "limonite",
+  "ingredients": [
+    {
+      "item": "xores:limonite_block"
+    }
+  ],
+  "result": {
+    "item": "xores:limonite_ingot",
+    "count": 9
+  }
+}

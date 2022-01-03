@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "xores:enderite_elytra_chestplate_smithing"
+    ]
+  },
+  "criteria": {
+    "has_netherite_elytra_chestplate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "xores:netherite_elytra_chestplate"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "xores:enderite_elytra_chestplate_smithing"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_netherite_elytra_chestplate",
+      "has_the_recipe"
+    ]
+  ]
+}

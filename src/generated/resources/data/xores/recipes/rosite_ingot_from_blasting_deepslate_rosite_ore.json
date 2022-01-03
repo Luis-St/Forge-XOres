@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:blasting",
+  "group": "rosite",
+  "ingredient": {
+    "item": "xores:deepslate_rosite_ore"
+  },
+  "result": "xores:rosite_ingot",
+  "experience": 1.125,
+  "cookingtime": 100
+}

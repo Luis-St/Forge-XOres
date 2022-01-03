@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:blasting",
+  "group": "limonite",
+  "ingredient": {
+    "item": "xores:limonite_ore"
+  },
+  "result": "xores:limonite_ingot",
+  "experience": 0.75,
+  "cookingtime": 100
+}

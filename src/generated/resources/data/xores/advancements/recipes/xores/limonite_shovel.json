@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "xores:limonite_shovel"
+    ]
+  },
+  "criteria": {
+    "has_limonite_ingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "xores:limonite_ingot"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "xores:limonite_shovel"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_limonite_ingot",
+      "has_the_recipe"
+    ]
+  ]
+}

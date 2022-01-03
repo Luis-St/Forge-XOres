@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "rosite",
+  "ingredients": [
+    {
+      "item": "xores:rosite_ingot"
+    },
+    {
+      "item": "xores:rosite_ingot"
+    },
+    {
+      "item": "xores:rosite_ingot"
+    },
+    {
+      "item": "xores:rosite_ingot"
+    },
+    {
+      "item": "xores:rosite_ingot"
+    },
+    {
+      "item": "xores:rosite_ingot"
+    },
+    {
+      "item": "xores:rosite_ingot"
+    },
+    {
+      "item": "xores:rosite_ingot"
+    },
+    {
+      "item": "xores:rosite_ingot"
+    }
+  ],
+  "result": {
+    "item": "xores:rosite_block"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "rose_quartz",
+  "ingredients": [
+    {
+      "item": "minecraft:quartz"
+    },
+    {
+      "item": "minecraft:quartz"
+    },
+    {
+      "item": "xores:rosite_ingot"
+    },
+    {
+      "item": "xores:rosite_ingot"
+    }
+  ],
+  "result": {
+    "item": "xores:rose_quartz"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "xores:enderite_hoe"
+  },
+  "addition": {
+    "item": "xores:night_ingot"
+  },
+  "result": {
+    "item": "xores:night_hoe"
+  }
+}

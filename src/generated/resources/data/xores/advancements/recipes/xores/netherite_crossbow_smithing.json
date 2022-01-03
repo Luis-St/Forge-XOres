@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "xores:netherite_crossbow_smithing"
+    ]
+  },
+  "criteria": {
+    "has_crossbow": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:crossbow"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "xores:netherite_crossbow_smithing"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_crossbow",
+      "has_the_recipe"
+    ]
+  ]
+}

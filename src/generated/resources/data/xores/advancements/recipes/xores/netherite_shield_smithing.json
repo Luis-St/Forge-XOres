@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "xores:netherite_shield_smithing"
+    ]
+  },
+  "criteria": {
+    "has_diamond_shield": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "xores:diamond_shield"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "xores:netherite_shield_smithing"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_diamond_shield",
+      "has_the_recipe"
+    ]
+  ]
+}

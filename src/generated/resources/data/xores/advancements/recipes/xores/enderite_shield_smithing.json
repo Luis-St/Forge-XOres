@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "xores:enderite_shield_smithing"
+    ]
+  },
+  "criteria": {
+    "has_netherite_shield": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "xores:netherite_shield"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "xores:enderite_shield_smithing"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_netherite_shield",
+      "has_the_recipe"
+    ]
+  ]
+}
