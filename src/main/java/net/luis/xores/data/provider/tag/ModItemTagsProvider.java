@@ -57,7 +57,7 @@ import static net.luis.xores.init.ModItems.NIGHT_HOE;
 import static net.luis.xores.init.ModItems.NIGHT_INGOT;
 import static net.luis.xores.init.ModItems.NIGHT_LEGGINGS;
 import static net.luis.xores.init.ModItems.NIGHT_PICKAXE;
-import static net.luis.xores.init.ModItems.NIGHT_SHARD;
+import static net.luis.xores.init.ModItems.NIGHT_SCRAP;
 import static net.luis.xores.init.ModItems.NIGHT_SHIELD;
 import static net.luis.xores.init.ModItems.NIGHT_SHOVEL;
 import static net.luis.xores.init.ModItems.NIGHT_SWORD;
@@ -132,11 +132,11 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 		this.copy(ModTags.Blocks.STONES, ModTags.Items.STONES);
 		
 		this.tag(Tags.Items.INGOTS).add(JADE_INGOT.get(), BLAZING_INGOT.get(), SAPHIRE_INGOT.get(), LIMONITE_INGOT.get(), ENDERITE_INGOT.get(), STEEL_INGOT.get(), NIGHT_INGOT.get());
-		this.tag(ModTags.Items.SCRAPS).add(Items.NETHERITE_SCRAP).add(ENDERITE_SCRAP.get());
-		this.tag(ModTags.Items.SHARDS).add(Items.AMETHYST_SHARD).add(NIGHT_SHARD.get());
+		this.tag(ModTags.Items.SCRAPS).add(Items.NETHERITE_SCRAP).add(ENDERITE_SCRAP.get()).add(NIGHT_SCRAP.get());
+		this.tag(ModTags.Items.SHARDS).add(Items.AMETHYST_SHARD);
 		
 		this.tag(ModTags.Items.JADE).add(JADE_INGOT.get(), JADE_SWORD.get(), JADE_PICKAXE.get(), JADE_AXE.get(), JADE_SHOVEL.get(), JADE_HOE.get())
-				.add(JADE_HELMET.get(), JADE_CHESTPLATE.get(), JADE_LEGGINGS.get(), JADE_BOOTS.get());
+					.add(JADE_HELMET.get(), JADE_CHESTPLATE.get(), JADE_LEGGINGS.get(), JADE_BOOTS.get());
 		this.tag(ModTags.Items.BLAZING).add(BLAZING_INGOT.get(), BLAZING_SWORD.get(), BLAZING_PICKAXE.get(), BLAZING_AXE.get(), BLAZING_SHOVEL.get(), BLAZING_HOE.get())
 				.add(BLAZING_HELMET.get(), BLAZING_CHESTPLATE.get(), BLAZING_LEGGINGS.get(), BLAZING_BOOTS.get());
 		this.tag(ModTags.Items.SAPHIRE).add(SAPHIRE_INGOT.get(), SAPHIRE_SWORD.get(), SAPHIRE_PICKAXE.get(), SAPHIRE_AXE.get(), SAPHIRE_SHOVEL.get(), SAPHIRE_HOE.get())
@@ -150,7 +150,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 				.add(ENDERITE_SHIELD.get(), ENDERITE_BOW.get(), ENDERITE_CROSSBOW.get())
 				.add(ENDERITE_HELMET.get(), ENDERITE_CHESTPLATE.get(), ENDERITE_ELYTRA_CHESTPLATE.get(), ENDERITE_LEGGINGS.get(), ENDERITE_BOOTS.get());
 		this.tag(ModTags.Items.STEEL).add(STEEL_INGOT.get(), STEEL_SWORD.get(), STEEL_PICKAXE.get(), STEEL_AXE.get(), STEEL_SHOVEL.get(), STEEL_HOE.get());
-		this.tag(ModTags.Items.NIGHT).add(NIGHT_SHARD.get(), NIGHT_INGOT.get(), NIGHT_SWORD.get(), NIGHT_PICKAXE.get(), NIGHT_AXE.get(), NIGHT_SHOVEL.get(), NIGHT_HOE.get())
+		this.tag(ModTags.Items.NIGHT).add(NIGHT_SCRAP.get(), NIGHT_INGOT.get(), NIGHT_SWORD.get(), NIGHT_PICKAXE.get(), NIGHT_AXE.get(), NIGHT_SHOVEL.get(), NIGHT_HOE.get())
 				.add(NIGHT_SHIELD.get(), NIGHT_BOW.get(), NIGHT_CROSSBOW.get())
 				.add(NIGHT_HELMET.get(), NIGHT_CHESTPLATE.get(), NIGHT_ELYTRA_CHESTPLATE.get(), NIGHT_LEGGINGS.get(), NIGHT_BOOTS.get());
 		

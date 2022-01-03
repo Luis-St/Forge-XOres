@@ -299,7 +299,7 @@ public class ModItems {
 	});
 	
 	// Night
-	public static final RegistryObject<Item> NIGHT_SHARD = ITEMS.register("night_shard", () -> {
+	public static final RegistryObject<Item> NIGHT_SCRAP = ITEMS.register("night_scrap", () -> {
 		return new Item(new Item.Properties().tab(XOres.XORES_TAB));
 	});
 	public static final RegistryObject<Item> NIGHT_INGOT = ITEMS.register("night_ingot", () -> {

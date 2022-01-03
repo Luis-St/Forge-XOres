@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "minecraft:amethyst_shard",
-    "xores:night_shard"
+    "minecraft:amethyst_shard"
   ]
 }
