@@ -1,8 +1,16 @@
-package net.luis.xores.data.newmaterial.stuff;
+package net.luis.xores.common.material.set;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 
-import net.luis.xores.data.newmaterial.Material;
+import javax.annotation.Nullable;
+
+import com.google.common.collect.Lists;
+
+import net.luis.xores.common.material.Material;
+import net.luis.xores.common.material.MaterialType;
 import net.minecraft.tags.Tag.Named;
 import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.CrossbowItem;
@@ -13,6 +21,11 @@ import net.minecraft.world.item.SwordItem;
 public class WeaponSet {
 	
 	public static final WeaponSet EMPTY = new WeaponSet.Builder().build();
+	
+	public static final MaterialType SWORD = new MaterialType("sword");
+	public static final MaterialType SHIELD = new MaterialType("shield");
+	public static final MaterialType BOW = new MaterialType("bow");
+	public static final MaterialType CROSSBOW = new MaterialType("crossbow");
 	
 	protected final Optional<Material> weaponMaterial;
 	protected final Optional<SwordItem> sword;
@@ -36,36 +49,56 @@ public class WeaponSet {
 		return this.weaponMaterial.get();
 	}
 	
-	public boolean hasSword() {
-		return this.sword.isPresent();
+	public List<MaterialType> getTypes() {
+		return Lists.newArrayList(SWORD, SHIELD, BOW, CROSSBOW);
 	}
 	
-	public SwordItem getSword() {
-		return this.sword.get();
+	public boolean has(MaterialType type) {
+		if (type == SWORD) {
+			return this.sword.isPresent();
+		} else if (type == SHIELD) {
+			return this.shield.isPresent();
+		} else if (type == BOW) {
+			return this.bow.isPresent();
+		} else if (type == CROSSBOW) {
+			return this.crossbow.isPresent();
+		}
+		return false;
 	}
 	
-	public boolean hasShield() {
-		return this.shield.isPresent();
+	public boolean hasAll() {
+		for (MaterialType type : this.getTypes()) {
+			if (!this.has(type)) {
+				return false;
+			}
+		}
+		return true;
 	}
 	
-	public ShieldItem getShield() {
-		return this.shield.get();
+	@Nullable
+	public Item get(MaterialType type) {
+		if (type == SWORD) {
+			return this.sword.get();
+		} else if (type == SHIELD) {
+			return this.shield.get();
+		} else if (type == BOW) {
+			return this.bow.get();
+		} else if (type == CROSSBOW) {
+			return this.crossbow.get();
+		}
+		return null;
 	}
 	
-	public boolean hasBow() {
-		return this.bow.isPresent();
+	public void ifPresent(MaterialType type, Consumer<Item> consumer) {
+		if (this.has(type)) {
+			consumer.accept(this.get(type));
+		}
 	}
 	
-	public BowItem getBow() {
-		return this.bow.get();
-	}
-	
-	public boolean hasCrossbow() {
-		return this.crossbow.isPresent();
-	}
-	
-	public CrossbowItem getCrossbow() {
-		return this.crossbow.get();
+	public void ifPresent(MaterialType firstType, MaterialType secondType, BiConsumer<Item, Item> consumer) {
+		if (this.has(firstType) && this.has(secondType)) {
+			consumer.accept(this.get(firstType), this.get(secondType));
+		}
 	}
 	
 	public static class Builder {

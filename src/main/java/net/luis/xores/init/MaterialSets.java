@@ -1,10 +1,9 @@
 package net.luis.xores.init;
 
-import net.luis.xores.data.newmaterial.Material;
-import net.luis.xores.data.newmaterial.MaterialSet;
-import net.luis.xores.data.newmaterial.stuff.ArmorSet;
-import net.luis.xores.data.newmaterial.stuff.ToolSet;
-import net.luis.xores.data.newmaterial.stuff.WeaponSet;
+import net.luis.xores.common.material.MaterialSet;
+import net.luis.xores.common.material.set.ArmorSet;
+import net.luis.xores.common.material.set.ToolSet;
+import net.luis.xores.common.material.set.WeaponSet;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.AxeItem;
@@ -47,8 +46,14 @@ public class MaterialSets {
 	});
 	
 	public static final RegistryObject<MaterialSet> CHAINMAIL = MATERIALS.register("chainmail", () -> {
-		return MaterialSet.of(Material.EMPTY)
+		return MaterialSet.ofItem(Items.AIR)
 				.armorSet(new ArmorSet.Builder().helmet(armor(Items.CHAINMAIL_HELMET)).chestplate(armor(Items.CHAINMAIL_CHESTPLATE)).leggings(armor(Items.CHAINMAIL_LEGGINGS)).boots(armor(Items.CHAINMAIL_BOOTS)))
+				.build();
+	});
+	
+	public static final RegistryObject<MaterialSet> COPPER = MATERIALS.register("copper", () -> {
+		return MaterialSet.ofItem(Items.COPPER_INGOT).ore(Items.COPPER_ORE).deepslateOre(Items.DEEPSLATE_COPPER_ORE)
+				.weaponSet(new WeaponSet.Builder().shield(ModItems.COPPER_SHIELD.get()))
 				.build();
 	});
 	
@@ -79,8 +84,9 @@ public class MaterialSets {
 	
 	public static final RegistryObject<MaterialSet> NETHERITE = MATERIALS.register("netherite", () -> {
 		return MaterialSet.ofItem(Items.NETHERITE_INGOT).materialPart(Items.NETHERITE_SCRAP).block(Items.NETHERITE_BLOCK).ore(Items.ANCIENT_DEBRIS)
+				.upgradeMaterial(Items.NETHERITE_INGOT).upgradeMaterialSet(DIAMOND)
 				.weaponSet(new WeaponSet.Builder().sword(sword(Items.NETHERITE_SWORD)).shield(ModItems.NETHERITE_SHIELD.get()).bow(ModItems.NETHERITE_BOW.get()).crossbow(ModItems.NETHERITE_CROSSBOW.get()))
-				.toolSet(new ToolSet.Builder().pickaxe(pickaxe(Items.NETHERITE_PICKAXE)).axe(axe(Items.NETHERITE_AXE)).shovel(shovel(Items.NETHERITE_SHOVEL)).hoe(hoe(Items.DIAMOND_HOE)))
+				.toolSet(new ToolSet.Builder().pickaxe(pickaxe(Items.NETHERITE_PICKAXE)).axe(axe(Items.NETHERITE_AXE)).shovel(shovel(Items.NETHERITE_SHOVEL)).hoe(hoe(Items.NETHERITE_HOE)))
 				.armorSet(new ArmorSet.Builder().helmet(armor(Items.NETHERITE_HELMET)).chestplate(armor(Items.NETHERITE_CHESTPLATE)).elytraChestplate(ModItems.NETHERITE_ELYTRA_CHESTPLATE.get()).leggings(armor(Items.NETHERITE_LEGGINGS))
 						.boots(armor(Items.NETHERITE_BOOTS)))
 				.build();
@@ -123,7 +129,11 @@ public class MaterialSets {
 	}
 	
 	static {
-		MATERIALS.makeRegistry("material_set", RegistryBuilder<MaterialSet>::new);
+		MATERIALS.makeRegistry("material_set",  () -> {
+			return new RegistryBuilder<MaterialSet>().onAdd((owner, stage, id, set, oldSet) -> {
+				set.valid();
+			});
+		});
 	}
 	
 }

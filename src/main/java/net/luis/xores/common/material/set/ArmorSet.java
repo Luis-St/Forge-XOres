@@ -1,9 +1,17 @@
-package net.luis.xores.data.newmaterial.stuff;
+package net.luis.xores.common.material.set;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
+
+import javax.annotation.Nullable;
+
+import com.google.common.collect.Lists;
 
 import net.luis.xores.common.item.ElytraChestplateItem;
-import net.luis.xores.data.newmaterial.Material;
+import net.luis.xores.common.material.Material;
+import net.luis.xores.common.material.MaterialType;
 import net.minecraft.tags.Tag.Named;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorItem;
@@ -12,6 +20,12 @@ import net.minecraft.world.item.Item;
 public class ArmorSet {
 	
 	public static final ArmorSet EMPTY = new ArmorSet.Builder().build();
+	
+	public static final MaterialType HELMET = new MaterialType("helmet");
+	public static final MaterialType CHESTPLATE = new MaterialType("chestplate");
+	public static final MaterialType ELYTRA_CHESTPLATE = new MaterialType("elytra_chestplate");
+	public static final MaterialType LEGGINGS = new MaterialType("leggings");
+	public static final MaterialType BOOTS = new MaterialType("boots");
 	
 	protected final Optional<Material> armorMaterial;
 	protected final Optional<ArmorItem> helmet;
@@ -37,44 +51,60 @@ public class ArmorSet {
 		return this.armorMaterial.get();
 	}
 	
-	public boolean hasHelmet() {
-		return this.helmet.isPresent();
+	public List<MaterialType> getTypes() {
+		return Lists.newArrayList(HELMET, CHESTPLATE, ELYTRA_CHESTPLATE, LEGGINGS, BOOTS);
 	}
 	
-	public ArmorItem getHelmet() {
-		return this.helmet.get();
+	public boolean has(MaterialType type) {
+		if (type == HELMET) {
+			return this.helmet.isPresent();
+		} else if (type == CHESTPLATE) {
+			return this.chestplate.isPresent();
+		} else if (type == ELYTRA_CHESTPLATE) {
+			return this.elytraChestplate.isPresent();
+		} else if (type == LEGGINGS) {
+			return this.leggings.isPresent();
+		} else if (type == BOOTS) {
+			return this.boots.isPresent();
+		}
+		return false;
 	}
 	
-	public boolean hasChestplate() {
-		return this.chestplate.isPresent();
+	public boolean hasAll() {
+		for (MaterialType type : this.getTypes()) {
+			if (!this.has(type)) {
+				return false;
+			}
+		}
+		return true;
 	}
 	
-	public ArmorItem getChestplate() {
-		return this.chestplate.get();
+	@Nullable
+	public ArmorItem get(MaterialType type) {
+		if (type == HELMET) {
+			return this.helmet.get();
+		} else if (type == CHESTPLATE) {
+			return this.chestplate.get();
+		} else if (type == ELYTRA_CHESTPLATE) {
+			return this.elytraChestplate.get();
+		} else if (type == LEGGINGS) {
+			return this.leggings.get();
+		} else if (type == BOOTS) {
+			return this.boots.get();
+		}
+		return null;
 	}
 	
-	public boolean hasElytraChestplate() {
-		return this.elytraChestplate.isPresent();
+	public void ifPresent(MaterialType type, Consumer<Item> consumer) {
+		if (this.has(type)) {
+			consumer.accept(this.get(type));
+		}
 	}
 	
-	public ElytraChestplateItem getElytraChestplate() {
-		return this.elytraChestplate.get();
-	}
-	
-	public boolean hasLeggings() {
-		return this.leggings.isPresent();
-	}
-	
-	public ArmorItem getLeggings() {
-		return this.leggings.get();
-	}
-	
-	public boolean hasBoots() {
-		return this.boots.isPresent();
-	}
-	
-	public ArmorItem getBoots() {
-		return this.boots.get();
+	public void ifPresent(MaterialType firstType, MaterialType secondType, BiConsumer<Item, Item> consumer) {
+		if (this.has(firstType) && this.has(secondType)) {
+			consumer.accept(this.get(firstType), this.get(secondType));
+		}
 	}
 	
 	protected static Optional<ArmorItem> valid(Optional<ArmorItem> optional, EquipmentSlot equipmentSlot) {

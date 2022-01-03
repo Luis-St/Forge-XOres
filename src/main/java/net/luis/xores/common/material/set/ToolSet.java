@@ -1,10 +1,19 @@
-package net.luis.xores.data.newmaterial.stuff;
+package net.luis.xores.common.material.set;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 
-import net.luis.xores.data.newmaterial.Material;
+import javax.annotation.Nullable;
+
+import com.google.common.collect.Lists;
+
+import net.luis.xores.common.material.Material;
+import net.luis.xores.common.material.MaterialType;
 import net.minecraft.tags.Tag.Named;
 import net.minecraft.world.item.AxeItem;
+import net.minecraft.world.item.DiggerItem;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.PickaxeItem;
@@ -13,6 +22,11 @@ import net.minecraft.world.item.ShovelItem;
 public class ToolSet {
 	
 	public static final ToolSet EMPTY = new ToolSet.Builder().build();
+	
+	public static final MaterialType PICKAXE = new MaterialType("pickaxe");
+	public static final MaterialType AXE = new MaterialType("axe");
+	public static final MaterialType SHOVEL = new MaterialType("shovel");
+	public static final MaterialType HOE = new MaterialType("hoe");
 	
 	protected final Optional<Material> toolMaterial;
 	protected final Optional<PickaxeItem> pickaxe;
@@ -36,37 +50,57 @@ public class ToolSet {
 		return this.toolMaterial.get();
 	}
 	
-	public boolean hasPickaxe() {
-		return this.pickaxe.isPresent();
+	public List<MaterialType> getTypes() {
+		return Lists.newArrayList(PICKAXE, AXE, SHOVEL, HOE);
 	}
 	
-	public PickaxeItem getPickaxe() {
-		return this.pickaxe.get();
+	public boolean has(MaterialType type) {
+		if (type == PICKAXE) {
+			return this.pickaxe.isPresent();
+		} else if (type == AXE) {
+			return this.axe.isPresent();
+		} else if (type == SHOVEL) {
+			return this.shovel.isPresent();
+		} else if (type == HOE) {
+			return this.hoe.isPresent();
+		}
+		return false;
 	}
 	
-	public boolean hasAxe() {
-		return this.axe.isPresent();
+	public boolean hasAll() {
+		for (MaterialType type : this.getTypes()) {
+			if (!this.has(type)) {
+				return false;
+			}
+		}
+		return true;
 	}
 	
-	public AxeItem getAxe() {
-		return this.axe.get();
+	@Nullable
+	public DiggerItem get(MaterialType type) {
+		if (type == PICKAXE) {
+			return this.pickaxe.get();
+		} else if (type == AXE) {
+			return this.axe.get();
+		} else if (type == SHOVEL) {
+			return this.shovel.get();
+		} else if (type == HOE) {
+			return this.hoe.get();
+		}
+		return null;
 	}
 	
-	public boolean hasShovel() {
-		return this.shovel.isPresent();
+	public void ifPresent(MaterialType type, Consumer<Item> consumer) {
+		if (this.has(type)) {
+			consumer.accept(this.get(type));
+		}
 	}
 	
-	public ShovelItem getShovel() {
-		return this.shovel.get();
-	}
-	
-	public boolean hasHoe() {
-		return this.hoe.isPresent();
-	}
-	
-	public HoeItem getHoe() {
-		return this.hoe.get();
-	}
+	public void ifPresent(MaterialType firstType, MaterialType secondType, BiConsumer<Item, Item> consumer) {
+		if (this.has(firstType) && this.has(secondType)) {
+			consumer.accept(this.get(firstType), this.get(secondType));
+		}
+	}	
 	
 	public static class Builder {
 		

@@ -1,10 +1,10 @@
 package net.luis.xores.init;
 
 import net.luis.xores.XOres;
-import net.luis.xores.data.newmaterial.MaterialSet;
-import net.luis.xores.data.newmaterial.stuff.ArmorSet;
-import net.luis.xores.data.newmaterial.stuff.ToolSet;
-import net.luis.xores.data.newmaterial.stuff.WeaponSet;
+import net.luis.xores.common.material.MaterialSet;
+import net.luis.xores.common.material.set.ArmorSet;
+import net.luis.xores.common.material.set.ToolSet;
+import net.luis.xores.common.material.set.WeaponSet;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -39,14 +39,14 @@ public class ModMaterialSets {
 	
 	public static final RegistryObject<MaterialSet> SAPHIRE = MATERIALS.register("saphire", () -> {
 		return MaterialSet.ofItem(ModItems.SAPHIRE_INGOT.get()).ore(ModBlockItems.SAPHIRE_ORE.get()).deepslateOre(ModBlockItems.DEEPSLATE_SAPHIRE_ORE.get()).block(ModBlockItems.SAPHIRE_BLOCK.get())
-				.weaponSet(new WeaponSet.Builder().sword(ModItems.SAPHIRE_SWORD.get()))
+				.weaponSet(new WeaponSet.Builder().sword(ModItems.SAPHIRE_SWORD.get()).shield(ModItems.SAPHIRE_SHIELD.get()))
 				.toolSet(new ToolSet.Builder().pickaxe(ModItems.SAPHIRE_PICKAXE.get()).axe(ModItems.SAPHIRE_AXE.get()).shovel(ModItems.SAPHIRE_SHOVEL.get()).hoe(ModItems.SAPHIRE_HOE.get()))
 				.armorSet(new ArmorSet.Builder().helmet(ModItems.SAPHIRE_HELMET.get()).chestplate(ModItems.SAPHIRE_CHESTPLATE.get()).leggings(ModItems.SAPHIRE_LEGGINGS.get()).boots(ModItems.SAPHIRE_BOOTS.get()))
 				.build();
 	});
 	
 	public static final RegistryObject<MaterialSet> ROSITE = MATERIALS.register("rosite", () -> {
-		return MaterialSet.ofItem(ModItems.ROSITE_INGOT.get())
+		return MaterialSet.ofItem(ModItems.ROSITE_INGOT.get()).ore(ModBlockItems.ROSITE_ORE.get()).deepslateOre(ModBlockItems.DEEPSLATE_ROSITE_ORE.get()).block(ModBlockItems.ROSITE_BLOCK.get())
 				.weaponSet(new WeaponSet.Builder().sword(ModItems.ROSITE_SWORD.get()))
 				.toolSet(new ToolSet.Builder().pickaxe(ModItems.ROSITE_PICKAXE.get()).axe(ModItems.ROSITE_AXE.get()).shovel(ModItems.ROSITE_SHOVEL.get()).hoe(ModItems.ROSITE_HOE.get())).block(ModBlockItems.ROSITE_BLOCK.get())
 				.build();
@@ -61,9 +61,11 @@ public class ModMaterialSets {
 	
 	public static final RegistryObject<MaterialSet> ENDERITE = MATERIALS.register("enderite", () -> {
 		return MaterialSet.ofItem(ModItems.ENDERITE_INGOT.get()).materialPart(ModItems.ENDERITE_SCRAP.get()).ore(ModBlockItems.ENDERITE_ORE.get()).block(ModBlockItems.ENDERITE_BLOCK.get())
+				.upgradeMaterial(ModItems.ENDERITE_INGOT.get()).upgradeMaterialSet(MaterialSets.NETHERITE)
 				.weaponSet(new WeaponSet.Builder().sword(ModItems.ENDERITE_SWORD.get()).shield(ModItems.ENDERITE_SHIELD.get()).bow(ModItems.ENDERITE_BOW.get()).crossbow(ModItems.ENDERITE_CROSSBOW.get()))
 				.toolSet(new ToolSet.Builder().pickaxe(ModItems.ENDERITE_PICKAXE.get()).axe(ModItems.ENDERITE_AXE.get()).shovel(ModItems.ENDERITE_SHOVEL.get()).hoe(ModItems.ENDERITE_HOE.get()))
-				.armorSet(new ArmorSet.Builder().helmet(ModItems.ENDERITE_HELMET.get()).chestplate(ModItems.ENDERITE_CHESTPLATE.get()).leggings(ModItems.ENDERITE_LEGGINGS.get()).boots(ModItems.ENDERITE_BOOTS.get()))
+				.armorSet(new ArmorSet.Builder().helmet(ModItems.ENDERITE_HELMET.get()).chestplate(ModItems.ENDERITE_CHESTPLATE.get()).elytraChestplate(ModItems.ENDERITE_ELYTRA_CHESTPLATE.get()).leggings(ModItems.ENDERITE_LEGGINGS.get())
+						.boots(ModItems.ENDERITE_BOOTS.get()))
 				.build();
 	});
 	
@@ -75,10 +77,12 @@ public class ModMaterialSets {
 	});
 	
 	public static final RegistryObject<MaterialSet> NIGHT = MATERIALS.register("night", () -> {
-		return MaterialSet.ofItem(ModItems.NIGHT_INGOT.get()).materialPart(ModItems.NIGHT_SHARD.get())
+		return MaterialSet.ofItem(ModItems.NIGHT_INGOT.get()).materialPart(ModItems.NIGHT_SCRAP.get())
+				.upgradeMaterial(ModItems.NIGHT_INGOT.get()).upgradeMaterialSet(ENDERITE)
 				.weaponSet(new WeaponSet.Builder().sword(ModItems.NIGHT_SWORD.get()).shield(ModItems.NIGHT_SHIELD.get()).bow(ModItems.NIGHT_BOW.get()).crossbow(ModItems.NIGHT_CROSSBOW.get()))
 				.toolSet(new ToolSet.Builder().pickaxe(ModItems.NIGHT_PICKAXE.get()).axe(ModItems.NIGHT_AXE.get()).shovel(ModItems.NIGHT_SHOVEL.get()).hoe(ModItems.NIGHT_HOE.get()))
-				.armorSet(new ArmorSet.Builder().helmet(ModItems.NIGHT_HELMET.get()).chestplate(ModItems.NIGHT_CHESTPLATE.get()).leggings(ModItems.NIGHT_LEGGINGS.get()).boots(ModItems.NIGHT_BOOTS.get()))
+				.armorSet(new ArmorSet.Builder().helmet(ModItems.NIGHT_HELMET.get()).chestplate(ModItems.NIGHT_CHESTPLATE.get()).elytraChestplate(ModItems.NIGHT_ELYTRA_CHESTPLATE.get()).leggings(ModItems.NIGHT_LEGGINGS.get())
+						.boots(ModItems.NIGHT_BOOTS.get()))
 				.build();
 	});
 	
