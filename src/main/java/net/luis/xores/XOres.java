@@ -7,6 +7,7 @@ import net.luis.xores.common.ModCreativeModeTab;
 import net.luis.xores.init.MaterialSets;
 import net.luis.xores.init.ModBlockItems;
 import net.luis.xores.init.ModBlocks;
+import net.luis.xores.init.ModGlobalLootModifiers;
 import net.luis.xores.init.ModItems;
 import net.luis.xores.init.ModMaterialSets;
 import net.minecraft.world.item.ItemStack;
@@ -30,7 +31,8 @@ public class XOres {
 		ModBlockItems.ITEMS.register(modEventBus);
 		ModItems.ITEMS.register(modEventBus);
 		MaterialSets.MATERIALS.register(modEventBus);
-		ModMaterialSets.MATERIALS.register(modEventBus);		
+		ModMaterialSets.MATERIALS.register(modEventBus);	
+		ModGlobalLootModifiers.LOOT_MODIFIERS.register(modEventBus);
 	}
 	
 }

@@ -7,6 +7,7 @@ import net.luis.xores.common.item.BlazingSwordItem;
 import net.luis.xores.common.item.ElytraChestplateItem;
 import net.luis.xores.common.item.EnderiteHelmetItem;
 import net.luis.xores.common.item.ModShieldItem;
+import net.luis.xores.common.item.ModSwordItem;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorItem;
@@ -62,7 +63,7 @@ public class ModItems {
 		return new Item(new Item.Properties().tab(XOres.XORES_TAB));
 	});
 	public static final RegistryObject<SwordItem> JADE_SWORD = ITEMS.register("jade_sword", () -> {
-		return new SwordItem(ModTiers.JADE, -1, -2.4F, new Item.Properties().tab(XOres.XORES_TAB));
+		return new ModSwordItem(ModTiers.JADE, -1, -2.4F, new Item.Properties().tab(XOres.XORES_TAB));
 	});
 	public static final RegistryObject<PickaxeItem> JADE_PICKAXE = ITEMS.register("jade_pickaxe", () -> {
 		return new PickaxeItem(ModTiers.JADE, -3, -2.8F, new Item.Properties().tab(XOres.XORES_TAB));
@@ -126,7 +127,7 @@ public class ModItems {
 		return new Item(new Item.Properties().tab(XOres.XORES_TAB));
 	});
 	public static final RegistryObject<SwordItem> SAPHIRE_SWORD = ITEMS.register("saphire_sword", () -> {
-		return new SwordItem(ModTiers.SAPHIRE, -2, -2.4F, new Item.Properties().tab(XOres.XORES_TAB));
+		return new ModSwordItem(ModTiers.SAPHIRE, -2, -2.4F, new Item.Properties().tab(XOres.XORES_TAB));
 	});
 	public static final RegistryObject<PickaxeItem> SAPHIRE_PICKAXE = ITEMS.register("saphire_pickaxe", () -> {
 		return new PickaxeItem(ModTiers.SAPHIRE, -4, -2.8F, new Item.Properties().tab(XOres.XORES_TAB));
@@ -161,7 +162,7 @@ public class ModItems {
 		return new Item(new Item.Properties().tab(XOres.XORES_TAB));
 	});
 	public static final RegistryObject<SwordItem> LIMONITE_SWORD = ITEMS.register("limonite_sword", () -> {
-		return new SwordItem(ModTiers.LIMONITE, -2, -2.4F, new Item.Properties().tab(XOres.XORES_TAB));
+		return new ModSwordItem(ModTiers.LIMONITE, -2, -2.4F, new Item.Properties().tab(XOres.XORES_TAB));
 	});
 	public static final RegistryObject<PickaxeItem> LIMONITE_PICKAXE = ITEMS.register("limonite_pickaxe", () -> {
 		return new PickaxeItem(ModTiers.LIMONITE, -4, -2.8F, new Item.Properties().tab(XOres.XORES_TAB));
@@ -193,7 +194,7 @@ public class ModItems {
 		return new Item(new Item.Properties().tab(XOres.XORES_TAB));
 	});
 	public static final RegistryObject<SwordItem> ROSITE_SWORD = ITEMS.register("rosite_sword", () -> {
-		return new SwordItem(ModTiers.ROSITE, -2, -2.4F, new Item.Properties().tab(XOres.XORES_TAB));
+		return new ModSwordItem(ModTiers.ROSITE, -2, -2.4F, new Item.Properties().tab(XOres.XORES_TAB));
 	});
 	public static final RegistryObject<PickaxeItem> ROSITE_PICKAXE = ITEMS.register("rosite_pickaxe", () -> {
 		return new PickaxeItem(ModTiers.ROSITE, -4, -2.8F, new Item.Properties().tab(XOres.XORES_TAB));
@@ -216,7 +217,7 @@ public class ModItems {
 		return new Item(new Item.Properties().tab(XOres.XORES_TAB));
 	});
 	public static final RegistryObject<SwordItem> ROSE_QUARTZ_SWORD = ITEMS.register("rose_quartz_sword", () -> {
-		return new SwordItem(ModTiers.ROSE_QUARTZ, -2, -2.4F, new Item.Properties().tab(XOres.XORES_TAB));
+		return new ModSwordItem(ModTiers.ROSE_QUARTZ, -2, -2.4F, new Item.Properties().tab(XOres.XORES_TAB));
 	});
 	public static final RegistryObject<PickaxeItem> ROSE_QUARTZ_PICKAXE = ITEMS.register("rose_quartz_pickaxe", () -> {
 		return new PickaxeItem(ModTiers.ROSE_QUARTZ, -4, -2.8F, new Item.Properties().tab(XOres.XORES_TAB));
@@ -239,7 +240,7 @@ public class ModItems {
 		return new Item(new Item.Properties().tab(XOres.XORES_TAB));
 	});
 	public static final RegistryObject<SwordItem> ENDERITE_SWORD = ITEMS.register("enderite_sword", () -> {
-		return new SwordItem(ModTiers.ENDERITE, -2, -2.2F, new Item.Properties().tab(XOres.XORES_TAB));
+		return new ModSwordItem(ModTiers.ENDERITE, -2, -2.2F, new Item.Properties().tab(XOres.XORES_TAB));
 	});
 	public static final RegistryObject<PickaxeItem> ENDERITE_PICKAXE = ITEMS.register("enderite_pickaxe", () -> {
 		return new PickaxeItem(ModTiers.ENDERITE, -4, -2.8F, new Item.Properties().tab(XOres.XORES_TAB));
@@ -283,7 +284,7 @@ public class ModItems {
 		return new Item(new Item.Properties().tab(XOres.XORES_TAB));
 	});
 	public static final RegistryObject<SwordItem> STEEL_SWORD = ITEMS.register("steel_sword", () -> {
-		return new SwordItem(ModTiers.STEEL, 1, -2.4F, new Item.Properties().tab(XOres.XORES_TAB));
+		return new ModSwordItem(ModTiers.STEEL, 1, -2.4F, new Item.Properties().tab(XOres.XORES_TAB));
 	});
 	public static final RegistryObject<PickaxeItem> STEEL_PICKAXE = ITEMS.register("steel_pickaxe", () -> {
 		return new PickaxeItem(ModTiers.STEEL, -1, -2.8F, new Item.Properties().tab(XOres.XORES_TAB));
@@ -306,7 +307,7 @@ public class ModItems {
 		return new Item(new Item.Properties().tab(XOres.XORES_TAB));
 	});
 	public static final RegistryObject<SwordItem> NIGHT_SWORD = ITEMS.register("night_sword", () -> {
-		return new SwordItem(ModTiers.NIGHT, -2, -2.0F, new Item.Properties().tab(XOres.XORES_TAB));
+		return new ModSwordItem(ModTiers.NIGHT, -2, -2.0F, new Item.Properties().tab(XOres.XORES_TAB));
 	});
 	public static final RegistryObject<PickaxeItem> NIGHT_PICKAXE = ITEMS.register("night_pickaxe", () -> {
 		return new PickaxeItem(ModTiers.NIGHT, -4, -2.8F, new Item.Properties().tab(XOres.XORES_TAB));

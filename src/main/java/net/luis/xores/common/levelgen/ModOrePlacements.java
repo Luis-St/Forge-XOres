@@ -15,22 +15,15 @@ import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 
 public class ModOrePlacements {
 	
-	public static final PlacementModifier RANGE_64_32 = HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.absolute(-32));
-	public static final PlacementModifier RANGE_64_0 = HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.absolute(0));
-	public static final PlacementModifier RANGE_64_64 = HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.absolute(64));
-	public static final PlacementModifier TRI_RANGE_64_32 = HeightRangePlacement.triangle(VerticalAnchor.bottom(), VerticalAnchor.absolute(-32));
-	public static final PlacementModifier TRI_RANGE_64_0 = HeightRangePlacement.triangle(VerticalAnchor.bottom(), VerticalAnchor.absolute(0));
-	public static final PlacementModifier TRI_RANGE_64_64 = HeightRangePlacement.triangle(VerticalAnchor.bottom(), VerticalAnchor.absolute(64));
-	
-	public static final PlacedFeature JADE_ORE_UPPER = register("jade_ore_upper", ModOreFeatures.JADE_ORE_UPPER.placed(upperOrePlacement(25, 128)));
-	public static final PlacedFeature JADE_ORE_MIDDLE = register("jade_ore_middle", ModOreFeatures.JADE_ORE_MIDDLE.placed(uniformOrePlacement(10, -64, 64)));
-	
-	public static final PlacedFeature LIMONITE_ORE_BURIED = register("limonite_ore_buried", ModOreFeatures.LIMONITE_ORE_BURIED.placed(buriedOrePlacement(7, 0)));
-	public static final PlacedFeature LIMONITE_ORE_DEEP_BURIED = register("limonite_ore_deep_buried", ModOreFeatures.LIMONITE_ORE_DEEP_BURIED.placed(buriedOrePlacement(4, -48)));
+	public static final PlacedFeature JADE_ORE_UPPER = register("jade_ore_upper", ModOreFeatures.JADE_ORE_UPPER.placed(upperOrePlacement(20, 128)));
+	public static final PlacedFeature JADE_ORE_MIDDLE = register("jade_ore_middle", ModOreFeatures.JADE_ORE_MIDDLE.placed(uniformOrePlacement(14, -32, 96)));
 	
 	public static final PlacedFeature SAPHIRE_ORE = register("saphire_ore", ModOreFeatures.SAPHIRE_ORE.placed(uniformOrePlacement(18, -64, 256)));
 	public static final PlacedFeature SAPHIRE_ORE_RARE_UPPER = register("saphire_ore_rare_upper", ModOreFeatures.SAPHIRE_ORE_RARE_UPPER.placed(upperOrePlacement(7, 256)));
 	public static final PlacedFeature SAPHIRE_ORE_BURIED = register("saphire_ore_buried", ModOreFeatures.SAPHIRE_ORE_BURIED.placed(buriedOrePlacement(5, -32)));
+	
+	public static final PlacedFeature LIMONITE_ORE_BURIED = register("limonite_ore_buried", ModOreFeatures.LIMONITE_ORE_BURIED.placed(uniformOrePlacement(5, -48, 0)));
+	public static final PlacedFeature LIMONITE_ORE_DEEP_BURIED = register("limonite_ore_deep_buried", ModOreFeatures.LIMONITE_ORE_DEEP_BURIED.placed(buriedOrePlacement(2, -48)));
 	
 	public static final PlacedFeature ROSITE_ORE_RARE = register("rosite_ore_rare", ModOreFeatures.ROSITE_ORE_RARE.placed(triangleOrePlacement(5, -16, 128)));
 	public static final PlacedFeature ROSITE_ORE_BURIED = register("rosite_ore_buried", ModOreFeatures.ROSITE_ORE_BURIED.placed(buriedOrePlacement(7, -32)));
@@ -43,11 +36,11 @@ public class ModOrePlacements {
 	}
 
 	protected static List<PlacementModifier> upperOrePlacement(int count, int minGeneration) {
-		return orePlacement(CountPlacement.of(count), HeightRangePlacement.triangle(VerticalAnchor.absolute(minGeneration), VerticalAnchor.top()));
+		return orePlacement(CountPlacement.of(count), HeightRangePlacement.triangle(VerticalAnchor.absolute(minGeneration), getTriangleTop(minGeneration)));
 	}
 	
 	protected static List<PlacementModifier> buriedOrePlacement(int count, int maxGeneration) {
-		return orePlacement(CountPlacement.of(count), HeightRangePlacement.triangle(VerticalAnchor.bottom(), VerticalAnchor.absolute(maxGeneration)));
+		return orePlacement(CountPlacement.of(count), HeightRangePlacement.triangle(getTriangleDown(maxGeneration), VerticalAnchor.absolute(maxGeneration)));
 	}
 	
 	protected static List<PlacementModifier> buriedEndOrePlacement(int count) {
@@ -64,6 +57,16 @@ public class ModOrePlacements {
 	
 	protected static PlacedFeature register(String name, PlacedFeature placedFeature) {
 		return PlacementUtils.register(new ResourceLocation(XOres.MOD_ID, name).toString(), placedFeature);
+	}
+	
+	protected static VerticalAnchor getTriangleTop(int minGeneration) {
+		int maxGeneration = 320 + (320 - minGeneration);
+		return VerticalAnchor.absolute(maxGeneration);
+	}
+	
+	protected static VerticalAnchor getTriangleDown(int maxGeneration) {
+		int minGeneration = (64 + maxGeneration) * -1 - 64;
+		return VerticalAnchor.absolute(minGeneration);
 	}
 
 }

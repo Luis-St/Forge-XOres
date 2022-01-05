@@ -35,15 +35,15 @@ public class ModOreFeatures {
 	public static final ConfiguredFeature<?, ?> JADE_ORE_UPPER = register("jade_ore_upper", Feature.ORE.configured(new OreConfiguration(JADE_ORE_TARGETS, 5)));
 	public static final ConfiguredFeature<?, ?> JADE_ORE_MIDDLE = register("jade_ore_middle", Feature.ORE.configured(new OreConfiguration(JADE_ORE_TARGETS, 7)));
 	
-	public static final ConfiguredFeature<?, ?> LIMONITE_ORE_BURIED = register("limonite_ore_buried", Feature.ORE.configured(new OreConfiguration(LIMONITE_ORE_TARGETS, 5, 0.5F)));
-	public static final ConfiguredFeature<?, ?> LIMONITE_ORE_DEEP_BURIED = register("limonite_ore_deep_buried", Feature.ORE.configured(new OreConfiguration(LIMONITE_ORE_TARGETS, 12, 1.0F)));
-	
 	public static final ConfiguredFeature<?, ?> SAPHIRE_ORE = register("saphire_ore", Feature.ORE.configured(new OreConfiguration(SAPHIRE_ORE_TARGETS, 5)));
 	public static final ConfiguredFeature<?, ?> SAPHIRE_ORE_RARE_UPPER = register("saphire_ore_rare_upper", Feature.ORE.configured(new OreConfiguration(SAPHIRE_ORE_TARGETS, 2)));
 	public static final ConfiguredFeature<?, ?> SAPHIRE_ORE_BURIED = register("saphire_ore_buried", Feature.ORE.configured(new OreConfiguration(SAPHIRE_ORE_TARGETS, 7, 1.0F)));
 	
-	public static final ConfiguredFeature<?, ?> ROSITE_ORE_RARE = register("rosite_ore_rare", Feature.ORE.configured(new OreConfiguration(ROSITE_ORE_TARGETS, 1)));
-	public static final ConfiguredFeature<?, ?> ROSITE_ORE_BURIED = register("rosite_ore_buried", Feature.ORE.configured(new OreConfiguration(ROSITE_ORE_TARGETS, 4)));
+	public static final ConfiguredFeature<?, ?> LIMONITE_ORE_BURIED = register("limonite_ore_buried", Feature.ORE.configured(new OreConfiguration(LIMONITE_ORE_TARGETS, 4, 0.5F)));
+	public static final ConfiguredFeature<?, ?> LIMONITE_ORE_DEEP_BURIED = register("limonite_ore_deep_buried", Feature.ORE.configured(new OreConfiguration(LIMONITE_ORE_TARGETS, 10, 1.0F)));
+	
+	public static final ConfiguredFeature<?, ?> ROSITE_ORE_RARE = register("rosite_ore_rare", Feature.ORE.configured(new OreConfiguration(ROSITE_ORE_TARGETS, 2, 0.2F)));
+	public static final ConfiguredFeature<?, ?> ROSITE_ORE_BURIED = register("rosite_ore_buried", Feature.ORE.configured(new OreConfiguration(ROSITE_ORE_TARGETS, 4, 1.0F)));
 	
 	public static final ConfiguredFeature<?, ?> ENDERITE_ORE_RARE = register("enderite_ore_rare", Feature.SCATTERED_ORE.configured(new OreConfiguration(ENDERITE_ORE_TARGETS, 1)));
 	public static final ConfiguredFeature<?, ?> ENDERITE_ORE_BURIED = register("enderite_ore_buried", Feature.SCATTERED_ORE.configured(new OreConfiguration(ENDERITE_ORE_TARGETS, 3, 1.0F)));

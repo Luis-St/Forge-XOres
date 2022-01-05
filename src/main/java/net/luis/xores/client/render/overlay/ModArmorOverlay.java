@@ -32,7 +32,6 @@ public class ModArmorOverlay implements IIngameOverlay {
 	
 	@SuppressWarnings("resource")
 	protected void renderArmor(ForgeIngameGui gui, PoseStack poseStack, float partialTicks, int width, int height) {
-		this.minecraft.getProfiler().push("armor");
 		RenderSystem.enableBlend();
 		int left = width / 2 - 91;
 		int top = height - gui.left_height;
@@ -50,7 +49,6 @@ public class ModArmorOverlay implements IIngameOverlay {
 		}
 		gui.left_height += 10;
 		RenderSystem.disableBlend();
-		this.minecraft.getProfiler().pop();
 	}
 	
 }

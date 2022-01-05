@@ -24,6 +24,7 @@ public class OnGatherDataEvent {
 //				ModBlockTagsProvider blockTagsProvider = new ModBlockTagsProvider(generator, event.getExistingFileHelper());
 //				generator.addProvider(blockTagsProvider);
 //				generator.addProvider(new ModItemTagsProvider(generator, blockTagsProvider, event.getExistingFileHelper()));
+//				generator.addProvider(new ModGlobalLootModifierProvider(generator));
 //			}
 //		}
 	}

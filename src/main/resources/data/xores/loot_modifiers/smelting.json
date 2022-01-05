@@ -1,0 +1,11 @@
+{
+  "conditions": [
+    {
+      "condition": "minecraft:match_tool",
+      "predicate": {
+        "tag": "xores:blazing"
+      }
+    }
+  ],
+  "type": "xores:smelting_modifier"
+}

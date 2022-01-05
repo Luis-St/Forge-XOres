@@ -17,24 +17,29 @@ public class OnBiomeLoadingEvent {
 	public static void biomeLoading(BiomeLoadingEvent event) {
 		BiomeGenerationSettingsBuilder generationBuilder = event.getGeneration();
 		if (event.getCategory() == BiomeCategory.THEEND) {
-			generationBuilder.addFeature(Decoration.UNDERGROUND_ORES, ModOrePlacements.ENDERITE_ORE_RARE);
-			generationBuilder.addFeature(Decoration.UNDERGROUND_ORES, ModOrePlacements.ENDERITE_ORE_BURIED);
+			if (!event.getName().getPath().equals("the_end")) {
+				generationBuilder.addFeature(Decoration.UNDERGROUND_ORES, ModOrePlacements.ENDERITE_ORE_RARE);
+				generationBuilder.addFeature(Decoration.UNDERGROUND_ORES, ModOrePlacements.ENDERITE_ORE_BURIED);
+			}
 		} else if (event.getCategory() == BiomeCategory.NETHER) {
 			
 		} else {
-			generationBuilder.addFeature(Decoration.UNDERGROUND_ORES, ModOrePlacements.JADE_ORE_UPPER);
+			if (isPeakBiome(event.getName().getPath())) {
+				generationBuilder.addFeature(Decoration.UNDERGROUND_ORES, ModOrePlacements.JADE_ORE_UPPER);
+				generationBuilder.addFeature(Decoration.UNDERGROUND_ORES, ModOrePlacements.SAPHIRE_ORE_RARE_UPPER);
+			}
 			generationBuilder.addFeature(Decoration.UNDERGROUND_ORES, ModOrePlacements.JADE_ORE_MIDDLE);
-			
 			generationBuilder.addFeature(Decoration.UNDERGROUND_ORES, ModOrePlacements.LIMONITE_ORE_BURIED);
 			generationBuilder.addFeature(Decoration.UNDERGROUND_ORES, ModOrePlacements.LIMONITE_ORE_DEEP_BURIED);
-			
 			generationBuilder.addFeature(Decoration.UNDERGROUND_ORES, ModOrePlacements.SAPHIRE_ORE);
-			generationBuilder.addFeature(Decoration.UNDERGROUND_ORES, ModOrePlacements.SAPHIRE_ORE_RARE_UPPER);
 			generationBuilder.addFeature(Decoration.UNDERGROUND_ORES, ModOrePlacements.SAPHIRE_ORE_BURIED);
-			
 			generationBuilder.addFeature(Decoration.UNDERGROUND_ORES, ModOrePlacements.ROSITE_ORE_RARE);
 			generationBuilder.addFeature(Decoration.UNDERGROUND_ORES, ModOrePlacements.ROSITE_ORE_BURIED);
 		}
 	}
 
+	protected static boolean isPeakBiome(String location) {
+		return location.equals("meadow") || location.equals("grove") || location.equals("snowy_slopes") || location.equals("frozen_peaks") || location.equals("jagged_peaks") || location.equals("stony_peaks");
+	}
+	
 }
