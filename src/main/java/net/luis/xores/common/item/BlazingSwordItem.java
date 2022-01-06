@@ -2,6 +2,7 @@ package net.luis.xores.common.item;
 
 import java.util.Random;
 
+import net.luis.xores.common.item.modded.ModSwordItem;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;

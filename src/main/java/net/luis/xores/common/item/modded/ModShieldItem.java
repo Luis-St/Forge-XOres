@@ -1,4 +1,4 @@
-package net.luis.xores.common.item;
+package net.luis.xores.common.item.modded;
 
 import java.util.function.Consumer;
 
