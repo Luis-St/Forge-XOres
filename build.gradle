@@ -171,15 +171,21 @@ dependencies {
 jar {
     manifest {
         attributes([
-                "Specification-Title"     : "examplemod",
-                "Specification-Vendor"    : "examplemodsareus",
-                "Specification-Version"   : "1", // We are version 1 of ourselves
+                "Specification-Title"     : "XOres",
+//              "Specification-Vendor"    : "examplemodsareus",
+                "Specification-Version"   : "1.0", // We are version 1 of ourselves
                 "Implementation-Title"    : project.name,
-                "Implementation-Version"  : project.jar.archiveVersion,
-                "Implementation-Vendor"   : "examplemodsareus",
+//              "Implementation-Version"  : project.jar.archiveVersion,
+//              "Implementation-Vendor"   : "examplemodsareus",
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
+}
+
+// creates a API jar file
+task buildApi(type: Jar) {
+    from sourceSets.main.allJava
+    classifier = 'API'
 }
 
 // Example configuration to allow publishing using the maven-publish plugin
