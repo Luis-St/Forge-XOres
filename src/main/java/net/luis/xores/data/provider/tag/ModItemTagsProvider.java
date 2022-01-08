@@ -1,98 +1,77 @@
 package net.luis.xores.data.provider.tag;
 
-import static net.luis.xores.init.ModItems.BLAZING_AXE;
-import static net.luis.xores.init.ModItems.BLAZING_BOOTS;
-import static net.luis.xores.init.ModItems.BLAZING_CHESTPLATE;
-import static net.luis.xores.init.ModItems.BLAZING_HELMET;
-import static net.luis.xores.init.ModItems.BLAZING_HOE;
-import static net.luis.xores.init.ModItems.BLAZING_INGOT;
-import static net.luis.xores.init.ModItems.BLAZING_LEGGINGS;
-import static net.luis.xores.init.ModItems.BLAZING_PICKAXE;
-import static net.luis.xores.init.ModItems.BLAZING_SHOVEL;
-import static net.luis.xores.init.ModItems.BLAZING_SWORD;
-import static net.luis.xores.init.ModItems.ENDERITE_AXE;
-import static net.luis.xores.init.ModItems.ENDERITE_BOOTS;
-import static net.luis.xores.init.ModItems.ENDERITE_BOW;
-import static net.luis.xores.init.ModItems.ENDERITE_CHESTPLATE;
-import static net.luis.xores.init.ModItems.ENDERITE_CROSSBOW;
-import static net.luis.xores.init.ModItems.ENDERITE_ELYTRA_CHESTPLATE;
-import static net.luis.xores.init.ModItems.ENDERITE_HELMET;
-import static net.luis.xores.init.ModItems.ENDERITE_HOE;
-import static net.luis.xores.init.ModItems.ENDERITE_INGOT;
-import static net.luis.xores.init.ModItems.ENDERITE_LEGGINGS;
-import static net.luis.xores.init.ModItems.ENDERITE_PICKAXE;
-import static net.luis.xores.init.ModItems.ENDERITE_SCRAP;
-import static net.luis.xores.init.ModItems.ENDERITE_SHIELD;
-import static net.luis.xores.init.ModItems.ENDERITE_SHOVEL;
-import static net.luis.xores.init.ModItems.ENDERITE_SWORD;
-import static net.luis.xores.init.ModItems.ITEMS;
-import static net.luis.xores.init.ModItems.JADE_AXE;
-import static net.luis.xores.init.ModItems.JADE_BOOTS;
-import static net.luis.xores.init.ModItems.JADE_CHESTPLATE;
-import static net.luis.xores.init.ModItems.JADE_HELMET;
-import static net.luis.xores.init.ModItems.JADE_HOE;
-import static net.luis.xores.init.ModItems.JADE_INGOT;
-import static net.luis.xores.init.ModItems.JADE_LEGGINGS;
-import static net.luis.xores.init.ModItems.JADE_PICKAXE;
-import static net.luis.xores.init.ModItems.JADE_SHOVEL;
-import static net.luis.xores.init.ModItems.JADE_SWORD;
-import static net.luis.xores.init.ModItems.LIMONITE_AXE;
-import static net.luis.xores.init.ModItems.LIMONITE_BOOTS;
-import static net.luis.xores.init.ModItems.LIMONITE_CHESTPLATE;
-import static net.luis.xores.init.ModItems.LIMONITE_HELMET;
-import static net.luis.xores.init.ModItems.LIMONITE_HOE;
-import static net.luis.xores.init.ModItems.LIMONITE_INGOT;
-import static net.luis.xores.init.ModItems.LIMONITE_LEGGINGS;
-import static net.luis.xores.init.ModItems.LIMONITE_PICKAXE;
-import static net.luis.xores.init.ModItems.LIMONITE_SHOVEL;
-import static net.luis.xores.init.ModItems.LIMONITE_SWORD;
-import static net.luis.xores.init.ModItems.NIGHT_AXE;
-import static net.luis.xores.init.ModItems.NIGHT_BOOTS;
-import static net.luis.xores.init.ModItems.NIGHT_BOW;
-import static net.luis.xores.init.ModItems.NIGHT_CHESTPLATE;
-import static net.luis.xores.init.ModItems.NIGHT_CROSSBOW;
-import static net.luis.xores.init.ModItems.NIGHT_ELYTRA_CHESTPLATE;
-import static net.luis.xores.init.ModItems.NIGHT_HELMET;
-import static net.luis.xores.init.ModItems.NIGHT_HOE;
-import static net.luis.xores.init.ModItems.NIGHT_INGOT;
-import static net.luis.xores.init.ModItems.NIGHT_LEGGINGS;
-import static net.luis.xores.init.ModItems.NIGHT_PICKAXE;
-import static net.luis.xores.init.ModItems.NIGHT_SCRAP;
-import static net.luis.xores.init.ModItems.NIGHT_SHIELD;
-import static net.luis.xores.init.ModItems.NIGHT_SHOVEL;
-import static net.luis.xores.init.ModItems.NIGHT_SWORD;
-import static net.luis.xores.init.ModItems.POLISHED_ROSE_QUARTZ;
-import static net.luis.xores.init.ModItems.ROSE_QUARTZ;
-import static net.luis.xores.init.ModItems.ROSE_QUARTZ_AXE;
-import static net.luis.xores.init.ModItems.ROSE_QUARTZ_HOE;
-import static net.luis.xores.init.ModItems.ROSE_QUARTZ_PICKAXE;
-import static net.luis.xores.init.ModItems.ROSE_QUARTZ_SHOVEL;
-import static net.luis.xores.init.ModItems.ROSE_QUARTZ_SWORD;
-import static net.luis.xores.init.ModItems.ROSITE_AXE;
-import static net.luis.xores.init.ModItems.ROSITE_HOE;
-import static net.luis.xores.init.ModItems.ROSITE_INGOT;
-import static net.luis.xores.init.ModItems.ROSITE_PICKAXE;
-import static net.luis.xores.init.ModItems.ROSITE_SHOVEL;
-import static net.luis.xores.init.ModItems.ROSITE_SWORD;
-import static net.luis.xores.init.ModItems.SAPHIRE_AXE;
-import static net.luis.xores.init.ModItems.SAPHIRE_BOOTS;
-import static net.luis.xores.init.ModItems.SAPHIRE_CHESTPLATE;
-import static net.luis.xores.init.ModItems.SAPHIRE_HELMET;
-import static net.luis.xores.init.ModItems.SAPHIRE_HOE;
-import static net.luis.xores.init.ModItems.SAPHIRE_INGOT;
-import static net.luis.xores.init.ModItems.SAPHIRE_LEGGINGS;
-import static net.luis.xores.init.ModItems.SAPHIRE_PICKAXE;
-import static net.luis.xores.init.ModItems.SAPHIRE_SHIELD;
-import static net.luis.xores.init.ModItems.SAPHIRE_SHOVEL;
-import static net.luis.xores.init.ModItems.SAPHIRE_SWORD;
-import static net.luis.xores.init.ModItems.STEEL_AXE;
-import static net.luis.xores.init.ModItems.STEEL_HOE;
-import static net.luis.xores.init.ModItems.STEEL_INGOT;
-import static net.luis.xores.init.ModItems.STEEL_PICKAXE;
-import static net.luis.xores.init.ModItems.STEEL_SHOVEL;
-import static net.luis.xores.init.ModItems.STEEL_SWORD;
 import static net.luis.xores.init.ModItems.*;
-import static net.minecraft.world.item.Items.*;
+import static net.minecraft.world.item.Items.CHAINMAIL_BOOTS;
+import static net.minecraft.world.item.Items.CHAINMAIL_CHESTPLATE;
+import static net.minecraft.world.item.Items.CHAINMAIL_HELMET;
+import static net.minecraft.world.item.Items.CHAINMAIL_LEGGINGS;
+import static net.minecraft.world.item.Items.COPPER_INGOT;
+import static net.minecraft.world.item.Items.DIAMOND;
+import static net.minecraft.world.item.Items.DIAMOND_AXE;
+import static net.minecraft.world.item.Items.DIAMOND_BOOTS;
+import static net.minecraft.world.item.Items.DIAMOND_CHESTPLATE;
+import static net.minecraft.world.item.Items.DIAMOND_HELMET;
+import static net.minecraft.world.item.Items.DIAMOND_HOE;
+import static net.minecraft.world.item.Items.DIAMOND_HORSE_ARMOR;
+import static net.minecraft.world.item.Items.DIAMOND_LEGGINGS;
+import static net.minecraft.world.item.Items.DIAMOND_PICKAXE;
+import static net.minecraft.world.item.Items.DIAMOND_SHOVEL;
+import static net.minecraft.world.item.Items.DIAMOND_SWORD;
+import static net.minecraft.world.item.Items.GOLDEN_AXE;
+import static net.minecraft.world.item.Items.GOLDEN_BOOTS;
+import static net.minecraft.world.item.Items.GOLDEN_CHESTPLATE;
+import static net.minecraft.world.item.Items.GOLDEN_HELMET;
+import static net.minecraft.world.item.Items.GOLDEN_HOE;
+import static net.minecraft.world.item.Items.GOLDEN_HORSE_ARMOR;
+import static net.minecraft.world.item.Items.GOLDEN_LEGGINGS;
+import static net.minecraft.world.item.Items.GOLDEN_PICKAXE;
+import static net.minecraft.world.item.Items.GOLDEN_SHOVEL;
+import static net.minecraft.world.item.Items.GOLDEN_SWORD;
+import static net.minecraft.world.item.Items.GOLD_INGOT;
+import static net.minecraft.world.item.Items.GOLD_NUGGET;
+import static net.minecraft.world.item.Items.IRON_AXE;
+import static net.minecraft.world.item.Items.IRON_BOOTS;
+import static net.minecraft.world.item.Items.IRON_CHESTPLATE;
+import static net.minecraft.world.item.Items.IRON_HELMET;
+import static net.minecraft.world.item.Items.IRON_HOE;
+import static net.minecraft.world.item.Items.IRON_HORSE_ARMOR;
+import static net.minecraft.world.item.Items.IRON_INGOT;
+import static net.minecraft.world.item.Items.IRON_LEGGINGS;
+import static net.minecraft.world.item.Items.IRON_NUGGET;
+import static net.minecraft.world.item.Items.IRON_PICKAXE;
+import static net.minecraft.world.item.Items.IRON_SHOVEL;
+import static net.minecraft.world.item.Items.IRON_SWORD;
+import static net.minecraft.world.item.Items.LEATHER;
+import static net.minecraft.world.item.Items.LEATHER_BOOTS;
+import static net.minecraft.world.item.Items.LEATHER_CHESTPLATE;
+import static net.minecraft.world.item.Items.LEATHER_HELMET;
+import static net.minecraft.world.item.Items.LEATHER_HORSE_ARMOR;
+import static net.minecraft.world.item.Items.LEATHER_LEGGINGS;
+import static net.minecraft.world.item.Items.NETHERITE_AXE;
+import static net.minecraft.world.item.Items.NETHERITE_BOOTS;
+import static net.minecraft.world.item.Items.NETHERITE_CHESTPLATE;
+import static net.minecraft.world.item.Items.NETHERITE_HELMET;
+import static net.minecraft.world.item.Items.NETHERITE_HOE;
+import static net.minecraft.world.item.Items.NETHERITE_INGOT;
+import static net.minecraft.world.item.Items.NETHERITE_LEGGINGS;
+import static net.minecraft.world.item.Items.NETHERITE_PICKAXE;
+import static net.minecraft.world.item.Items.NETHERITE_SCRAP;
+import static net.minecraft.world.item.Items.NETHERITE_SHOVEL;
+import static net.minecraft.world.item.Items.NETHERITE_SWORD;
+import static net.minecraft.world.item.Items.RAW_COPPER;
+import static net.minecraft.world.item.Items.RAW_GOLD;
+import static net.minecraft.world.item.Items.RAW_IRON;
+import static net.minecraft.world.item.Items.SHIELD;
+import static net.minecraft.world.item.Items.STONE_AXE;
+import static net.minecraft.world.item.Items.STONE_HOE;
+import static net.minecraft.world.item.Items.STONE_PICKAXE;
+import static net.minecraft.world.item.Items.STONE_SHOVEL;
+import static net.minecraft.world.item.Items.STONE_SWORD;
+import static net.minecraft.world.item.Items.WOODEN_AXE;
+import static net.minecraft.world.item.Items.WOODEN_HOE;
+import static net.minecraft.world.item.Items.WOODEN_PICKAXE;
+import static net.minecraft.world.item.Items.WOODEN_SHOVEL;
+import static net.minecraft.world.item.Items.WOODEN_SWORD;
 
 import java.util.stream.Collectors;
 
@@ -114,9 +93,9 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.TieredItem;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.RegistryObject;
 
 public class ModItemTagsProvider extends ItemTagsProvider {
 
@@ -124,6 +103,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 		super(generator, blockTagsProvider, XOres.MOD_ID, existingFileHelper);
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	protected void addTags() {
 		this.copy(ModTags.Blocks.JADE_ORES, ModTags.Items.JADE_ORES);
@@ -135,8 +115,6 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 		this.copy(ModTags.Blocks.STONES, ModTags.Items.STONES);
 		
 		this.tag(Tags.Items.INGOTS).add(JADE_INGOT.get(), BLAZING_INGOT.get(), SAPHIRE_INGOT.get(), LIMONITE_INGOT.get(), ENDERITE_INGOT.get(), STEEL_INGOT.get(), NIGHT_INGOT.get());
-		this.tag(ModTags.Items.SCRAPS).add(Items.NETHERITE_SCRAP).add(ENDERITE_SCRAP.get()).add(NIGHT_SCRAP.get());
-		this.tag(ModTags.Items.SHARDS).add(Items.AMETHYST_SHARD);
 		
 		this.tag(ModTags.Items.WOOD).addTag(ItemTags.PLANKS).add(WOODEN_SWORD, WOODEN_PICKAXE, WOODEN_AXE, WOODEN_SHOVEL, WOODEN_HOE).add(SHIELD);
 		this.tag(ModTags.Items.LEATHER).add(LEATHER, LEATHER_HELMET, LEATHER_CHESTPLATE, LEATHER_LEGGINGS, LEATHER_BOOTS, LEATHER_HORSE_ARMOR);
@@ -188,7 +166,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 		TagAppender<Item> leggings = this.tag(ModTags.Items.LEGGINGS);
 		TagAppender<Item> boots = this.tag(ModTags.Items.BOOTS);
 		
-		for (Item item : ITEMS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
+		for (Item item : this.registry) {
 			if (item instanceof PickaxeItem) {
 				pickaxes.add(item);
 			} else if (item instanceof AxeItem) {
@@ -220,6 +198,30 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 				default:
 					throw new IllegalArgumentException(armorItem.getSlot() + " is not a valid EquipmentSlot for a ArmorItem");
 				}
+			}
+		}
+		
+		this.tag(ModTags.Items.SCRAPS).add(Items.NETHERITE_SCRAP).add(ENDERITE_SCRAP.get()).add(NIGHT_SCRAP.get());
+		this.tag(ModTags.Items.SHARDS).add(Items.AMETHYST_SHARD);
+		
+		TagAppender<Item> toolLevel0 = this.tag(ModTags.Items.TOOL_LEVEL_0);
+		TagAppender<Item> toolLevel1 = this.tag(ModTags.Items.TOOL_LEVEL_1);
+		TagAppender<Item> toolLevel2 = this.tag(ModTags.Items.TOOL_LEVEL_2);
+		TagAppender<Item> toolLevel3 = this.tag(ModTags.Items.TOOL_LEVEL_3);
+		TagAppender<Item> toolLevel4 = this.tag(ModTags.Items.TOOL_LEVEL_4);
+		TagAppender<Item> toolLevel5 = this.tag(ModTags.Items.TOOL_LEVEL_5);
+		TagAppender<Item> toolLevel6 = this.tag(ModTags.Items.TOOL_LEVEL_6);
+		
+		for (TieredItem item : this.registry.stream().filter(item -> item instanceof TieredItem).map(item -> (TieredItem) item).collect(Collectors.toList())) {
+			switch (item.getTier().getLevel()) {
+			case 0: toolLevel0.add(item); break;
+			case 1: toolLevel1.add(item); break;
+			case 2: toolLevel2.add(item); break;
+			case 3: toolLevel3.add(item); break;
+			case 4: toolLevel4.add(item); break;
+			case 5: toolLevel5.add(item); break;
+			case 6: toolLevel6.add(item); break;
+			default: break;
 			}
 		}
 	}

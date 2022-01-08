@@ -45,12 +45,12 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
 	
 	@Override
 	protected void addTags() {
-		this.tag(ModTags.Blocks.TOOL_LEVEL_1).addTag(BlockTags.NEEDS_STONE_TOOL).add(JADE_ORE.get(), DEEPSLATE_JADE_ORE.get(), JADE_BLOCK.get());
-		this.tag(ModTags.Blocks.TOOL_LEVEL_2).addTag(BlockTags.NEEDS_IRON_TOOL).add(SAPHIRE_ORE.get(), DEEPSLATE_SAPHIRE_ORE.get(), SAPHIRE_BLOCK.get(), LIMONITE_BLOCK.get(), ROSITE_BLOCK.get());
-		this.tag(ModTags.Blocks.TOOL_LEVEL_3).addTag(BlockTags.NEEDS_DIAMOND_TOOL).add(LIMONITE_ORE.get(), DEEPSLATE_LIMONITE_ORE.get(), ROSITE_ORE.get(), DEEPSLATE_ROSITE_ORE.get(), ENDERITE_BLOCK.get());
-		this.tag(ModTags.Blocks.TOOL_LEVEL_4);
-		this.tag(ModTags.Blocks.TOOL_LEVEL_5);
-		this.tag(ModTags.Blocks.TOOL_LEVEL_6).add(ENDERITE_ORE.get());
+		this.tag(ModTags.Blocks.NEEDS_TOOL_LEVEL_1).addTag(BlockTags.NEEDS_STONE_TOOL).add(JADE_ORE.get(), DEEPSLATE_JADE_ORE.get(), JADE_BLOCK.get());
+		this.tag(ModTags.Blocks.NEEDS_TOOL_LEVEL_2).addTag(BlockTags.NEEDS_IRON_TOOL).add(SAPHIRE_ORE.get(), DEEPSLATE_SAPHIRE_ORE.get(), SAPHIRE_BLOCK.get(), LIMONITE_BLOCK.get(), ROSITE_BLOCK.get());
+		this.tag(ModTags.Blocks.NEEDS_TOOL_LEVEL_3).addTag(BlockTags.NEEDS_DIAMOND_TOOL).add(LIMONITE_ORE.get(), DEEPSLATE_LIMONITE_ORE.get(), ROSITE_ORE.get(), DEEPSLATE_ROSITE_ORE.get(), ENDERITE_BLOCK.get());
+		this.tag(ModTags.Blocks.NEEDS_TOOL_LEVEL_4);
+		this.tag(ModTags.Blocks.NEEDS_TOOL_LEVEL_5);
+		this.tag(ModTags.Blocks.NEEDS_TOOL_LEVEL_6).add(ENDERITE_ORE.get());
 		
 		TagAppender<Block> pickaxeMinable = this.tag(MINEABLE_WITH_PICKAXE);
 		

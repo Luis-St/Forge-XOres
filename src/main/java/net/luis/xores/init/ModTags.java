@@ -11,12 +11,12 @@ import net.minecraft.world.level.block.Block;
 public class ModTags {
 	
 	public static class Blocks {
-		public static final Tag.Named<Block> TOOL_LEVEL_1 = bind(new ResourceLocation(XOres.MOD_ID, "tool_level_1"));
-		public static final Tag.Named<Block> TOOL_LEVEL_2 = bind(new ResourceLocation(XOres.MOD_ID, "tool_level_2"));
-		public static final Tag.Named<Block> TOOL_LEVEL_3 = bind(new ResourceLocation(XOres.MOD_ID, "tool_level_3"));
-		public static final Tag.Named<Block> TOOL_LEVEL_4 = bind(new ResourceLocation(XOres.MOD_ID, "tool_level_4"));
-		public static final Tag.Named<Block> TOOL_LEVEL_5 = bind(new ResourceLocation(XOres.MOD_ID, "tool_level_5"));
-		public static final Tag.Named<Block> TOOL_LEVEL_6 = bind(new ResourceLocation(XOres.MOD_ID, "tool_level_6"));
+		public static final Tag.Named<Block> NEEDS_TOOL_LEVEL_1 = bind(new ResourceLocation(XOres.MOD_ID, "needs_tool_level_1"));
+		public static final Tag.Named<Block> NEEDS_TOOL_LEVEL_2 = bind(new ResourceLocation(XOres.MOD_ID, "needs_tool_level_2"));
+		public static final Tag.Named<Block> NEEDS_TOOL_LEVEL_3 = bind(new ResourceLocation(XOres.MOD_ID, "needs_tool_level_3"));
+		public static final Tag.Named<Block> NEEDS_TOOL_LEVEL_4 = bind(new ResourceLocation(XOres.MOD_ID, "needs_tool_level_4"));
+		public static final Tag.Named<Block> NEEDS_TOOL_LEVEL_5 = bind(new ResourceLocation(XOres.MOD_ID, "needs_tool_level_5"));
+		public static final Tag.Named<Block> NEEDS_TOOL_LEVEL_6 = bind(new ResourceLocation(XOres.MOD_ID, "needs_tool_level_6"));
 		
 		public static final Tag.Named<Block> JADE_ORES = bind(new ResourceLocation(XOres.MOD_ID, "ores/jade_ore"));
 		public static final Tag.Named<Block> SAPHIRE_ORES = bind(new ResourceLocation(XOres.MOD_ID, "ores/saphire_ore"));
@@ -34,9 +34,6 @@ public class ModTags {
 	}
 	
 	public static class Items {
-		public static final Tag.Named<Item> SCRAPS = bind(new ResourceLocation(XOres.MOD_ID, "scraps"));
-		public static final Tag.Named<Item> SHARDS = bind(new ResourceLocation(XOres.MOD_ID, "shards"));
-		
 		public static final Tag.Named<Item> WOOD = bind(new ResourceLocation(XOres.MOD_ID, "wood"));
 		public static final Tag.Named<Item> LEATHER = bind(new ResourceLocation(XOres.MOD_ID, "leather"));
 		public static final Tag.Named<Item> STONE = bind(new ResourceLocation(XOres.MOD_ID, "stone"));
@@ -81,7 +78,17 @@ public class ModTags {
 		public static final Tag.Named<Item> LEGGINGS = bind(new ResourceLocation(XOres.MOD_ID, "armors/leggings"));
 		public static final Tag.Named<Item> BOOTS = bind(new ResourceLocation(XOres.MOD_ID, "armors/boots"));
 		
+		public static final Tag.Named<Item> SCRAPS = bind(new ResourceLocation(XOres.MOD_ID, "scraps"));
+		public static final Tag.Named<Item> SHARDS = bind(new ResourceLocation(XOres.MOD_ID, "shards"));
 		public static final Tag.Named<Item> STONES = bind(new ResourceLocation(XOres.MOD_ID, "stones"));
+		
+		public static final Tag.Named<Item> TOOL_LEVEL_0 = bind(new ResourceLocation(XOres.MOD_ID, "needs_tool_level_0"));
+		public static final Tag.Named<Item> TOOL_LEVEL_1 = bind(new ResourceLocation(XOres.MOD_ID, "needs_tool_level_1"));
+		public static final Tag.Named<Item> TOOL_LEVEL_2 = bind(new ResourceLocation(XOres.MOD_ID, "needs_tool_level_2"));
+		public static final Tag.Named<Item> TOOL_LEVEL_3 = bind(new ResourceLocation(XOres.MOD_ID, "needs_tool_level_3"));
+		public static final Tag.Named<Item> TOOL_LEVEL_4 = bind(new ResourceLocation(XOres.MOD_ID, "needs_tool_level_4"));
+		public static final Tag.Named<Item> TOOL_LEVEL_5 = bind(new ResourceLocation(XOres.MOD_ID, "needs_tool_level_5"));
+		public static final Tag.Named<Item> TOOL_LEVEL_6 = bind(new ResourceLocation(XOres.MOD_ID, "needs_tool_level_6"));
 		
 		protected static Tag.Named<Item> bind(ResourceLocation location) {
 			return ItemTags.bind(location.toString());

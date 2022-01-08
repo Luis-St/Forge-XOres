@@ -6,7 +6,6 @@ import com.google.common.collect.Lists;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 
-import net.luis.xores.XOres;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraftforge.client.gui.ForgeIngameGui;
@@ -36,7 +35,6 @@ public class ModArmorOverlay implements IIngameOverlay {
 		int left = width / 2 - 91;
 		int top = height - gui.left_height;
 		int level = Minecraft.getInstance().player.getArmorValue();
-		XOres.LOGGER.info(level);
 		for (int i = 21; level > 20 && i < 40; i += 2) {
 			if (i < level) {
 				gui.blit(poseStack, left, top, 34, 9, 9, 9); // full
