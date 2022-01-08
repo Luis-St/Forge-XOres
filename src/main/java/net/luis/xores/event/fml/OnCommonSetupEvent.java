@@ -1,7 +1,6 @@
 package net.luis.xores.event.fml;
 
 import net.luis.xores.XOres;
-import net.luis.xores.common.fixer.ToolFixer;
 import net.luis.xores.common.item.ElytraChestplateItem;
 import net.luis.xores.init.ModItems;
 import net.minecraft.Util;
@@ -25,15 +24,10 @@ public class OnCommonSetupEvent {
 		});
 		replaceAttributeValue((RangedAttribute) Attributes.ARMOR, 512.0);
 		replaceAttributeValue((RangedAttribute) Attributes.KNOCKBACK_RESISTANCE, 64.0);
-		registerFixers();
 	}
 	
 	protected static void replaceAttributeValue(RangedAttribute attribute, double maxValue) {
 		attribute.maxValue = maxValue;
-	}
-	
-	protected static void registerFixers() {
-		ToolFixer.INSTANCE.init();
 	}
 	
 }
