@@ -1,6 +1,12 @@
 {
   "replace": false,
   "values": [
+    "minecraft:leather_boots",
+    "minecraft:chainmail_boots",
+    "minecraft:iron_boots",
+    "minecraft:diamond_boots",
+    "minecraft:golden_boots",
+    "minecraft:netherite_boots",
     "xores:jade_boots",
     "xores:blazing_boots",
     "xores:saphire_boots",

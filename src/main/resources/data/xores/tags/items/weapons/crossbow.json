@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "minecraft:crossbow",
     "xores:netherite_crossbow",
     "xores:enderite_crossbow",
     "xores:night_crossbow"

@@ -1,6 +1,12 @@
 {
   "replace": false,
   "values": [
+    "minecraft:wooden_axe",
+    "minecraft:stone_axe",
+    "minecraft:golden_axe",
+    "minecraft:iron_axe",
+    "minecraft:diamond_axe",
+    "minecraft:netherite_axe",
     "xores:jade_axe",
     "xores:blazing_axe",
     "xores:saphire_axe",
