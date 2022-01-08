@@ -3,9 +3,6 @@ package net.luis.xores.common.fixer;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.stream.Collectors;
-
-import javax.annotation.Nullable;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
@@ -25,7 +22,12 @@ import net.minecraft.world.level.block.state.BlockState;
 
 public class ToolFixer implements VanillaFixer {
 	
-	public static final ToolFixer INSTANCE = new ToolFixer();
+	public static final ToolFixer INSTANCE = new ToolFixer() {
+		@Override
+		public void init() {
+			this.register();
+		}
+	};
 	
 	public static final int HAND_LEVEL = 0;
 	public static final int WOOD_LEVEL = 0;
@@ -50,78 +52,100 @@ public class ToolFixer implements VanillaFixer {
 	private ToolFixer() {
 		this.blocks = Maps.newHashMap();
 		this.tools = Maps.newHashMap();
-		this.register();
+		this.init();
 	}
 	
 	protected void register() {
-		this.registerBlockTag(1, ModTags.Blocks.TOOL_LEVEL_1);
-		this.registerBlockTag(2, ModTags.Blocks.TOOL_LEVEL_2);
-		this.registerBlockTag(3, ModTags.Blocks.TOOL_LEVEL_3);
-		this.registerBlockTag(4, ModTags.Blocks.TOOL_LEVEL_4);
-		this.registerBlockTag(5, ModTags.Blocks.TOOL_LEVEL_5);
-		this.registerBlockTag(6, ModTags.Blocks.TOOL_LEVEL_6);
-		this.registerToolTag(0, ModTags.Items.WOOD);
-		this.registerToolTag(0, ModTags.Items.GOLDEN);
-		this.registerToolTag(1, ModTags.Items.STONE);
-		this.registerToolTag(2, ModTags.Items.IRON);
-		this.registerToolTag(3, ModTags.Items.DIAMOND);
-		this.registerToolTag(4, ModTags.Items.NETHERITE);
+		this.registerBlocks(1, ModTags.Blocks.NEEDS_TOOL_LEVEL_1.getValues());
+		this.registerBlocks(2, ModTags.Blocks.NEEDS_TOOL_LEVEL_2.getValues());
+		this.registerBlocks(3, ModTags.Blocks.NEEDS_TOOL_LEVEL_3.getValues());
+		this.registerBlocks(4, ModTags.Blocks.NEEDS_TOOL_LEVEL_4.getValues());
+		this.registerBlocks(5, ModTags.Blocks.NEEDS_TOOL_LEVEL_5.getValues());
+		this.registerBlocks(6, ModTags.Blocks.NEEDS_TOOL_LEVEL_6.getValues());
+		
+		this.registerTools(0, ModTags.Items.TOOL_LEVEL_0.getValues());
+		this.registerTools(1, ModTags.Items.TOOL_LEVEL_1.getValues());
+		this.registerTools(2, ModTags.Items.TOOL_LEVEL_2.getValues());
+		this.registerTools(3, ModTags.Items.TOOL_LEVEL_3.getValues());
+		this.registerTools(4, ModTags.Items.TOOL_LEVEL_4.getValues());
+		this.registerTools(5, ModTags.Items.TOOL_LEVEL_5.getValues());
+		this.registerTools(6, ModTags.Items.TOOL_LEVEL_6.getValues());
 	}
 	
-	public void registerBlock(int level, Block block) {
-		if (this.blocks.get(level) != null) {
-			this.blocks.get(level).add(block);
-		} else {
-			this.blocks.put(level, Lists.newArrayList(block));
-		}
+	public void registerBlocks(int level, Block... blocks) {
+		this.registerBlocks(level, Lists.newArrayList(blocks));
 	}
 	
-	public void registerBlockTag(int level, Named<Block> tag) {
-		if (this.blocks.get(level) != null) {
-			this.blocks.get(level).addAll(tag.getValues());
-		} else {
-			this.blocks.put(level, Lists.newArrayList(tag.getValues()));
+	protected void registerBlocks(int level, List<Block> blocks) {
+		if (!this.blocks.containsKey(level)) {
+			this.blocks.put(level, Lists.newArrayList());
 		}
+		this.blocks.get(level).addAll(blocks);
 	}
 	
-	public void registerTool(int level, Item tool) {
-		if (this.tools.get(level) != null) {
-			this.tools.get(level).add(tool);
-		} else {
-			this.tools.put(level, Lists.newArrayList(tool));
-		}
+	public void registerTools(int level, Item... items) {
+		this.registerTools(level, Lists.newArrayList(items));
 	}
 	
-	public void registerToolTag(int level, Named<Item> tag) {
-		List<DiggerItem> values = tag.getValues().stream().filter(item -> {
-			return item instanceof DiggerItem;
-		}).map(item -> {
-			return (DiggerItem) item;
-		}).collect(Collectors.toList());
-		if (this.tools.get(level) != null) {
-			this.tools.get(level).addAll(values);
-		} else {
-			this.tools.put(level, Lists.newArrayList(values));
+	protected void registerTools(int level, List<Item> items) {
+		if (!this.tools.containsKey(level)) {
+			this.tools.put(level, Lists.newArrayList());
 		}
+		this.tools.get(level).addAll(items);
+	}
+	
+	public List<Block> getRegisteredBlocks() {
+		List<Block> registeredBlocks = Lists.newArrayList();
+		for (List<Block> blocks : Lists.newArrayList(this.blocks.values().iterator())) {
+			registeredBlocks.addAll(blocks);
+		}
+		return registeredBlocks;
+	}
+	
+	public boolean isBlockRegistered(Block block) {
+		return this.getRegisteredBlocks().stream().anyMatch(registeredBlock -> {
+			return block == registeredBlock;
+		});
+	}
+	
+	public List<Item> getRegisteredTools() {
+		List<Item> registeredItems = Lists.newArrayList();
+		for (List<Item> items : Lists.newArrayList(this.tools.values().iterator())) {
+			registeredItems.addAll(items);
+		}
+		return registeredItems;
+	}
+	
+	public boolean isToolRegistered(Item item) {
+		return this.getRegisteredTools().stream().anyMatch(registeredItem -> {
+			return item == registeredItem;
+		});
 	}
 	
 	@SuppressWarnings("deprecation")
-	public boolean isCorrectToolForDrops(DiggerItem item, @Nullable ItemStack stack, BlockState state) {
+	public boolean isCorrectToolForDrops(Item item, ItemStack stack, BlockState state) {
 		Block block = state.getBlock();
-		int tierLevel = item.getTier().getLevel();
+		int tierLevel = -1;
 		int toolLevel = this.getLevelForTool(item);
-		if (tierLevel != toolLevel) {
+		if (item instanceof DiggerItem diggerItem) {
+			tierLevel = diggerItem.getTier().getLevel();
+		}
+		if (tierLevel > -1 && tierLevel != toolLevel) {
 			return false;
 		} else {
 			int blockLevel = this.getLevelForBlock(block);
 			if (tierLevel >= blockLevel || blockLevel == 0) {
-				return this.getTagForTool(item).getValues().contains(block);
+				Named<Block> blocks = this.getTagForTool(item);
+				if (blocks != null) {
+					return blocks.getValues().contains(block);
+				}
+				return true;
 			}
 		}
 		return false;
 	}
 	
-	protected Named<Block> getTagForTool(DiggerItem item) {
+	protected Named<Block> getTagForTool(Item item) {
 		if (item instanceof PickaxeItem) {
 			return BlockTags.MINEABLE_WITH_PICKAXE;
 		} else if (item instanceof AxeItem) {
@@ -135,7 +159,7 @@ public class ToolFixer implements VanillaFixer {
 	}
 	
 	protected int getLevelForBlock(Block block) {
-		for (Entry<Integer, List<Block>> entry : Lists.newArrayList(this.blocks.entrySet().iterator())) {
+		for (Entry<Integer, List<Block>> entry : this.blocks.entrySet()) {
 			int level = entry.getKey();
 			if (entry.getValue().contains(block)) {
 				return level;
@@ -145,7 +169,7 @@ public class ToolFixer implements VanillaFixer {
 	}
 	
 	protected int getLevelForTool(Item tool) {
-		for (Entry<Integer, List<Item>> entry : Lists.newArrayList(this.tools.entrySet().iterator())) {
+		for (Entry<Integer, List<Item>> entry : this.tools.entrySet()) {
 			int level = entry.getKey();
 			if (entry.getValue().contains(tool)) {
 				return level;
