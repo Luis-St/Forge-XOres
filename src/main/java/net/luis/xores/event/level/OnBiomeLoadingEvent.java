@@ -19,9 +19,11 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 @EventBusSubscriber(modid = XOres.MOD_ID)
 public class OnBiomeLoadingEvent {
 
+	/**
+	 * Level generation
+	 */
 	@SubscribeEvent(priority = EventPriority.HIGH)
 	public static void biomeLoading(BiomeLoadingEvent event) {
-		// Level generation
 		BiomeGenerationSettingsBuilder generationBuilder = event.getGeneration();
 		if (event.getCategory() == BiomeCategory.THEEND) {
 			if (!event.getName().getPath().equals("the_end")) { // no Enderite in TheEnd Biomes

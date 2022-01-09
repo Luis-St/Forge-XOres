@@ -20,15 +20,21 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 @EventBusSubscriber(modid = XOres.MOD_ID, bus = Bus.MOD)
 public class OnCommonSetupEvent {
 	
+	/**
+	 * Registration of:
+	 * <ul>
+	 *  <li>ElytraChestplate flight Item damage</li>
+	 *  <li>extension of the max value of the RangeAttributes</li>
+	 * </ul>
+	 */
 	@SubscribeEvent
 	public static void commonSetup(FMLCommonSetupEvent event) {
-		Util.make(ElytraChestplateItem.ELYTRA_DAMAGE_VALUES, map -> { // init of the ElytraChestplate flight Item damage
+		Util.make(ElytraChestplateItem.ELYTRA_DAMAGE_VALUES, map -> {
 			map.put(ModItems.DIAMOND_ELYTRA_CHESTPLATE.get(), 40);
 			map.put(ModItems.NETHERITE_ELYTRA_CHESTPLATE.get(), 60);
 			map.put(ModItems.ENDERITE_ELYTRA_CHESTPLATE.get(), 80);
 			map.put(ModItems.NIGHT_ELYTRA_CHESTPLATE.get(), 100);
 		});
-		// extension of the max value of the RangeAttributes
 		replaceAttributeValue((RangedAttribute) Attributes.ARMOR, 512.0);
 		replaceAttributeValue((RangedAttribute) Attributes.KNOCKBACK_RESISTANCE, 64.0);
 	}

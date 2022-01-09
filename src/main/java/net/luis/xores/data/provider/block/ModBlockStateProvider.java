@@ -28,9 +28,12 @@ public class ModBlockStateProvider extends BlockStateProvider {
 		super(generator, XOres.MOD_ID, existingFileHelper);
 		this.existingFileHelper = existingFileHelper;
 	}
-
+	
+	/**
+	 * registration of all BlockStates, BlockModels and ItemModels
+	 */
 	@Override
-	protected void registerStatesAndModels() { // registration of all BlockStates, BlockModels and ItemModels
+	protected void registerStatesAndModels() {
 		for (Block block : ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
 			if (block == ModBlocks.ENDERITE_ORE.get()) {
 				this.columnBlock(block);

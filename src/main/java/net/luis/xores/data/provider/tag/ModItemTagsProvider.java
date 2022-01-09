@@ -109,9 +109,12 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 		super(generator, blockTagsProvider, XOres.MOD_ID, existingFileHelper);
 	}
 	
-	@SuppressWarnings("deprecation")
+	/**
+	 * registration of all ItemTags
+	 */
 	@Override
-	protected void addTags() { // registration of all ItemTags
+	@SuppressWarnings("deprecation") // since WeaponSet, ToolSet and ArmorSet are marked as deprecated
+	protected void addTags() {
 		this.copy(ModTags.Blocks.JADE_ORES, ModTags.Items.JADE_ORES);
 		this.copy(ModTags.Blocks.SAPHIRE_ORES, ModTags.Items.SAPHIRE_ORES);
 		this.copy(ModTags.Blocks.LIMONITE_ORES, ModTags.Items.LIMONITE_ORES);

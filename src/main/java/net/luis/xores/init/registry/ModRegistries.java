@@ -5,12 +5,11 @@ import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.RegistryManager;
 
 /**
+ * Registry class, works similar to {@link ForgeRegistries}
  * 
  * @author Luis-st
- *
  */
 
-// registry class, works similar to ForgeRegistries
 public class ModRegistries {
 	
 	public static final IForgeRegistry<MaterialSet> MATERIALS = RegistryManager.ACTIVE.getRegistry(MaterialSet.class);;

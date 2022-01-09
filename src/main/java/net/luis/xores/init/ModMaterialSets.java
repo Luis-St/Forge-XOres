@@ -9,12 +9,11 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
 /**
+ * Registration class of {@link MaterialSet}
  * 
  * @author Luis-st
- *
  */
 
-// registration class of MaterialSets
 @SuppressWarnings("deprecation") // since WeaponSet, ToolSet and ArmorSet are marked as deprecated
 public class ModMaterialSets {
 	

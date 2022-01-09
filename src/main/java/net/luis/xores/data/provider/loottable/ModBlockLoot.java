@@ -15,10 +15,14 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class ModBlockLoot extends BlockLoot {
 	
+	/**
+	 * registration of all Block LootTables<br>
+	 * -> all Blocks drops itself
+	 */
 	@Override
-	protected void addTables() { // registration of all Blocks to get the LootTables
+	protected void addTables() {
 		for (Block block : ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
-			this.dropSelf(block); // all Blocks drops itself
+			this.dropSelf(block);
 		}
 	}
 	

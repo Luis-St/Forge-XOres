@@ -11,6 +11,12 @@ import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 
+/**
+ * 
+ * @author Luis-st
+ *
+ */
+
 public enum ModArmorMaterials implements ArmorMaterial {
 
 	JADE("jade", 15, new int[] {2, 5, 6, 2}, 10, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0.0F, () -> {

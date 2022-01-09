@@ -8,12 +8,11 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 /**
+ * Registration class of {@link BlockItem}
  * 
  * @author Luis-st
- *
  */
 
-// registration class of BlockItems
 public class ModBlockItems {
 	
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, XOres.MOD_ID);

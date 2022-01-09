@@ -9,15 +9,18 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
 /**
+ * Registration class of {@link Tag}
  * 
  * @author Luis-st
- *
  */
 
-// registration class of Tags
 public class ModTags {
 	
-	// registration sub-class of Block Tags
+	/**
+	 * Registration sub-class of {@link BlockTags}
+	 * 
+	 * @author Luis-st
+	 */
 	public static class Blocks {
 		// Block Tool levels
 		public static final Tag.Named<Block> NEEDS_TOOL_LEVEL_1 = bind(new ResourceLocation(XOres.MOD_ID, "needs_tool_level_1"));
@@ -44,7 +47,11 @@ public class ModTags {
 		}
 	}
 	
-	// registration sub-class of Item Tags
+	/**
+	 * Registration sub-class of {@link ItemTags}
+	 * 
+	 * @author Luis-st
+	 */
 	public static class Items {
 		// Vanilla Materials
 		public static final Tag.Named<Item> WOOD = bind(new ResourceLocation(XOres.MOD_ID, "wood"));

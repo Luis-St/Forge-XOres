@@ -24,8 +24,11 @@ public class ModLanguageProvider extends LanguageProvider {
 		super(generator, XOres.MOD_ID, "en_us");
 	}
 
+	/**
+	 * registration of all Blocks and Items to get the Translations
+	 */
 	@Override
-	protected void addTranslations() { // registration of all Blocks and Items to get the Translations
+	protected void addTranslations() {
 		for (Block block : ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
 			this.add(block, getName(block.getRegistryName()));
 		}
