@@ -14,6 +14,12 @@ import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ElytraItem;
 import net.minecraft.world.item.ItemStack;
 
+/**
+ * Combines a {@link ElytraItem} and a {@link ArmorItem} with {@link EquipmentSlot#CHEST}
+ * 
+ * @author Luis-st
+ */
+
 public class ElytraChestplateItem extends ArmorItem {
 
 	public static final Map<ElytraChestplateItem, Integer> ELYTRA_DAMAGE_VALUES = Maps.newHashMap();
@@ -23,11 +29,19 @@ public class ElytraChestplateItem extends ArmorItem {
 		super(armorMaterial, EquipmentSlot.CHEST, properties);
 	}
 	
+	/**
+	 * Call the vanila logic for the {@link ElytraItem},<br>
+	 * since we want the same logic
+	 */
 	@Override
 	public boolean canElytraFly(ItemStack stack, LivingEntity entity) {
 		return ElytraItem.isFlyEnabled(stack);
 	}
 	
+	/**
+	 * Damage the {@link ElytraChestplateItem},<br> 
+	 * depends on the value which is registered in {@link ElytraChestplateItem#ELYTRA_DAMAGE_VALUES}
+	 */
 	@Override
 	public boolean elytraFlightTick(ItemStack stack, LivingEntity entity, int flightTicks) {
 		if (!entity.level.isClientSide && (flightTicks + 1) % ELYTRA_DAMAGE_VALUES.get(stack.getItem()) == 0) {

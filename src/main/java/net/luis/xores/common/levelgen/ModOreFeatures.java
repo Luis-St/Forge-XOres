@@ -16,6 +16,13 @@ import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguratio
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 
+/**
+ * Registration class of {@link ConfiguredFeature}
+ * 
+ * @author Luis-st
+ *
+ */
+
 public class ModOreFeatures {
 
 	public static final RuleTest STONE_REPLACEABLES = OreFeatures.STONE_ORE_REPLACEABLES;
@@ -48,6 +55,9 @@ public class ModOreFeatures {
 	public static final ConfiguredFeature<?, ?> ENDERITE_ORE_RARE = register("enderite_ore_rare", Feature.SCATTERED_ORE.configured(new OreConfiguration(ENDERITE_ORE_TARGETS, 1)));
 	public static final ConfiguredFeature<?, ?> ENDERITE_ORE_BURIED = register("enderite_ore_buried", Feature.SCATTERED_ORE.configured(new OreConfiguration(ENDERITE_ORE_TARGETS, 3, 1.0F)));
 	
+	/**
+	 * Register the {@link ConfiguredFeature} via the vanilla registration {@link FeatureUtils#register}
+	 */
 	protected static <FC extends FeatureConfiguration> ConfiguredFeature<FC, ?> register(String name, ConfiguredFeature<FC, ?> configuredFeature) {
 		return FeatureUtils.register(new ResourceLocation(XOres.MOD_ID, name).toString(), configuredFeature);
 	}

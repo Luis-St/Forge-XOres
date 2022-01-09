@@ -16,6 +16,12 @@ import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
 import net.minecraftforge.common.loot.LootModifier;
 import net.minecraftforge.items.ItemHandlerHelper;
 
+/**
+ * 
+ * @author Luis-st
+ *
+ */
+
 public class SmeltingModifier extends LootModifier {
 
 	public SmeltingModifier(LootItemCondition[] lootCondition) {
@@ -31,6 +37,10 @@ public class SmeltingModifier extends LootModifier {
 		return loot;
 	}
 	
+	/**
+	 * @return the smelting {@link ItemStack} for the stack, 
+	 * if there is no {@link ItemStack} it will return the {@link ItemStack} itself
+	 */
 	protected ItemStack smelt(ItemStack stack, LootContext context) {
 		return context.getLevel().getRecipeManager()
 				.getRecipeFor(RecipeType.SMELTING, new SimpleContainer(stack), context.getLevel())

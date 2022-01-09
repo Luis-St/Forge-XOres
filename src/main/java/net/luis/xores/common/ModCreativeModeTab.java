@@ -6,6 +6,12 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
+/**
+ * 
+ * @author Luis-st
+ *
+ */
+
 public class ModCreativeModeTab extends CreativeModeTab {
 
 	protected final Supplier<? extends Item> icon;

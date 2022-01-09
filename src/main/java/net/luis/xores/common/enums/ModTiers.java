@@ -9,6 +9,12 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 
+/**
+ * 
+ * @author Luis-st
+ *
+ */
+
 public enum ModTiers implements Tier {
 	
 	JADE("jade", 190, 5.0F, 5.0F, 2, 28, () -> {

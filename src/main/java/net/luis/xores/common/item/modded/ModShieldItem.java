@@ -9,6 +9,12 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ShieldItem;
 import net.minecraftforge.client.IItemRenderProperties;
 
+/**
+ * 
+ * @author Luis-st
+ *
+ */
+
 public class ModShieldItem extends ShieldItem {
 
 	protected final ResourceLocation location;

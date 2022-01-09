@@ -21,7 +21,7 @@ import net.minecraftforge.registries.RegistryBuilder;
 import net.minecraftforge.registries.RegistryObject;
 
 /**
- * Registration class of MaterialSets for the vanilla {@link MaterialSet}
+ * Registration class of {@link MaterialSet} for the vanilla set
  * 
  * @author Luis-st
  */
