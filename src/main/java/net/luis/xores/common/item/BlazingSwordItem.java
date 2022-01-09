@@ -2,12 +2,12 @@ package net.luis.xores.common.item;
 
 import java.util.Random;
 
-import net.luis.xores.common.item.modded.ModSwordItem;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 
-public class BlazingSwordItem extends ModSwordItem {
+public class BlazingSwordItem extends SwordItem {
 
 	protected static final Random RNG = new Random(System.currentTimeMillis());
 	
