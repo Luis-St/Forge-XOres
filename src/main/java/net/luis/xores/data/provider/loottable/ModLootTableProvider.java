@@ -18,6 +18,12 @@ import net.minecraft.world.level.storage.loot.ValidationContext;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSet;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 
+/**
+ * 
+ * @author Luis-st
+ *
+ */
+
 public class ModLootTableProvider extends LootTableProvider {
 
 	public ModLootTableProvider(DataGenerator generator) {
@@ -31,7 +37,7 @@ public class ModLootTableProvider extends LootTableProvider {
 	
 	@Override
 	protected void validate(Map<ResourceLocation, LootTable> lootTables, ValidationContext validationContext) {
-		
+		// no validation check at the moment
 	}
 	
 	@Override

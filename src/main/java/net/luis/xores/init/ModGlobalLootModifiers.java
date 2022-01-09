@@ -7,6 +7,13 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+/**
+ * 
+ * @author Luis-st
+ *
+ */
+
+// registration class of GlobalLootModifiers
 public class ModGlobalLootModifiers {
 	
 	public static final DeferredRegister<GlobalLootModifierSerializer<?>> LOOT_MODIFIERS = DeferredRegister.create(ForgeRegistries.LOOT_MODIFIER_SERIALIZERS, XOres.MOD_ID);

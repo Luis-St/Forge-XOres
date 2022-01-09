@@ -21,6 +21,12 @@ import net.minecraftforge.client.model.generators.ModelFile.UncheckedModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 
+/**
+ * 
+ * @author Luis-st
+ *
+ */
+
 public class ModItemModelProvider extends ItemModelProvider {
 
 	public ModItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
@@ -28,7 +34,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 	}
 
 	@Override
-	protected void registerModels() {
+	protected void registerModels() { // registration of all ItemModels
 		for (Item item : ModItems.ITEMS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
 			if (item instanceof TieredItem tieredItem) {
 				this.handheldItem(tieredItem);
@@ -46,19 +52,19 @@ public class ModItemModelProvider extends ItemModelProvider {
 		}
 	}
 	
-	public void generatedItem(Item item) {
+	public void generatedItem(Item item) { // default ItemModel
 		ResourceLocation location = item.getRegistryName();
 		ModelFile model = new ExistingModelFile(new ResourceLocation("item/generated"), this.existingFileHelper);
 		this.getBuilder(location.getPath()).parent(model).texture("layer0", new ResourceLocation(XOres.MOD_ID, "item/" + location.getPath()));
 	}
 	
-	public void handheldItem(TieredItem item) {
+	public void handheldItem(TieredItem item) { // default ItemModel for Tools
 		ResourceLocation location = item.getRegistryName();
 		ModelFile model = new ExistingModelFile(new ResourceLocation("item/handheld"), this.existingFileHelper);
 		this.getBuilder(location.getPath()).parent(model).texture("layer0", new ResourceLocation(XOres.MOD_ID, "item/" + location.getPath()));
 	}
 	
-	public void elytraChestplateItem(ElytraChestplateItem item) {
+	public void elytraChestplateItem(ElytraChestplateItem item) { // default ItemModel for ElytraChestplates
 		ResourceLocation location = item.getRegistryName();
 		ModelFile model = new ExistingModelFile(new ResourceLocation("item/generated"), this.existingFileHelper);
 		this.getBuilder(location.getPath()).parent(model).texture("layer0", new ResourceLocation(XOres.MOD_ID, "item/" + location.getPath()))
@@ -68,7 +74,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 		this.getBuilder("broken_" + location.getPath()).parent(model).texture("layer0", new ResourceLocation(XOres.MOD_ID, "item/broken_" + location.getPath()));
 	}
 	
-	public void bowItem(BowItem item) {
+	public void bowItem(BowItem item) { // default ItemModel for Bows 
 		ResourceLocation location = item.getRegistryName();
 		ModelFile model = new ExistingModelFile(new ResourceLocation("item/generated"), this.existingFileHelper);
 		this.getBuilder(location.getPath()).parent(model).texture("layer0", new ResourceLocation(XOres.MOD_ID, "item/" + location.getPath()))
@@ -89,7 +95,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 		}
 	}
 	
-	public void crossbowItem(CrossbowItem item) {
+	public void crossbowItem(CrossbowItem item) { // default ItemModel for Crossbows
 		ResourceLocation location = item.getRegistryName();
 		ModelFile model = new ExistingModelFile(new ResourceLocation("item/generated"), this.existingFileHelper);
 		this.getBuilder(location.getPath()).parent(model).texture("layer0", new ResourceLocation(XOres.MOD_ID, "item/" + location.getPath() + "_standby"))
@@ -116,7 +122,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 		this.getBuilder(location.getPath() + "_firework").parent(this.uncheckedModel(location.getPath())).texture("layer0", new ResourceLocation(XOres.MOD_ID, "item/" + location.getPath() + "_firework"));
 	}
 	
-	public void shieldItem(ShieldItem item) {
+	public void shieldItem(ShieldItem item) { // default ItemModel for Shields
 		ResourceLocation location = item.getRegistryName();
 		ModelFile model = new UncheckedModelFile(new ResourceLocation("builtin/entity"));
 		this.getBuilder(location.getPath()).parent(model).guiLight(GuiLight.FRONT).texture("particle", new ResourceLocation("block/dark_oak_planks"))

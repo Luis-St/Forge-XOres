@@ -23,7 +23,10 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.registries.ForgeRegistryEntry;;
 
+@SuppressWarnings("deprecation")
 public class MaterialSet extends ForgeRegistryEntry<MaterialSet> {
+	
+	// TODO: rework
 	
 	public static final MaterialType MATERIAL = new MaterialType("material");
 	public static final MaterialType MATERIAL_PART = new MaterialType("material_part");

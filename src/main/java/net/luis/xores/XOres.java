@@ -10,20 +10,24 @@ import net.luis.xores.init.ModBlocks;
 import net.luis.xores.init.ModGlobalLootModifiers;
 import net.luis.xores.init.ModItems;
 import net.luis.xores.init.ModMaterialSets;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
+/**
+ * 
+ * @author Luis-st
+ *
+ */
 
 @Mod(XOres.MOD_ID)
 public class XOres {
 	
 	public static final String MOD_ID = "xores";
-	public static final Logger LOGGER = LogManager.getLogger(XOres.class);
+	public static final Logger LOGGER = LogManager.getLogger(XOres.class); // internal Logger, create your own Logger
 	
-	public static final ModCreativeModeTab XORES_TAB = new ModCreativeModeTab("xores", new ItemStack(Items.AIR));
+	// Creative Mode Tab for Mod stuff
+	public static final ModCreativeModeTab XORES_TAB = new ModCreativeModeTab("xores", ModItems.LIMONITE_PICKAXE);
 	
 	public XOres() {
 		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();

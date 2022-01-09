@@ -11,11 +11,18 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;;
 
+/**
+ * 
+ * @author Luis-st
+ *
+ */
+
 @EventBusSubscriber(modid = XOres.MOD_ID, bus = Bus.MOD, value = Dist.CLIENT)
 public class OnEntityRenderersEvent {
 	
 	@SubscribeEvent
 	public static void addLayers(EntityRenderersEvent.AddLayers event) {
+		// registration of the ElytraChestplate layers
 		for (String skin : event.getSkins()) {
 			PlayerRenderer playerRenderer = event.getSkin(skin);
 			playerRenderer.addLayer(new ModElytraLayer<>(playerRenderer, event.getEntityModels(), ModItems.DIAMOND_ELYTRA_CHESTPLATE.get(), new ResourceLocation(XOres.MOD_ID, "textures/entity/diamond_elytra.png")));

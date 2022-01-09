@@ -17,6 +17,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 
+@Deprecated
 public class ArmorSet {
 	
 	public static final ArmorSet EMPTY = new ArmorSet.Builder().build();

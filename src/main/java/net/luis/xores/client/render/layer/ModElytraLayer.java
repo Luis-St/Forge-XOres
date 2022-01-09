@@ -9,6 +9,12 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
+/**
+ * 
+ * @author Luis-st
+ *
+ */
+
 public class ModElytraLayer<T extends LivingEntity, M extends EntityModel<T>> extends ElytraLayer<T, M> {
 
 	protected final Item elytraItem;

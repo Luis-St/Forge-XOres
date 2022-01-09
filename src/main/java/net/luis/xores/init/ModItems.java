@@ -24,10 +24,18 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+/**
+ * 
+ * @author Luis-st
+ *
+ */
+
+// registration class of Items
 public class ModItems {
 	
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, XOres.MOD_ID);
 	
+	// Vanilla additions
 	public static final RegistryObject<ShieldItem> GOLDEN_SHIELD = ITEMS.register("golden_shield", () -> {
 		return new ModShieldItem(new Item.Properties().tab(XOres.XORES_TAB).defaultDurability(180), new ResourceLocation(XOres.MOD_ID, "textures/entity/golden_shield.png"));
 	});
@@ -56,6 +64,7 @@ public class ModItems {
 		return new CrossbowItem(new Item.Properties().tab(XOres.XORES_TAB).defaultDurability(714));
 	});
 	
+	// Jade
 	public static final RegistryObject<Item> JADE_INGOT = ITEMS.register("jade_ingot", () -> {
 		return new Item(new Item.Properties().tab(XOres.XORES_TAB));
 	});
@@ -87,6 +96,7 @@ public class ModItems {
 		return new ArmorItem(ModArmorMaterials.JADE, EquipmentSlot.FEET, new Item.Properties().tab(XOres.XORES_TAB));
 	});
 	
+	// Blazing
 	public static final RegistryObject<Item> BLAZING_INGOT = ITEMS.register("blazing_ingot", () -> {
 		return new Item(new Item.Properties().tab(XOres.XORES_TAB));
 	});
@@ -118,6 +128,7 @@ public class ModItems {
 		return new ArmorItem(ModArmorMaterials.BLAZING, EquipmentSlot.FEET, new Item.Properties().tab(XOres.XORES_TAB));
 	});
 	
+	// Saphire
 	public static final RegistryObject<Item> SAPHIRE_INGOT = ITEMS.register("saphire_ingot", () -> {
 		return new Item(new Item.Properties().tab(XOres.XORES_TAB));
 	});
@@ -152,6 +163,7 @@ public class ModItems {
 		return new ArmorItem(ModArmorMaterials.SAPHIRE, EquipmentSlot.FEET, new Item.Properties().tab(XOres.XORES_TAB));
 	});
 	
+	// Limonite
 	public static final RegistryObject<Item> LIMONITE_INGOT = ITEMS.register("limonite_ingot", () -> {
 		return new Item(new Item.Properties().tab(XOres.XORES_TAB));
 	});
@@ -183,6 +195,7 @@ public class ModItems {
 		return new ArmorItem(ModArmorMaterials.LIMONITE, EquipmentSlot.FEET, new Item.Properties().tab(XOres.XORES_TAB));
 	});
 	
+	// Rosite
 	public static final RegistryObject<Item> ROSITE_INGOT = ITEMS.register("rosite_ingot", () -> {
 		return new Item(new Item.Properties().tab(XOres.XORES_TAB));
 	});
@@ -202,6 +215,7 @@ public class ModItems {
 		return new HoeItem(ModTiers.ROSITE, -11, 0.0F, new Item.Properties().tab(XOres.XORES_TAB));
 	});
 	
+	// Rose Quartz
 	public static final RegistryObject<Item> ROSE_QUARTZ = ITEMS.register("rose_quartz", () -> {
 		return new Item(new Item.Properties().tab(XOres.XORES_TAB));
 	});
@@ -224,6 +238,7 @@ public class ModItems {
 		return new HoeItem(ModTiers.ROSE_QUARTZ, -12, 0.0F, new Item.Properties().tab(XOres.XORES_TAB));
 	});
 	
+	// Enderite
 	public static final RegistryObject<Item> ENDERITE_SCRAP = ITEMS.register("enderite_scrap", () -> {
 		return new Item(new Item.Properties().tab(XOres.XORES_TAB));
 	});
@@ -270,6 +285,7 @@ public class ModItems {
 		return new ArmorItem(ModArmorMaterials.ENDERITE, EquipmentSlot.FEET, new Item.Properties().tab(XOres.XORES_TAB));
 	});
 
+	// Steel
 	public static final RegistryObject<Item> STEEL_INGOT = ITEMS.register("steel_ingot", () -> {
 		return new Item(new Item.Properties().tab(XOres.XORES_TAB));
 	});
@@ -289,6 +305,7 @@ public class ModItems {
 		return new HoeItem(ModTiers.STEEL, -5, 0.0F, new Item.Properties().tab(XOres.XORES_TAB));
 	});
 	
+	// Night
 	public static final RegistryObject<Item> NIGHT_SCRAP = ITEMS.register("night_scrap", () -> {
 		return new Item(new Item.Properties().tab(XOres.XORES_TAB));
 	});

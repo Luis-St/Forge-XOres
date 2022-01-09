@@ -1,20 +1,23 @@
 package net.luis.xores.common;
 
+import java.util.function.Supplier;
+
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
 public class ModCreativeModeTab extends CreativeModeTab {
 
-	protected final ItemStack icon;
+	protected final Supplier<? extends Item> icon;
 	
-	public ModCreativeModeTab(String name, ItemStack icon) {
+	public ModCreativeModeTab(String name, Supplier<? extends Item> icon) {
 		super(name);
 		this.icon = icon;
 	}
 
 	@Override
 	public ItemStack makeIcon() {
-		return this.icon;
+		return new ItemStack(this.icon.get());
 	}
 	
 }

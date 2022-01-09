@@ -37,6 +37,12 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 
+/**
+ * 
+ * @author Luis-st
+ *
+ */
+
 public class ModBlockTagsProvider extends BlockTagsProvider {
 
 	public ModBlockTagsProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
@@ -44,7 +50,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
 	}
 	
 	@Override
-	protected void addTags() {
+	protected void addTags() { // registration of all BlockTags
 		this.tag(ModTags.Blocks.NEEDS_TOOL_LEVEL_1).addTag(BlockTags.NEEDS_STONE_TOOL).add(JADE_ORE.get(), DEEPSLATE_JADE_ORE.get(), JADE_BLOCK.get());
 		this.tag(ModTags.Blocks.NEEDS_TOOL_LEVEL_2).addTag(BlockTags.NEEDS_IRON_TOOL).add(SAPHIRE_ORE.get(), DEEPSLATE_SAPHIRE_ORE.get(), SAPHIRE_BLOCK.get(), LIMONITE_BLOCK.get(), ROSITE_BLOCK.get());
 		this.tag(ModTags.Blocks.NEEDS_TOOL_LEVEL_3).addTag(BlockTags.NEEDS_DIAMOND_TOOL).add(LIMONITE_ORE.get(), DEEPSLATE_LIMONITE_ORE.get(), ROSITE_ORE.get(), DEEPSLATE_ROSITE_ORE.get(), ENDERITE_BLOCK.get());

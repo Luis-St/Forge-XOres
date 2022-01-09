@@ -18,6 +18,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ShieldItem;
 import net.minecraft.world.item.SwordItem;
 
+@Deprecated
 public class WeaponSet {
 	
 	public static final WeaponSet EMPTY = new WeaponSet.Builder().build();

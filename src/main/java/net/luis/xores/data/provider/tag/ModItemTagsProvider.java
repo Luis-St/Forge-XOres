@@ -97,6 +97,12 @@ import net.minecraft.world.item.TieredItem;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
+/**
+ * 
+ * @author Luis-st
+ *
+ */
+
 public class ModItemTagsProvider extends ItemTagsProvider {
 
 	public ModItemTagsProvider(DataGenerator generator, BlockTagsProvider blockTagsProvider, ExistingFileHelper existingFileHelper) {
@@ -105,7 +111,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 	
 	@SuppressWarnings("deprecation")
 	@Override
-	protected void addTags() {
+	protected void addTags() { // registration of all ItemTags
 		this.copy(ModTags.Blocks.JADE_ORES, ModTags.Items.JADE_ORES);
 		this.copy(ModTags.Blocks.SAPHIRE_ORES, ModTags.Items.SAPHIRE_ORES);
 		this.copy(ModTags.Blocks.LIMONITE_ORES, ModTags.Items.LIMONITE_ORES);
@@ -202,7 +208,6 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 		}
 		
 		this.tag(ModTags.Items.SCRAPS).add(Items.NETHERITE_SCRAP).add(ENDERITE_SCRAP.get()).add(NIGHT_SCRAP.get());
-		this.tag(ModTags.Items.SHARDS).add(Items.AMETHYST_SHARD);
 		
 		TagAppender<Item> toolLevel0 = this.tag(ModTags.Items.TOOL_LEVEL_0);
 		TagAppender<Item> toolLevel1 = this.tag(ModTags.Items.TOOL_LEVEL_1);

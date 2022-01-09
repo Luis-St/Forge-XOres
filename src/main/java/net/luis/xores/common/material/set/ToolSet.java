@@ -19,6 +19,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.ShovelItem;
 
+@Deprecated
 public class ToolSet {
 	
 	public static final ToolSet EMPTY = new ToolSet.Builder().build();

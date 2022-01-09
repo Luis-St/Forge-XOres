@@ -11,12 +11,22 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 
+/**
+ * 
+ * @author Luis-st
+ *
+ */
+
 @Mixin(ItemStack.class)
 public abstract class ItemStackMixin {
 	
 	@Shadow
 	public abstract Item getItem();
 	
+	/**
+	 * cancel the vanilla/forge behavior of {@link ItemStack#isCorrectToolForDrops},
+	 * we handel these hardcoded in {@link ToolFixer}
+	 */
 	@Inject(method = "isCorrectToolForDrops", at = @At("HEAD"), cancellable = true)
 	public void isCorrectToolForDrops(BlockState state, CallbackInfoReturnable<Boolean> info) {
 		ToolFixer toolFixer = ToolFixer.INSTANCE;

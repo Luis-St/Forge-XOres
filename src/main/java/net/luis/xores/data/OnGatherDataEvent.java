@@ -6,8 +6,16 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 
+/**
+ * 
+ * @author Luis-st
+ *
+ */
+
 @EventBusSubscriber(modid = XOres.MOD_ID, bus = Bus.MOD)
 public class OnGatherDataEvent {
+	
+	// out commented, since it's no longer needed
 	
 	@SubscribeEvent
 	public static void gatherData(GatherDataEvent event) {

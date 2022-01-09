@@ -11,6 +11,12 @@ import net.minecraft.world.item.ArmorItem;
 import net.minecraftforge.client.gui.ForgeIngameGui;
 import net.minecraftforge.client.gui.IIngameOverlay;
 
+/**
+ * 
+ * @author Luis-st
+ *
+ */
+
 public class ModArmorOverlay implements IIngameOverlay {
 	
 	public static final List<ArmorItem> VANILLA_ARMOR_ITEMS = Lists.newArrayList();
@@ -29,8 +35,8 @@ public class ModArmorOverlay implements IIngameOverlay {
 		}
 	}
 	
-	@SuppressWarnings("resource")
-	protected void renderArmor(ForgeIngameGui gui, PoseStack poseStack, float partialTicks, int width, int height) {
+	@SuppressWarnings("resource") // required by Eclipse
+	protected void renderArmor(ForgeIngameGui gui, PoseStack poseStack, float partialTicks, int width, int height) { // render a Armorbar extension from a ArmorValue of 21 until 40 
 		RenderSystem.enableBlend();
 		int left = width / 2 - 91;
 		int top = height - gui.left_height;

@@ -10,6 +10,12 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraftforge.common.data.GlobalLootModifierProvider;
 
+/**
+ * 
+ * @author Luis-st
+ *
+ */
+
 public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {
 
 	public ModGlobalLootModifierProvider(DataGenerator generator) {

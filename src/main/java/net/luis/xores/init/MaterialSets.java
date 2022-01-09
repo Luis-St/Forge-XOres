@@ -20,6 +20,14 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryBuilder;
 import net.minecraftforge.registries.RegistryObject;
 
+/**
+ * 
+ * @author Luis-st
+ *
+ */
+
+// registration class of MaterialSets for the vanilla Sets
+@SuppressWarnings("deprecation") // since WeaponSet, ToolSet and ArmorSet are marked as deprecated
 public class MaterialSets {
 	
 	public static final DeferredRegister<MaterialSet> MATERIALS = DeferredRegister.create(MaterialSet.class, "minecraft");

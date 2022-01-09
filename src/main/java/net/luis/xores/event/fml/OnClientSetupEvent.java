@@ -24,13 +24,19 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.registries.RegistryObject;
 
+/**
+ * 
+ * @author Luis-st
+ *
+ */
+
 @EventBusSubscriber(modid = XOres.MOD_ID, bus = Bus.MOD, value = Dist.CLIENT)
 public class OnClientSetupEvent {
 	
 	@SubscribeEvent
 	public static void clientSetup(FMLClientSetupEvent event) {
-		OverlayRegistry.registerOverlayAbove(ForgeIngameGui.ARMOR_LEVEL_ELEMENT, "Armor Bar", new ModArmorOverlay(Minecraft.getInstance()));
-		event.enqueueWork(() -> {
+		OverlayRegistry.registerOverlayAbove(ForgeIngameGui.ARMOR_LEVEL_ELEMENT, "Armor Bar", new ModArmorOverlay(Minecraft.getInstance())); // register the ArmorBar extension
+		event.enqueueWork(() -> { // registration of Item Properties
 			for (Item item : ModItems.ITEMS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
 				if (item instanceof BowItem bowItem) {
 					registerBow(bowItem);
@@ -39,7 +45,7 @@ public class OnClientSetupEvent {
 				} else if (item instanceof ShieldItem shieldItem) {
 					registerShield(shieldItem);	
 				} else if (item instanceof ElytraChestplateItem elytraChestplateItem) {
-					registerElytra(elytraChestplateItem);
+					registerElytraChestplate(elytraChestplateItem);
 				}
 			}
 		});
@@ -83,7 +89,7 @@ public class OnClientSetupEvent {
 		});
 	}
 	
-	protected static void registerElytra(ElytraChestplateItem elytraChestplateItem) {
+	protected static void registerElytraChestplate(ElytraChestplateItem elytraChestplateItem) {
 		ItemProperties.register(elytraChestplateItem, new ResourceLocation(XOres.MOD_ID, "broken"), (stack, level, livingEntity, seed) -> {
 			return ElytraItem.isFlyEnabled(stack) ? 0.0F : 1.0F;
 		});

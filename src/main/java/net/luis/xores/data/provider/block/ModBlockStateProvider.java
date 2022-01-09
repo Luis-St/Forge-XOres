@@ -14,6 +14,12 @@ import net.minecraftforge.client.model.generators.ModelFile.ExistingModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 
+/**
+ * 
+ * @author Luis-st
+ *
+ */
+
 public class ModBlockStateProvider extends BlockStateProvider {
 
 	protected final ExistingFileHelper existingFileHelper;
@@ -24,7 +30,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 	}
 
 	@Override
-	protected void registerStatesAndModels() {
+	protected void registerStatesAndModels() { // registration of all BlockStates, BlockModels and ItemModels
 		for (Block block : ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
 			if (block == ModBlocks.ENDERITE_ORE.get()) {
 				this.columnBlock(block);

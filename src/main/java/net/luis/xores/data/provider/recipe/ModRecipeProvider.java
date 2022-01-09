@@ -27,6 +27,13 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.registries.RegistryObject;
 
+/**
+ * 
+ * @author Luis-st
+ *
+ */
+
+@SuppressWarnings("deprecation") // since WeaponSet, ToolSet and ArmorSet are marked as deprecated
 public class ModRecipeProvider extends RecipeProvider {
 
 	public ModRecipeProvider(DataGenerator generator) {
@@ -34,7 +41,7 @@ public class ModRecipeProvider extends RecipeProvider {
 	}
 	
 	@Override
-	protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+	protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) { // registration of all Recipes
 		for (MaterialSet set : ModMaterialSets.MATERIALS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
 			this.materialSetRecipes(consumer, set);
 		}
@@ -69,12 +76,12 @@ public class ModRecipeProvider extends RecipeProvider {
 		ShapelessRecipeBuilder.shapeless(ModItems.NIGHT_SCRAP.get()).group(getGroup(nightIngot)).requires(ModItems.STEEL_INGOT.get(), 2).requires(netheriteIngot, 2).unlockedBy("has_" + getId(netheriteIngot), has(netheriteIngot)).save(consumer);
 	}
 	
-	protected void vanillaMaterialSetRecipes(Consumer<FinishedRecipe> consumer, MaterialSet set) {
+	protected void vanillaMaterialSetRecipes(Consumer<FinishedRecipe> consumer, MaterialSet set) { // register the Recipes for a vanilla MaterialSet
 		this.shieldRecipe(consumer, set);
 		this.elytraChestplateRecipe(consumer, set);
 	}
 	
-	protected void materialSetRecipes(Consumer<FinishedRecipe> consumer, MaterialSet set) {
+	protected void materialSetRecipes(Consumer<FinishedRecipe> consumer, MaterialSet set) { // register the Recipes for a MaterialSet
 		this.oreMaterialRecipes(consumer, set);
 		this.materialBlockRecipes(consumer, set);
 		this.swordRecipe(consumer, set);
@@ -90,7 +97,7 @@ public class ModRecipeProvider extends RecipeProvider {
 		this.bootsRecipe(consumer, set);
 	}
 	
-	protected void oreMaterialRecipes(Consumer<FinishedRecipe> consumer, MaterialSet set) {
+	protected void oreMaterialRecipes(Consumer<FinishedRecipe> consumer, MaterialSet set) { // register recipes for Item & ItemPart such as Ore and DeepslateOre
 		set.ifPresent(MaterialSet.ORE, Material::itemOrThrow, (ore) -> {
 			if (set.has(MaterialSet.MATERIAL_PART)) {
 				Item materialPart = set.get(MaterialSet.MATERIAL_PART).itemOrThrow();
@@ -115,14 +122,14 @@ public class ModRecipeProvider extends RecipeProvider {
 		});
 	}
 	
-	protected void materialBlockRecipes(Consumer<FinishedRecipe> consumer, MaterialSet set) {
+	protected void materialBlockRecipes(Consumer<FinishedRecipe> consumer, MaterialSet set) { // register recipes for Item & Block
 		set.ifPresent(MaterialSet.MATERIAL, MaterialSet.BLOCK, Material::itemOrThrow, (item, block) -> {
 			ShapelessRecipeBuilder.shapeless(block).group(getGroup(item)).unlockedBy("has_" + getId(item), has(item)).requires(item, 9).save(consumer);
 			ShapelessRecipeBuilder.shapeless(item, 9).group(getGroup(item)).unlockedBy("has_" + getId(block), has(block)).requires(block).save(consumer);
 		});
 	}
 	
-	protected void swordRecipe(Consumer<FinishedRecipe> consumer, MaterialSet set) {
+	protected void swordRecipe(Consumer<FinishedRecipe> consumer, MaterialSet set) { // register recipe for Swords
 		set.getWeaponSet().ifPresent(WeaponSet.SWORD, (sword) -> {
 			if (set.has(MaterialSet.UPGRADE_MATERIAL) && set.getWeaponSet().has(WeaponSet.SWORD) && set.getUpgradeMaterialSet().getWeaponSet().has(WeaponSet.SWORD)) {
 				Item upgradeItem = set.get(MaterialSet.UPGRADE_MATERIAL).itemOrThrow();
@@ -140,7 +147,7 @@ public class ModRecipeProvider extends RecipeProvider {
 		});
 	}
 	
-	protected void shieldRecipe(Consumer<FinishedRecipe> consumer, MaterialSet set) {
+	protected void shieldRecipe(Consumer<FinishedRecipe> consumer, MaterialSet set) { // register recipe for Shields
 		set.getWeaponSet().ifPresent(WeaponSet.SHIELD, (shield) -> {
 			if (set.has(MaterialSet.UPGRADE_MATERIAL) && set.getWeaponSet().has(WeaponSet.SHIELD) && set.getUpgradeMaterialSet().getWeaponSet().has(WeaponSet.SHIELD)) {
 				Item upgradeItem = set.get(MaterialSet.UPGRADE_MATERIAL).itemOrThrow();
@@ -158,7 +165,7 @@ public class ModRecipeProvider extends RecipeProvider {
 		});
 	}
 	
-	protected void pickaxeRecipe(Consumer<FinishedRecipe> consumer, MaterialSet set) {
+	protected void pickaxeRecipe(Consumer<FinishedRecipe> consumer, MaterialSet set) { // register recipe for Pickaxes
 		set.getToolSet().ifPresent(ToolSet.PICKAXE, (pickaxe) -> {
 			if (set.has(MaterialSet.UPGRADE_MATERIAL) && set.getToolSet().has(ToolSet.PICKAXE) && set.getUpgradeMaterialSet().getToolSet().has(ToolSet.PICKAXE)) {
 				Item upgradeItem = set.get(MaterialSet.UPGRADE_MATERIAL).itemOrThrow();
@@ -176,7 +183,7 @@ public class ModRecipeProvider extends RecipeProvider {
 		});
 	}
 	
-	protected void axeRecipe(Consumer<FinishedRecipe> consumer, MaterialSet set) {
+	protected void axeRecipe(Consumer<FinishedRecipe> consumer, MaterialSet set) { // register recipe for Axes
 		set.getToolSet().ifPresent(ToolSet.AXE, (axe) -> {
 			if (set.has(MaterialSet.UPGRADE_MATERIAL) && set.getToolSet().has(ToolSet.AXE) && set.getUpgradeMaterialSet().getToolSet().has(ToolSet.AXE)) {
 				Item upgradeItem = set.get(MaterialSet.UPGRADE_MATERIAL).itemOrThrow();
@@ -192,7 +199,7 @@ public class ModRecipeProvider extends RecipeProvider {
 		});
 	}
 	
-	protected void shovelRecipe(Consumer<FinishedRecipe> consumer, MaterialSet set) {
+	protected void shovelRecipe(Consumer<FinishedRecipe> consumer, MaterialSet set) { // register recipe for Shovels
 		set.getToolSet().ifPresent(ToolSet.SHOVEL, (shovel) -> {
 			if (set.has(MaterialSet.UPGRADE_MATERIAL) && set.getToolSet().has(ToolSet.SHOVEL) && set.getUpgradeMaterialSet().getToolSet().has(ToolSet.SHOVEL)) {
 				Item upgradeItem = set.get(MaterialSet.UPGRADE_MATERIAL).itemOrThrow();
@@ -208,7 +215,7 @@ public class ModRecipeProvider extends RecipeProvider {
 		});
 	}
 	
-	protected void hoeRecipe(Consumer<FinishedRecipe> consumer, MaterialSet set) {
+	protected void hoeRecipe(Consumer<FinishedRecipe> consumer, MaterialSet set) { // register recipe for Hoes
 		set.getToolSet().ifPresent(ToolSet.HOE, (hoe) -> {
 			if (set.has(MaterialSet.UPGRADE_MATERIAL) && set.getToolSet().has(ToolSet.HOE) && set.getUpgradeMaterialSet().getToolSet().has(ToolSet.HOE)) {
 				Item upgradeItem = set.get(MaterialSet.UPGRADE_MATERIAL).itemOrThrow();
@@ -224,7 +231,7 @@ public class ModRecipeProvider extends RecipeProvider {
 		});
 	}
 	
-	protected void helmetRecipe(Consumer<FinishedRecipe> consumer, MaterialSet set) {
+	protected void helmetRecipe(Consumer<FinishedRecipe> consumer, MaterialSet set) { // register recipe for Helmets
 		set.getArmorSet().ifPresent(ArmorSet.HELMET, (helmet) -> {
 			if (set.has(MaterialSet.UPGRADE_MATERIAL) && set.getArmorSet().has(ArmorSet.HELMET) && set.getUpgradeMaterialSet().getArmorSet().has(ArmorSet.HELMET)) {
 				Item upgradeItem = set.get(MaterialSet.UPGRADE_MATERIAL).itemOrThrow();
@@ -240,7 +247,7 @@ public class ModRecipeProvider extends RecipeProvider {
 		});
 	}
 	
-	protected void chestplateRecipe(Consumer<FinishedRecipe> consumer, MaterialSet set) {
+	protected void chestplateRecipe(Consumer<FinishedRecipe> consumer, MaterialSet set) { // register recipe for Chestplates
 		set.getArmorSet().ifPresent(ArmorSet.CHESTPLATE, (chestplate) -> {
 			if (set.has(MaterialSet.UPGRADE_MATERIAL) && set.getArmorSet().has(ArmorSet.CHESTPLATE) && set.getUpgradeMaterialSet().getArmorSet().has(ArmorSet.CHESTPLATE)) { // TODO: check conditions
 				Item upgradeItem = set.get(MaterialSet.UPGRADE_MATERIAL).itemOrThrow();
@@ -256,7 +263,7 @@ public class ModRecipeProvider extends RecipeProvider {
 		});
 	}
 	
-	protected void elytraChestplateRecipe(Consumer<FinishedRecipe> consumer, MaterialSet set) {
+	protected void elytraChestplateRecipe(Consumer<FinishedRecipe> consumer, MaterialSet set) { // register recipe for ElytraChestplates
 		set.getArmorSet().ifPresent(ArmorSet.CHESTPLATE, ArmorSet.ELYTRA_CHESTPLATE, (chestplate, elytraChestplate) -> {
 			if (set.has(MaterialSet.UPGRADE_MATERIAL) && set.getArmorSet().has(ArmorSet.ELYTRA_CHESTPLATE) && set.getUpgradeMaterialSet().getArmorSet().has(ArmorSet.ELYTRA_CHESTPLATE)) {
 				Item upgradeItem = set.get(MaterialSet.UPGRADE_MATERIAL).itemOrThrow();
@@ -272,7 +279,7 @@ public class ModRecipeProvider extends RecipeProvider {
 		});
 	}
 	
-	protected void leggingsRecipe(Consumer<FinishedRecipe> consumer, MaterialSet set) {
+	protected void leggingsRecipe(Consumer<FinishedRecipe> consumer, MaterialSet set) { // register recipe for Leggings
 		set.getArmorSet().ifPresent(ArmorSet.LEGGINGS, (leggings) -> {
 			if (set.has(MaterialSet.UPGRADE_MATERIAL) && set.getArmorSet().has(ArmorSet.LEGGINGS) && set.getUpgradeMaterialSet().getArmorSet().has(ArmorSet.LEGGINGS)) {
 				Item upgradeItem = set.get(MaterialSet.UPGRADE_MATERIAL).itemOrThrow();
@@ -288,7 +295,7 @@ public class ModRecipeProvider extends RecipeProvider {
 		});
 	}
 	
-	protected void bootsRecipe(Consumer<FinishedRecipe> consumer, MaterialSet set) {
+	protected void bootsRecipe(Consumer<FinishedRecipe> consumer, MaterialSet set) { // register recipe for Boots
 		set.getArmorSet().ifPresent(ArmorSet.BOOTS, (boots) -> {
 			if (set.has(MaterialSet.UPGRADE_MATERIAL) && set.getArmorSet().has(ArmorSet.BOOTS) && set.getUpgradeMaterialSet().getArmorSet().has(ArmorSet.BOOTS)) {
 				Item upgradeItem = set.get(MaterialSet.UPGRADE_MATERIAL).itemOrThrow();

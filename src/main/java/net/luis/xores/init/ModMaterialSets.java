@@ -8,6 +8,14 @@ import net.luis.xores.common.material.set.WeaponSet;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
+/**
+ * 
+ * @author Luis-st
+ *
+ */
+
+// registration class of MaterialSets
+@SuppressWarnings("deprecation") // since WeaponSet, ToolSet and ArmorSet are marked as deprecated
 public class ModMaterialSets {
 	
 	public static final DeferredRegister<MaterialSet> MATERIALS = DeferredRegister.create(MaterialSet.class, XOres.MOD_ID);

@@ -13,13 +13,25 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TieredItem;
 
+/**
+ * 
+ * @author Luis-st
+ *
+ */
+
 @Mixin(DiggerItem.class)
 public abstract class DiggerItemMixin extends TieredItem {
 	
-	DiggerItemMixin(Tier p_43308_, Properties p_43309_) {
-		super(p_43308_, p_43309_);
+	@Deprecated // since this constructor should never be called
+	DiggerItemMixin(Tier tier, Properties properties) {
+		super(tier, properties);
+		throw new UnsupportedOperationException();
 	}
 	
+	/**
+	 * changes the behavior of {@link AxeItem} when the Item is used as a weapon
+	 * the damage value in this case is only increased by 1 instead of 2
+	 */
 	@Inject(method = "hurtEnemy", at = @At("HEAD"), cancellable = true)
 	public void hurtEnemy(ItemStack stack, LivingEntity targetEntity, LivingEntity attackerEntity, CallbackInfoReturnable<Boolean> info) {
 		if (this.asItem() instanceof AxeItem) {

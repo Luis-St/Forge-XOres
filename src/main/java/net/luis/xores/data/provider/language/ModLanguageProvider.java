@@ -12,6 +12,12 @@ import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.LanguageProvider;
 import net.minecraftforge.registries.RegistryObject;
 
+/**
+ * 
+ * @author Luis-st
+ *
+ */
+
 public class ModLanguageProvider extends LanguageProvider {
 
 	public ModLanguageProvider(DataGenerator generator) {
@@ -19,7 +25,7 @@ public class ModLanguageProvider extends LanguageProvider {
 	}
 
 	@Override
-	protected void addTranslations() {
+	protected void addTranslations() { // registration of all Blocks and Items to get the Translations
 		for (Block block : ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
 			this.add(block, getName(block.getRegistryName()));
 		}
@@ -29,7 +35,13 @@ public class ModLanguageProvider extends LanguageProvider {
 		this.add(XOres.XORES_TAB.getDisplayName().getString(), "XOres");
 	}
 	
-	public static String getName(ResourceLocation location) {
+	/**
+	 * 
+	 * @param location
+	 * @return the name of the {@link ResourceLocation},
+	 * @example for the {@link ResourceLocation} "minecraft:iron_ingot" -> "Iron Ingot"
+	 */
+	protected String getName(ResourceLocation location) { 
 		String[] nameParts = location.getPath().split("_");
 		String name = "";
 		for (String namePart : nameParts) {
