@@ -1,120 +1,98 @@
 package net.luis.xores.common.material;
 
 import java.util.List;
-import java.util.Objects;
+import java.util.Map;
 import java.util.Optional;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Function;
-import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 import javax.annotation.Nullable;
 
 import org.apache.logging.log4j.util.TriConsumer;
 
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 
-import net.luis.xores.XOres;
-import net.luis.xores.common.material.set.ArmorSet;
-import net.luis.xores.common.material.set.ToolSet;
-import net.luis.xores.common.material.set.WeaponSet;
 import net.minecraft.tags.Tag.Named;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraftforge.registries.ForgeRegistryEntry;;
 
-@SuppressWarnings("deprecation")
 public class MaterialSet extends ForgeRegistryEntry<MaterialSet> {
-	
-	// TODO: rework
-	
-	public static final MaterialType MATERIAL = new MaterialType("material");
-	public static final MaterialType MATERIAL_PART = new MaterialType("material_part");
-	public static final MaterialType ORE = new MaterialType("ore");
-	public static final MaterialType DEEPSLATE_ORE = new MaterialType("deepslate_ore");
-	public static final MaterialType BLOCK = new MaterialType("block");
-	public static final MaterialType UPGRADE_MATERIAL = new MaterialType("upgrade_material");
-	
-	protected final Material material;
-	protected final Optional<Material> materialPart;
-	protected final Optional<Material> ore;
-	protected final Optional<Material> deepslateOre;
-	protected final Optional<Material> block;
-	protected final Optional<Material> upgradeMaterial;
-	protected final Optional<Supplier<MaterialSet>> upgradeMaterialSet;
-	protected final WeaponSet weaponSet;
-	protected final ToolSet toolSet;
-	protected final ArmorSet armorSet;
-	
-	MaterialSet(Material material, Optional<Material> materialPart, Optional<Material> ore, Optional<Material> deepslateOre, Optional<Material> block, Optional<Material> upgradeMaterial, 
-			Optional<Supplier<MaterialSet>> upgradeMaterialSet, WeaponSet weaponSet, ToolSet toolSet, ArmorSet armorSet) {
-		this.material = Objects.requireNonNull(material, "The Material in a MaterialSet can not be null, use a Material with Items.Air instead");
-		this.materialPart = materialPart;
-		this.ore = ore;
-		this.deepslateOre = deepslateOre;
-		this.block = block;
-		this.upgradeMaterial = upgradeMaterial;
-		this.upgradeMaterialSet = upgradeMaterialSet;
-		this.weaponSet = weaponSet;
-		this.toolSet = toolSet;
-		this.armorSet = armorSet;
+
+	protected final Map<MaterialType, Material> materialSet;
+	protected final Optional<MaterialSet> upgradeSet;
+
+	MaterialSet(Map<MaterialType, Material> materialSet, Optional<MaterialSet> upgradeSet) {
+		this.materialSet = materialSet;
+		this.upgradeSet = upgradeSet;
 	}
-	
-	public static MaterialSet.Builder ofItem(Item item) {
-		return new MaterialSet.Builder(Material.item(item));
+
+	public static MaterialSet.Builder of() {
+		return new MaterialSet.Builder();
 	}
-	
-	public static MaterialSet.Builder ofTag(Named<Item> tag) {
-		return new MaterialSet.Builder(Material.tag(tag));
-	}
-	
+
 	public List<MaterialType> getTypes() {
-		return Lists.newArrayList(MATERIAL, MATERIAL_PART, ORE, DEEPSLATE_ORE, BLOCK);
+		return MaterialTypes.TYPES;
 	}
-	
+
+	public List<MaterialType> getPresentTypes() {
+		return this.getTypes().stream().filter((type) -> {
+			return this.materialSet.containsKey(type);
+		}).collect(Collectors.toList());
+	}
+
 	public boolean has(MaterialType type) {
-		if (type == MATERIAL) {
-			return this.material != null;
-		} else if (type == MATERIAL_PART) {
-			return this.materialPart.isPresent();
-		} else if (type == ORE) {
-			return this.ore.isPresent();
-		} else if (type == DEEPSLATE_ORE) {
-			return this.deepslateOre.isPresent();
-		} else if (type == BLOCK) {
-			return this.block.isPresent();
-		}else if (type == UPGRADE_MATERIAL) {
-			return this.upgradeMaterial.isPresent() && this.upgradeMaterialSet.isPresent();
-		}
-		return false;
+		return this.materialSet.containsKey(type);
 	}
 	
-	public boolean hasAll() {
+	public boolean hasAll(MaterialType... ignoredTypes) {
+		List<MaterialType> types = Lists.newArrayList(ignoredTypes);
 		for (MaterialType type : this.getTypes()) {
-			if (!this.has(type)) {
+			if (!types.contains(type) && !this.has(type)) {
 				return false;
 			}
 		}
 		return true;
 	}
-	
+
 	@Nullable
 	public Material get(MaterialType type) {
-		if (type == MATERIAL && this.has(type)) {
-			return this.material;
-		} else if (type == MATERIAL_PART && this.has(type)) {
-			return this.materialPart.get();
-		} else if (type == ORE && this.has(type)) {
-			return this.ore.get();
-		} else if (type == DEEPSLATE_ORE && this.has(type)) {
-			return this.deepslateOre.get();
-		} else if (type == BLOCK && this.has(type)) {
-			return this.block.get();
-		} else if (type == UPGRADE_MATERIAL && this.has(type)) {
-			return this.upgradeMaterial.get();
+		return this.materialSet.get(type);
+	}
+	
+	public boolean hasUpgradeSet() {
+		return this.upgradeSet.isPresent();
+	}
+
+	@Nullable
+	protected MaterialSet getUpgradeSet() {
+		return this.upgradeSet.get();
+	}
+	
+	public boolean hasUpgrade(MaterialType type) {
+		if (this.hasUpgradeSet()) {
+			return this.getUpgradeSet().has(type);
+		}
+		return false;
+	}
+	
+	public boolean hasUpgradeAll(MaterialType... ignoredTypes) {
+		if (this.hasUpgradeSet()) {
+			return this.getUpgradeSet().hasAll(ignoredTypes);
+		}
+		return false;
+	}
+	
+	@Nullable
+	public Material getUpgrade(MaterialType type) {
+		if (this.hasUpgradeSet()) {
+			return this.getUpgradeSet().get(type);
 		}
 		return null;
 	}
+
 	
 	@SuppressWarnings("unchecked")
 	public <M extends Material, R> void ifPresent(MaterialType type, Function<M, R> function, Consumer<R> consumer) {
@@ -136,146 +114,103 @@ public class MaterialSet extends ForgeRegistryEntry<MaterialSet> {
 			consumer.accept(function.apply((M) this.get(firstType)), function.apply((M) this.get(secondType)), function.apply((M) this.get(thirdType)));
 		}
 	}
-	
-	public MaterialSet getUpgradeMaterialSet() {
-		return this.upgradeMaterialSet.get().get();
-	}
-	
-	public WeaponSet getWeaponSet() {
-		return this.weaponSet;
-	}
-	
-	public ToolSet getToolSet() {
-		return this.toolSet;
-	}
-	
-	public ArmorSet getArmorSet() {
-		return this.armorSet;
-	}
-	
+
 	public final void valid() {
 		if (this.getRegistryName() == null) {
 			return;
 		}
-		if (this.material.isItem() && this.material.getItem() == Items.AIR) {
-			XOres.LOGGER.warn("The material of the MaterialSet {} is Items.AIR", this.getRegistryName());
-		}
-		boolean flag = upgradeMaterial.isPresent();
-		if (!flag && upgradeMaterialSet.isPresent()) {
-			throw new NullPointerException("No UpgradeMaterial present in MaterialSet " + this.getRegistryName());
-		}
-		if (flag && upgradeMaterialSet.isEmpty()) {
-			throw new NullPointerException("No UpgradeMaterialSet present in MaterialSet " + this.getRegistryName());
-		}
 	}
-	
+
 	public static class Builder {
-		
-		protected final Material material;
-		protected Material materialPart = null;
-		protected Material ore = null;
-		protected Material deepslateOre = null;
-		protected Material block = null;
-		protected Material upgradeMaterial = null;
-		protected Supplier<MaterialSet> upgradeMaterialSet = null;
-		protected WeaponSet weaponSet = WeaponSet.EMPTY;
-		protected ToolSet toolSet = ToolSet.EMPTY;
-		protected ArmorSet armorSet = ArmorSet.EMPTY;
-		
-		Builder(Material material) {
-			this.material = material;
+
+		protected final Map<MaterialType, Material> materialSet;
+		protected MaterialSet upgradeSet = null;
+
+		Builder() {
+			this.materialSet = Maps.newHashMap();
 		}
-		
-		MaterialSet.Builder materialPart(Material materialPart) {
-			this.materialPart = materialPart;
+
+		protected boolean has(MaterialType materialType) {
+			return this.materialSet.get(materialType) != null;
+		}
+
+		public Builder add(Material material) {
+			return this.add(this.getMaterialType(material), material);
+		}
+
+		public Builder add(MaterialType materialType, Material material) {
+			if (materialType == null) {
+				throw new IllegalStateException("MaterialType can not be null");
+			} else if (material == null) {
+				throw new IllegalStateException("Material can not be null");
+			}
+			Material oldMaterial = this.materialSet.putIfAbsent(materialType, material);
+			if (oldMaterial != null) {
+				throw new IllegalStateException("Fail to add " + material + " since the MaterialType " + materialType
+						+ " does already exist (" + oldMaterial + ") in the MaterialSet.Builder");
+			}
 			return this;
 		}
-		
-		public MaterialSet.Builder materialPart(Item materialPart) {
-			return this.materialPart(Material.item(materialPart));
+
+		protected MaterialType getMaterialType(Material material) {
+			if (material.isItem()) {
+				return this.getMaterialTypeByItem(material);
+			} else if (material.isTag()) {
+				return this.getMaterialTypeByTag(material.tagOrThrow());
+			}
+			throw new IllegalStateException("Material can not be empty");
 		}
-		
-		public MaterialSet.Builder materialPart(Named<Item> materialPart) {
-			return this.materialPart(Material.tag(materialPart));
+
+		protected MaterialType getMaterialTypeByItem(Material material) {
+			if (!this.has(MaterialTypes.MATERIAL)) {
+				return MaterialTypes.MATERIAL;
+			} else if (!this.has(MaterialTypes.MATERIAL_PART)) {
+				return MaterialTypes.MATERIAL_PART;
+			} else if (!this.has(MaterialTypes.UPGRADE_MATERIAL)) {
+				return MaterialTypes.UPGRADE_MATERIAL;
+			} else if (!this.has(MaterialTypes.WEAPON_MATERIAL)) {
+				return MaterialTypes.WEAPON_MATERIAL;
+			} else if (!this.has(MaterialTypes.TOOL_MATERIAL)) {
+				return MaterialTypes.TOOL_MATERIAL;
+			} else if (!this.has(MaterialTypes.ARMOR_MATERIAL)) {
+				return MaterialTypes.ARMOR_MATERIAL;
+			} else {
+				for (MaterialType materialType : MaterialTypes.TYPES.stream()
+						.filter(type -> type.getType() != MaterialType.Type.MATERIAL).collect(Collectors.toList())) {
+					if (materialType.test(material) && !this.has(materialType)) {
+						return materialType;
+					}
+				}
+			}
+			return null;
 		}
-		
-		MaterialSet.Builder ore(Material ore) {
-			this.ore = ore;
-			return this;
+
+		protected MaterialType getMaterialTypeByTag(Named<Item> tag) {
+			if (!this.has(MaterialTypes.MATERIAL)) {
+				return MaterialTypes.MATERIAL;
+			} else if (!this.has(MaterialTypes.MATERIAL_PART)) {
+				return MaterialTypes.MATERIAL_PART;
+			} else if (!this.has(MaterialTypes.UPGRADE_MATERIAL)) {
+				return MaterialTypes.UPGRADE_MATERIAL;
+			} else if (!this.has(MaterialTypes.WEAPON_MATERIAL)) {
+				return MaterialTypes.WEAPON_MATERIAL;
+			} else if (!this.has(MaterialTypes.TOOL_MATERIAL)) {
+				return MaterialTypes.TOOL_MATERIAL;
+			} else if (!this.has(MaterialTypes.ARMOR_MATERIAL)) {
+				return MaterialTypes.ARMOR_MATERIAL;
+			}
+			return null;
 		}
-		
-		public MaterialSet.Builder ore(Item ore) {
-			return this.ore(Material.item(ore));
-		}
-		
-		public MaterialSet.Builder ore(Named<Item> ore) {
-			return this.ore(Material.tag(ore));
-		}
-		
-		MaterialSet.Builder deepslateOre(Material deepslateOre) {
-			this.deepslateOre = deepslateOre;
-			return this;
-		}
-		
-		public MaterialSet.Builder deepslateOre(Item deepslateOre) {
-			return this.deepslateOre(Material.item(deepslateOre));
-		}
-		
-		public MaterialSet.Builder deepslateOre(Named<Item> deepslateOre) {
-			return this.deepslateOre(Material.tag(deepslateOre));
-		}
-		
-		MaterialSet.Builder block(Material block) {
-			this.block = block;
-			return this;
-		}
-		
-		public MaterialSet.Builder block(Item block) {
-			return this.block(Material.item(block));
-		}
-		
-		public MaterialSet.Builder block(Named<Item> block) {
-			return this.block(Material.tag(block));
-		}
-		
-		MaterialSet.Builder upgradeMaterial(Material upgradeMaterial) {
-			this.upgradeMaterial = upgradeMaterial;
-			return this;
-		}
-		
-		public MaterialSet.Builder upgradeMaterial(Item upgradeMaterial) {
-			return this.upgradeMaterial(Material.item(upgradeMaterial));
-		}
-		
-		public MaterialSet.Builder upgradeMaterial(Named<Item> upgradeMaterial) {
-			return this.upgradeMaterial(Material.tag(upgradeMaterial));
-		}
-		
-		public MaterialSet.Builder upgradeMaterialSet(Supplier<MaterialSet> upgradeMaterialSet) {
-			this.upgradeMaterialSet = upgradeMaterialSet;
-			return this;
-		}
-		
-		public MaterialSet.Builder weaponSet(WeaponSet.Builder builder) {
-			this.weaponSet = builder.build();
-			return this;
-		}
-		
-		public MaterialSet.Builder toolSet(ToolSet.Builder builder) {
-			this.toolSet = builder.build();
-			return this;
-		}
-		
-		public MaterialSet.Builder armorSet(ArmorSet.Builder builder) {
-			this.armorSet = builder.build();
+
+		public Builder setUpgradeSet(MaterialSet upgradeSet) {
+			this.upgradeSet = upgradeSet;
 			return this;
 		}
 		
 		public MaterialSet build() {
-			return new MaterialSet(this.material, Optional.ofNullable(this.materialPart), Optional.ofNullable(this.ore), Optional.ofNullable(this.deepslateOre), Optional.ofNullable(this.block),Optional.ofNullable(this.upgradeMaterial), 
-					Optional.ofNullable(this.upgradeMaterialSet), this.weaponSet, this.toolSet, this.armorSet);
+			return new MaterialSet(this.materialSet, Optional.ofNullable(this.upgradeSet));
 		}
-		
+
 	}
-	
+
 }

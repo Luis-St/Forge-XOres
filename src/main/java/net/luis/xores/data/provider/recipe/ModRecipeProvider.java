@@ -7,9 +7,7 @@ import net.luis.xores.XOres;
 import net.luis.xores.common.item.ElytraChestplateItem;
 import net.luis.xores.common.material.Material;
 import net.luis.xores.common.material.MaterialSet;
-import net.luis.xores.common.material.set.ArmorSet;
-import net.luis.xores.common.material.set.ToolSet;
-import net.luis.xores.common.material.set.WeaponSet;
+import net.luis.xores.common.material.MaterialTypes;
 import net.luis.xores.init.MaterialSets;
 import net.luis.xores.init.ModItems;
 import net.luis.xores.init.ModMaterialSets;
@@ -42,7 +40,6 @@ import net.minecraftforge.registries.RegistryObject;
  *
  */
 
-@SuppressWarnings("deprecation") // since WeaponSet, ToolSet and ArmorSet are marked as deprecated
 public class ModRecipeProvider extends RecipeProvider {
 
 	public ModRecipeProvider(DataGenerator generator) {
@@ -125,24 +122,24 @@ public class ModRecipeProvider extends RecipeProvider {
 	 * @param set for which the recipes should to be created
 	 */
 	protected void oreMaterialRecipes(Consumer<FinishedRecipe> consumer, MaterialSet set) {
-		set.ifPresent(MaterialSet.ORE, Material::itemOrThrow, (ore) -> {
-			if (set.has(MaterialSet.MATERIAL_PART)) {
-				Item materialPart = set.get(MaterialSet.MATERIAL_PART).itemOrThrow();
+		set.ifPresent(MaterialTypes.ORE, Material::itemOrThrow, (ore) -> {
+			if (set.has(MaterialTypes.MATERIAL_PART)) {
+				Item materialPart = set.get(MaterialTypes.MATERIAL_PART).itemOrThrow();
 				this.smeltingRecipe(consumer, materialPart, ore, 1.0F, getGroup(materialPart), "_from_smelting_" + getId(ore));
 				this.blastingRecipe(consumer, materialPart, ore, 0.75F, getGroup(materialPart), "_from_blasting_" + getId(ore));
-			} else if (set.has(MaterialSet.MATERIAL)) {
-				Item material = set.get(MaterialSet.MATERIAL).itemOrThrow();
+			} else if (set.has(MaterialTypes.MATERIAL)) {
+				Item material = set.get(MaterialTypes.MATERIAL).itemOrThrow();
 				this.smeltingRecipe(consumer, material, ore, 1.0F, getGroup(material), "_from_smelting_" + getId(ore));
 				this.blastingRecipe(consumer, material, ore, 0.75F, getGroup(material), "_from_blasting_" + getId(ore));
 			}
 		});
-		set.ifPresent(MaterialSet.DEEPSLATE_ORE, Material::itemOrThrow, deepslateOre -> {
-			if (set.has(MaterialSet.MATERIAL_PART)) {
-				Item materialPart = set.get(MaterialSet.MATERIAL_PART).itemOrThrow();
+		set.ifPresent(MaterialTypes.DEEPSLATE_ORE, Material::itemOrThrow, deepslateOre -> {
+			if (set.has(MaterialTypes.MATERIAL_PART)) {
+				Item materialPart = set.get(MaterialTypes.MATERIAL_PART).itemOrThrow();
 				this.smeltingRecipe(consumer, materialPart, deepslateOre, 1.5F, getGroup(materialPart), "_from_smelting_" + getId(deepslateOre));
 				this.blastingRecipe(consumer, materialPart, deepslateOre, 1.125F, getGroup(materialPart), "_from_blasting_" + getId(deepslateOre));
-			} else if (set.has(MaterialSet.MATERIAL)) {
-				Item material = set.get(MaterialSet.MATERIAL).itemOrThrow();
+			} else if (set.has(MaterialTypes.MATERIAL)) {
+				Item material = set.get(MaterialTypes.MATERIAL).itemOrThrow();
 				this.smeltingRecipe(consumer, material, deepslateOre, 1.5F, getGroup(material), "_from_smelting_" + getId(deepslateOre));
 				this.blastingRecipe(consumer, material, deepslateOre, 1.125F, getGroup(material), "_from_blasting_" + getId(deepslateOre));
 			}
@@ -155,7 +152,7 @@ public class ModRecipeProvider extends RecipeProvider {
 	 * @param set for which the recipes should to be created
 	 */
 	protected void materialBlockRecipes(Consumer<FinishedRecipe> consumer, MaterialSet set) {
-		set.ifPresent(MaterialSet.MATERIAL, MaterialSet.BLOCK, Material::itemOrThrow, (item, block) -> {
+		set.ifPresent(MaterialTypes.MATERIAL, MaterialTypes.BLOCK, Material::itemOrThrow, (item, block) -> {
 			ShapelessRecipeBuilder.shapeless(block).group(getGroup(item)).unlockedBy("has_" + getId(item), has(item)).requires(item, 9).save(consumer);
 			ShapelessRecipeBuilder.shapeless(item, 9).group(getGroup(item)).unlockedBy("has_" + getId(block), has(block)).requires(block).save(consumer);
 		});
@@ -167,17 +164,17 @@ public class ModRecipeProvider extends RecipeProvider {
 	 * @param set for which the recipes should to be created
 	 */
 	protected void swordRecipe(Consumer<FinishedRecipe> consumer, MaterialSet set) {
-		set.getWeaponSet().ifPresent(WeaponSet.SWORD, (sword) -> {
-			if (set.has(MaterialSet.UPGRADE_MATERIAL) && set.getWeaponSet().has(WeaponSet.SWORD) && set.getUpgradeMaterialSet().getWeaponSet().has(WeaponSet.SWORD)) {
-				Item upgradeItem = set.get(MaterialSet.UPGRADE_MATERIAL).itemOrThrow();
-				Item baseItem = set.getUpgradeMaterialSet().getWeaponSet().get(WeaponSet.SWORD);
+		set.ifPresent(MaterialTypes.SWORD, Material::itemOrThrow, (sword) -> {
+			if (set.has(MaterialTypes.UPGRADE_MATERIAL) && set.has(MaterialTypes.SWORD) && set.hasUpgrade(MaterialTypes.SWORD)) {
+				Item upgradeItem = set.get(MaterialTypes.UPGRADE_MATERIAL).itemOrThrow();
+				Item baseItem = set.getUpgrade(MaterialTypes.SWORD).itemOrThrow();
 				this.smithingRecipe(consumer, baseItem, upgradeItem, sword);
-			} else if (set.has(MaterialSet.MATERIAL)) {
-				Material material = set.get(MaterialSet.MATERIAL);
+			} else if (set.has(MaterialTypes.MATERIAL)) {
+				Material material = set.get(MaterialTypes.MATERIAL);
 				ShapedRecipeBuilder.shaped(sword).group(getGroup(material)).define('I', Items.STICK).define('#', material.asIngredient()).pattern(" # ").pattern(" # ").pattern(" I ")
 						.unlockedBy("has_" + getId(material), has(material)).save(consumer);
-			} else if (set.getWeaponSet().hasWeaponMaterial()) {
-				Material material = set.getWeaponSet().getWeaponMaterial();
+			} else if (set.has(MaterialTypes.WEAPON_MATERIAL)) {
+				Material material = set.get(MaterialTypes.WEAPON_MATERIAL);
 				ShapedRecipeBuilder.shaped(sword).group(getGroup(material)).define('I', Items.IRON_INGOT).define('#', material.asIngredient()).pattern("#I#").pattern("###").pattern(" # ")
 						.unlockedBy("has_" + getId(material), has(material)).save(consumer);
 			}
@@ -190,17 +187,17 @@ public class ModRecipeProvider extends RecipeProvider {
 	 * @param set for which the recipes should to be created
 	 */
 	protected void shieldRecipe(Consumer<FinishedRecipe> consumer, MaterialSet set) {
-		set.getWeaponSet().ifPresent(WeaponSet.SHIELD, (shield) -> {
-			if (set.has(MaterialSet.UPGRADE_MATERIAL) && set.getWeaponSet().has(WeaponSet.SHIELD) && set.getUpgradeMaterialSet().getWeaponSet().has(WeaponSet.SHIELD)) {
-				Item upgradeItem = set.get(MaterialSet.UPGRADE_MATERIAL).itemOrThrow();
-				Item baseItem = set.getUpgradeMaterialSet().getWeaponSet().get(WeaponSet.SHIELD);
+		set.ifPresent(MaterialTypes.SHIELD, Material::itemOrThrow, (shield) -> {
+			if (set.has(MaterialTypes.UPGRADE_MATERIAL) && set.has(MaterialTypes.SHIELD) && set.hasUpgrade(MaterialTypes.SHIELD)) {
+				Item upgradeItem = set.get(MaterialTypes.UPGRADE_MATERIAL).itemOrThrow();
+				Item baseItem = set.getUpgrade(MaterialTypes.SHIELD).itemOrThrow();
 				this.smithingRecipe(consumer, baseItem, upgradeItem, shield);
-			} else if (set.has(MaterialSet.MATERIAL)) {
-				Material material = set.get(MaterialSet.MATERIAL);
+			} else if (set.has(MaterialTypes.MATERIAL)) {
+				Material material = set.get(MaterialTypes.MATERIAL);
 				ShapedRecipeBuilder.shaped(shield).group(getGroup(material)).define('I', Items.IRON_INGOT).define('#', material.asIngredient()).pattern("#I#").pattern("###").pattern(" # ")
 						.unlockedBy("has_" + getId(material), has(material)).save(consumer);
-			} else if (set.getWeaponSet().hasWeaponMaterial()) {
-				Material material = set.getWeaponSet().getWeaponMaterial();
+			} else if (set.has(MaterialTypes.WEAPON_MATERIAL)) {
+				Material material = set.get(MaterialTypes.WEAPON_MATERIAL);
 				ShapedRecipeBuilder.shaped(shield).group(getGroup(material)).define('I', Items.IRON_INGOT).define('#', material.asIngredient()).pattern("#I#").pattern("###").pattern(" # ")
 						.unlockedBy("has_" + getId(material), has(material)).save(consumer);
 			}
@@ -213,17 +210,17 @@ public class ModRecipeProvider extends RecipeProvider {
 	 * @param set for which the recipes should to be created
 	 */
 	protected void pickaxeRecipe(Consumer<FinishedRecipe> consumer, MaterialSet set) {
-		set.getToolSet().ifPresent(ToolSet.PICKAXE, (pickaxe) -> {
-			if (set.has(MaterialSet.UPGRADE_MATERIAL) && set.getToolSet().has(ToolSet.PICKAXE) && set.getUpgradeMaterialSet().getToolSet().has(ToolSet.PICKAXE)) {
-				Item upgradeItem = set.get(MaterialSet.UPGRADE_MATERIAL).itemOrThrow();
-				Item baseItem = set.getUpgradeMaterialSet().getToolSet().get(ToolSet.PICKAXE);
+		set.ifPresent(MaterialTypes.PICKAXE, Material::itemOrThrow, (pickaxe) -> {
+			if (set.has(MaterialTypes.UPGRADE_MATERIAL) && set.has(MaterialTypes.PICKAXE) && set.hasUpgrade(MaterialTypes.PICKAXE)) {
+				Item upgradeItem = set.get(MaterialTypes.UPGRADE_MATERIAL).itemOrThrow();
+				Item baseItem = set.getUpgrade(MaterialTypes.PICKAXE).itemOrThrow();
 				this.smithingRecipe(consumer, baseItem, upgradeItem, pickaxe);
-			} else if (set.has(MaterialSet.MATERIAL)) {
-				Material material = set.get(MaterialSet.MATERIAL);
+			} else if (set.has(MaterialTypes.MATERIAL)) {
+				Material material = set.get(MaterialTypes.MATERIAL);
 				ShapedRecipeBuilder.shaped(pickaxe).group(getGroup(material)).define('I', Items.STICK).define('#', material.asIngredient()).pattern("###").pattern(" I ").pattern(" I ")
 						.unlockedBy("has_" + getId(material), has(material)).save(consumer);
-			} else if (set.getWeaponSet().hasWeaponMaterial()) {
-				Material material = set.getWeaponSet().getWeaponMaterial();
+			} else if (set.has(MaterialTypes.TOOL_MATERIAL)) {
+				Material material = set.get(MaterialTypes.TOOL_MATERIAL);
 				ShapedRecipeBuilder.shaped(pickaxe).group(getGroup(material)).define('I', Items.STICK).define('#', material.asIngredient()).pattern("###").pattern(" I ").pattern(" I ")
 						.unlockedBy("has_" + getId(material), has(material)).save(consumer);
 			}
@@ -236,16 +233,16 @@ public class ModRecipeProvider extends RecipeProvider {
 	 * @param set for which the recipes should to be created
 	 */
 	protected void axeRecipe(Consumer<FinishedRecipe> consumer, MaterialSet set) {
-		set.getToolSet().ifPresent(ToolSet.AXE, (axe) -> {
-			if (set.has(MaterialSet.UPGRADE_MATERIAL) && set.getToolSet().has(ToolSet.AXE) && set.getUpgradeMaterialSet().getToolSet().has(ToolSet.AXE)) {
-				Item upgradeItem = set.get(MaterialSet.UPGRADE_MATERIAL).itemOrThrow();
-				Item baseItem = set.getUpgradeMaterialSet().getToolSet().get(ToolSet.AXE);
+		set.ifPresent(MaterialTypes.AXE, Material::itemOrThrow, (axe) -> {
+			if (set.has(MaterialTypes.UPGRADE_MATERIAL) && set.has(MaterialTypes.AXE) && set.hasUpgrade(MaterialTypes.AXE)) {
+				Item upgradeItem = set.get(MaterialTypes.UPGRADE_MATERIAL).itemOrThrow();
+				Item baseItem = set.getUpgrade(MaterialTypes.AXE).itemOrThrow();
 				this.smithingRecipe(consumer, baseItem, upgradeItem, axe);
-			} else if (set.has(MaterialSet.MATERIAL)) {
-				Material material = set.get(MaterialSet.MATERIAL);
+			} else if (set.has(MaterialTypes.MATERIAL)) {
+				Material material = set.get(MaterialTypes.MATERIAL);
 				ShapedRecipeBuilder.shaped(axe).group(getGroup(material)).define('I', Items.STICK).define('#', material.asIngredient()).pattern("## ").pattern("#I ").pattern(" I ").unlockedBy("has_" + getId(material), has(material)).save(consumer);
-			} else if (set.getWeaponSet().hasWeaponMaterial()) {
-				Material material = set.getWeaponSet().getWeaponMaterial();
+			} else if (set.has(MaterialTypes.TOOL_MATERIAL)) {
+				Material material = set.get(MaterialTypes.TOOL_MATERIAL);
 				ShapedRecipeBuilder.shaped(axe).group(getGroup(material)).define('I', Items.STICK).define('#', material.asIngredient()).pattern("## ").pattern("#I ").pattern(" I ").unlockedBy("has_" + getId(material), has(material)).save(consumer);
 			}
 		});
@@ -257,16 +254,16 @@ public class ModRecipeProvider extends RecipeProvider {
 	 * @param set for which the recipes should to be created
 	 */
 	protected void shovelRecipe(Consumer<FinishedRecipe> consumer, MaterialSet set) {
-		set.getToolSet().ifPresent(ToolSet.SHOVEL, (shovel) -> {
-			if (set.has(MaterialSet.UPGRADE_MATERIAL) && set.getToolSet().has(ToolSet.SHOVEL) && set.getUpgradeMaterialSet().getToolSet().has(ToolSet.SHOVEL)) {
-				Item upgradeItem = set.get(MaterialSet.UPGRADE_MATERIAL).itemOrThrow();
-				Item baseItem = set.getUpgradeMaterialSet().getToolSet().get(ToolSet.SHOVEL);
+		set.ifPresent(MaterialTypes.SHOVEL, Material::itemOrThrow, (shovel) -> {
+			if (set.has(MaterialTypes.UPGRADE_MATERIAL) && set.has(MaterialTypes.SHOVEL) && set.hasUpgrade(MaterialTypes.SHOVEL)) {
+				Item upgradeItem = set.get(MaterialTypes.UPGRADE_MATERIAL).itemOrThrow();
+				Item baseItem = set.getUpgrade(MaterialTypes.SHOVEL).itemOrThrow();
 				this.smithingRecipe(consumer, baseItem, upgradeItem, shovel);
-			} else if (set.has(MaterialSet.MATERIAL)) {
-				Material material = set.get(MaterialSet.MATERIAL);
+			} else if (set.has(MaterialTypes.MATERIAL)) {
+				Material material = set.get(MaterialTypes.MATERIAL);
 				ShapedRecipeBuilder.shaped(shovel).group(getGroup(material)).define('I', Items.STICK).define('#', material.asIngredient()).pattern(" # ").pattern(" I ").pattern(" I ").unlockedBy("has_" + getId(material), has(material)).save(consumer);
-			} else if (set.getWeaponSet().hasWeaponMaterial()) {
-				Material material = set.getWeaponSet().getWeaponMaterial();
+			} else if (set.has(MaterialTypes.TOOL_MATERIAL)) {
+				Material material = set.get(MaterialTypes.TOOL_MATERIAL);
 				ShapedRecipeBuilder.shaped(shovel).group(getGroup(material)).define('I', Items.STICK).define('#', material.asIngredient()).pattern(" # ").pattern(" I ").pattern(" I ").unlockedBy("has_" + getId(material), has(material)).save(consumer);
 			}
 		});
@@ -278,16 +275,16 @@ public class ModRecipeProvider extends RecipeProvider {
 	 * @param set for which the recipes should to be created
 	 */
 	protected void hoeRecipe(Consumer<FinishedRecipe> consumer, MaterialSet set) {
-		set.getToolSet().ifPresent(ToolSet.HOE, (hoe) -> {
-			if (set.has(MaterialSet.UPGRADE_MATERIAL) && set.getToolSet().has(ToolSet.HOE) && set.getUpgradeMaterialSet().getToolSet().has(ToolSet.HOE)) {
-				Item upgradeItem = set.get(MaterialSet.UPGRADE_MATERIAL).itemOrThrow();
-				Item baseItem = set.getUpgradeMaterialSet().getToolSet().get(ToolSet.HOE);
+		set.ifPresent(MaterialTypes.HOE, Material::itemOrThrow, (hoe) -> {
+			if (set.has(MaterialTypes.UPGRADE_MATERIAL) && set.has(MaterialTypes.HOE) && set.hasUpgrade(MaterialTypes.HOE)) {
+				Item upgradeItem = set.get(MaterialTypes.UPGRADE_MATERIAL).itemOrThrow();
+				Item baseItem = set.getUpgrade(MaterialTypes.HOE).itemOrThrow();
 				this.smithingRecipe(consumer, baseItem, upgradeItem, hoe);
-			} else if (set.has(MaterialSet.MATERIAL)) {
-				Material material = set.get(MaterialSet.MATERIAL);
+			} else if (set.has(MaterialTypes.MATERIAL)) {
+				Material material = set.get(MaterialTypes.MATERIAL);
 				ShapedRecipeBuilder.shaped(hoe).group(getGroup(material)).define('I', Items.STICK).define('#', material.asIngredient()).pattern("## ").pattern(" I ").pattern(" I ").unlockedBy("has_" + getId(material), has(material)).save(consumer);
-			} else if (set.getWeaponSet().hasWeaponMaterial()) {
-				Material material = set.getWeaponSet().getWeaponMaterial();
+			} else if (set.has(MaterialTypes.TOOL_MATERIAL)) {
+				Material material = set.get(MaterialTypes.TOOL_MATERIAL);
 				ShapedRecipeBuilder.shaped(hoe).group(getGroup(material)).define('I', Items.STICK).define('#', material.asIngredient()).pattern("## ").pattern(" I ").pattern(" I ").unlockedBy("has_" + getId(material), has(material)).save(consumer);
 			}
 		});
@@ -299,16 +296,16 @@ public class ModRecipeProvider extends RecipeProvider {
 	 * @param set for which the recipes should to be created
 	 */
 	protected void helmetRecipe(Consumer<FinishedRecipe> consumer, MaterialSet set) {
-		set.getArmorSet().ifPresent(ArmorSet.HELMET, (helmet) -> {
-			if (set.has(MaterialSet.UPGRADE_MATERIAL) && set.getArmorSet().has(ArmorSet.HELMET) && set.getUpgradeMaterialSet().getArmorSet().has(ArmorSet.HELMET)) {
-				Item upgradeItem = set.get(MaterialSet.UPGRADE_MATERIAL).itemOrThrow();
-				Item baseItem = set.getUpgradeMaterialSet().getArmorSet().get(ArmorSet.HELMET);
+		set.ifPresent(MaterialTypes.HELMET, Material::itemOrThrow, (helmet) -> {
+			if (set.has(MaterialTypes.UPGRADE_MATERIAL) && set.has(MaterialTypes.HELMET) && set.hasUpgrade(MaterialTypes.HELMET)) {
+				Item upgradeItem = set.get(MaterialTypes.UPGRADE_MATERIAL).itemOrThrow();
+				Item baseItem = set.getUpgrade(MaterialTypes.HELMET).itemOrThrow();
 				this.smithingRecipe(consumer, baseItem, upgradeItem, helmet);
-			} else if (set.has(MaterialSet.MATERIAL)) {
-				Material material = set.get(MaterialSet.MATERIAL);
+			} else if (set.has(MaterialTypes.MATERIAL)) {
+				Material material = set.get(MaterialTypes.MATERIAL);
 				ShapedRecipeBuilder.shaped(helmet).group(getGroup(material)).define('#', material.asIngredient()).pattern("###").pattern("# #").pattern("   ").unlockedBy("has_" + getId(material), has(material)).save(consumer);
-			} else if (set.getWeaponSet().hasWeaponMaterial()) {
-				Material material = set.getWeaponSet().getWeaponMaterial();
+			} else if (set.has(MaterialTypes.ARMOR_MATERIAL)) {
+				Material material = set.get(MaterialTypes.ARMOR_MATERIAL);
 				ShapedRecipeBuilder.shaped(helmet).group(getGroup(material)).define('#', material.asIngredient()).pattern("###").pattern("# #").pattern("   ").unlockedBy("has_" + getId(material), has(material)).save(consumer);
 			}
 		});
@@ -320,16 +317,16 @@ public class ModRecipeProvider extends RecipeProvider {
 	 * @param set 
 	 */
 	protected void chestplateRecipe(Consumer<FinishedRecipe> consumer, MaterialSet set) {
-		set.getArmorSet().ifPresent(ArmorSet.CHESTPLATE, (chestplate) -> {
-			if (set.has(MaterialSet.UPGRADE_MATERIAL) && set.getArmorSet().has(ArmorSet.CHESTPLATE) && set.getUpgradeMaterialSet().getArmorSet().has(ArmorSet.CHESTPLATE)) { // TODO: check conditions
-				Item upgradeItem = set.get(MaterialSet.UPGRADE_MATERIAL).itemOrThrow();
-				Item baseItem = set.getUpgradeMaterialSet().getArmorSet().get(ArmorSet.CHESTPLATE);
+		set.ifPresent(MaterialTypes.CHESTPLATE, Material::itemOrThrow, (chestplate) -> {
+			if (set.has(MaterialTypes.UPGRADE_MATERIAL) && set.has(MaterialTypes.CHESTPLATE) && set.hasUpgrade(MaterialTypes.CHESTPLATE)) {
+				Item upgradeItem = set.get(MaterialTypes.UPGRADE_MATERIAL).itemOrThrow();
+				Item baseItem = set.getUpgrade(MaterialTypes.CHESTPLATE).itemOrThrow();
 				this.smithingRecipe(consumer, baseItem, upgradeItem, chestplate);
-			} else if (set.has(MaterialSet.MATERIAL)) {
-				Material material = set.get(MaterialSet.MATERIAL);
+			} else if (set.has(MaterialTypes.MATERIAL)) {
+				Material material = set.get(MaterialTypes.MATERIAL);
 				ShapedRecipeBuilder.shaped(chestplate).group(getGroup(material)).define('#', material.asIngredient()).pattern("# #").pattern("###").pattern("###").unlockedBy("has_" + getId(material), has(material)).save(consumer);
-			} else if (set.getWeaponSet().hasWeaponMaterial()) {
-				Material material = set.getWeaponSet().getWeaponMaterial();
+			} else if (set.has(MaterialTypes.ARMOR_MATERIAL)) {
+				Material material = set.get(MaterialTypes.ARMOR_MATERIAL);
 				ShapedRecipeBuilder.shaped(chestplate).group(getGroup(material)).define('#', material.asIngredient()).pattern("# #").pattern("###").pattern("###").unlockedBy("has_" + getId(material), has(material)).save(consumer);
 			}
 		});
@@ -341,16 +338,16 @@ public class ModRecipeProvider extends RecipeProvider {
 	 * @param set for which the recipes should to be created
 	 */
 	protected void elytraChestplateRecipe(Consumer<FinishedRecipe> consumer, MaterialSet set) {
-		set.getArmorSet().ifPresent(ArmorSet.CHESTPLATE, ArmorSet.ELYTRA_CHESTPLATE, (chestplate, elytraChestplate) -> {
-			if (set.has(MaterialSet.UPGRADE_MATERIAL) && set.getArmorSet().has(ArmorSet.ELYTRA_CHESTPLATE) && set.getUpgradeMaterialSet().getArmorSet().has(ArmorSet.ELYTRA_CHESTPLATE)) {
-				Item upgradeItem = set.get(MaterialSet.UPGRADE_MATERIAL).itemOrThrow();
-				Item baseItem = set.getUpgradeMaterialSet().getArmorSet().get(ArmorSet.ELYTRA_CHESTPLATE);
+		set.ifPresent(MaterialTypes.CHESTPLATE, MaterialTypes.ELYTRA_CHESTPLATE, Material::itemOrThrow, (chestplate, elytraChestplate) -> {
+			if (set.has(MaterialTypes.UPGRADE_MATERIAL) && set.has(MaterialTypes.ELYTRA_CHESTPLATE) && set.hasUpgrade(MaterialTypes.ELYTRA_CHESTPLATE)) {
+				Item upgradeItem = set.get(MaterialTypes.UPGRADE_MATERIAL).itemOrThrow();
+				Item baseItem = set.getUpgrade(MaterialTypes.ELYTRA_CHESTPLATE).itemOrThrow();
 				this.smithingRecipe(consumer, baseItem, upgradeItem, elytraChestplate);
-			} else if (set.has(MaterialSet.MATERIAL)) {
-				Material material = set.get(MaterialSet.MATERIAL);
+			} else if (set.has(MaterialTypes.MATERIAL)) {
+				Material material = set.get(MaterialTypes.MATERIAL);
 				ShapelessRecipeBuilder.shapeless(elytraChestplate).group(getGroup(material)).requires(chestplate).requires(Items.ELYTRA).unlockedBy("has_" + getId(chestplate), has(chestplate)).save(consumer);
-			} else if (set.getArmorSet().hasArmorMaterial()) {
-				Material material = set.getArmorSet().getArmorMaterial();
+			} else if (set.has(MaterialTypes.ARMOR_MATERIAL)) {
+				Material material = set.get(MaterialTypes.ARMOR_MATERIAL);
 				ShapelessRecipeBuilder.shapeless(elytraChestplate).group(getGroup(material)).requires(chestplate).requires(Items.ELYTRA).unlockedBy("has_" + getId(chestplate), has(chestplate)).save(consumer);
 			}
 		});
@@ -362,16 +359,16 @@ public class ModRecipeProvider extends RecipeProvider {
 	 * @param set for which the recipes should to be created
 	 */
 	protected void leggingsRecipe(Consumer<FinishedRecipe> consumer, MaterialSet set) {
-		set.getArmorSet().ifPresent(ArmorSet.LEGGINGS, (leggings) -> {
-			if (set.has(MaterialSet.UPGRADE_MATERIAL) && set.getArmorSet().has(ArmorSet.LEGGINGS) && set.getUpgradeMaterialSet().getArmorSet().has(ArmorSet.LEGGINGS)) {
-				Item upgradeItem = set.get(MaterialSet.UPGRADE_MATERIAL).itemOrThrow();
-				Item baseItem = set.getUpgradeMaterialSet().getArmorSet().get(ArmorSet.LEGGINGS);
+		set.ifPresent(MaterialTypes.LEGGINGS, Material::itemOrThrow, (leggings) -> {
+			if (set.has(MaterialTypes.UPGRADE_MATERIAL) && set.has(MaterialTypes.LEGGINGS) && set.hasUpgrade(MaterialTypes.LEGGINGS)) {
+				Item upgradeItem = set.get(MaterialTypes.UPGRADE_MATERIAL).itemOrThrow();
+				Item baseItem = set.getUpgrade(MaterialTypes.LEGGINGS).itemOrThrow();
 				this.smithingRecipe(consumer, baseItem, upgradeItem, leggings);
-			} else if (set.has(MaterialSet.MATERIAL)) {
-				Material material = set.get(MaterialSet.MATERIAL);
+			} else if (set.has(MaterialTypes.MATERIAL)) {
+				Material material = set.get(MaterialTypes.MATERIAL);
 				ShapedRecipeBuilder.shaped(leggings).group(getGroup(material)).define('#', material.asIngredient()).pattern("###").pattern("# #").pattern("# #").unlockedBy("has_" + getId(material), has(material)).save(consumer);
-			} else if (set.getWeaponSet().hasWeaponMaterial()) {
-				Material material = set.getWeaponSet().getWeaponMaterial();
+			} else if (set.has(MaterialTypes.ARMOR_MATERIAL)) {
+				Material material = set.get(MaterialTypes.ARMOR_MATERIAL);
 				ShapedRecipeBuilder.shaped(leggings).group(getGroup(material)).define('#', material.asIngredient()).pattern("###").pattern("# #").pattern("# #").unlockedBy("has_" + getId(material), has(material)).save(consumer);
 			}
 		});
@@ -383,16 +380,16 @@ public class ModRecipeProvider extends RecipeProvider {
 	 * @param set for which the recipes should to be created
 	 */
 	protected void bootsRecipe(Consumer<FinishedRecipe> consumer, MaterialSet set) {
-		set.getArmorSet().ifPresent(ArmorSet.BOOTS, (boots) -> {
-			if (set.has(MaterialSet.UPGRADE_MATERIAL) && set.getArmorSet().has(ArmorSet.BOOTS) && set.getUpgradeMaterialSet().getArmorSet().has(ArmorSet.BOOTS)) {
-				Item upgradeItem = set.get(MaterialSet.UPGRADE_MATERIAL).itemOrThrow();
-				Item baseItem = set.getUpgradeMaterialSet().getArmorSet().get(ArmorSet.BOOTS);
+		set.ifPresent(MaterialTypes.BOOTS, Material::itemOrThrow, (boots) -> {
+			if (set.has(MaterialTypes.UPGRADE_MATERIAL) && set.has(MaterialTypes.BOOTS) && set.hasUpgrade(MaterialTypes.BOOTS)) {
+				Item upgradeItem = set.get(MaterialTypes.UPGRADE_MATERIAL).itemOrThrow();
+				Item baseItem = set.getUpgrade(MaterialTypes.BOOTS).itemOrThrow();
 				this.smithingRecipe(consumer, baseItem, upgradeItem, boots);
-			} else if (set.has(MaterialSet.MATERIAL)) {
-				Material material = set.get(MaterialSet.MATERIAL);
+			} else if (set.has(MaterialTypes.MATERIAL)) {
+				Material material = set.get(MaterialTypes.MATERIAL);
 				ShapedRecipeBuilder.shaped(boots).group(getGroup(material)).define('#', material.asIngredient()).pattern("   ").pattern("# #").pattern("# #").unlockedBy("has_" + getId(material), has(material)).save(consumer);
-			} else if (set.getWeaponSet().hasWeaponMaterial()) {
-				Material material = set.getWeaponSet().getWeaponMaterial();
+			} else if (set.has(MaterialTypes.ARMOR_MATERIAL)) {
+				Material material = set.get(MaterialTypes.ARMOR_MATERIAL);
 				ShapedRecipeBuilder.shaped(boots).group(getGroup(material)).define('#', material.asIngredient()).pattern("   ").pattern("# #").pattern("# #").unlockedBy("has_" + getId(material), has(material)).save(consumer);
 			}
 		});

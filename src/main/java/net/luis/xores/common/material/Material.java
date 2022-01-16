@@ -4,6 +4,8 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Consumer;
 
+import com.google.common.annotations.VisibleForTesting;
+
 import net.minecraft.tags.Tag.Named;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -34,6 +36,7 @@ public class Material {
 		return new Material(tag);
 	}
 	
+	@VisibleForTesting
 	public Material self() {
 		return this;
 	}
@@ -109,6 +112,19 @@ public class Material {
 			}
 		}
 		return false;
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		if (this.isItem()) {
+			builder.append("Item Material of ").append(this.itemOrThrow().getRegistryName());
+		} else if (this.isTag()) {
+			builder.append("Tag Material of ").append(this.tagOrThrow().getName());
+		} else {
+			throw new IllegalStateException("Material can not be empty");
+		}
+		return builder.toString();
 	}
 	
 }

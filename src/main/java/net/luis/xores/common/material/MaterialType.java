@@ -1,47 +1,73 @@
 package net.luis.xores.common.material;
 
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
+import java.util.function.Predicate;
 
 import javax.annotation.Nullable;
 
-import com.google.common.collect.Maps;
+import net.minecraft.resources.ResourceLocation;
 
 public class MaterialType {
 	
-	protected static final Map<String, MaterialType> TYPES = Maps.newHashMap();
+	protected final ResourceLocation name;
+	protected final MaterialType.Type type;
+	protected final Predicate<Material> predicate;
 	
-	protected final String name;
-	
-	public MaterialType(String name) {
-		this.name = name;
-		TYPES.put(name, this);
+	public MaterialType(String name, MaterialType.Type type, Predicate<Material> predicate) {
+		this(new ResourceLocation(name), type, predicate);
 	}
 	
-	public String getName() {
+	public MaterialType(ResourceLocation name, MaterialType.Type type, Predicate<Material> predicate) {
+		this.name = name;
+		this.type = type;
+		this.predicate = predicate;
+	}
+	
+	public ResourceLocation getName() {
 		return this.name;
+	}
+	
+	public MaterialType.Type getType() {
+		return this.type;
+	}
+	
+	public boolean test(Material material) {
+		return this.predicate.test(material);
 	}
 	
 	@Override
 	public boolean equals(Object object) {
 		if (object == this) {
-			
+			return true;
 		} else if (object instanceof MaterialType materialType) {
 			if (materialType.getName().equals(this.name)) {
-				return true;
+				return materialType.getType() == this.getType();
 			}
 		}
 		return false;
 	}
 	
-	public static List<MaterialType> getTypes() {
-		return TYPES.values().stream().collect(Collectors.toList());
+	@Override
+	public String toString() {
+		return this.name.toString();
 	}
 	
 	@Nullable
-	public static MaterialType byName(String name) {
-		return TYPES.get(name);
+	public static MaterialType byName(ResourceLocation name) {
+		return MaterialTypes.NAME_TO_TYPE.get(name);
+	}
+	
+	public static enum Type {
+		
+		MATERIAL("material"),
+		ITEM("item"),
+		TAG("tag");
+		
+		protected final String name;
+		
+		private Type(String name) {
+			this.name = name;
+		}
+		
 	}
 	
 }
