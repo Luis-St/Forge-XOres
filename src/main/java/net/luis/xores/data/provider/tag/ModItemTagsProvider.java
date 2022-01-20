@@ -113,7 +113,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 	 * registration of all ItemTags
 	 */
 	@Override
-	@SuppressWarnings("deprecation") // since WeaponSet, ToolSet and ArmorSet are marked as deprecated
+	@SuppressWarnings("deprecation")
 	protected void addTags() {
 		this.copy(ModTags.Blocks.JADE_ORES, ModTags.Items.JADE_ORES);
 		this.copy(ModTags.Blocks.SAPHIRE_ORES, ModTags.Items.SAPHIRE_ORES);
