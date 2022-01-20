@@ -35,7 +35,6 @@ public class MaterialTypes {
 		return true;
 	}));
 	public static final MaterialType ORE = register(new MaterialType(new ResourceLocation(XOres.MOD_ID, "ore"), MaterialType.Type.ITEM, MaterialTypes::isBlockItem));
-	public static final MaterialType DEEPSLATE_ORE = register(new MaterialType(new ResourceLocation(XOres.MOD_ID, "deepslate_ore"), MaterialType.Type.ITEM, MaterialTypes::isBlockItem));
 	public static final MaterialType BLOCK = register(new MaterialType(new ResourceLocation(XOres.MOD_ID, "block"), MaterialType.Type.ITEM, MaterialTypes::isBlockItem));
 	public static final MaterialType UPGRADE_MATERIAL = register(new MaterialType(new ResourceLocation(XOres.MOD_ID, "upgrade_material"), MaterialType.Type.MATERIAL, (material) -> {
 		return true;
@@ -92,6 +91,13 @@ public class MaterialTypes {
 	protected static boolean isBlockItem(Material material) {
 		if (material.isItem()) {
 			return material.itemOrThrow() instanceof BlockItem;
+		} else if (material.isTag()) {
+			for (Item item : material.tagOrThrow().getValues()) {
+				if (!(item instanceof BlockItem)) {
+					return false;
+				}
+			}
+			return true;
 		}
 		return false;
 	}

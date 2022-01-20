@@ -6,6 +6,7 @@ import java.util.Optional;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 import javax.annotation.Nullable;
@@ -22,9 +23,9 @@ import net.minecraftforge.registries.ForgeRegistryEntry;;
 public class MaterialSet extends ForgeRegistryEntry<MaterialSet> {
 
 	protected final Map<MaterialType, Material> materialSet;
-	protected final Optional<MaterialSet> upgradeSet;
+	protected final Optional<Supplier<MaterialSet>> upgradeSet;
 
-	MaterialSet(Map<MaterialType, Material> materialSet, Optional<MaterialSet> upgradeSet) {
+	MaterialSet(Map<MaterialType, Material> materialSet, Optional<Supplier<MaterialSet>> upgradeSet) {
 		this.materialSet = materialSet;
 		this.upgradeSet = upgradeSet;
 	}
@@ -68,7 +69,7 @@ public class MaterialSet extends ForgeRegistryEntry<MaterialSet> {
 
 	@Nullable
 	protected MaterialSet getUpgradeSet() {
-		return this.upgradeSet.get();
+		return this.upgradeSet.get().get();
 	}
 	
 	public boolean hasUpgrade(MaterialType type) {
@@ -124,7 +125,7 @@ public class MaterialSet extends ForgeRegistryEntry<MaterialSet> {
 	public static class Builder {
 
 		protected final Map<MaterialType, Material> materialSet;
-		protected MaterialSet upgradeSet = null;
+		protected Supplier<MaterialSet> upgradeSet = null;
 
 		Builder() {
 			this.materialSet = Maps.newHashMap();
@@ -132,10 +133,6 @@ public class MaterialSet extends ForgeRegistryEntry<MaterialSet> {
 
 		protected boolean has(MaterialType materialType) {
 			return this.materialSet.get(materialType) != null;
-		}
-
-		public Builder add(Material material) {
-			return this.add(this.getMaterialType(material), material);
 		}
 
 		public Builder add(MaterialType materialType, Material material) {
@@ -146,10 +143,26 @@ public class MaterialSet extends ForgeRegistryEntry<MaterialSet> {
 			}
 			Material oldMaterial = this.materialSet.putIfAbsent(materialType, material);
 			if (oldMaterial != null) {
-				throw new IllegalStateException("Fail to add " + material + " since the MaterialType " + materialType
-						+ " does already exist (" + oldMaterial + ") in the MaterialSet.Builder");
+				throw new IllegalStateException("Fail to add " + material + " since the MaterialType " + materialType + " does already exist (" + oldMaterial + ") in the MaterialSet.Builder");
 			}
 			return this;
+		}
+		
+		public Builder add(MaterialType materialType, Named<Item> tag) {
+			return this.add(materialType, Material.tag(tag));
+		}
+		
+		public Builder add(MaterialType materialType, Item item) {
+			return this.add(materialType, Material.item(item));
+		}
+		
+		public Builder add(Material material) {
+			return this.add(this.getMaterialType(material), material);
+		}
+		
+		public Builder add(Item item) {
+			Material material = Material.item(item);
+			return this.add(this.getMaterialTypeByItem(material), material);
 		}
 
 		protected MaterialType getMaterialType(Material material) {
@@ -202,12 +215,15 @@ public class MaterialSet extends ForgeRegistryEntry<MaterialSet> {
 			return null;
 		}
 
-		public Builder setUpgradeSet(MaterialSet upgradeSet) {
+		public Builder upgradeSet(Supplier<MaterialSet> upgradeSet) {
 			this.upgradeSet = upgradeSet;
 			return this;
 		}
 		
 		public MaterialSet build() {
+			if (this.upgradeSet != null && !this.has(MaterialTypes.MATERIAL)) {
+				throw new IllegalStateException("Fail to get the MaterialType " + MaterialTypes.MATERIAL + ", but it's required by the UpgradeSet");
+			}
 			return new MaterialSet(this.materialSet, Optional.ofNullable(this.upgradeSet));
 		}
 
