@@ -5,9 +5,9 @@ import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.RegistryManager;
 
 /**
- * Registry class, works similar to {@link ForgeRegistries}
  * 
  * @author Luis-st
+ *
  */
 
 public class ModRegistries {

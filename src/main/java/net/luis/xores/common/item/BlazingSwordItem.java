@@ -2,7 +2,6 @@ package net.luis.xores.common.item;
 
 import java.util.Random;
 
-import net.luis.xores.init.ModItems;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
@@ -22,10 +21,6 @@ public class BlazingSwordItem extends SwordItem {
 		super(tier, additionalDamage, attackSpeed, properties);
 	}
 	
-	/**
-	 * set the target for 2 until 7 seconds into fire,
-	 * when hurting a Entity with the {@link ModItems#BLAZING_SWORD}
-	 */
 	@Override
 	public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
 		if (!target.fireImmune()) {

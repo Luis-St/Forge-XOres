@@ -22,10 +22,6 @@ import net.minecraft.world.level.block.state.BlockState;
 @Mixin(SwordItem.class)
 public abstract class SwordItemMixin {
 	
-	/**
-	 * changes the behavior of {@link SwordItem} when the Item is used as a tool,
-	 * the damage value in this case is only increased by 1 instead of 2
-	 */
 	@Inject(method = "mineBlock", at = @At("HEAD"), cancellable = true)
 	public void mineBlock(ItemStack stack, Level level, BlockState state, BlockPos pos, LivingEntity entity, CallbackInfoReturnable<Boolean> info) {
 		if (state.getDestroySpeed(level, pos) != 0.0F) {

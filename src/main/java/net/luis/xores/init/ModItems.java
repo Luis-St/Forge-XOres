@@ -25,9 +25,9 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 /**
- * Registration class of {@link Item}
  * 
  * @author Luis-st
+ *
  */
 
 public class ModItems {

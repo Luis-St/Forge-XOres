@@ -7,7 +7,6 @@ import java.util.Map.Entry;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
-import net.luis.xores.init.ModBlocks;
 import net.luis.xores.init.ModTags;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.Tag.Named;
@@ -19,21 +18,16 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
 /**
- * {@link VanillaFixer} for the Tool drop of Blocks
  * 
  * @author Luis-st
+ * 
  */
 
 public class ToolFixer implements VanillaFixer {
 	
-	/**
-	 * Instance of {@link ToolFixer},<br> 
-	 * use this as reference if you want to use the {@link ToolFixer}
-	 */
 	public static final ToolFixer INSTANCE = new ToolFixer() {
 		@Override
 		public void init() {
@@ -41,9 +35,6 @@ public class ToolFixer implements VanillaFixer {
 		}
 	};
 	
-	/**
-	 * Constants
-	 */
 	public static final int HAND_LEVEL = 0;
 	public static final int WOOD_LEVEL = 0;
 	public static final int GOLD_LEVEL = 0;
@@ -70,12 +61,6 @@ public class ToolFixer implements VanillaFixer {
 		this.init();
 	}
 	
-	/**
-	 * Register the vanilla {@link Blocks} and the {@link ModBlocks},<br>
-	 * to the tool level<br>
-	 * Register the vanilla Tools and the mod Tools,<br>
-	 * to the tool level<br>
-	 */
 	protected void register() {
 		this.registerBlocks(1, ModTags.Blocks.NEEDS_TOOL_LEVEL_1.getValues());
 		this.registerBlocks(2, ModTags.Blocks.NEEDS_TOOL_LEVEL_2.getValues());
@@ -92,21 +77,11 @@ public class ToolFixer implements VanillaFixer {
 		this.registerTools(5, ModTags.Items.TOOL_LEVEL_5.getValues());
 		this.registerTools(6, ModTags.Items.TOOL_LEVEL_6.getValues());
 	}
-	
-	/**
-	 * Register the blocks to the level
-	 * @param level to which the blocks are registered
-	 * @param blocks which should be registered
-	 */
+
 	public void registerBlocks(int level, Block... blocks) {
 		this.registerBlocks(level, Lists.newArrayList(blocks));
 	}
 	
-	/**
-	 * Register the blocks to the level
-	 * @param level to which the blocks are registered
-	 * @param blocks which should be registered
-	 */
 	protected void registerBlocks(int level, List<Block> blocks) {
 		if (!this.blocks.containsKey(level)) {
 			this.blocks.put(level, Lists.newArrayList());
@@ -114,20 +89,10 @@ public class ToolFixer implements VanillaFixer {
 		this.blocks.get(level).addAll(blocks);
 	}
 	
-	/**
-	 * Register the tools to the level
-	 * @param level to which the tools are registered
-	 * @param tools which should be registered
-	 */
 	public void registerTools(int level, Item... tools) {
 		this.registerTools(level, Lists.newArrayList(tools));
 	}
 	
-	/**
-	 * Register the tools to the level
-	 * @param level to which the tools are registered
-	 * @param tools which should be registered
-	 */
 	protected void registerTools(int level, List<Item> tools) {
 		if (!this.tools.containsKey(level)) {
 			this.tools.put(level, Lists.newArrayList());
@@ -135,9 +100,6 @@ public class ToolFixer implements VanillaFixer {
 		this.tools.get(level).addAll(tools);
 	}
 	
-	/**
-	 * @return all registered blocks
-	 */
 	public List<Block> getRegisteredBlocks() {
 		List<Block> registeredBlocks = Lists.newArrayList();
 		for (List<Block> blocks : Lists.newArrayList(this.blocks.values().iterator())) {
@@ -146,19 +108,12 @@ public class ToolFixer implements VanillaFixer {
 		return registeredBlocks;
 	}
 	
-	/**
-	 * @param block which should be checked if it is registered
-	 * @return <code>true</code> if the block is registered
-	 */
 	public boolean isBlockRegistered(Block block) {
 		return this.getRegisteredBlocks().stream().anyMatch(registeredBlock -> {
 			return block == registeredBlock;
 		});
 	}
 	
-	/**
-	 * @return all registered tools 
-	 */
 	public List<Item> getRegisteredTools() {
 		List<Item> registeredTools = Lists.newArrayList();
 		for (List<Item> tools : Lists.newArrayList(this.tools.values().iterator())) {
@@ -167,19 +122,12 @@ public class ToolFixer implements VanillaFixer {
 		return registeredTools;
 	}
 	
-	/**
-	 * @param tool which should be checked if it is registered
-	 * @return <code>true</code> if the tool is registered
-	 */
 	public boolean isToolRegistered(Item tool) {
 		return this.getRegisteredTools().stream().anyMatch(registeredTool -> {
 			return tool == registeredTool;
 		});
 	}
 	
-	/**
-	 * @return <code>true</code> if the item has the correct level for the state
-	 */
 	@SuppressWarnings("deprecation")
 	public boolean isCorrectToolForDrops(Item tool, ItemStack stack, BlockState state) {
 		Block block = state.getBlock();
@@ -203,10 +151,6 @@ public class ToolFixer implements VanillaFixer {
 		return false;
 	}
 	
-	/**
-	 * @param tool 
-	 * @return the {@link Tag}  for the given {@link Item}
-	 */
 	protected Named<Block> getTagForTool(Item tool) {
 		if (tool instanceof PickaxeItem) {
 			return BlockTags.MINEABLE_WITH_PICKAXE;
@@ -220,10 +164,6 @@ public class ToolFixer implements VanillaFixer {
 		return null;
 	}
 	
-	/**
-	 * @param block
-	 * @return the {@link Tag} for the given {@link Block}
-	 */
 	protected int getLevelForBlock(Block block) {
 		for (Entry<Integer, List<Block>> entry : this.blocks.entrySet()) {
 			int level = entry.getKey();
@@ -234,10 +174,6 @@ public class ToolFixer implements VanillaFixer {
 		return 0;
 	}
 	
-	/**
-	 * @param tool
-	 * @return the level for the given {@link Item}
-	 */
 	protected int getLevelForTool(Item tool) {
 		for (Entry<Integer, List<Item>> entry : this.tools.entrySet()) {
 			int level = entry.getKey();

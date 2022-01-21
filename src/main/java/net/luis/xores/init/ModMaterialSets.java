@@ -7,9 +7,9 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
 /**
- * Registration class of {@link MaterialSet}
  * 
  * @author Luis-st
+ *
  */
 
 public class ModMaterialSets {

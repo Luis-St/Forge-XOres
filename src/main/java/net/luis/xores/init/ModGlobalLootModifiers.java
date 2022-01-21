@@ -8,9 +8,9 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 /**
- * Registration class of {@link GlobalLootModifierSerializer}
  * 
  * @author Luis-st
+ *
  */
 
 public class ModGlobalLootModifiers {

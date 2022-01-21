@@ -33,13 +33,6 @@ import net.minecraftforge.registries.RegistryObject;
 @EventBusSubscriber(modid = XOres.MOD_ID, bus = Bus.MOD, value = Dist.CLIENT)
 public class OnClientSetupEvent {
 	
-	/**
-	 * Registration of:
-	 * <ul>
-	 *  <li>ArmorBar extension</li>
-	 *  <li>Item Properties</li>
-	 * </ul>
-	 */
 	@SubscribeEvent
 	public static void clientSetup(FMLClientSetupEvent event) {
 		OverlayRegistry.registerOverlayAbove(ForgeIngameGui.ARMOR_LEVEL_ELEMENT, "Armor Bar", new ModArmorOverlay(Minecraft.getInstance()));
@@ -58,10 +51,6 @@ public class OnClientSetupEvent {
 		});
 	}
 	
-	/**
-	 * register the default ItemProperties for a {@link BowItem}
-	 * @param bow for which the ItemProperties should be register
-	 */
 	protected static void registerBow(BowItem bow) {
 		ItemProperties.register(bow, new ResourceLocation(XOres.MOD_ID, "pull"), (stack, level, livingEntity, seed) -> {
 			if (livingEntity == null) {
@@ -75,10 +64,6 @@ public class OnClientSetupEvent {
 		});
 	}
 	
-	/**
-	 * register the default ItemProperties for a {@link CrossbowItem}
-	 * @param crossbow for which the ItemProperties should be register
-	 */
 	protected static void registerCrossbow(CrossbowItem crossbow) {
 		ItemProperties.register(crossbow, new ResourceLocation(XOres.MOD_ID, "pull"), (stack, level, livingEntity, seed) -> {
 			if (livingEntity == null) {
@@ -98,20 +83,12 @@ public class OnClientSetupEvent {
 		});
 	}
 	
-	/**
-	 * register the default ItemProperties for a {@link ShieldItem}
-	 * @param shield for which the ItemProperties should be register
-	 */
 	protected static void registerShield(ShieldItem shield) {
 		ItemProperties.register(shield, new ResourceLocation(XOres.MOD_ID, "blocking"), (stack, level, livingEntity, seed) -> {
 			return livingEntity != null && livingEntity.isUsingItem() && livingEntity.getUseItem() == stack ? 1.0F : 0.0F;
 		});
 	}
 	
-	/**
-	 * register the default ItemProperties for a {@link ElytraChestplateItem}
-	 * @param elytraChestplate for which the ItemProperties should be register
-	 */
 	protected static void registerElytraChestplate(ElytraChestplateItem elytraChestplate) {
 		ItemProperties.register(elytraChestplate, new ResourceLocation(XOres.MOD_ID, "broken"), (stack, level, livingEntity, seed) -> {
 			return ElytraItem.isFlyEnabled(stack) ? 0.0F : 1.0F;

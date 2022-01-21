@@ -22,9 +22,6 @@ public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {
 		super(generator, XOres.MOD_ID);
 	}
 
-	/**
-	 * registration of all GlobalLootModifiers
-	 */
 	@Override
 	protected void start() {
 		add("smelting", ModGlobalLootModifiers.SMELTING_MODIFIER.get(), new SmeltingModifier(new LootItemCondition[] {

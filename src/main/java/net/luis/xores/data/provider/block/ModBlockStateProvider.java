@@ -29,9 +29,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
 		this.existingFileHelper = existingFileHelper;
 	}
 	
-	/**
-	 * registration of all BlockStates, BlockModels and ItemModels
-	 */
 	@Override
 	protected void registerStatesAndModels() {
 		for (Block block : ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {

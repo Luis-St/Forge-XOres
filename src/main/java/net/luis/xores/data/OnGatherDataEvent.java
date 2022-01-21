@@ -15,9 +15,6 @@ import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 @EventBusSubscriber(modid = XOres.MOD_ID, bus = Bus.MOD)
 public class OnGatherDataEvent {
 	
-	/**
-	 * out commented, since it's no longer needed
-	 */
 	@SubscribeEvent
 	public static void gatherData(GatherDataEvent event) {
 //		DataGenerator generator = event.getGenerator();

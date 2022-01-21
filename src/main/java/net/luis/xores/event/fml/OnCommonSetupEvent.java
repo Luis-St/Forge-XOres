@@ -20,13 +20,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 @EventBusSubscriber(modid = XOres.MOD_ID, bus = Bus.MOD)
 public class OnCommonSetupEvent {
 	
-	/**
-	 * Registration of:
-	 * <ul>
-	 *  <li>ElytraChestplate flight Item damage</li>
-	 *  <li>extension of the max value of the RangeAttributes</li>
-	 * </ul>
-	 */
 	@SubscribeEvent
 	public static void commonSetup(FMLCommonSetupEvent event) {
 		Util.make(ElytraChestplateItem.ELYTRA_DAMAGE_VALUES, map -> {

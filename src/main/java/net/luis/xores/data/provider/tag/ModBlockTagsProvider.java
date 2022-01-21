@@ -49,9 +49,6 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
 		super(generator, XOres.MOD_ID, existingFileHelper);
 	}
 	
-	/**
-	 * registration of all BlockTags
-	 */
 	@Override
 	protected void addTags() {
 		this.tag(ModTags.Blocks.NEEDS_TOOL_LEVEL_1).addTag(BlockTags.NEEDS_STONE_TOOL).add(JADE_ORE.get(), DEEPSLATE_JADE_ORE.get(), JADE_BLOCK.get());

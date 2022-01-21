@@ -9,9 +9,9 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 /**
- * Registration class of {@link Block}
  * 
  * @author Luis-st
+ *
  */
 
 public class ModBlocks {

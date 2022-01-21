@@ -35,9 +35,6 @@ public class ModArmorOverlay implements IIngameOverlay {
 		}
 	}
 	
-	/**
-	 * render a Armorbar extension from a ArmorValue of 21 until 40 
-	 */
 	@SuppressWarnings("resource") // required by Eclipse
 	protected void renderArmor(ForgeIngameGui gui, PoseStack poseStack, float partialTicks, int width, int height) { 
 		RenderSystem.enableBlend();

@@ -109,9 +109,6 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 		super(generator, blockTagsProvider, XOres.MOD_ID, existingFileHelper);
 	}
 	
-	/**
-	 * registration of all ItemTags
-	 */
 	@Override
 	@SuppressWarnings("deprecation")
 	protected void addTags() {

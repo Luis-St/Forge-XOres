@@ -9,9 +9,9 @@ import net.minecraftforge.registries.RegistryBuilder;
 import net.minecraftforge.registries.RegistryObject;
 
 /**
- * Registration class of {@link MaterialSet} for the vanilla set
  * 
  * @author Luis-st
+ *
  */
 
 public class MaterialSets {

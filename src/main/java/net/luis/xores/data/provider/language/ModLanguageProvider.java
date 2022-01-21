@@ -24,9 +24,6 @@ public class ModLanguageProvider extends LanguageProvider {
 		super(generator, XOres.MOD_ID, "en_us");
 	}
 
-	/**
-	 * registration of all Blocks and Items to get the Translations
-	 */
 	@Override
 	protected void addTranslations() {
 		for (Block block : ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
@@ -38,12 +35,6 @@ public class ModLanguageProvider extends LanguageProvider {
 		this.add(XOres.XORES_TAB.getDisplayName().getString(), "XOres");
 	}
 	
-	/**
-	 * 
-	 * @param location
-	 * @return the name of the {@link ResourceLocation},
-	 * @example for the {@link ResourceLocation} "minecraft:iron_ingot" -> "Iron Ingot"
-	 */
 	protected String getName(ResourceLocation location) { 
 		String[] nameParts = location.getPath().split("_");
 		String name = "";

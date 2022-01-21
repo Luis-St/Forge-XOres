@@ -9,17 +9,17 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
 /**
- * Registration class of {@link Tag}
  * 
  * @author Luis-st
+ *
  */
 
 public class ModTags {
 	
 	/**
-	 * Registration sub-class of {@link BlockTags}
 	 * 
 	 * @author Luis-st
+	 *
 	 */
 	public static class Blocks {
 		// Block Tool levels
@@ -48,9 +48,9 @@ public class ModTags {
 	}
 	
 	/**
-	 * Registration sub-class of {@link ItemTags}
 	 * 
 	 * @author Luis-st
+	 *
 	 */
 	public static class Items {
 		// Vanilla Materials

@@ -23,10 +23,6 @@ public abstract class ItemStackMixin {
 	@Shadow
 	public abstract Item getItem();
 	
-	/**
-	 * cancel the vanilla/forge behavior of {@link ItemStack#isCorrectToolForDrops},
-	 * we handel these hardcoded in {@link ToolFixer}
-	 */
 	@Inject(method = "isCorrectToolForDrops", at = @At("HEAD"), cancellable = true)
 	public void isCorrectToolForDrops(BlockState state, CallbackInfoReturnable<Boolean> info) {
 		ToolFixer toolFixer = ToolFixer.INSTANCE;

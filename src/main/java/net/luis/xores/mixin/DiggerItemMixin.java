@@ -28,10 +28,6 @@ public abstract class DiggerItemMixin extends TieredItem {
 		throw new UnsupportedOperationException();
 	}
 	
-	/**
-	 * changes the behavior of {@link AxeItem} when the Item is used as a weapon
-	 * the damage value in this case is only increased by 1 instead of 2
-	 */
 	@Inject(method = "hurtEnemy", at = @At("HEAD"), cancellable = true)
 	public void hurtEnemy(ItemStack stack, LivingEntity targetEntity, LivingEntity attackerEntity, CallbackInfoReturnable<Boolean> info) {
 		if (this.asItem() instanceof AxeItem) {

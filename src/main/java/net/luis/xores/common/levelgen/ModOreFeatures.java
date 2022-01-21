@@ -17,7 +17,6 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 
 /**
- * Registration class of {@link ConfiguredFeature}
  * 
  * @author Luis-st
  *

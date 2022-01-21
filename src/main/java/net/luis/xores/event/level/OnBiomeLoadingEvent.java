@@ -18,10 +18,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 
 @EventBusSubscriber(modid = XOres.MOD_ID)
 public class OnBiomeLoadingEvent {
-
-	/**
-	 * Level generation
-	 */
+	
 	@SubscribeEvent(priority = EventPriority.HIGH)
 	public static void biomeLoading(BiomeLoadingEvent event) {
 		BiomeGenerationSettingsBuilder generationBuilder = event.getGeneration();
