@@ -116,32 +116,34 @@ public class ModRecipeProvider extends RecipeProvider {
 		this.bootsRecipe(consumer, set);
 	}
 	
-	/**
-	 * register recipes for Item & ItemPart such as Ore and DeepslateOre
-	 * @param consumer
-	 * @param set for which the recipes should to be created
-	 */
 	protected void oreMaterialRecipes(Consumer<FinishedRecipe> consumer, MaterialSet set) {
-		set.ifPresent(MaterialTypes.ORE, Material::itemOrThrow, (ore) -> {
+		set.ifPresent(MaterialTypes.ORE, Material::self, (oreMaterial) -> {
 			if (set.has(MaterialTypes.MATERIAL_PART)) {
-				Item materialPart = set.get(MaterialTypes.MATERIAL_PART).itemOrThrow();
-				this.smeltingRecipe(consumer, materialPart, ore, 1.0F, getGroup(materialPart), "_from_smelting_" + getId(ore));
-				this.blastingRecipe(consumer, materialPart, ore, 0.75F, getGroup(materialPart), "_from_blasting_" + getId(ore));
+				Item resultItem = set.get(MaterialTypes.MATERIAL_PART).itemOrThrow();
+				if (oreMaterial.isItem()) {
+					Item oreItem = oreMaterial.itemOrThrow();
+					this.smeltingRecipe(consumer, resultItem, oreItem, 1.0F, getGroup(resultItem), "_from_smelting_" + getId(oreItem));
+					this.blastingRecipe(consumer, resultItem, oreItem, 0.75F, getGroup(resultItem), "_from_blasting_" + getId(oreItem));
+				} else if (oreMaterial.isTag()) {
+					Named<Item> oreTag = oreMaterial.tagOrThrow();
+					for (Item oreItem : oreTag.getValues()) {
+						this.smeltingRecipe(consumer, resultItem, oreItem, 1.0F, getGroup(resultItem), "_from_smelting_" + getId(oreItem));
+						this.blastingRecipe(consumer, resultItem, oreItem, 0.75F, getGroup(resultItem), "_from_blasting_" + getId(oreItem));
+					}
+				}
 			} else if (set.has(MaterialTypes.MATERIAL)) {
-				Item material = set.get(MaterialTypes.MATERIAL).itemOrThrow();
-				this.smeltingRecipe(consumer, material, ore, 1.0F, getGroup(material), "_from_smelting_" + getId(ore));
-				this.blastingRecipe(consumer, material, ore, 0.75F, getGroup(material), "_from_blasting_" + getId(ore));
-			}
-		});
-		set.ifPresent(MaterialTypes.DEEPSLATE_ORE, Material::itemOrThrow, deepslateOre -> {
-			if (set.has(MaterialTypes.MATERIAL_PART)) {
-				Item materialPart = set.get(MaterialTypes.MATERIAL_PART).itemOrThrow();
-				this.smeltingRecipe(consumer, materialPart, deepslateOre, 1.5F, getGroup(materialPart), "_from_smelting_" + getId(deepslateOre));
-				this.blastingRecipe(consumer, materialPart, deepslateOre, 1.125F, getGroup(materialPart), "_from_blasting_" + getId(deepslateOre));
-			} else if (set.has(MaterialTypes.MATERIAL)) {
-				Item material = set.get(MaterialTypes.MATERIAL).itemOrThrow();
-				this.smeltingRecipe(consumer, material, deepslateOre, 1.5F, getGroup(material), "_from_smelting_" + getId(deepslateOre));
-				this.blastingRecipe(consumer, material, deepslateOre, 1.125F, getGroup(material), "_from_blasting_" + getId(deepslateOre));
+				Item resultItem = set.get(MaterialTypes.MATERIAL).itemOrThrow();
+				if (oreMaterial.isItem()) {
+					Item oreItem = oreMaterial.itemOrThrow();
+					this.smeltingRecipe(consumer, resultItem, oreItem, 1.0F, getGroup(resultItem), "_from_smelting_" + getId(oreItem));
+					this.blastingRecipe(consumer, resultItem, oreItem, 0.75F, getGroup(resultItem), "_from_blasting_" + getId(oreItem));
+				} else if (oreMaterial.isTag()) {
+					Named<Item> oreTag = oreMaterial.tagOrThrow();
+					for (Item oreItem : oreTag.getValues()) {
+						this.smeltingRecipe(consumer, resultItem, oreItem, 1.0F, getGroup(resultItem), "_from_smelting_" + getId(oreItem));
+						this.blastingRecipe(consumer, resultItem, oreItem, 0.75F, getGroup(resultItem), "_from_blasting_" + getId(oreItem));
+					}
+				}
 			}
 		});
 	}

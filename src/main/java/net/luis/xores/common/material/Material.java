@@ -4,8 +4,6 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-import com.google.common.annotations.VisibleForTesting;
-
 import net.minecraft.tags.Tag.Named;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -36,7 +34,6 @@ public class Material {
 		return new Material(tag);
 	}
 	
-	@VisibleForTesting
 	public Material self() {
 		return this;
 	}
