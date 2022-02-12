@@ -2,17 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "xores:rosite_ingot_from_blasting_deepslate_rosite_ore"
+      "xores:night_scrap_from_smelting_enderite_ore"
     ]
   },
   "criteria": {
-    "has_rosite_ingot": {
+    "has_night_scrap": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "xores:rosite_ingot"
+              "xores:night_scrap"
             ]
           }
         ]
@@ -21,13 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "xores:rosite_ingot_from_blasting_deepslate_rosite_ore"
+        "recipe": "xores:night_scrap_from_smelting_enderite_ore"
       }
     }
   },
   "requirements": [
     [
-      "has_rosite_ingot",
+      "has_night_scrap",
       "has_the_recipe"
     ]
   ]

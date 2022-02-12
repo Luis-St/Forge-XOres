@@ -2,7 +2,7 @@
   "type": "minecraft:smelting",
   "group": "saphire",
   "ingredient": {
-    "item": "xores:saphire_ore"
+    "tag": "xores:ores/saphire_ore"
   },
   "result": "xores:saphire_ingot",
   "experience": 1.0,

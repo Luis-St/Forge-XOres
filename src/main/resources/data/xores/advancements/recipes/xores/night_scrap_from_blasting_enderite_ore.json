@@ -2,17 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "xores:limonite_ingot_from_smelting_deepslate_limonite_ore"
+      "xores:night_scrap_from_blasting_enderite_ore"
     ]
   },
   "criteria": {
-    "has_limonite_ingot": {
+    "has_night_scrap": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "xores:limonite_ingot"
+              "xores:night_scrap"
             ]
           }
         ]
@@ -21,13 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "xores:limonite_ingot_from_smelting_deepslate_limonite_ore"
+        "recipe": "xores:night_scrap_from_blasting_enderite_ore"
       }
     }
   },
   "requirements": [
     [
-      "has_limonite_ingot",
+      "has_night_scrap",
       "has_the_recipe"
     ]
   ]

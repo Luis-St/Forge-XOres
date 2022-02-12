@@ -2,7 +2,7 @@
   "type": "minecraft:smelting",
   "group": "limonite",
   "ingredient": {
-    "item": "xores:limonite_ore"
+    "tag": "xores:ores/limonite_ore"
   },
   "result": "xores:limonite_ingot",
   "experience": 1.0,

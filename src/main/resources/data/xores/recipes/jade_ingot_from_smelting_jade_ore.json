@@ -2,7 +2,7 @@
   "type": "minecraft:smelting",
   "group": "jade",
   "ingredient": {
-    "item": "xores:jade_ore"
+    "tag": "xores:ores/jade_ore"
   },
   "result": "xores:jade_ingot",
   "experience": 1.0,

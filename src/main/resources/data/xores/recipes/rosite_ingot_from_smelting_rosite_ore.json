@@ -2,7 +2,7 @@
   "type": "minecraft:smelting",
   "group": "rosite",
   "ingredient": {
-    "item": "xores:rosite_ore"
+    "tag": "xores:ores/rosite_ore"
   },
   "result": "xores:rosite_ingot",
   "experience": 1.0,

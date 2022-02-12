@@ -2,7 +2,7 @@
   "type": "minecraft:blasting",
   "group": "enderite",
   "ingredient": {
-    "item": "xores:enderite_ore"
+    "tag": "xores:ores/enderite_ore"
   },
   "result": "xores:enderite_scrap",
   "experience": 0.75,
