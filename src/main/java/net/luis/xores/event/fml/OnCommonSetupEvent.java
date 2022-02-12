@@ -12,17 +12,28 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
 /**
+ * {@link FMLCommonSetupEvent} event hanlder
  * 
  * @author Luis-st
- *
  */
 
 @EventBusSubscriber(modid = XOres.MOD_ID, bus = Bus.MOD)
 public class OnCommonSetupEvent {
 	
+	/**
+	 * register the common stuff of {@link XOres}:<br>
+	 * <ul>
+	 * 	<li>{@link ElytraChestplateItem#ELYTRA_TIME_DAMAGE_VALUES}</li>
+	 * </ul>
+	 * replace the max value of the following {@link RangedAttribute}s:
+	 * <ul>
+	 * 	<li>{@link Attributes#ARMOR}</li>
+	 * 	<li>{@link Attributes#KNOCKBACK_RESISTANCE}</li>
+	 * </ul>
+	 */
 	@SubscribeEvent
 	public static void commonSetup(FMLCommonSetupEvent event) {
-		Util.make(ElytraChestplateItem.ELYTRA_DAMAGE_VALUES, map -> {
+		Util.make(ElytraChestplateItem.ELYTRA_TIME_DAMAGE_VALUES, map -> {
 			map.put(ModItems.DIAMOND_ELYTRA_CHESTPLATE.get(), 40);
 			map.put(ModItems.NETHERITE_ELYTRA_CHESTPLATE.get(), 60);
 			map.put(ModItems.ENDERITE_ELYTRA_CHESTPLATE.get(), 80);

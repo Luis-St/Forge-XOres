@@ -2,24 +2,29 @@ package net.luis.xores.event.registry;
 
 import net.luis.xores.XOres;
 import net.luis.xores.client.render.layer.ModElytraLayer;
+import net.luis.xores.common.item.ElytraChestplateItem;
 import net.luis.xores.init.ModItems;
 import net.minecraft.client.renderer.entity.player.PlayerRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
+import net.minecraftforge.client.event.EntityRenderersEvent.AddLayers;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;;
 
 /**
+ * {@link AddLayers} event hanlder
  * 
  * @author Luis-st
- *
  */
 
 @EventBusSubscriber(modid = XOres.MOD_ID, bus = Bus.MOD, value = Dist.CLIENT)
 public class OnEntityRenderersEvent {
 	
+	/**
+	 * add the {@link ModElytraLayer} for all {@link ElytraChestplateItem}s to the {@link PlayerRenderer}
+	 */
 	@SubscribeEvent
 	public static void addLayers(EntityRenderersEvent.AddLayers event) {
 		for (String skin : event.getSkins()) {
