@@ -1,32 +1,37 @@
 package net.luis.xores.client.render.overlay;
 
-import java.util.List;
-
-import com.google.common.collect.Lists;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.world.item.ArmorItem;
 import net.minecraftforge.client.gui.ForgeIngameGui;
 import net.minecraftforge.client.gui.IIngameOverlay;
 
 /**
+ * implementation of {@link IIngameOverlay},<br>
+ * used to render the armor bar extension
  * 
  * @author Luis-st
- *
  */
 
 public class ModArmorOverlay implements IIngameOverlay {
 	
-	public static final List<ArmorItem> VANILLA_ARMOR_ITEMS = Lists.newArrayList();
-	
+	/**
+	 * the {@link Minecraft} client instance
+	 */
 	protected final Minecraft minecraft;
 	
+	/**
+	 * constructor for the {@link ModArmorOverlay}
+	 */
 	public ModArmorOverlay(Minecraft minecraft) {
 		this.minecraft = minecraft;
 	}
 	
+	/**
+	 * setup the render state and<br>
+	 * check if the extended armor bar should be rendered
+	 */
 	@Override
 	public void render(ForgeIngameGui gui, PoseStack poseStack, float partialTicks, int width, int height) {
 		if (!this.minecraft.options.hideGui && gui.shouldDrawSurvivalElements()) {
@@ -35,19 +40,21 @@ public class ModArmorOverlay implements IIngameOverlay {
 		}
 	}
 	
-	@SuppressWarnings("resource") // required by Eclipse
+	/**
+	 * render the armor bar from 21 to 40
+	 */
 	protected void renderArmor(ForgeIngameGui gui, PoseStack poseStack, float partialTicks, int width, int height) { 
 		RenderSystem.enableBlend();
 		int left = width / 2 - 91;
 		int top = height - gui.left_height;
-		int level = Minecraft.getInstance().player.getArmorValue();
+		int level = this.minecraft.player.getArmorValue();
 		for (int i = 21; level > 20 && i < 40; i += 2) {
 			if (i < level) {
-				gui.blit(poseStack, left, top, 34, 9, 9, 9); // full
+				gui.blit(poseStack, left, top, 34, 9, 9, 9); // full armor icon
 			} else if (i == level) {
-				gui.blit(poseStack, left, top, 25, 9, 9, 9); // half
+				gui.blit(poseStack, left, top, 25, 9, 9, 9); // half armor icon
 			} else if (i > level) {
-				gui.blit(poseStack, left, top, 16, 9, 9, 9); // empty
+				gui.blit(poseStack, left, top, 16, 9, 9, 9); // empty (no) armor icon
 			}
 			left += 8;
 		}
