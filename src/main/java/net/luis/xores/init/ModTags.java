@@ -5,15 +5,17 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.Tag;
+import net.minecraft.tags.Tag.Named;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
 /**
+ * registration class for all mod {@link Named} tags
  * 
  * @author Luis-st
- *
  */
 
+//TODO: add javadocs to Named Tags
 public class ModTags {
 	
 	/**

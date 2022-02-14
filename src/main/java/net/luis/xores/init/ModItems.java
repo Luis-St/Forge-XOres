@@ -25,11 +25,12 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 /**
+ * registration class for all mod {@link Item}s
  * 
  * @author Luis-st
- *
  */
 
+//TODO: add javadocs to RegistryObjects
 public class ModItems {
 	
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, XOres.MOD_ID);

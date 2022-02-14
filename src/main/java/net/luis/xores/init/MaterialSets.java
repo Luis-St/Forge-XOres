@@ -9,11 +9,12 @@ import net.minecraftforge.registries.RegistryBuilder;
 import net.minecraftforge.registries.RegistryObject;
 
 /**
+ * registration class for all vanilla {@link MaterialSet}s
  * 
  * @author Luis-st
- *
  */
 
+// TODO: add javadocs to RegistryObjects
 public class MaterialSets {
 	
 	public static final DeferredRegister<MaterialSet> MATERIALS = DeferredRegister.create(MaterialSet.class, "minecraft");

@@ -9,11 +9,12 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 /**
+ * registration class for all mod {@link Block}s
  * 
  * @author Luis-st
- *
  */
 
+//TODO: add javadocs to RegistryObjects
 public class ModBlocks {
 	
 	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, XOres.MOD_ID);

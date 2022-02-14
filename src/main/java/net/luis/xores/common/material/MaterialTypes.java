@@ -11,7 +11,7 @@ import net.luis.xores.XOres;
 import net.minecraft.resources.ResourceLocation;
 
 /**
- * registration class for all {@link MaterialType}s
+ * registration class for all mod {@link MaterialType}s
  * 
  * @author Luis-st
  */

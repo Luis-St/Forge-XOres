@@ -7,11 +7,12 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
 /**
+ * registration class for all mod {@link MaterialSet}s
  * 
  * @author Luis-st
- *
  */
 
+//TODO: add javadocs to RegistryObjects
 public class ModMaterialSets {
 	
 	public static final DeferredRegister<MaterialSet> MATERIALS = DeferredRegister.create(MaterialSet.class, XOres.MOD_ID);

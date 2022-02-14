@@ -8,11 +8,12 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 /**
+ * registration class for all mod {@link GlobalLootModifierSerializer}s
  * 
  * @author Luis-st
- *
  */
 
+//TODO: add javadocs to RegistryObjects
 public class ModGlobalLootModifiers {
 	
 	public static final DeferredRegister<GlobalLootModifierSerializer<?>> LOOT_MODIFIERS = DeferredRegister.create(ForgeRegistries.LOOT_MODIFIER_SERIALIZERS, XOres.MOD_ID);
