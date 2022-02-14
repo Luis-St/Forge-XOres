@@ -7,9 +7,12 @@ import net.luis.xores.init.ModItems;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.TieredItem;
 import net.minecraft.world.item.crafting.Ingredient;
 
 /**
+ * implementation of {@link Tier},<br>
+ * used for all mod {@link TieredItem}s
  * 
  * @author Luis-st
  *
@@ -17,81 +20,176 @@ import net.minecraft.world.item.crafting.Ingredient;
 
 public enum ModTiers implements Tier {
 	
+	/**
+	 * the {@link Tier} for the jade tools
+	 */
 	JADE("jade", 190, 5.0F, 5.0F, 2, 28, () -> {
 		return Ingredient.of(ModItems.JADE_INGOT.get());
 	}),
+	
+	/**
+	 * the {@link Tier} for the blazing tools
+	 */
 	BLAZING("blazing", 905, 7.0F, 6.0F, 2, 12, () -> {
 		return Ingredient.of(ModItems.BLAZING_INGOT.get());
 	}),
+	
+	/**
+	 * the {@link Tier} for the saphire tools
+	 */
 	SAPHIRE("saphire", 1718, 8.0F, 8.0F, 3, 42, () -> {
 		return Ingredient.of(ModItems.SAPHIRE_INGOT.get());
 	}),
+	
+	/**
+	 * the {@link Tier} for the limonite tools
+	 */
 	LIMONITE("limonite", 3178, 10.0F, 10.0F, 5, 26, () -> {
 		return Ingredient.of(ModItems.LIMONITE_INGOT.get());
 	}),
+	
+	/**
+	 * the {@link Tier} for the rosite tools
+	 */
 	ROSITE("rosite", 4916, 10.0F, 11.0F, 4, 12, () -> {
 		return Ingredient.of(ModItems.ROSITE_INGOT.get());
 	}),
+	
+	/**
+	 * the {@link Tier} for the rose quartz tools
+	 */
 	ROSE_QUARTZ("rose_quartz", 7693, 11.0F, 12.0F, 4, 17, () -> {
 		return Ingredient.of(ModItems.ROSE_QUARTZ.get());
 	}),
+	
+	/**
+	 * the {@link Tier} for the enderite tools
+	 */
 	ENDERITE("enderite", 10770, 14.0F, 16.0F, 5, 18, () -> {
 		return Ingredient.of(Items.BARRIER);
 	}),
+	
+	/**
+	 * the {@link Tier} for the steel tools
+	 */
 	STEEL("steel", 12924, 18.0F, 5.0F, 6, 9, () -> {
 		return Ingredient.of(ModItems.STEEL_INGOT.get());
 	}),
+	
+	/**
+	 * the {@link Tier} for the night tools
+	 */
 	NIGHT("night", 16801, 15.0F, 19.0F, 5, 56, () -> {
 		return Ingredient.of(Items.BARRIER);
 	});
 
+	/**
+	 * the name
+	 */
 	protected final ResourceLocation name;
+	
+	/**
+	 * the uses
+	 */
 	protected final int uses;
+	
+	/**
+	 * the mining speed
+	 */
 	protected final float speed;
-	protected final float attackDamage;
+	
+	/**
+	 * the attack damage bonus
+	 */
+	protected final float attackDamageBonus;
+	
+	/**
+	 * the harvest level
+	 */
 	protected final int level;
+	
+	/**
+	 * the enchantment value
+	 */
 	protected final int enchantmentValue;
+	
+	/**
+	 * the repair ingredient as an {@link Supplier},<br>
+	 * since the value of the {@link Ingredient} needs to be lazy load
+	 */
 	protected final Supplier<Ingredient> repairIngredient;
 
-	private ModTiers(String name, int uses, float speed, float attackDamage, int level, int enchantmentValue, Supplier<Ingredient> repairIngredient) {
+	/**
+	 * constructor for the {@link ModTiers}
+	 */
+	private ModTiers(String name, int uses, float speed, float attackDamageBonus, int level, int enchantmentValue, Supplier<Ingredient> repairIngredient) {
 		this.name = new ResourceLocation(XOres.MOD_ID, name);
 		this.uses = uses;
 		this.speed = speed;
-		this.attackDamage = attackDamage;
+		this.attackDamageBonus = attackDamageBonus;
 		this.level = level;
 		this.enchantmentValue = enchantmentValue;
 		this.repairIngredient = repairIngredient;
 	}
 	
+	/**
+	 * getter for the name of the tier
+	 * @return {@link ModTiers#name}
+	 */
 	public ResourceLocation getName() {
 		return this.name;
 	}
 	
+	/**
+	 * getter for the uses of the tier
+	 * @return {@link ModTiers#uses}
+	 */
 	@Override
 	public int getUses() {
 		return this.uses;
 	}
 
+	/**
+	 * getter for the mining speed of the tier
+	 * @return {@link ModTiers#speed}
+	 */
 	@Override
 	public float getSpeed() {
 		return this.speed;
 	}
 
+	/**
+	 * getter for the attack damage bonus,<br>
+	 * which will be add to the default damge
+	 * @return {@link ModTiers#attackDamageBonus}
+	 */
 	@Override
 	public float getAttackDamageBonus() {
-		return this.attackDamage;
+		return this.attackDamageBonus;
 	}
 
+	/**
+	 * getter for the harvest level of the tier
+	 * @return {@link ModTiers#level}
+	 */
 	@Override
 	public int getLevel() {
 		return this.level;
 	}
 	
+	/**
+	 * getter for the enchantment value of the tier
+	 * @return {@link ModTiers#enchantmentValue}
+	 */
 	@Override
 	public int getEnchantmentValue() {
 		return this.enchantmentValue;
 	}
 
+	/**
+	 * getter for the repair ingredient
+	 * @return {@link ModTiers#repairIngredient} as an {@link Ingredient}
+	 */
 	@Override
 	public Ingredient getRepairIngredient() {
 		return this.repairIngredient.get();
