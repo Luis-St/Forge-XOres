@@ -38,7 +38,6 @@ public class MaterialSets {
 	});
 	
 	// TODO: add Tag for Copper Blocks
-	// TODO: add Material Part Block
 	public static final RegistryObject<MaterialSet> COPPER = MATERIALS.register("copper", () -> {
 		return MaterialSet.of().add(MaterialTypes.MATERIAL, Items.COPPER_INGOT).add(MaterialTypes.MATERIAL_PART, Items.RAW_COPPER).add(MaterialTypes.ORE, ItemTags.COPPER_ORES).add(MaterialTypes.BLOCK, Items.COPPER_BLOCK)
 				.add(ModItems.COPPER_SHIELD.get()).build();
@@ -70,11 +69,7 @@ public class MaterialSets {
 	});
 	
 	static {
-		MATERIALS.makeRegistry("material_set",  () -> {
-			return new RegistryBuilder<MaterialSet>().onAdd((owner, stage, id, set, oldSet) -> {
-				set.valid();
-			});
-		});
+		MATERIALS.makeRegistry("material_set",  RegistryBuilder<MaterialSet>::new);
 	}
 	
 }
