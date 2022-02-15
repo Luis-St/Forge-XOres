@@ -39,8 +39,10 @@ public class OnCommonSetupEvent {
 			map.put(ModItems.ENDERITE_ELYTRA_CHESTPLATE.get(), 80);
 			map.put(ModItems.NIGHT_ELYTRA_CHESTPLATE.get(), 100);
 		});
-		replaceAttributeValue((RangedAttribute) Attributes.ARMOR, 512.0);
-		replaceAttributeValue((RangedAttribute) Attributes.KNOCKBACK_RESISTANCE, 64.0);
+		event.enqueueWork(() -> {
+			replaceAttributeValue((RangedAttribute) Attributes.ARMOR, 512.0);
+			replaceAttributeValue((RangedAttribute) Attributes.KNOCKBACK_RESISTANCE, 64.0);
+		});
 	}
 	
 	protected static void replaceAttributeValue(RangedAttribute attribute, double maxValue) {
