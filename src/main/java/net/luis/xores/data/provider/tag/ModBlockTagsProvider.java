@@ -28,27 +28,44 @@ import static net.minecraft.tags.BlockTags.MINEABLE_WITH_PICKAXE;
 import java.util.stream.Collectors;
 
 import net.luis.xores.XOres;
+import net.luis.xores.data.OnGatherDataEvent;
+import net.luis.xores.init.ModBlocks;
 import net.luis.xores.init.ModTags;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.DataProvider;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 import net.minecraftforge.registries.RegistryObject;
 
 /**
+ * extension of {@link BlockTagsProvider},<br>
+ * called by {@link GatherDataEvent},<br>
+ * used to generate the block tags for all mod {@link Block}s
  * 
  * @author Luis-st
- *
+ * 
+ * @see {@link BlockTagsProvider}
+ * @see {@link OnGatherDataEvent}
+ * @see {@link ModTags}
+ * @see {@link ModBlocks}
  */
 
 public class ModBlockTagsProvider extends BlockTagsProvider {
 
+	/**
+	 * constructor for the {@link ModBlockTagsProvider}
+	 */
 	public ModBlockTagsProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
 		super(generator, XOres.MOD_ID, existingFileHelper);
 	}
 	
+	/**
+	 * register all block tags
+	 */
 	@Override
 	protected void addTags() {
 		this.tag(ModTags.Blocks.NEEDS_TOOL_LEVEL_1).addTag(BlockTags.NEEDS_STONE_TOOL).add(JADE_ORE.get(), DEEPSLATE_JADE_ORE.get(), JADE_BLOCK.get());
@@ -75,6 +92,9 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
 		this.tag(STONES).add(Blocks.STONE, Blocks.BLACKSTONE, Blocks.DEEPSLATE);
 	}
 	
+	/**
+	 * @return the name of the {@link DataProvider}
+	 */
 	@Override
 	public String getName() {
 		return "XOres Block Tags";

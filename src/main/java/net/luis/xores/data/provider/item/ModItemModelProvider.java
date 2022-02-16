@@ -4,9 +4,11 @@ import java.util.stream.Collectors;
 
 import net.luis.xores.XOres;
 import net.luis.xores.common.item.ElytraChestplateItem;
+import net.luis.xores.data.OnGatherDataEvent;
 import net.luis.xores.init.ModItems;
 import net.minecraft.client.renderer.block.model.BlockModel.GuiLight;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.DataProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.CrossbowItem;
@@ -19,20 +21,34 @@ import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.client.model.generators.ModelFile.ExistingModelFile;
 import net.minecraftforge.client.model.generators.ModelFile.UncheckedModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 import net.minecraftforge.registries.RegistryObject;
 
 /**
+ * extension of {@link ItemModelProvider},<br>
+ * called by {@link GatherDataEvent},<br>
+ * used to generate the models for all mod {@link Item}s
  * 
  * @author Luis-st
- *
+ * 
+ * @see {@link ItemModelProvider}
+ * @see {@link OnGatherDataEvent}
+ * @see {@link ModItems}
  */
 
 public class ModItemModelProvider extends ItemModelProvider {
 
+	/**
+	 * constructor for the {@link ModItemModelProvider}
+	 */
 	public ModItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
 		super(generator, XOres.MOD_ID, existingFileHelper);
 	}
 
+	/**
+	 * register all item models<br>
+	 * for all {@link ModItems#ITEMS}
+	 */
 	@Override
 	protected void registerModels() {
 		for (Item item : ModItems.ITEMS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
@@ -52,18 +68,27 @@ public class ModItemModelProvider extends ItemModelProvider {
 		}
 	}
 	
+	/**
+	 * register a generated item model for the given {@link Item}
+	 */
 	public void generatedItem(Item item) {
 		ResourceLocation location = item.getRegistryName();
 		ModelFile model = new ExistingModelFile(new ResourceLocation("item/generated"), this.existingFileHelper);
 		this.getBuilder(location.getPath()).parent(model).texture("layer0", new ResourceLocation(XOres.MOD_ID, "item/" + location.getPath()));
 	}
 	
+	/**
+	 * register a handheld item model for the given {@link TieredItem}
+	 */
 	public void handheldItem(TieredItem tool) {
 		ResourceLocation location = tool.getRegistryName();
 		ModelFile model = new ExistingModelFile(new ResourceLocation("item/handheld"), this.existingFileHelper);
 		this.getBuilder(location.getPath()).parent(model).texture("layer0", new ResourceLocation(XOres.MOD_ID, "item/" + location.getPath()));
 	}
 	
+	/**
+	 * register a elytra chestplate item model for the given {@link ElytraChestplateItem}
+	 */
 	public void elytraChestplateItem(ElytraChestplateItem elytraChestplate) {
 		ResourceLocation location = elytraChestplate.getRegistryName();
 		ModelFile model = new ExistingModelFile(new ResourceLocation("item/generated"), this.existingFileHelper);
@@ -74,6 +99,9 @@ public class ModItemModelProvider extends ItemModelProvider {
 		this.getBuilder("broken_" + location.getPath()).parent(model).texture("layer0", new ResourceLocation(XOres.MOD_ID, "item/broken_" + location.getPath()));
 	}
 	
+	/**
+	 * register a bow item model for the given {@link BowItem}
+	 */
 	public void bowItem(BowItem bow) {
 		ResourceLocation location = bow.getRegistryName();
 		ModelFile model = new ExistingModelFile(new ResourceLocation("item/generated"), this.existingFileHelper);
@@ -95,6 +123,9 @@ public class ModItemModelProvider extends ItemModelProvider {
 		}
 	}
 	
+	/**
+	 * register a crossbow item model for the given {@link CrossbowItem}
+	 */
 	public void crossbowItem(CrossbowItem crossbow) {
 		ResourceLocation location = crossbow.getRegistryName();
 		ModelFile model = new ExistingModelFile(new ResourceLocation("item/generated"), this.existingFileHelper);
@@ -122,6 +153,9 @@ public class ModItemModelProvider extends ItemModelProvider {
 		this.getBuilder(location.getPath() + "_firework").parent(this.uncheckedModel(location.getPath())).texture("layer0", new ResourceLocation(XOres.MOD_ID, "item/" + location.getPath() + "_firework"));
 	}
 	
+	/**
+	 * register a shield item model for the given {@link ShieldItem}
+	 */
 	public void shieldItem(ShieldItem shield) {
 		ResourceLocation location = shield.getRegistryName();
 		ModelFile model = new UncheckedModelFile(new ResourceLocation("builtin/entity"));
@@ -146,14 +180,23 @@ public class ModItemModelProvider extends ItemModelProvider {
 			.end();
 	}
 	
+	/**
+	 * @return a {@link ExistingModelFile} for the given path
+	 */
 	public ModelFile existingModel(String path) {
 		return new ExistingModelFile(new ResourceLocation(XOres.MOD_ID, "item/" + path), this.existingFileHelper);
 	}
 	
+	/**
+	 * @return a {@link UncheckedModelFile} for the given path
+	 */
 	public ModelFile uncheckedModel(String path) {
 		return new UncheckedModelFile(new ResourceLocation(XOres.MOD_ID, "item/" + path));
 	}
 	
+	/**
+	 * @return the name of the {@link DataProvider}
+	 */
 	@Override
 	public String getName() {
 		return "XOres Item Models";
