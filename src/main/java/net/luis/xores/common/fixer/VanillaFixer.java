@@ -13,7 +13,7 @@ import net.minecraftforge.eventbus.api.Event;
  * if you want to use this for your own case,<br>
  * implements this interface into your class and do there<br>
  * waht ever you want. Create inside the class a {@code static final}<br>
- * field. This instance should then overwrite the {@link #init()} method.
+ * field. This instance should then overwrite the {@link VanillaFixer#init()} method.
  * <pre> {@code
  * 	public static final SomeFixer INSTANCE = new SomeFixer() {
  * 		@Override

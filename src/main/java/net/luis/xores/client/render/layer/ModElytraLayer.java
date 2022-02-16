@@ -54,7 +54,8 @@ public class ModElytraLayer<T extends LivingEntity, M extends EntityModel<T>> ex
 	}
 	
 	/**
-	 * getter for the {@link ModElytraLayer#elytraTexture}
+	 * getter for the elytra texture
+	 * @return {@link ModElytraLayer#elytraTexture}
 	 */
 	@Override
 	public ResourceLocation getElytraTexture(ItemStack stack, T entity) {

@@ -2,6 +2,8 @@ package net.luis.xores.common.levelgen;
 
 import java.util.List;
 
+import com.google.common.collect.Lists;
+
 import net.luis.xores.XOres;
 import net.minecraft.data.worldgen.placement.OrePlacements;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
@@ -104,7 +106,7 @@ public class ModOrePlacements {
 	 * </ul>
 	 */
 	protected static List<PlacementModifier> orePlacement(PlacementModifier countPlacement, PlacementModifier heightPlacement) {
-		return List.of(countPlacement, InSquarePlacement.spread(), heightPlacement, BiomeFilter.biome());
+		return Lists.newArrayList(countPlacement, InSquarePlacement.spread(), heightPlacement, BiomeFilter.biome());
 	}
 
 
@@ -117,7 +119,7 @@ public class ModOrePlacements {
 	 * 	<li>{@link CountPlacement} for the count of the ore in the chunk</li>
 	 *  <li>{@link HeightRangePlacement} for the minimum and maximum generation height</li>
 	 * </ul>
-	 * @see {@link ModOrePlacements#orePlacement()}
+	 * @see {@link ModOrePlacements#orePlacement(PlacementModifier, PlacementModifier)}
 	 * @see {@link ModOrePlacements#triangleMaxGeneration()} for the maximum generation height
 	 */
 	protected static List<PlacementModifier> upperOrePlacement(int count, int minGeneration) {
@@ -133,8 +135,8 @@ public class ModOrePlacements {
 	 * 	<li>{@link CountPlacement} for the count of the ore in the chunk</li>
 	 *  <li>{@link HeightRangePlacement} for the minimum and maximum generation height</li>
 	 * </ul>
-	 * @see {@link ModOrePlacements#orePlacement()}
-	 * @see {@link ModOrePlacements#triangleMinGeneration()} for the minimum generation height
+	 * @see {@link ModOrePlacements#orePlacement(PlacementModifier, PlacementModifier)}
+	 * @see {@link ModOrePlacements#triangleMinGeneration(int)} for the minimum generation height
 	 */
 	protected static List<PlacementModifier> buriedOrePlacement(int count, int maxGeneration) {
 		return orePlacement(CountPlacement.of(count), HeightRangePlacement.triangle(triangleMinGeneration(maxGeneration), VerticalAnchor.absolute(maxGeneration)));
@@ -148,6 +150,7 @@ public class ModOrePlacements {
 	 * 	<li>{@link CountPlacement} for the count of the ore in the chunk</li>
 	 *  <li>{@link HeightRangePlacement} for the minimum and maximum generation height</li>
 	 * </ul>
+	 * @see {@link ModOrePlacements#orePlacement(PlacementModifier, PlacementModifier)}
 	 */
 	protected static List<PlacementModifier> buriedEndOrePlacement(int count) {
 		return orePlacement(CountPlacement.of(count), HeightRangePlacement.triangle(VerticalAnchor.absolute(0), VerticalAnchor.absolute(128)));
@@ -163,6 +166,7 @@ public class ModOrePlacements {
 	 * 	<li>{@link CountPlacement} for the count of the ore in the chunk</li>
 	 *  <li>{@link HeightRangePlacement} for the minimum and maximum generation height</li>
 	 * </ul>
+	 * @see {@link ModOrePlacements#orePlacement(PlacementModifier, PlacementModifier)}
 	 */
 	protected static List<PlacementModifier> uniformOrePlacement(int count, int minGeneration, int maxGeneration) {
 		return orePlacement(CountPlacement.of(count), HeightRangePlacement.uniform(VerticalAnchor.absolute(minGeneration), VerticalAnchor.absolute(maxGeneration)));
@@ -178,6 +182,7 @@ public class ModOrePlacements {
 	 * 	<li>{@link CountPlacement} for the count of the ore in the chunk</li>
 	 *  <li>{@link HeightRangePlacement} for the minimum and maximum generation height</li>
 	 * </ul>
+	 * @see {@link ModOrePlacements#orePlacement(PlacementModifier, PlacementModifier)}
 	 */
 	protected static List<PlacementModifier> triangleOrePlacement(int count, int minGeneration, int maxGeneration) {
 		return orePlacement(CountPlacement.of(count), HeightRangePlacement.triangle(VerticalAnchor.absolute(minGeneration), VerticalAnchor.absolute(maxGeneration)));

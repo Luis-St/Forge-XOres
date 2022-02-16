@@ -47,7 +47,11 @@ public class Material {
 	}
 	
 	/**
-	 * constructor for the {@link Material}
+	 * constructor for the {@link Material},<br>
+	 * private since you should use the factory methods
+	 * 
+	 * @see {@link Material#item()}
+	 * @see {@link Material#tag()}
 	 */
 	Material(Optional<Item> item, Optional<Named<Item>> tag) {
 		this.item = Objects.requireNonNull(item, "Optional can't be null");
@@ -101,8 +105,8 @@ public class Material {
 	}
 	
 	/**
-	 * @throws a {@link NullPointerException} if {@link Material#isItem()} returns {@code false}
 	 * @return {@link Material#getItem()} if {@link Material#isItem()} returns {@code true}
+	 * @throws a {@link NullPointerException} if {@link Material#isItem()} returns {@code false}
 	 */
 	public Item itemOrThrow() {
 		if (this.isItem()) {
@@ -146,8 +150,8 @@ public class Material {
 	}
 	
 	/**
-	 * @throws a {@link NullPointerException} if {@link Material#isTag()} returns {@code false}
 	 * @return {@link Material#getTag()} if {@link Material#isTag()} returns {@code true}
+	 * @throws a {@link NullPointerException} if {@link Material#isTag()} returns {@code false}
 	 */
 	public Named<Item> tagOrThrow() {
 		if (this.isTag()) {

@@ -57,7 +57,7 @@ public class ElytraChestplateItem extends ArmorItem {
 	}
 	
 	/**
-	 * @return the vanilla logic of {@link ElytraItem#isFlyEnabled()}
+	 * @return the vanilla logic of {@link ElytraItem#isFlyEnabled(ItemStack)}
 	 */
 	@Override
 	public boolean canElytraFly(ItemStack stack, LivingEntity entity) {
