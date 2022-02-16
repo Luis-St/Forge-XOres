@@ -10,6 +10,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
 import net.luis.xores.init.ModTags;
+import net.luis.xores.mixin.ItemStackMixin;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.Tag;
 import net.minecraft.tags.Tag.Named;
@@ -30,6 +31,9 @@ import net.minecraft.world.level.block.state.BlockState;
  * manually and in a better way
  * 
  * @author Luis-st
+ * 
+ * @see {@link VanillaFixer}
+ * @see {@link ItemStackMixin}
  */
 
 public class ToolFixer implements VanillaFixer {

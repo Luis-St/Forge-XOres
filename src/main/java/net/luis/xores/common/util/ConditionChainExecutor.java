@@ -13,6 +13,7 @@ import com.mojang.datafixers.util.Pair;
  *
  */
 
+// TODO: add javadoc
 public class ConditionChainExecutor<T> {
 	
 	protected final Pair<Predicate<T>, Consumer<T>> ifCondition;

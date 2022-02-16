@@ -12,6 +12,9 @@ import net.minecraft.world.item.Item;
  * @see {@link MaterialTypes}
  * 
  * @author Luis-st
+ * 
+ * @see {@link Material}
+ * @see {@link MaterialSet}
  */
 
 public class MaterialType {
@@ -87,9 +90,9 @@ public class MaterialType {
 	 * the {@link Type} for a {@link MaterialType},<br>
 	 * used for all {@link MaterialType}s
 	 * 
-	 * @see {@link MaterialType}
-	 * 
 	 * @author Luis-st
+	 * 
+	 * @see {@link MaterialType}
 	 */
 	public static enum Type {
 		

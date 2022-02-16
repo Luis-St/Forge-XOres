@@ -38,6 +38,9 @@ import net.minecraftforge.registries.ForgeRegistryEntry;;
  * <ul>
  * 
  * @author Luis-st
+ * 
+ * @see {@link Material}
+ * @see {@link ForgeRegistryEntry}
  */
 
 public class MaterialSet extends ForgeRegistryEntry<MaterialSet> {

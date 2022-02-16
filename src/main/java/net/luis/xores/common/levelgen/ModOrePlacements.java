@@ -3,6 +3,7 @@ package net.luis.xores.common.levelgen;
 import java.util.List;
 
 import net.luis.xores.XOres;
+import net.minecraft.data.worldgen.placement.OrePlacements;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
@@ -17,6 +18,9 @@ import net.minecraft.world.level.levelgen.placement.PlacementModifier;
  * registration class for all mod {@link PlacedFeature}s
  * 
  * @author Luis-st
+ * 
+ * @see {@link PlacedFeature}
+ * @see {@link OrePlacements}
  */
 
 public class ModOrePlacements {

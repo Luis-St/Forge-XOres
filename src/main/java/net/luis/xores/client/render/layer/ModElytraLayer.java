@@ -1,6 +1,7 @@
 package net.luis.xores.client.render.layer;
 
 import net.luis.xores.common.item.ElytraChestplateItem;
+import net.luis.xores.init.ModItems;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
@@ -17,6 +18,9 @@ import net.minecraft.world.item.ItemStack;
  * used to render the mod {@link ElytraChestplateItem}s
  * 
  * @author Luis-st
+ * 
+ * @see {@link ElytraChestplateItem}
+ * @see {@link ModItems}
  */
 
 public class ModElytraLayer<T extends LivingEntity, M extends EntityModel<T>> extends ElytraLayer<T, M> {

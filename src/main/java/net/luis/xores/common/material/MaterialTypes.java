@@ -14,9 +14,10 @@ import net.minecraft.resources.ResourceLocation;
  * registration class for all mod {@link MaterialType}s
  * 
  * @author Luis-st
+ * 
+ * @see {@link MaterialSet}
  */
 
-// REWORK javadocs
 public class MaterialTypes {
 	
 	/**

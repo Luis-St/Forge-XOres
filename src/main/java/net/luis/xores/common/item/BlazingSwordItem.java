@@ -13,6 +13,9 @@ import net.minecraft.world.item.Tier;
  * used for {@link ModItems#BLAZING_SWORD}
  * 
  * @author Luis-st
+ * 
+ * @see {@link SwordItem}
+ * @see {@link ModItems}
  */
 
 public class BlazingSwordItem extends SwordItem {

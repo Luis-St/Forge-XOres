@@ -15,7 +15,9 @@ import net.minecraft.world.item.crafting.Ingredient;
  * used for all mod {@link TieredItem}s
  * 
  * @author Luis-st
- *
+ * 
+ * @see {@link Tier}
+ * @see {@link ModItems}
  */
 
 public enum ModTiers implements Tier {

@@ -9,9 +9,11 @@ import net.minecraft.world.item.ItemStack;
 
 /**
  * extension of {@link CreativeModeTab},<br>
- * used for all mod {@link Item}s for the  {@link Properties#tab(CreativeModeTab)}
+ * used for all mod {@link Item}s for the  {@link Properties#tab()}
  * 
  * @author Luis-st
+ * 
+ * @see {@link CreativeModeTab}
  */
 
 public class ModCreativeModeTab extends CreativeModeTab {

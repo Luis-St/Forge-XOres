@@ -3,6 +3,7 @@ package net.luis.xores.common.item.modded;
 import java.util.function.Consumer;
 
 import net.luis.xores.client.render.item.ModShieldRenderer;
+import net.luis.xores.init.ModItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.resources.ResourceLocation;
@@ -15,6 +16,9 @@ import net.minecraftforge.client.IItemRenderProperties;
  * the vanilla additional {@link ShieldItem}s
  * 
  * @author Luis-st
+ * 
+ * @see {@link ShieldItem}
+ * @see {@link ModItems}
  */
 
 public class ModShieldItem extends ShieldItem {

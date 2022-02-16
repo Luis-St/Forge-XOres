@@ -24,6 +24,9 @@ import net.minecraftforge.items.ItemHandlerHelper;
  * if the Block is mined with a {@link Items#BLAZING} Tool
  * 
  * @author Luis-st
+ * 
+ * @see {@link LootModifier}
+ * @see {@link Items}
  */
 
 public class SmeltingModifier extends LootModifier {

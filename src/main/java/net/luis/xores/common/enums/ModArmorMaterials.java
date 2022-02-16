@@ -17,6 +17,9 @@ import net.minecraft.world.item.crafting.Ingredient;
  * used for all mod {@link ArmorItem}s
  * 
  * @author Luis-st
+ * 
+ * @see {@link ArmorMaterial}
+ * @see {@link ModItems}
  */
 
 public enum ModArmorMaterials implements ArmorMaterial {

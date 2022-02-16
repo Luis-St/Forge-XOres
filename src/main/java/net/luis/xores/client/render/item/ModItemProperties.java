@@ -2,11 +2,13 @@ package net.luis.xores.client.render.item;
 
 import net.luis.xores.XOres;
 import net.luis.xores.common.item.ElytraChestplateItem;
+import net.luis.xores.event.fml.OnClientSetupEvent;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.CrossbowItem;
 import net.minecraft.world.item.ElytraItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ShieldItem;
 
@@ -16,6 +18,8 @@ import net.minecraft.world.item.ShieldItem;
  * the {@link ItemProperties} for the mod {@link Item}s
  * 
  * @author Luis-st
+ * 
+ * @see {@link OnClientSetupEvent}
  */
 
 public class ModItemProperties {

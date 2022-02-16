@@ -15,6 +15,10 @@ import net.minecraft.world.item.Items;
  * used for {@link ModItems#ENDERITE_HELMET}
  * 
  * @author Luis-st
+ * 
+ * @see {@link ArmorItem}
+ * @see {@link Items}
+ * @see {@link ModItems}
  */
 
 public class EnderiteHelmetItem extends ArmorItem {

@@ -20,6 +20,9 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
  * registration class for all mod {@link ConfiguredFeature}s
  * 
  * @author Luis-st
+ * 
+ * @see {@link ConfiguredFeature}
+ * @see {@link OreFeatures}
  */
 
 public class ModOreFeatures {

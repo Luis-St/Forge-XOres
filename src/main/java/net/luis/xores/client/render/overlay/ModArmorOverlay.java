@@ -3,6 +3,7 @@ package net.luis.xores.client.render.overlay;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 
+import net.luis.xores.event.fml.OnClientSetupEvent;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.gui.ForgeIngameGui;
 import net.minecraftforge.client.gui.IIngameOverlay;
@@ -12,6 +13,8 @@ import net.minecraftforge.client.gui.IIngameOverlay;
  * used to render the armor bar extension
  * 
  * @author Luis-st
+ * 
+ * @see {@link OnClientSetupEvent}
  */
 
 public class ModArmorOverlay implements IIngameOverlay {
