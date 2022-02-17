@@ -33,7 +33,7 @@ public class ModBlockLoot extends BlockLoot {
 	}
 	
 	/**
-	 * register all {@link LootTable}s for all {@link ModBlocks#BLOCKS}
+	 * register all {@link LootTable}s for {@link ModBlocks#BLOCKS}
 	 */
 	@Override
 	protected void addTables() {

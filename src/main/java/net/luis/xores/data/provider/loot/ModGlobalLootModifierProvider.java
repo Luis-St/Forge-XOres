@@ -36,7 +36,7 @@ public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {
 	}
 
 	/**
-	 * register all {@link GlobalLootModifier}s
+	 * register all {@link GlobalLootModifier}s for {@link ModGlobalLootModifiers#LOOT_MODIFIERS}
 	 */
 	@Override
 	protected void start() {

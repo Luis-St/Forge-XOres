@@ -45,7 +45,7 @@ public class ModLootTableProvider extends LootTableProvider {
 	}
 	
 	/**
-	 * register the {@link ModBlockLoot} with the {@link LootContextParamSets#BLOCK}
+	 * register the {@link ModBlockLoot} with the {@link LootContextParamSets#BLOCK} as {@link LootContextParamSet}
 	 */
 	@Override
 	protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, Builder>>>, LootContextParamSet>> getTables() {

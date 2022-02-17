@@ -46,8 +46,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 	}
 	
 	/**
-	 * register all {@link BlockModel}s, block states and item models<br>
-	 * for all {@link ModBlocks#BLOCKS}
+	 * register all {@link BlockModel}s, block states and item models for {@link ModBlocks#BLOCKS}
 	 */
 	@Override
 	protected void registerStatesAndModels() {

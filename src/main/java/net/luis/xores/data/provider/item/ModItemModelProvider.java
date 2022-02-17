@@ -46,8 +46,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 	}
 
 	/**
-	 * register all item models<br>
-	 * for all {@link ModItems#ITEMS}
+	 * register all item models for {@link ModItems#ITEMS}
 	 */
 	@Override
 	protected void registerModels() {

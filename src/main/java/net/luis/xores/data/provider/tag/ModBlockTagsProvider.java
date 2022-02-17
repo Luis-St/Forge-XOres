@@ -35,6 +35,7 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.Tag;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -64,7 +65,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
 	}
 	
 	/**
-	 * register all block tags
+	 * register all {@link Block} {@link Tag}s
 	 */
 	@Override
 	protected void addTags() {

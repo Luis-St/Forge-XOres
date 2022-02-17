@@ -87,6 +87,7 @@ import net.minecraft.data.DataProvider;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.Tag;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.BowItem;
@@ -127,7 +128,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 	}
 	
 	/**
-	 * register all item tags
+	 * register all {@link Item} {@link Tag}s
 	 */
 	@Override
 	@SuppressWarnings("deprecation")

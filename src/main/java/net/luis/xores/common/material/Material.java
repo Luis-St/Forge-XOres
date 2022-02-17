@@ -53,7 +53,7 @@ public class Material {
 	 * @see {@link Material#item()}
 	 * @see {@link Material#tag()}
 	 */
-	Material(Optional<Item> item, Optional<Named<Item>> tag) {
+	private Material(Optional<Item> item, Optional<Named<Item>> tag) {
 		this.item = Objects.requireNonNull(item, "Optional can't be null");
 		this.tag = Objects.requireNonNull(tag, "Optional can't be null");
 	}
