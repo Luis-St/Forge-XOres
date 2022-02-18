@@ -9,8 +9,7 @@ import net.minecraftforge.client.gui.ForgeIngameGui;
 import net.minecraftforge.client.gui.IIngameOverlay;
 
 /**
- * implementation of {@link IIngameOverlay},<br>
- * used to render the armor bar extension
+ * implementation of {@link IIngameOverlay}, used to render the armor bar extension
  * 
  * @author Luis-st
  * 

@@ -3,6 +3,7 @@ package net.luis.xores.common.levelgen;
 import java.util.List;
 
 import net.luis.xores.XOres;
+import net.luis.xores.event.level.OnBiomeLoadingEvent;
 import net.luis.xores.init.ModBlocks;
 import net.luis.xores.init.ModTags;
 import net.minecraft.data.worldgen.features.FeatureUtils;
@@ -23,6 +24,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
  * 
  * @see {@link ConfiguredFeature}
  * @see {@link OreFeatures}
+ * @see {@link OnBiomeLoadingEvent}
  */
 
 public class ModOreFeatures {

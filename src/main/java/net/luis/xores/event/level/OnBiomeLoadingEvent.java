@@ -11,7 +11,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 
 /**
- * {@link BiomeLoadingEvent} event hanlder
+ * {@link BiomeLoadingEvent} event handler
  * 
  * @author Luis-st
  */

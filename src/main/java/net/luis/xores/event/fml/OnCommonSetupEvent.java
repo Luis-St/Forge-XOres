@@ -12,7 +12,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
 /**
- * {@link FMLCommonSetupEvent} event hanlder
+ * {@link FMLCommonSetupEvent} event handler
  * 
  * @author Luis-st
  */

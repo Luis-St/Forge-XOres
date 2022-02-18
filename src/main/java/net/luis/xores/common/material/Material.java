@@ -11,8 +11,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
 
 /**
- * summary of {@link Item} and {@link Named} tag,<br>
- * into one class
+ * summary of {@link Item} and {@link Named} tag, into one class
  * 
  * @author Luis-st
  * 

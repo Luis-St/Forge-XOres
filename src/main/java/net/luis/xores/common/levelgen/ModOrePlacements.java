@@ -5,6 +5,7 @@ import java.util.List;
 import com.google.common.collect.Lists;
 
 import net.luis.xores.XOres;
+import net.luis.xores.event.level.OnBiomeLoadingEvent;
 import net.minecraft.data.worldgen.placement.OrePlacements;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceLocation;
@@ -23,6 +24,7 @@ import net.minecraft.world.level.levelgen.placement.PlacementModifier;
  * 
  * @see {@link PlacedFeature}
  * @see {@link OrePlacements}
+ * @see {@link OnBiomeLoadingEvent}
  */
 
 public class ModOrePlacements {

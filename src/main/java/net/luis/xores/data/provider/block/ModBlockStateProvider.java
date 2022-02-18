@@ -19,8 +19,7 @@ import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 import net.minecraftforge.registries.RegistryObject;
 
 /**
- * extension of {@link BlockStateProvider},<br>
- * called by {@link GatherDataEvent},<br>
+ * extension of {@link BlockStateProvider}, called by {@link GatherDataEvent},<br>
  * used to generate the models and states for all mod {@link Block}s
  * 
  * @author Luis-st

@@ -18,8 +18,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ShieldItem;
 
 /**
- * extension of {@link BlockEntityWithoutLevelRenderer},<br>
- * used to render all mod {@link ShieldItem}s
+ * extension of {@link BlockEntityWithoutLevelRenderer}, used to render all mod {@link ShieldItem}s
  * 
  * @author Luis-st
  * 

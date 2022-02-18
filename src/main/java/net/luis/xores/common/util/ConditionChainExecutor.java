@@ -1,6 +1,7 @@
 package net.luis.xores.common.util;
 
 import java.util.List;
+import java.util.concurrent.Executor;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
@@ -8,9 +9,9 @@ import com.google.common.collect.Lists;
 import com.mojang.datafixers.util.Pair;
 
 /**
+ * condition chain {@link Executor}
  * 
  * @author Luis-st
- * 
  */
 
 public class ConditionChainExecutor<T> {

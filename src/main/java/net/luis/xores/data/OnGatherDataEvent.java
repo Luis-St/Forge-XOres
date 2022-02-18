@@ -15,7 +15,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 
 /**
- * {@link GatherDataEvent} event hanlder
+ * {@link GatherDataEvent} event handler
  * 
  * @author Luis-st
  */

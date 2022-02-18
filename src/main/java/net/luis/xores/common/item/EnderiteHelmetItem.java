@@ -10,9 +10,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 
 /**
- * extension of {@link ArmorItem} with {@link EquipmentSlot#HEAD},<br>
- * works similar to the {@link Items#CARVED_PUMPKIN}<br>
- * used for {@link ModItems#ENDERITE_HELMET}
+ * extension of {@link ArmorItem} with {@link EquipmentSlot#HEAD}, works similar to<br> 
+ * the {@link Items#CARVED_PUMPKIN} used for {@link ModItems#ENDERITE_HELMET}
  * 
  * @author Luis-st
  * 

@@ -13,8 +13,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 
 /**
- * implementation of {@link ArmorMaterial},<br>
- * used for all mod {@link ArmorItem}s
+ * implementation of {@link ArmorMaterial}, used for all mod {@link ArmorItem}s
  * 
  * @author Luis-st
  * 

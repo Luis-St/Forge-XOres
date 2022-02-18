@@ -2,18 +2,24 @@ package net.luis.xores.common;
 
 import java.util.function.Supplier;
 
+import net.luis.xores.XOres;
+import net.luis.xores.init.ModBlockItems;
+import net.luis.xores.init.ModItems;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Item.Properties;
 import net.minecraft.world.item.ItemStack;
 
 /**
- * extension of {@link CreativeModeTab},<br>
- * used for all mod {@link Item}s for the  {@link Properties#tab()}
+ * extension of {@link CreativeModeTab}, used for all mod {@link Item}s<br>
+ * for the  {@link Properties#tab()}
  * 
  * @author Luis-st
  * 
  * @see {@link CreativeModeTab}
+ * @see {@link ModItems}
+ * @see {@link ModBlockItems}
+ * @see {@link XOres}
  */
 
 public class ModCreativeModeTab extends CreativeModeTab {

@@ -9,8 +9,7 @@ import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 
 /**
- * extension of {@link SwordItem},<br>
- * used for {@link ModItems#BLAZING_SWORD}
+ * extension of {@link SwordItem}, used for {@link ModItems#BLAZING_SWORD}
  * 
  * @author Luis-st
  * 

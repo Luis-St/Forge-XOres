@@ -10,8 +10,7 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraftforge.registries.RegistryObject;
 
 /**
- * extension of {@link BlockLoot},<br>
- * creates the loot tables for all mod {@link Block}s,
+ * extension of {@link BlockLoot}, creates the loot tables for all mod {@link Block}s,
  * used in {@link ModLootTableProvider}
  * 
  * @author Luis-st

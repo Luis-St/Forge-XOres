@@ -11,8 +11,7 @@ import net.minecraft.world.item.ShieldItem;
 import net.minecraftforge.client.IItemRenderProperties;
 
 /**
- * extension of {@link ShieldItem},<br>
- * use for all mod {@link ShieldItem}s and<br>
+ * extension of {@link ShieldItem}, use for all mod {@link ShieldItem}s and<br>
  * the vanilla additional {@link ShieldItem}s
  * 
  * @author Luis-st

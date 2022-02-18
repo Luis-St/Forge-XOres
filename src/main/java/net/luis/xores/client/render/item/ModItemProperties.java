@@ -13,9 +13,8 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ShieldItem;
 
 /**
- * helper class for {@link ItemProperties},<br>
- * contains all methods which are used to register<br>
- * the {@link ItemProperties} for the mod {@link Item}s
+ * helper class for {@link ItemProperties}, contains all methods<br>
+ * which are used to register the {@link ItemProperties} for the mod {@link Item}s
  * 
  * @author Luis-st
  * 

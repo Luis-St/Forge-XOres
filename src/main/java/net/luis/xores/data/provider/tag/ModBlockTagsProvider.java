@@ -43,8 +43,7 @@ import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 import net.minecraftforge.registries.RegistryObject;
 
 /**
- * extension of {@link BlockTagsProvider},<br>
- * called by {@link GatherDataEvent},<br>
+ * extension of {@link BlockTagsProvider}, called by {@link GatherDataEvent},<br>
  * used to generate the block tags for all mod {@link Block}s
  * 
  * @author Luis-st

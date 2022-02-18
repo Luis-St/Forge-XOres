@@ -26,8 +26,8 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 
 /**
- * implementation of {@link VanillaFixer},<br>
- * used to fix/handle the logic of {@link TieredItem#isCorrectToolForDrops(ItemStack, BlockState)},<br>
+ * implementation of {@link VanillaFixer}, used to fix/handle the logic<br>
+ * of {@link TieredItem#isCorrectToolForDrops(ItemStack, BlockState)},<br>
  * manually and in a better way
  * 
  * @author Luis-st

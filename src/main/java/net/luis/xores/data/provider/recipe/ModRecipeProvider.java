@@ -32,8 +32,7 @@ import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 import net.minecraftforge.registries.RegistryObject;
 
 /**
- * extension of {@link RecipeProvider},<br>
- * called by {@link GatherDataEvent},<br>
+ * extension of {@link RecipeProvider}, called by {@link GatherDataEvent},<br>
  * used to generate the recipes for all mod {@link Item}s
  * 
  * @author Luis-st

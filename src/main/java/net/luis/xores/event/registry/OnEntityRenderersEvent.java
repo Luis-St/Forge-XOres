@@ -14,7 +14,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;;
 
 /**
- * {@link AddLayers} event hanlder
+ * {@link AddLayers} event handler
  * 
  * @author Luis-st
  */

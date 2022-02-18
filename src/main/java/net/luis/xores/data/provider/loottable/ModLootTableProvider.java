@@ -24,8 +24,7 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 
 /**
- * extension of {@link LootTableProvider},<br>
- * called by {@link GatherDataEvent},<br>
+ * extension of {@link LootTableProvider}, called by {@link GatherDataEvent},<br>
  * used to generate the loot tables for all mod {@link Block}s
  * 
  * @author Luis-st

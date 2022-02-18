@@ -25,8 +25,7 @@ import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 import net.minecraftforge.registries.RegistryObject;
 
 /**
- * extension of {@link ItemModelProvider},<br>
- * called by {@link GatherDataEvent},<br>
+ * extension of {@link ItemModelProvider}, called by {@link GatherDataEvent},<br>
  * used to generate the models for all mod {@link Item}s
  * 
  * @author Luis-st

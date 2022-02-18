@@ -11,8 +11,7 @@ import net.minecraft.world.item.TieredItem;
 import net.minecraft.world.item.crafting.Ingredient;
 
 /**
- * implementation of {@link Tier},<br>
- * used for all mod {@link TieredItem}s
+ * implementation of {@link Tier}, used for all mod {@link TieredItem}s
  * 
  * @author Luis-st
  * 

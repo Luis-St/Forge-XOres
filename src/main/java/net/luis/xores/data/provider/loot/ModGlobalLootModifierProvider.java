@@ -15,8 +15,7 @@ import net.minecraftforge.common.loot.LootModifier;
 import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 
 /**
- * extension of {@link GlobalLootModifierProvider},<br>
- * called by {@link GatherDataEvent},<br>
+ * extension of {@link GlobalLootModifierProvider}, called by {@link GatherDataEvent},<br>
  * used to generate the loot modifiers for all mod {@link LootModifier}s
  * 
  * @author Luis-st

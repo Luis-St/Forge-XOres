@@ -105,8 +105,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 
 /**
- * extension of {@link ItemTagsProvider},<br>
- * called by {@link GatherDataEvent},<br>
+ * extension of {@link ItemTagsProvider}, called by {@link GatherDataEvent},<br>
  * used to generate the item tags for all mod {@link Items}s and {@link Block}s
  * 
  * @author Luis-st

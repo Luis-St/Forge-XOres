@@ -19,8 +19,7 @@ import net.minecraftforge.common.loot.LootModifier;
 import net.minecraftforge.items.ItemHandlerHelper;
 
 /**
- * extension of {@link LootModifier},<br>
- * used to replace the {@link Block} drop<br>
+ * extension of {@link LootModifier}, used to replace the {@link Block} drop<br>
  * if the Block is mined with a {@link Items#BLAZING} Tool
  * 
  * @author Luis-st

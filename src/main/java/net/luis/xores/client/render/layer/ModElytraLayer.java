@@ -14,8 +14,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
 /**
- * extension of {@link ElytraLayer},<br>
- * used to render the mod {@link ElytraChestplateItem}s
+ * extension of {@link ElytraLayer}, used to render the mod {@link ElytraChestplateItem}s
  * 
  * @author Luis-st
  * 

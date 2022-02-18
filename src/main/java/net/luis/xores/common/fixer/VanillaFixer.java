@@ -6,14 +6,13 @@ import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.eventbus.api.Event;
 
 /**
- * {@link VanillaFixer} defines a class that is used to<br>
- * manipulate vanilla logic via {@link ForgeHooks},<br>
- * {@link Event}s or {@link Mixin}<br>
+ * {@link VanillaFixer} defines a class that is used to manipulate vanilla logic<br>
+ * via {@link ForgeHooks}, {@link Event}s or {@link Mixin}<br>
  * <br>
- * if you want to use this for your own case,<br>
- * implements this interface into your class and do there<br>
- * waht ever you want. Create inside the class a {@code static final}<br>
- * field. This instance should then overwrite the {@link VanillaFixer#init()} method.
+ * if you want to use this for your own case, implements this interface<br>
+ * into your class and do there what ever you want. Create inside the class<br>
+ * a {@code static final} field. This instance should then overwrite the<br>
+ * {@link VanillaFixer#init()} method.
  * <pre> {@code
  * 	public static final SomeFixer INSTANCE = new SomeFixer() {
  * 		@Override

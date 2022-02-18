@@ -30,8 +30,8 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistryEntry;;
 
 /**
- * set of {@link Material}s,<br>
- * extension of {@link ForgeRegistryEntry}, can be registered via:
+ * set of {@link Material}s, extension of {@link ForgeRegistryEntry},<br>
+ * can be registered via:
  * <ul>
  * 	<li>{@link RegistryEvent}</li>
  * 	<li>{@link DeferredRegister}</li>

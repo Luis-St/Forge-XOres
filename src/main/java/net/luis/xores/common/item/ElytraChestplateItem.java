@@ -16,9 +16,9 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
 /**
- * extension of {@link ArmorItem} with {@link EquipmentSlot#CHEST}<br>
- * and logic of {@link ElytraItem}, used for all mod {@link ElytraChestplateItem}s and<br>
- * the vanilla additional {@link ElytraChestplateItem}s
+ * extension of {@link ArmorItem} with {@link EquipmentSlot#CHEST} and logic of {@link ElytraItem},<br>
+ * used for all mod {@link ElytraChestplateItem}s and the<br> 
+ * vanilla additional {@link ElytraChestplateItem}s
  * 
  * @author Luis-st
  * 

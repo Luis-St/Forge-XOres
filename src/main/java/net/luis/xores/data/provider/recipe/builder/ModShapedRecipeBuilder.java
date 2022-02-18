@@ -17,9 +17,8 @@ import net.minecraft.world.item.crafting.ShapedRecipe;
 import net.minecraft.world.level.ItemLike;
 
 /**
- * extension of {@link ShapedRecipeBuilder},<br>
- * used to create easier {@link ShapedRecipe}s for mod {@link Item}s
- * in {@link ModRecipeProvider}
+ * extension of {@link ShapedRecipeBuilder}, used to create easier {@link ShapedRecipe}s<br>
+ * for mod {@link Item}s in {@link ModRecipeProvider}
  * 
  * @author Luis-st
  * 
