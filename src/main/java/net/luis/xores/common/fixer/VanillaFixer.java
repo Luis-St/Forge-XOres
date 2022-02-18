@@ -1,13 +1,11 @@
 package net.luis.xores.common.fixer;
 
-import org.spongepowered.asm.mixin.Mixin;
-
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.eventbus.api.Event;
 
 /**
  * {@link VanillaFixer} defines a class that is used to manipulate vanilla logic<br>
- * via {@link ForgeHooks}, {@link Event}s or {@link Mixin}<br>
+ * via {@link ForgeHooks}, {@link Event}s or mixin<br>
  * <br>
  * if you want to use this for your own case, implements this interface<br>
  * into your class and do there what ever you want. Create inside the class<br>
