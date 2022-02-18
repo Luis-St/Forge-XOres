@@ -14,9 +14,9 @@ import net.luis.xores.init.ModItems;
 import net.luis.xores.init.ModMaterialSets;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger.TriggerInstance;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.DataProvider;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
 import net.minecraft.data.recipes.UpgradeRecipeBuilder;
@@ -24,21 +24,36 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.Tag.Named;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.BlastingRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.SmeltingRecipe;
+import net.minecraft.world.item.crafting.UpgradeRecipe;
+import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 import net.minecraftforge.registries.RegistryObject;
 
 /**
+ * extension of {@link RecipeProvider},<br>
+ * called by {@link GatherDataEvent},<br>
+ * used to generate the recipes for all mod {@link Item}s
  * 
  * @author Luis-st
- *
+ * 
+ * @see {@link RecipeProvider}
+ * @see {@link ModItems}
  */
 
 public class ModRecipeProvider extends RecipeProvider {
 	
+	/**
+	 * constructor for the {@link ModRecipeProvider}
+	 */
 	public ModRecipeProvider(DataGenerator generator) {
 		super(generator);
 	}
 	
+	/**
+	 * register all recipes for {@link ModItems#ITEMS}
+	 */
 	@Override
 	protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
 		for (MaterialSet set : ModMaterialSets.MATERIALS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
@@ -51,7 +66,7 @@ public class ModRecipeProvider extends RecipeProvider {
 		}
 		Item blazingIngot = ModItems.BLAZING_INGOT.get();
 		Item goldBlock = Items.GOLD_BLOCK;
-		ShapedRecipeBuilder.shaped(blazingIngot).group(getGroup(blazingIngot)).define('#', Items.BLAZE_ROD).define('I', goldBlock).pattern("###").pattern("#I#").pattern("###").unlockedBy("has_" + getId(goldBlock), has(goldBlock)).save(consumer);
+		ModShapedRecipeBuilder.shaped(blazingIngot).group(getGroup(blazingIngot)).define('#', Items.BLAZE_ROD).define('I', goldBlock).pattern("###", "#I#", "###").unlockedBy("has_" + getId(goldBlock), has(goldBlock)).save(consumer);
 		Item roseQuartz = ModItems.ROSE_QUARTZ.get();
 		Item rositeIngot = ModItems.ROSITE_INGOT.get();
 		ShapelessRecipeBuilder.shapeless(roseQuartz).group(getGroup(roseQuartz)).requires(Items.QUARTZ, 2).requires(rositeIngot, 2).unlockedBy("has_" + getId(rositeIngot), has(rositeIngot)).save(consumer);
@@ -74,11 +89,34 @@ public class ModRecipeProvider extends RecipeProvider {
 		ShapelessRecipeBuilder.shapeless(ModItems.NIGHT_SCRAP.get()).group(getGroup(nightIngot)).requires(ModItems.STEEL_INGOT.get(), 2).requires(netheriteIngot, 2).unlockedBy("has_" + getId(netheriteIngot), has(netheriteIngot)).save(consumer);
 	}
 	
+	/**
+	 * generates the recipes for a vanilla {@link MaterialSet}
+	 * 
+	 * @see {@link ModRecipeProvider#shieldRecipe(Consumer, MaterialSet)}
+	 * @see {@link ModRecipeProvider#elytraChestplateRecipe(Consumer, MaterialSet)}
+	 */
 	protected void vanillaMaterialSetRecipes(Consumer<FinishedRecipe> consumer, MaterialSet set) {
 		this.shieldRecipe(consumer, set);
 		this.elytraChestplateRecipe(consumer, set);
 	}
 	
+	/**
+	 * generates the recipes for a mod {@link MaterialSet}
+	 * 
+	 * @see {@link ModRecipeProvider#oreMaterialRecipes(Consumer, MaterialSet)}
+	 * @see {@link ModRecipeProvider#materialBlockRecipes(Consumer, MaterialSet)}
+	 * @see {@link ModRecipeProvider#swordRecipe(Consumer, MaterialSet)}
+	 * @see {@link ModRecipeProvider#shieldRecipe(Consumer, MaterialSet)}
+	 * @see {@link ModRecipeProvider#pickaxeRecipe(Consumer, MaterialSet)}
+	 * @see {@link ModRecipeProvider#axeRecipe(Consumer, MaterialSet)}
+	 * @see {@link ModRecipeProvider#shovelRecipe(Consumer, MaterialSet)}
+	 * @see {@link ModRecipeProvider#hoeRecipe(Consumer, MaterialSet)}
+	 * @see {@link ModRecipeProvider#helmetRecipe(Consumer, MaterialSet)}
+	 * @see {@link ModRecipeProvider#chestplateRecipe(Consumer, MaterialSet)}
+	 * @see {@link ModRecipeProvider#elytraChestplateRecipe(Consumer, MaterialSet)}
+	 * @see {@link ModRecipeProvider#leggingsRecipe(Consumer, MaterialSet)}
+	 * @see {@link ModRecipeProvider#bootsRecipe(Consumer, MaterialSet)}
+	 */
 	protected void materialSetRecipes(Consumer<FinishedRecipe> consumer, MaterialSet set) {
 		this.oreMaterialRecipes(consumer, set);
 		this.materialBlockRecipes(consumer, set);
@@ -95,6 +133,11 @@ public class ModRecipeProvider extends RecipeProvider {
 		this.bootsRecipe(consumer, set);
 	}
 	
+	/**
+	 * generates the ore recipes, if there is a ore present in the given {@link MaterialSet}
+	 * 
+	 * @see {@link ModRecipeProvider#oreRecipes(Consumer, Material, Item)}
+	 */
 	protected void oreMaterialRecipes(Consumer<FinishedRecipe> consumer, MaterialSet materialSet) {
 		materialSet.ifPresent(MaterialTypes.ORE, (ore) -> {
 			ConditionChainExecutor.<MaterialSet>of((set) -> {
@@ -115,11 +158,21 @@ public class ModRecipeProvider extends RecipeProvider {
 		});
 	}
 	
+	/**
+	 * generates the smelting and blasting recipe, for the given {@link Material} as ore<br>
+	 * and the given {@link Item} as result of the recipes
+	 * 
+	 * @see {@link ModRecipeProvider#smeltingRecipe(Consumer, Ingredient, Item, float, String, String)}
+	 * @see {@link ModRecipeProvider#blastingRecipe(Consumer, Ingredient, Item, float, String, String)}
+	 */
 	protected void oreRecipes(Consumer<FinishedRecipe> consumer, Material oreMaterial, Item result) {
 		this.smeltingRecipe(consumer, oreMaterial.asIngredient(), result, 1.0F, getGroup(result), "_from_smelting_" + getId(oreMaterial));
 		this.blastingRecipe(consumer, oreMaterial.asIngredient(), result, 0.75F, getGroup(result), "_from_blasting_" + getId(oreMaterial));
 	}
 	
+	/**
+	 * generates the block recipes, if there is a block present in the given {@link MaterialSet}
+	 */
 	protected void materialBlockRecipes(Consumer<FinishedRecipe> consumer, MaterialSet set) {
 		set.ifPresent(MaterialTypes.MATERIAL, MaterialTypes.BLOCK, Material::itemOrThrow, (item, block) -> {
 			ShapelessRecipeBuilder.shapeless(block).group(getGroup(item)).unlockedBy("has_" + getId(item), has(item)).requires(item, 9).save(consumer);
@@ -127,6 +180,9 @@ public class ModRecipeProvider extends RecipeProvider {
 		});
 	}
 
+	/**
+	 * generates the sword recipes, if there is a sword present in the given {@link MaterialSet}
+	 */
 	protected void swordRecipe(Consumer<FinishedRecipe> consumer, MaterialSet materialSet) {
 		materialSet.ifPresent(MaterialTypes.SWORD, Material::itemOrThrow, (sword) -> {
 			ConditionChainExecutor.<MaterialSet>of((set) -> {
@@ -147,6 +203,9 @@ public class ModRecipeProvider extends RecipeProvider {
 		});
 	}
 	
+	/**
+	 * generates the shield recipes, if there is a shield present in the given {@link MaterialSet}
+	 */
 	protected void shieldRecipe(Consumer<FinishedRecipe> consumer, MaterialSet materialSet) {
 		materialSet.ifPresent(MaterialTypes.SHIELD, Material::itemOrThrow, (shield) -> {
 			ConditionChainExecutor.<MaterialSet>of((set) -> {
@@ -167,6 +226,9 @@ public class ModRecipeProvider extends RecipeProvider {
 		});
 	}
 	
+	/**
+	 * generates the pickaxe recipes, if there is a pickaxe present in the given {@link MaterialSet}
+	 */
 	protected void pickaxeRecipe(Consumer<FinishedRecipe> consumer, MaterialSet materialSet) {
 		materialSet.ifPresent(MaterialTypes.PICKAXE, Material::itemOrThrow, (pickaxe) -> {
 			ConditionChainExecutor.<MaterialSet>of((set) -> {
@@ -187,6 +249,9 @@ public class ModRecipeProvider extends RecipeProvider {
 		});
 	}
 	
+	/**
+	 * generates the axe recipes, if there is a axe present in the given {@link MaterialSet}
+	 */
 	protected void axeRecipe(Consumer<FinishedRecipe> consumer, MaterialSet materialSet) {
 		materialSet.ifPresent(MaterialTypes.AXE, Material::itemOrThrow, (axe) -> {
 			ConditionChainExecutor.<MaterialSet>of((set) -> {
@@ -207,6 +272,9 @@ public class ModRecipeProvider extends RecipeProvider {
 		});
 	}
 	
+	/**
+	 * generates the shovel recipes, if there is a shovel present in the given {@link MaterialSet}
+	 */
 	protected void shovelRecipe(Consumer<FinishedRecipe> consumer, MaterialSet materialSet) {
 		materialSet.ifPresent(MaterialTypes.SHOVEL, Material::itemOrThrow, (shovel) -> {
 			ConditionChainExecutor.<MaterialSet>of((set) -> {
@@ -227,6 +295,9 @@ public class ModRecipeProvider extends RecipeProvider {
 		});
 	}
 	
+	/**
+	 * generates the hoe recipes, if there is a hoe present in the given {@link MaterialSet}
+	 */
 	protected void hoeRecipe(Consumer<FinishedRecipe> consumer, MaterialSet materialSet) {
 		materialSet.ifPresent(MaterialTypes.HOE, Material::itemOrThrow, (hoe) -> {
 			ConditionChainExecutor.<MaterialSet>of((set) -> {
@@ -247,6 +318,9 @@ public class ModRecipeProvider extends RecipeProvider {
 		});
 	}
 	
+	/**
+	 * generates the helmet recipes, if there is a helmet present in the given {@link MaterialSet}
+	 */
 	protected void helmetRecipe(Consumer<FinishedRecipe> consumer, MaterialSet materialSet) {
 		materialSet.ifPresent(MaterialTypes.HELMET, Material::itemOrThrow, (helmet) -> {
 			ConditionChainExecutor.<MaterialSet>of((set) -> {
@@ -267,6 +341,9 @@ public class ModRecipeProvider extends RecipeProvider {
 		});
 	}
 	
+	/**
+	 * generates the chestplate recipes, if there is a chestplate present in the given {@link MaterialSet}
+	 */
 	protected void chestplateRecipe(Consumer<FinishedRecipe> consumer, MaterialSet materialSet) {
 		materialSet.ifPresent(MaterialTypes.CHESTPLATE, Material::itemOrThrow, (chestplate) -> {
 			ConditionChainExecutor.<MaterialSet>of((set) -> {
@@ -287,6 +364,9 @@ public class ModRecipeProvider extends RecipeProvider {
 		});
 	}
 	
+	/**
+	 * generates the elytra chestplate recipes, if there is a elytra chestplate present in the given {@link MaterialSet}
+	 */
 	protected void elytraChestplateRecipe(Consumer<FinishedRecipe> consumer, MaterialSet materialSet) {
 		materialSet.ifPresent(MaterialTypes.CHESTPLATE, MaterialTypes.ELYTRA_CHESTPLATE, Material::itemOrThrow, (chestplate, elytraChestplate) -> {
 			ConditionChainExecutor.<MaterialSet>of((set) -> {
@@ -305,6 +385,9 @@ public class ModRecipeProvider extends RecipeProvider {
 		});
 	}
 	
+	/**
+	 * generates the leggings recipes, if there is a leggings present in the given {@link MaterialSet}
+	 */
 	protected void leggingsRecipe(Consumer<FinishedRecipe> consumer, MaterialSet materialSet) {
 		materialSet.ifPresent(MaterialTypes.LEGGINGS, Material::itemOrThrow, (leggings) -> {
 			ConditionChainExecutor.<MaterialSet>of((set) -> {
@@ -325,6 +408,9 @@ public class ModRecipeProvider extends RecipeProvider {
 		});
 	}
 	
+	/**
+	 * generates the boots recipes, if there is a boots present in the given {@link MaterialSet}
+	 */
 	protected void bootsRecipe(Consumer<FinishedRecipe> consumer, MaterialSet materialSet) {
 		materialSet.ifPresent(MaterialTypes.BOOTS, Material::itemOrThrow, (boots) -> {
 			ConditionChainExecutor.<MaterialSet>of((set) -> {
@@ -345,22 +431,52 @@ public class ModRecipeProvider extends RecipeProvider {
 		});
 	}
 	
-	protected void smithingRecipe(Consumer<FinishedRecipe> consumer, Item baseItem, Item additionItem, Item resultItem) {
-		UpgradeRecipeBuilder.smithing(Ingredient.of(baseItem), Ingredient.of(additionItem), resultItem).unlocks("has_" + getId(baseItem), has(baseItem)).save(consumer, new ResourceLocation(XOres.MOD_ID, getId(resultItem) + "_smithing"));
+	/**
+	 * generates a {@link UpgradeRecipe}
+	 * @param base as an {@link Item} for the {@link UpgradeRecipe}
+	 * @param addition as an {@link Item} for the {@link UpgradeRecipe}
+	 * @param result as an {@link Item} for the {@link UpgradeRecipe}
+	 */
+	protected void smithingRecipe(Consumer<FinishedRecipe> consumer, Item base, Item addition, Item result) {
+		UpgradeRecipeBuilder.smithing(Ingredient.of(base), Ingredient.of(addition), result).unlocks("has_" + getId(base), has(base)).save(consumer, new ResourceLocation(XOres.MOD_ID, getId(result) + "_smithing"));
 	}
 	
-	protected void smeltingRecipe(Consumer<FinishedRecipe> consumer, Ingredient ingredient, Item result, float experience, String group, String nameAddional) {
-		SimpleCookingRecipeBuilder.smelting(ingredient, result, experience, 200).group(group).unlockedBy("has_" + getId(result), has(result)).save(consumer, new ResourceLocation(XOres.MOD_ID, getId(result) + nameAddional));
+	/**
+	 * generates a {@link SmeltingRecipe}
+	 * @param input as an {@link Ingredient} for the {@link SmeltingRecipe}
+	 * @param result as an {@link Item} for the {@link SmeltingRecipe}
+	 * @param experience of the {@link SmeltingRecipe}
+	 * @param group of the {@link SmeltingRecipe}
+	 * @param prefix for the recipe json file name
+	 */
+	protected void smeltingRecipe(Consumer<FinishedRecipe> consumer, Ingredient input, Item result, float experience, String group, String prefix) {
+		SimpleCookingRecipeBuilder.smelting(input, result, experience, 200).group(group).unlockedBy("has_" + getId(result), has(result)).save(consumer, new ResourceLocation(XOres.MOD_ID, getId(result) + prefix));
 	}
 	
-	protected void blastingRecipe(Consumer<FinishedRecipe> consumer, Ingredient ingredient, Item result, float experience, String group, String nameAddional) {
-		SimpleCookingRecipeBuilder.blasting(ingredient, result, experience, 100).group(group).unlockedBy("has_" + getId(result), has(result)).save(consumer, new ResourceLocation(XOres.MOD_ID, getId(result) + nameAddional));
+	/**
+	 * generates a {@link BlastingRecipe}
+	 * @param input as an {@link Ingredient} for the {@link BlastingRecipe}
+	 * @param result as an {@link Item} for the {@link BlastingRecipe}
+	 * @param experience of the {@link BlastingRecipe} for the {@link BlastingRecipe}
+	 * @param group of the {@link BlastingRecipe}
+	 * @param prefix for the recipe json file name
+	 */
+	protected void blastingRecipe(Consumer<FinishedRecipe> consumer, Ingredient input, Item result, float experience, String group, String prefix) {
+		SimpleCookingRecipeBuilder.blasting(input, result, experience, 100).group(group).unlockedBy("has_" + getId(result), has(result)).save(consumer, new ResourceLocation(XOres.MOD_ID, getId(result) + prefix));
 	}
 	
+	/**
+	 * @param item for which a id should be get
+	 * @return the id for the given {@link Item} as a {@link String}
+	 */
 	protected static String getId(Item item) {
 		return item.getRegistryName().getPath();
 	}
 	
+	/**
+	 * @param material for which a id should be get
+	 * @return the id for the given {@link Material} as a {@link String}
+	 */
 	protected static String getId(Material material) {
 		if (material.isItem()) {
 			return getId(material.itemOrThrow());
@@ -373,6 +489,10 @@ public class ModRecipeProvider extends RecipeProvider {
 		return pathParts[pathParts.length - 1];
 	}
 	
+	/**
+	 * @param item for which a group should be get
+	 * @return the group name for the given {@link Item} as a {@link String}
+	 */
 	protected static String getGroup(Item item) {
 		String path = item.getRegistryName().getPath();
 		if (!path.contains("_")) {
@@ -385,6 +505,10 @@ public class ModRecipeProvider extends RecipeProvider {
 		return pathParts[0];
 	}
 	
+	/**
+	 * @param material for which a group should be get
+	 * @return the group name for the given {@link Material} as a {@link String}
+	 */
 	protected static String getGroup(Material material) {
 		if (material.isItem()) {
 			String path = material.itemOrThrow().getRegistryName().getPath();
@@ -400,6 +524,10 @@ public class ModRecipeProvider extends RecipeProvider {
 		return getId(material);
 	}
 	
+	/**
+	 * @param material for which a {@link TriggerInstance} should be get
+	 * @return a {@link TriggerInstance} for the given {@link Material}
+	 */
 	protected static TriggerInstance has(Material material) {
 		if (material.isItem()) {
 			return has(material.itemOrThrow());
@@ -409,6 +537,9 @@ public class ModRecipeProvider extends RecipeProvider {
 		throw new IllegalStateException("Fail to get TriggerInstance for Material since it's not Item and Tag");
 	}
 	
+	/**
+	 * @return the name of the {@link DataProvider}
+	 */
 	@Override
 	public String getName() {
 		return "XOres Recipes";
