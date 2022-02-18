@@ -180,8 +180,8 @@ public class ToolFixer implements VanillaFixer {
 	
 	/**
 	 * register the given {@link Block}s to the given block harvest level
-	 * @param level the to which the {@link Block}s are registered to
-	 * @param blocks the {@link Block}s which should be registered
+	 * @param level The level to which the {@link Block}s are registered to
+	 * @param blocks The {@link Block}s which should be registered
 	 */
 	protected void registerBlocks(int level, List<Block> blocks) {
 		if (!this.blocks.containsKey(level)) {
@@ -199,8 +199,8 @@ public class ToolFixer implements VanillaFixer {
 	
 	/**
 	 * register the given {@link Item}s to the given tool harvest level
-	 * @param level the to which the {@link Item}s are registered to
-	 * @param tools the {@link Item}s which should be registered
+	 * @param level The to which the {@link Item}s are registered to
+	 * @param tools The {@link Item}s which should be registered
 	 */
 	protected void registerTools(int level, List<Item> tools) {
 		if (!this.tools.containsKey(level)) {
@@ -222,7 +222,7 @@ public class ToolFixer implements VanillaFixer {
 	
 	/**
 	 * checks if the given {@link Block} is registered
-	 * @param block which should be checked
+	 * @param block The {@link Block} which should be checked
 	 * @return {@code true} if the given {@link Block} is registered else {@code false}
 	 */
 	public boolean isBlockRegistered(Block block) {
@@ -244,7 +244,7 @@ public class ToolFixer implements VanillaFixer {
 	
 	/**
 	 * checks if the given {@link Item} is registered
-	 * @param tool which should be checked
+	 * @param tool The {@link Item} which should be checked
 	 * @return {@code true} if the given {@link Item} is registered else {@code false}
 	 */
 	public boolean isToolRegistered(Item tool) {
@@ -255,9 +255,9 @@ public class ToolFixer implements VanillaFixer {
 	
 	/**
 	 * checks if the tool can mine the {@link BlockState}
-	 * @param tool which is used to mine the {@link BlockState}
-	 * @param stack of the tool can be null, since it's currently unused
-	 * @param state which contains the {@link Block} to be checked
+	 * @param tool The {@link Item} which is used to mine the {@link BlockState}
+	 * @param stack The {@link ItemStack} of the tool can be null, since it's currently unused
+	 * @param state The {@link BlockState} which is mined
 	 * @return {@code true} if the tool can mine the {@link BlockState} else {@code false}
 	 */
 	@SuppressWarnings("deprecation")
@@ -284,7 +284,7 @@ public class ToolFixer implements VanillaFixer {
 	}
 	
 	/**
-	 * @param tool for which the {@link Tag} should be get
+	 * @param tool The {@link Item} for which the {@link Tag} should be get
 	 * @return the {@link Tag} for the given {@link Item}, if the {@link Item} is a vanilla tool else {@code null}
 	 */
 	@Nullable
@@ -302,7 +302,7 @@ public class ToolFixer implements VanillaFixer {
 	}
 	
 	/**
-	 * @param block for which the level should be get
+	 * @param block The {@link Block} for which the level should be get
 	 * @return the block harvest level for the given {@link Block}, if the {@link Block} is registered else {@code 0}
 	 */
 	public int getLevelForBlock(Block block) {
@@ -316,7 +316,7 @@ public class ToolFixer implements VanillaFixer {
 	}
 	
 	/**
-	 * @param tool for which the level should be get
+	 * @param tool The {@link Item} for which the level should be get
 	 * @return the tool harvest level for the given {@link Item}, if the {@link Item} is registered else {@code 0}
 	 */
 	public int getLevelForTool(Item tool) {

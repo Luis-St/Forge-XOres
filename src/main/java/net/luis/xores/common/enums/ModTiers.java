@@ -85,37 +85,37 @@ public enum ModTiers implements Tier {
 	});
 
 	/**
-	 * the name
+	 * the name of the {@link Tier} as a {@link ResourceLocation}
 	 */
 	protected final ResourceLocation name;
 	
 	/**
-	 * the uses
+	 * the uses of the {@link Tier}
 	 */
 	protected final int uses;
 	
 	/**
-	 * the mining speed
+	 * the mining speed of the {@link Tier}
 	 */
 	protected final float speed;
 	
 	/**
-	 * the attack damage bonus
+	 * the attack damage bonus of the {@link Tier}
 	 */
 	protected final float attackDamageBonus;
 	
 	/**
-	 * the harvest level
+	 * the harvest level of the {@link Tier}
 	 */
 	protected final int level;
 	
 	/**
-	 * the enchantment value
+	 * the enchantment value of the {@link Tier}
 	 */
 	protected final int enchantmentValue;
 	
 	/**
-	 * the repair ingredient as an {@link Supplier},<br>
+	 * the repair ingredient of the {@link Tier} as an {@link Supplier},<br>
 	 * since the value of the {@link Ingredient} needs to be lazy load
 	 */
 	protected final Supplier<Ingredient> repairIngredient;

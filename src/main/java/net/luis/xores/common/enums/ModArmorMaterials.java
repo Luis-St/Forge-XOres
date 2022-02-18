@@ -4,6 +4,7 @@ import java.util.function.Supplier;
 
 import net.luis.xores.XOres;
 import net.luis.xores.init.ModItems;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -78,19 +79,19 @@ public enum ModArmorMaterials implements ArmorMaterial {
 	protected static final int[] DURABILITY_PER_SLOT = new int[] {13, 15, 16, 11};
 	
 	/**
-	 * the name
+	 * the name of the {@link ArmorMaterial} as a {@link ResourceLocation}
 	 */
-	protected final String name;
+	protected final ResourceLocation name;
 	
 	/**
-	 * the durability multiplier,<br>
+	 * the durability multiplier of the {@link ArmorMaterial},<br>
 	 * which is applied to the {@link ModArmorMaterials#DURABILITY_PER_SLOT}<br>
 	 * based on the {@link EquipmentSlot}
 	 */
 	protected final int durabilityMultiplier;
 	
 	/**
-	 * the slot defenses for the {@link EquipmentSlot},<br>
+	 * the slot defenses of the {@link ArmorMaterial} for the {@link EquipmentSlot},<br>
 	 * contains the values in the following order:
 	 * <ol>
 	 * 	<li>{@link EquipmentSlot#FEET}</li>
@@ -102,27 +103,27 @@ public enum ModArmorMaterials implements ArmorMaterial {
 	protected final int[] slotDefenses;
 	
 	/**
-	 * the enchantment value
+	 * the enchantment value of the {@link ArmorMaterial}
 	 */
 	protected final int enchantmentValue;
 	
 	/**
-	 * the equip sound
+	 * the equip sound of the {@link ArmorMaterial}
 	 */
 	protected final SoundEvent sound;
 	
 	/**
-	 * the toughness
+	 * the toughness of the {@link ArmorMaterial}
 	 */
 	protected final float toughness;
 	
 	/**
-	 * the knockback resistance
+	 * the knockback resistance of the {@link ArmorMaterial}
 	 */
 	protected final float knockbackResistance;
 	
 	/**
-	 * the repair ingredient as an {@link Supplier},<br>
+	 * the repair ingredient of the {@link ArmorMaterial} as an {@link Supplier},<br>
 	 * since the value of the {@link Ingredient} needs to be lazy load
 	 */
 	protected final Supplier<Ingredient> repairIngredient;
@@ -131,7 +132,7 @@ public enum ModArmorMaterials implements ArmorMaterial {
 	 * constructor for the {@link ModArmorMaterials}
 	 */
 	private ModArmorMaterials(String name, int durabilityMultiplier, int[] slotDefenses, int enchantmentValue, SoundEvent sound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredient) {
-		this.name = XOres.MOD_ID + ":" + name;
+		this.name = new ResourceLocation(XOres.MOD_ID, name);
 		this.durabilityMultiplier = durabilityMultiplier;
 		this.slotDefenses = slotDefenses;
 		this.enchantmentValue = enchantmentValue;
@@ -147,7 +148,7 @@ public enum ModArmorMaterials implements ArmorMaterial {
 	 */
 	@Override
 	public String getName() {
-		return this.name;
+		return this.name.toString();
 	}
 	
 	/**

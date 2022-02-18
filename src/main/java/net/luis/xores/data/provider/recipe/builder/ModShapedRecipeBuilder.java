@@ -59,7 +59,7 @@ public class ModShapedRecipeBuilder extends ShapedRecipeBuilder {
 	
 	/**
 	 * sets the group for the {@link ShapedRecipe}
-	 * @param material
+	 * @param material The {@link Material} which should be used as group name
 	 * @return the {@link ModShapedRecipeBuilder} itself
 	 */
 	public ModShapedRecipeBuilder group(Material material) {
@@ -68,7 +68,7 @@ public class ModShapedRecipeBuilder extends ShapedRecipeBuilder {
 	
 	/**
 	 * sets the group for the {@link ShapedRecipe}
-	 * @param group
+	 * @param group The group which should be used
 	 * @return the {@link ModShapedRecipeBuilder} itself
 	 */
 	@Override
@@ -79,8 +79,8 @@ public class ModShapedRecipeBuilder extends ShapedRecipeBuilder {
 	/**
 	 * defines an {@link ItemLike} as a {@link Character} key for the {@link ShapedRecipe},
 	 * the key is used in the pattern
-	 * @param character which is used as key
-	 * @param itemLike which should be defined
+	 * @param character The {@link Character} which is used as key
+	 * @param itemLike The {@link ItemLike} which should be defined
 	 * @return the {@link ModShapedRecipeBuilder} itself
 	 */
 	@Override
@@ -91,8 +91,8 @@ public class ModShapedRecipeBuilder extends ShapedRecipeBuilder {
 	/**
 	 * defines a {@link Tag} as a {@link Character} key for the {@link ShapedRecipe},
 	 * the key is used in the pattern
-	 * @param character which is used as key
-	 * @param tag which should be defined
+	 * @param character The {@link Character} which is used as key
+	 * @param tag which The {@link Tag} should be defined
 	 * @return the {@link ModShapedRecipeBuilder} itself
 	 */
 	@Override
@@ -103,8 +103,8 @@ public class ModShapedRecipeBuilder extends ShapedRecipeBuilder {
 	/**
 	 * defines a {@link Material} as a {@link Character} key for the {@link ShapedRecipe},
 	 * the key is used in the pattern
-	 * @param character which is used as key
-	 * @param material which should be defined
+	 * @param character The {@link Character} which is used as key
+	 * @param material The {@link Material} which should be defined
 	 * @return the {@link ModShapedRecipeBuilder} itself
 	 */
 	public ModShapedRecipeBuilder define(Character character, Material material) {
@@ -114,8 +114,8 @@ public class ModShapedRecipeBuilder extends ShapedRecipeBuilder {
 	/**
 	 * defines an {@link Ingredient} as a {@link Character} key for the {@link ShapedRecipe},
 	 * the key is used in the pattern
-	 * @param character which is used as key
-	 * @param ingredient which should be defined
+	 * @param character The {@link Character} which is used as key
+	 * @param ingredient The {@link Ingredient} which should be defined
 	 * @return the {@link ModShapedRecipeBuilder} itself
 	 */
 	@Override
@@ -125,9 +125,9 @@ public class ModShapedRecipeBuilder extends ShapedRecipeBuilder {
 	
 	/**
 	 * sets all three lines of the pattern
-	 * @param firstLine as a {@link String}
-	 * @param secondLine as a {@link String}
-	 * @param thirdLine as a {@link String}
+	 * @param firstLine The first line of the recipe pattern as a {@link String}
+	 * @param secondLine The second line of the recipe pattern as a {@link String}
+	 * @param thirdLine The third line of the recipe pattern as a {@link String}
 	 * @return the {@link ModShapedRecipeBuilder} itself
 	 */
 	public ModShapedRecipeBuilder pattern(String firstLine, String secondLine, String thirdLine) {
@@ -136,7 +136,7 @@ public class ModShapedRecipeBuilder extends ShapedRecipeBuilder {
 	
 	/**
 	 * sets one line of the pattern
-	 * @param pattern as a {@link String}
+	 * @param pattern The recipe pattern as a {@link String}
 	 * @return the {@link ModShapedRecipeBuilder} itself
 	 */
 	@Override
@@ -146,7 +146,7 @@ public class ModShapedRecipeBuilder extends ShapedRecipeBuilder {
 	
 	/**
 	 * sets the unlocked by condition of the {@link ShapedRecipe} to the given {@link Material}
-	 * @param material which is used as condition
+	 * @param material The {@link Material} which is used as condition
 	 * @return the {@link ModShapedRecipeBuilder} itself
 	 */
 	public ModShapedRecipeBuilder unlockedBy(Material material) {
@@ -155,8 +155,8 @@ public class ModShapedRecipeBuilder extends ShapedRecipeBuilder {
 	
 	/**
 	 * sets the unlocked by condition of the {@link ShapedRecipe} to the given {@link Material}
-	 * @param prefix for the unlocked by condition, default is 'has_' + {@link ModShapedRecipeBuilder#getId(Material)}
-	 * @param material which is used as condition
+	 * @param prefix The prefix for the unlocked by condition, default is 'has_' + {@link ModShapedRecipeBuilder#getId(Material)}
+	 * @param material The {@link Material} which is used as condition
 	 * @return the {@link ModShapedRecipeBuilder} itself
 	 */
 	public ModShapedRecipeBuilder unlockedBy(String prefix, Material material) {
@@ -165,8 +165,8 @@ public class ModShapedRecipeBuilder extends ShapedRecipeBuilder {
 	
 	/**
 	 * sets the unlocked by condition of the {@link ShapedRecipe} to the given {@link CriterionTriggerInstance}
-	 * @param name of the condition
-	 * @param triggerInstance which is used as condition
+	 * @param name The name of the condition
+	 * @param triggerInstance The {@link CriterionTriggerInstance} which is used as condition
 	 * @return the {@link ModShapedRecipeBuilder} itself
 	 */
 	@Override
@@ -175,7 +175,7 @@ public class ModShapedRecipeBuilder extends ShapedRecipeBuilder {
 	}
 	
 	/**
-	 * @param item for which a id should be get
+	 * @param item The {@link Item} v for which a id should be get
 	 * @return the id for the given {@link Item} as a {@link String}
 	 */
 	protected final String getId(Item item) {
@@ -183,7 +183,7 @@ public class ModShapedRecipeBuilder extends ShapedRecipeBuilder {
 	}
 	
 	/**
-	 * @param material for which a id should be get
+	 * @param material The {@link Material} for which a id should be get
 	 * @return the id for the given {@link Material} as a {@link String}
 	 */
 	protected final String getId(Material material) {
@@ -199,7 +199,7 @@ public class ModShapedRecipeBuilder extends ShapedRecipeBuilder {
 	}
 	
 	/**
-	 * @param material for which a group should be get
+	 * @param material The {@link Material} for which a group should be get
 	 * @return the group name for the given {@link Material} as a {@link String}
 	 */
 	protected final String getGroup(Material material) {
@@ -218,7 +218,7 @@ public class ModShapedRecipeBuilder extends ShapedRecipeBuilder {
 	}
 	
 	/**
-	 * @param material for which a {@link TriggerInstance} should be get
+	 * @param material The {@link Material} for which a {@link TriggerInstance} should be get
 	 * @return a {@link TriggerInstance} for the given {@link Material}
 	 */
 	protected final TriggerInstance has(Material material) {
@@ -231,7 +231,7 @@ public class ModShapedRecipeBuilder extends ShapedRecipeBuilder {
 	}
 
 	/**
-	 * @param predicates for which a {@link TriggerInstance} should be get
+	 * @param predicates The {@link ItemPredicate}s for which a {@link TriggerInstance} should be get
 	 * @return a {@link TriggerInstance} for the given {@link ItemPredicate}s
 	 */
 	protected final InventoryChangeTrigger.TriggerInstance inventoryTrigger(ItemPredicate... predicates) {

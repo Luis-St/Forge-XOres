@@ -91,7 +91,7 @@ public class MaterialSet extends ForgeRegistryEntry<MaterialSet> {
 
 	/**
 	 * checks if the given {@link MaterialType} is present
-	 * @param type which should be checked
+	 * @param type The {@link MaterialType} which should be checked
 	 * @return {@code true} if the {@link MaterialType} is present else {@code false}
 	 */
 	public boolean has(MaterialType type) {
@@ -100,7 +100,7 @@ public class MaterialSet extends ForgeRegistryEntry<MaterialSet> {
 
 	/**
 	 * getter for the {@link Material}s of the {@link MaterialSet}
-	 * @param type for which the {@link Material} should be get
+	 * @param type The {@link MaterialType} for which the {@link Material} should be get
 	 * @return the {@link Material} for the given {@link MaterialType},<br>
 	 * if {@link MaterialSet#has(MaterialType)} returns {@code true} else {@code null}
 	 */
@@ -131,7 +131,7 @@ public class MaterialSet extends ForgeRegistryEntry<MaterialSet> {
 	
 	/**
 	 * checks if the given {@link MaterialType} is present in the upgrade {@link MaterialSet}
-	 * @param type which should be checked
+	 * @param type The {@link MaterialType} which should be checked
 	 * @return {@code true} if the {@link MaterialType} is present else {@code false}
 	 */
 	public boolean hasUpgrade(MaterialType type) {
@@ -143,7 +143,7 @@ public class MaterialSet extends ForgeRegistryEntry<MaterialSet> {
 	
 	/**
 	 * getter for the {@link Material}s of the upgrade {@link MaterialSet}
-	 * @param type for which the {@link Material} should be get
+	 * @param type The {@link MaterialType} for which the {@link Material} should be get
 	 * @return the {@link Material} for the given {@link MaterialType},<br>
 	 * if {@link MaterialSet#hasUpgrade(MaterialType)} returns {@code true} else {@code null}
 	 */
@@ -157,8 +157,8 @@ public class MaterialSet extends ForgeRegistryEntry<MaterialSet> {
 	
 	/**
 	 * performs the given {@link Consumer}, if the given {@link MaterialType} is present
-	 * @param type which that must be present for the {@link Consumer}
-	 * @param consumer the {@link Consumer} which is performed
+	 * @param type The {@link MaterialType} which that must be present for the {@link Consumer}
+	 * @param consumer The {@link Consumer} which is performed
 	 */
 	public void ifPresent(MaterialType type, Consumer<Material> consumer) {
 		if (this.has(type)) {
@@ -171,9 +171,9 @@ public class MaterialSet extends ForgeRegistryEntry<MaterialSet> {
 	 * performs only if given {@link MaterialType} is present
 	 * @param <M> the input type of the {@link Function}
 	 * @param <R> the result of the {@link Function} which is hand over to the {@link Consumer}
-	 * @param type which that must be present for the {@link Function} and the {@link Consumer}
-	 * @param function which is performed befor the {@link Consumer}
-	 * @param consumer the {@link Consumer} which is performed
+	 * @param type The {@link MaterialType} which that must be present for the {@link Function} and the {@link Consumer}
+	 * @param function The {@link Function} which is performed befor the {@link Consumer}
+	 * @param consumer The {@link Consumer} which is performed
 	 */
 	@SuppressWarnings("unchecked")
 	public <M extends Material, R> void ifPresent(MaterialType type, Function<M, R> function, Consumer<R> consumer) {
@@ -187,10 +187,10 @@ public class MaterialSet extends ForgeRegistryEntry<MaterialSet> {
 	 * performs only if given {@link MaterialType}s are present
 	 * @param <M> the input type of the {@link Function}
 	 * @param <R> the result of the {@link Function} which is hand over to the {@link BiConsumer}
-	 * @param firstType which that must be present for the {@link Function} and the {@link BiConsumer}
-	 * @param secondType which that must be present for the {@link Function} and the {@link BiConsumer}
-	 * @param function which is performed befor the {@link BiConsumer}
-	 * @param consumer the {@link BiConsumer} which is performe
+	 * @param firstType The first {@link MaterialType} which that must be present for the {@link Function} and the {@link BiConsumer}
+	 * @param secondType The second {@link MaterialType} which that must be present for the {@link Function} and the {@link BiConsumer}
+	 * @param function The {@link Function} which is performed befor the {@link BiConsumer}
+	 * @param consumer The {@link BiConsumer} which is performe
 	 */
 	@SuppressWarnings("unchecked")
 	public <M extends Material, R> void ifPresent(MaterialType firstType, MaterialType secondType, Function<M, R> function, BiConsumer<R, R> consumer) {
@@ -235,8 +235,8 @@ public class MaterialSet extends ForgeRegistryEntry<MaterialSet> {
 
 		/**
 		 * adds the given {@link Material} to the {@link Builder} with the given {@link MaterialType} as key
-		 * @param type which is used as key
-		 * @param material which should be add
+		 * @param type The {@link MaterialType} which is used as key
+		 * @param material The {@link Material} which should be add
 		 * @return the {@link Builder} itself
 		 * @throws NullPointerException if the given {@link MaterialType}  or {@link Material} is null
 		 * @throws IllegalStateException if the given {@link MaterialType} already exists in the {@link Builder}
@@ -256,8 +256,8 @@ public class MaterialSet extends ForgeRegistryEntry<MaterialSet> {
 		
 		/**
 		 * adds the given {@link Item} to the {@link Builder} with the given {@link MaterialType} as key
-		 * @param type which is used as key
-		 * @param item which should be add
+		 * @param type The {@link MaterialType}  which is used as key
+		 * @param item The {@link Item} which should be add
 		 * @return the {@link Builder} itself
 		 */
 		public Builder add(MaterialType type, Item item) {
@@ -266,8 +266,8 @@ public class MaterialSet extends ForgeRegistryEntry<MaterialSet> {
 		
 		/**
 		 * adds the given {@link Named} tag to the {@link Builder} with the given {@link MaterialType} as key
-		 * @param type which is used as key
-		 * @param tag which should be add
+		 * @param type The {@link MaterialType}  which is used as key
+		 * @param tag The {@link Named} tag which should be add
 		 * @return the {@link Builder} itself
 		 */
 		public Builder add(MaterialType type, Named<Item> tag) {
@@ -277,7 +277,7 @@ public class MaterialSet extends ForgeRegistryEntry<MaterialSet> {
 		/**
 		 * adds the given {@link Material} to the {@link Builder},<br>
 		 * the {@link MaterialType} is got from {@link Builder#getMaterialType(Material)}
-		 * @param material which should be add
+		 * @param material The {@link Material} which should be add
 		 * @return the {@link Builder} itself
 		 * @see {@link Builder#getMaterialType(Material)}
 		 */
@@ -288,7 +288,7 @@ public class MaterialSet extends ForgeRegistryEntry<MaterialSet> {
 		/**
 		 * adds the given {@link Item} to the {@link Builder},<br>
 		 * the {@link MaterialType} is got from {@link Builder#getMaterialTypeByItem(Item)}
-		 * @param item which should be add
+		 * @param item The {@link Item} which should be add
 		 * @return the {@link Builder} itself
 		 * @see {@link Builder#getMaterialTypeByItem(Item)}
 		 */
@@ -299,7 +299,7 @@ public class MaterialSet extends ForgeRegistryEntry<MaterialSet> {
 		/**
 		 * adds the given {@link Named} tag to the {@link Builder},<br>
 		 * the {@link MaterialType} is got from {@link Builder#getMaterialTypeByTag(Named)}
-		 * @param tag which should be add
+		 * @param tag The {@link Named} tag which should be add
 		 * @return the {@link Builder} itself
 		 * @see {@link Builder#getMaterialTypeByTag(Named)}
 		 */
@@ -308,7 +308,7 @@ public class MaterialSet extends ForgeRegistryEntry<MaterialSet> {
 		}
 
 		/**
-		 * @param material for which a {@link MaterialType} should be found
+		 * @param material The {@link Material} for which a {@link MaterialType} should be found
 		 * @return the {@link MaterialType} for the given {@link Material}
 		 * @throws IllegalArgumentException if {@link Material#isItem()} and {@link Material#isTag()} returns {@code false}
 		 * @throws IllegalStateException if the found {@link MaterialType} already exists
@@ -329,7 +329,7 @@ public class MaterialSet extends ForgeRegistryEntry<MaterialSet> {
 		}
 
 		/**
-		 * @param item for which a {@link MaterialType} should be found
+		 * @param item The {@link Item} for which a {@link MaterialType} should be found
 		 * @return a {@link MaterialType} or {@code null} if all {@link MaterialType}s are already present
 		 */
 		protected MaterialType getMaterialTypeByItem(Item item) {
@@ -386,7 +386,7 @@ public class MaterialSet extends ForgeRegistryEntry<MaterialSet> {
 		}
 
 		/**
-		 * @param tag for which a {@link MaterialType} should be found
+		 * @param tag The {@link Named} tag for which a {@link MaterialType} should be found
 		 * @return a {@link MaterialType} or {@code null} if all {@link MaterialType}s are already present
 		 */
 		protected MaterialType getMaterialTypeByTag(Named<Item> tag) {
@@ -406,7 +406,7 @@ public class MaterialSet extends ForgeRegistryEntry<MaterialSet> {
 
 		/**
 		 * adds the given {@link MaterialSet} to the {@link Builder}
-		 * @param upgradeSet which should be add
+		 * @param upgradeSet The {@link MaterialSet} which should be add as an upgrade set
 		 * @return the {@link Builder} itself
 		 */
 		public Builder upgradeSet(Supplier<MaterialSet> upgradeSet) {

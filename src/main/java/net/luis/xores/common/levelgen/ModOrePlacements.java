@@ -97,8 +97,8 @@ public class ModOrePlacements {
 	
 	/**
 	 * creates the {@link PlacementModifier}s for a basic ore
-	 * @param countPlacement
-	 * @param heightPlacement
+	 * @param countPlacement The count {@link PlacementModifier}
+	 * @param heightPlacement The height {@link PlacementModifier}
 	 * @return a {@link List} of {@link PlacementModifier} with:
 	 * <ul>
 	 * 	<li>the given {@link PlacementModifier} for the count</li>
@@ -114,8 +114,8 @@ public class ModOrePlacements {
 
 	/**
 	 * creates the {@link PlacementModifier}s for a upper ore
-	 * @param count of the ore in a chunk
-	 * @param minGeneration minimum generation height in a chunk
+	 * @param count The count of the ore in a chunk
+	 * @param minGeneration The minimum generation height in a chunk
 	 * @return a {@link List} of {@link PlacementModifier} with:
 	 * <ul>
 	 * 	<li>{@link CountPlacement} for the count of the ore in the chunk</li>
@@ -130,8 +130,8 @@ public class ModOrePlacements {
 	
 	/**
 	 * creates the {@link PlacementModifier}s for a buried ore
-	 * @param count of the ore in a chunk
-	 * @param maxGeneration maximum generation height in a chunk
+	 * @param count The count of the ore in a chunk
+	 * @param maxGeneration The maximum generation height in a chunk
 	 * @return a {@link List} of {@link PlacementModifier} with:
 	 * <ul>
 	 * 	<li>{@link CountPlacement} for the count of the ore in the chunk</li>
@@ -146,7 +146,7 @@ public class ModOrePlacements {
 
 	/**
 	 * creates the {@link PlacementModifier}s for a buried end ore
-	 * @param count of the ore in a chunk
+	 * @param count The count of the ore in a chunk
 	 * @return a {@link List} of {@link PlacementModifier} with:
 	 * <ul>
 	 * 	<li>{@link CountPlacement} for the count of the ore in the chunk</li>
@@ -160,9 +160,9 @@ public class ModOrePlacements {
 	
 	/**
 	 * creates the {@link PlacementModifier}s for a uniform ore
-	 * @param count of the ore in a chunk
-	 * @param minGeneration minimum generation height in a chunk
-	 * @param maxGeneration maximum generation height in a chunk
+	 * @param count The count of the ore in a chunk
+	 * @param minGeneration The minimum generation height in a chunk
+	 * @param maxGeneration The maximum generation height in a chunk
 	 * @return a {@link List} of {@link PlacementModifier} with:
 	 * <ul>
 	 * 	<li>{@link CountPlacement} for the count of the ore in the chunk</li>
@@ -176,9 +176,9 @@ public class ModOrePlacements {
 	
 	/**
 	 * creates the {@link PlacementModifier}s for a triangle ore
-	 * @param count of the ore in a chunk
-	 * @param minGeneration minimum generation height in a chunk
-	 * @param maxGeneration maximum generation height in a chunk
+	 * @param count The count of the ore in a chunk
+	 * @param minGeneration The minimum generation height in a chunk
+	 * @param maxGeneration The maximum generation height in a chunk
 	 * @return a {@link List} of {@link PlacementModifier} with:
 	 * <ul>
 	 * 	<li>{@link CountPlacement} for the count of the ore in the chunk</li>
@@ -191,7 +191,7 @@ public class ModOrePlacements {
 	}
 	
 	/**
-	 * @param minGeneration minimum generation height
+	 * @param minGeneration The minimum generation height
 	 * @return the maximum generation height for a triangle ore
 	 */
 	protected static VerticalAnchor triangleMaxGeneration(int minGeneration) {
@@ -199,7 +199,7 @@ public class ModOrePlacements {
 	}
 	
 	/**
-	 * @param maxGeneration maximum generation height
+	 * @param maxGeneration The maximum generation height
 	 * @return the minimum generation height for a triangle ore
 	 */
 	protected static VerticalAnchor triangleMinGeneration(int maxGeneration) {
@@ -208,8 +208,8 @@ public class ModOrePlacements {
 	
 	/**
 	 * register the given {@link PlacedFeature}
-	 * @param name of the {@link PlacedFeature} which is used for registry
-	 * @param placedFeature which should be registered
+	 * @param name Then name of the {@link PlacedFeature} which is used for registry
+	 * @param placedFeature The {@link PlacedFeature} which should be registered
 	 * @return the given {@link PlacedFeature}
 	 */
 	protected static PlacedFeature register(String name, PlacedFeature placedFeature) {

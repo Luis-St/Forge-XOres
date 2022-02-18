@@ -32,8 +32,7 @@ public class BlazingSwordItem extends SwordItem {
 	}
 	
 	/**
-	 * sets the target for 2-7 seconds into fire,<br>
-	 * if {@link LivingEntity#fireImmune()} retruns {@code false}
+	 * sets the target for 2-7 seconds into fire, if {@link LivingEntity#fireImmune()} retruns {@code false}
 	 */
 	@Override
 	public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {

@@ -76,7 +76,7 @@ public class ConditionChainExecutor<T> {
 	
 	/**
 	 * append a else if condition
-	 * @param elseIFCondition the condition as a {@link Pair}
+	 * @param elseIFCondition The condition as a {@link Pair}
 	 * @return the {@link ConditionChainExecutor} itself
 	 */
 	public ConditionChainExecutor<T> appendElseIf(Pair<Predicate<T>, Consumer<T>> elseIFCondition) {
@@ -86,8 +86,8 @@ public class ConditionChainExecutor<T> {
 	
 	/**
 	 * append a else if condition
-	 * @param condition as a {@link Predicate}
-	 * @param action as a {@link Consumer}
+	 * @param condition The condition as a {@link Predicate}
+	 * @param action The action as a {@link Consumer}
 	 * @return the {@link ConditionChainExecutor} itself
 	 */
 	public ConditionChainExecutor<T> appendElseIf(Predicate<T> condition, Consumer<T> action) {
@@ -96,7 +96,7 @@ public class ConditionChainExecutor<T> {
 	
 	/**
 	 * append a else action
-	 * @param elseAction as a {@link Consumer}
+	 * @param elseAction The else action as a {@link Consumer}
 	 * @return the {@link ConditionChainExecutor} itself
 	 */
 	public ConditionChainExecutor<T> appendElse(Consumer<T> elseAction) {
@@ -133,7 +133,7 @@ public class ConditionChainExecutor<T> {
 	 *  <li>all else actions if all previous conditions were {@code false} or<br>
 	 *  {@link ConditionChainExecutor#callElseAlways} is {@code true} </li>
 	 * </ol>
-	 * @param value which is used for execution
+	 * @param value The value which is used for execution
 	 */
 	public void execute(T value) {
 		boolean wasTrue = false;

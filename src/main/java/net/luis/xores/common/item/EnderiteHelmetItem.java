@@ -30,9 +30,7 @@ public class EnderiteHelmetItem extends ArmorItem {
 	}
 
 	/**
-	 * if the {@link Player} wears the {@link ElytraChestplateItem},<br>
-	 * he is hidden from {@link EnderMan}s<br>
-	 * <br>
+	 * if the {@link Player} wears the {@link ElytraChestplateItem}, he is hidden from {@link EnderMan}s<br>
 	 * the {@link ElytraChestplateItem} works similar to the {@link Items#CARVED_PUMPKIN}
 	 * @return {@code true}
 	 */

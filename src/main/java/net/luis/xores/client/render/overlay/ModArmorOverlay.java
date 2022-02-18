@@ -31,8 +31,7 @@ public class ModArmorOverlay implements IIngameOverlay {
 	}
 	
 	/**
-	 * setup the render state and<br>
-	 * check if the extended armor bar should be rendered
+	 * setup the render state and check if the extended armor bar should be rendered
 	 */
 	@Override
 	public void render(ForgeIngameGui gui, PoseStack poseStack, float partialTicks, int width, int height) {

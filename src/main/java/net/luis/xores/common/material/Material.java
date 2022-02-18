@@ -49,8 +49,8 @@ public class Material {
 	 * constructor for the {@link Material},<br>
 	 * private since you should use the factory methods
 	 * 
-	 * @see {@link Material#item()}
-	 * @see {@link Material#tag()}
+	 * @see {@link Material#item(Item)}
+	 * @see {@link Material#tag(Named)}
 	 */
 	private Material(Optional<Item> item, Optional<Named<Item>> tag) {
 		this.item = Objects.requireNonNull(item, "Optional can't be null");
@@ -58,6 +58,8 @@ public class Material {
 	}
 	
 	/**
+	 * creates a new {@link Material}
+	 * @parm item The {@link Item} for the {@link Material}
 	 * @return a {@link Material} for the given {@link Item}
 	 */
 	public static Material item(Item item) {
@@ -65,6 +67,8 @@ public class Material {
 	}
 	
 	/**
+	 * creates a new {@link Material}
+	 * @param tag The {@link Named} tag for the {@link Material}
 	 * @return a {@link Material} for the given {@link Named} tags
 	 */
 	public static Material tag(Named<Item> tag) {
@@ -79,6 +83,7 @@ public class Material {
 	}
 	
 	/**
+	 * checks if the {@link Material} is a {@link Item} material
 	 * @return {@code true} if the {@link Material} is a {@link Item} material else {@code false}
 	 */
 	public boolean isItem() {
@@ -86,6 +91,7 @@ public class Material {
 	}
 	
 	/**
+	 * getter for the {@link Material#item}
 	 * @return the {@link Item} of the {@link Material} if {@link Material#isItem()} returns {@code true}
 	 */
 	@Nullable
@@ -97,6 +103,7 @@ public class Material {
 	}
 	
 	/**
+	 * @param item The fallback {@link Item}
 	 * @return {@link Material#getItem()} if {@link Material#isItem()} returns {@code true} else the given {@link Item}
 	 */
 	public Item itemOrElse(Item item) {
@@ -104,6 +111,7 @@ public class Material {
 	}
 	
 	/**
+	 * throw getter for the {@link Material#item}
 	 * @return {@link Material#getItem()} if {@link Material#isItem()} returns {@code true}
 	 * @throws a {@link NullPointerException} if {@link Material#isItem()} returns {@code false}
 	 */
@@ -116,6 +124,7 @@ public class Material {
 	
 	/**
 	 * accept the given {@link Consumer} if {@link Material#isItem()} returns {@code true}
+	 * @param consumer The {@link Consumer} which is execute
 	 */
 	public void ifItemPresent(Consumer<Item> consumer) {
 		if (this.isItem()) {
@@ -124,6 +133,7 @@ public class Material {
 	}
 	
 	/**
+	 * checks if the {@link Material} is a {@link Named} tag material
 	 * @return {@code true} if the {@link Material} is a {@link Named} tag material else {@code false}
 	 */
 	public boolean isTag() {
@@ -131,6 +141,7 @@ public class Material {
 	}
 	
 	/**
+	 * getter for the {@link Material#tag}
 	 * @return the {@link Named} of the {@link Material} if {@link Material#isTag()} returns {@code true}
 	 */
 	@Nullable
@@ -142,6 +153,7 @@ public class Material {
 	}
 	
 	/**
+	 * @param tag The fallback {@link Named} tag
 	 * @return {@link Material#getTag()} if {@link Material#getTag()} returns {@code true} else the given {@link Named} tag
 	 */
 	public Named<Item> tagOrElse(Named<Item> tag) {
@@ -149,6 +161,7 @@ public class Material {
 	}
 	
 	/**
+	 * throw getter for the {@link Material#tag}
 	 * @return {@link Material#getTag()} if {@link Material#isTag()} returns {@code true}
 	 * @throws a {@link NullPointerException} if {@link Material#isTag()} returns {@code false}
 	 */
@@ -161,6 +174,7 @@ public class Material {
 	
 	/**
 	 * accept the given {@link Consumer} if {@link Material#isTag()} returns {@code true}
+	 * @param consumer The {@link Consumer} which is execute
 	 */
 	public void ifTagPresent(Consumer<Named<Item>> consumer) {
 		if (this.isTag()) {
@@ -169,7 +183,8 @@ public class Material {
 	}
 	
 	/**
-	 * @return a {@link Ingredient} of the {@link Material}
+	 * creates an {@link Ingredient} for the {@link Material}
+	 * @return a {@link Ingredient}
 	 */
 	public Ingredient asIngredient() {
 		if (this.isItem()) {

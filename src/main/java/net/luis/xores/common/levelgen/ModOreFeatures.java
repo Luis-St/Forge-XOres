@@ -229,8 +229,8 @@ public class ModOreFeatures {
 	
 	/**
 	 * register the given {@link ConfiguredFeature}
-	 * @param name of the {@link ConfiguredFeature} which is used for registry
-	 * @param configuredFeature which should be registered
+	 * @param name The name of the {@link ConfiguredFeature} which is used for registry
+	 * @param configuredFeature The {@link ConfiguredFeature} which should be registered
 	 * @return the given {@link ConfiguredFeature}
 	 */
 	protected static <FC extends FeatureConfiguration> ConfiguredFeature<FC, ?> register(String name, ConfiguredFeature<FC, ?> configuredFeature) {

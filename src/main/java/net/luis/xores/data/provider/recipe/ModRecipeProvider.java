@@ -432,9 +432,9 @@ public class ModRecipeProvider extends RecipeProvider {
 	
 	/**
 	 * generates a {@link UpgradeRecipe}
-	 * @param base as an {@link Item} for the {@link UpgradeRecipe}
-	 * @param addition as an {@link Item} for the {@link UpgradeRecipe}
-	 * @param result as an {@link Item} for the {@link UpgradeRecipe}
+	 * @param base The base as an {@link Item} for the {@link UpgradeRecipe}
+	 * @param addition The addition as an {@link Item} for the {@link UpgradeRecipe}
+	 * @param result The result as an {@link Item} for the {@link UpgradeRecipe}
 	 */
 	protected void smithingRecipe(Consumer<FinishedRecipe> consumer, Item base, Item addition, Item result) {
 		UpgradeRecipeBuilder.smithing(Ingredient.of(base), Ingredient.of(addition), result).unlocks("has_" + getId(base), has(base)).save(consumer, new ResourceLocation(XOres.MOD_ID, getId(result) + "_smithing"));
@@ -442,11 +442,11 @@ public class ModRecipeProvider extends RecipeProvider {
 	
 	/**
 	 * generates a {@link SmeltingRecipe}
-	 * @param input as an {@link Ingredient} for the {@link SmeltingRecipe}
-	 * @param result as an {@link Item} for the {@link SmeltingRecipe}
-	 * @param experience of the {@link SmeltingRecipe}
-	 * @param group of the {@link SmeltingRecipe}
-	 * @param prefix for the recipe json file name
+	 * @param input The input as an {@link Ingredient} for the {@link SmeltingRecipe}
+	 * @param result The result as an {@link Item} for the {@link SmeltingRecipe}
+	 * @param experience The experience of the {@link SmeltingRecipe}
+	 * @param group The group of the {@link SmeltingRecipe}
+	 * @param prefix The prefix for the recipe json file name
 	 */
 	protected void smeltingRecipe(Consumer<FinishedRecipe> consumer, Ingredient input, Item result, float experience, String group, String prefix) {
 		SimpleCookingRecipeBuilder.smelting(input, result, experience, 200).group(group).unlockedBy("has_" + getId(result), has(result)).save(consumer, new ResourceLocation(XOres.MOD_ID, getId(result) + prefix));
@@ -454,18 +454,18 @@ public class ModRecipeProvider extends RecipeProvider {
 	
 	/**
 	 * generates a {@link BlastingRecipe}
-	 * @param input as an {@link Ingredient} for the {@link BlastingRecipe}
-	 * @param result as an {@link Item} for the {@link BlastingRecipe}
-	 * @param experience of the {@link BlastingRecipe} for the {@link BlastingRecipe}
-	 * @param group of the {@link BlastingRecipe}
-	 * @param prefix for the recipe json file name
+	 * @param input The input as an {@link Ingredient} for the {@link BlastingRecipe}
+	 * @param result The result as an {@link Item} for the {@link BlastingRecipe}
+	 * @param experience The experience of the {@link BlastingRecipe} for the {@link BlastingRecipe}
+	 * @param group The group of the {@link BlastingRecipe}
+	 * @param prefix The prefix for the recipe json file name
 	 */
 	protected void blastingRecipe(Consumer<FinishedRecipe> consumer, Ingredient input, Item result, float experience, String group, String prefix) {
 		SimpleCookingRecipeBuilder.blasting(input, result, experience, 100).group(group).unlockedBy("has_" + getId(result), has(result)).save(consumer, new ResourceLocation(XOres.MOD_ID, getId(result) + prefix));
 	}
 	
 	/**
-	 * @param item for which a id should be get
+	 * @param item The {@link Item} for which a id should be get
 	 * @return the id for the given {@link Item} as a {@link String}
 	 */
 	protected static String getId(Item item) {
@@ -473,7 +473,7 @@ public class ModRecipeProvider extends RecipeProvider {
 	}
 	
 	/**
-	 * @param material for which a id should be get
+	 * @param material The {@link Material} for which a id should be get
 	 * @return the id for the given {@link Material} as a {@link String}
 	 */
 	protected static String getId(Material material) {
@@ -489,7 +489,7 @@ public class ModRecipeProvider extends RecipeProvider {
 	}
 	
 	/**
-	 * @param item for which a group should be get
+	 * @param item The {@link Item} for which a group should be get
 	 * @return the group name for the given {@link Item} as a {@link String}
 	 */
 	protected static String getGroup(Item item) {
@@ -505,7 +505,7 @@ public class ModRecipeProvider extends RecipeProvider {
 	}
 	
 	/**
-	 * @param material for which a group should be get
+	 * @param material The {@link Material} for which a group should be get
 	 * @return the group name for the given {@link Material} as a {@link String}
 	 */
 	protected static String getGroup(Material material) {
@@ -524,7 +524,7 @@ public class ModRecipeProvider extends RecipeProvider {
 	}
 	
 	/**
-	 * @param material for which a {@link TriggerInstance} should be get
+	 * @param material The {@link Material} for which a {@link TriggerInstance} should be get
 	 * @return a {@link TriggerInstance} for the given {@link Material}
 	 */
 	protected static TriggerInstance has(Material material) {

@@ -65,8 +65,7 @@ public class ElytraChestplateItem extends ArmorItem {
 	}
 	
 	/**
-	 * handle the damage of the {@link ElytraChestplateItem},<br>
-	 * based on the flight ticks and<br>
+	 * handle the damage of the {@link ElytraChestplateItem}, based on the flight ticks and<br>
 	 * the value which is registered in {@link ElytraChestplateItem#ELYTRA_TIME_DAMAGE_VALUES}
 	 */
 	@Override
