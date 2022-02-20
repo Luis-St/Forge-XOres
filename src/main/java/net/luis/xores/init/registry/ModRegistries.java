@@ -12,6 +12,9 @@ import net.minecraftforge.registries.RegistryManager;
 
 public class ModRegistries {
 	
+	/**
+	 * {@link IForgeRegistry} for {@link MaterialSet}
+	 */
 	public static final IForgeRegistry<MaterialSet> MATERIALS = RegistryManager.ACTIVE.getRegistry(MaterialSet.class);
 	
 }
