@@ -185,17 +185,20 @@ public class ModShapedRecipeBuilder extends ShapedRecipeBuilder {
 	/**
 	 * @param material The {@link Material} for which a id should be get
 	 * @return the id for the given {@link Material} as a {@link String}
+	 * @throws IllegalStateException if the given {@link Material} is empty
 	 */
 	protected final String getId(Material material) {
 		if (material.isItem()) {
 			return this.getId(material.itemOrThrow());
+		} else if (material.isTag()) {
+			Named<Item> tag = material.tagOrThrow();
+			if (!tag.getName().getPath().contains("/")) {
+				return tag.getName().getPath();
+			}
+			String[] pathParts = tag.getName().getPath().split("/");
+			return pathParts[pathParts.length - 1];
 		}
-		Named<Item> tag = material.tagOrThrow();
-		if (!tag.getName().getPath().contains("/")) {
-			return tag.getName().getPath();
-		}
-		String[] pathParts = tag.getName().getPath().split("/");
-		return pathParts[pathParts.length - 1];
+		throw new IllegalStateException("Fail to get ID for a empty Material");
 	}
 	
 	/**
@@ -220,6 +223,7 @@ public class ModShapedRecipeBuilder extends ShapedRecipeBuilder {
 	/**
 	 * @param material The {@link Material} for which a {@link TriggerInstance} should be get
 	 * @return a {@link TriggerInstance} for the given {@link Material}
+	 * @throws IllegalStateException if the given {@link Material} is empty
 	 */
 	protected final TriggerInstance has(Material material) {
 		if (material.isItem()) {
@@ -227,7 +231,7 @@ public class ModShapedRecipeBuilder extends ShapedRecipeBuilder {
 		} else if (material.isTag()) {
 			return this.inventoryTrigger(ItemPredicate.Builder.item().of(material.tagOrThrow()).build());
 		}
-		throw new IllegalStateException("Fail to get TriggerInstance for Material since it's not Item and Tag");
+		throw new IllegalStateException("Fail to get TriggerInstance for a empty Material");
 	}
 
 	/**

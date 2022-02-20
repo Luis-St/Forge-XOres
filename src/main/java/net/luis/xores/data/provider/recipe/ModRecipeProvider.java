@@ -475,17 +475,20 @@ public class ModRecipeProvider extends RecipeProvider {
 	/**
 	 * @param material The {@link Material} for which a id should be get
 	 * @return the id for the given {@link Material} as a {@link String}
+	 * @throws IllegalStateException if the given {@link Material} is empty
 	 */
 	protected static String getId(Material material) {
 		if (material.isItem()) {
 			return getId(material.itemOrThrow());
+		} else if (material.isTag()) {
+			Named<Item> tag = material.tagOrThrow();
+			if (!tag.getName().getPath().contains("/")) {
+				return tag.getName().getPath();
+			}
+			String[] pathParts = tag.getName().getPath().split("/");
+			return pathParts[pathParts.length - 1];
 		}
-		Named<Item> tag = material.tagOrThrow();
-		if (!tag.getName().getPath().contains("/")) {
-			return tag.getName().getPath();
-		}
-		String[] pathParts = tag.getName().getPath().split("/");
-		return pathParts[pathParts.length - 1];
+		throw new IllegalStateException("Fail to get ID for a empty Material");
 	}
 	
 	/**
@@ -526,6 +529,7 @@ public class ModRecipeProvider extends RecipeProvider {
 	/**
 	 * @param material The {@link Material} for which a {@link TriggerInstance} should be get
 	 * @return a {@link TriggerInstance} for the given {@link Material}
+	 * @throws IllegalStateException if the given {@link Material} is empty
 	 */
 	protected static TriggerInstance has(Material material) {
 		if (material.isItem()) {
@@ -533,7 +537,7 @@ public class ModRecipeProvider extends RecipeProvider {
 		} else if (material.isTag()) {
 			return has(material.tagOrThrow());
 		}
-		throw new IllegalStateException("Fail to get TriggerInstance for Material since it's not Item and Tag");
+		throw new IllegalStateException("Fail to get TriggerInstance for a empty Material");
 	}
 	
 	/**
