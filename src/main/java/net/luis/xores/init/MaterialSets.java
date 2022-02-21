@@ -18,7 +18,7 @@ import net.minecraftforge.registries.RegistryObject;
 public class MaterialSets {
 	
 	/**
-	 * {@link DeferredRegister} for {@link MaterialSet}, used to register all minecraft {@link MaterialSet}s
+	 * {@link DeferredRegister} for {@link MaterialSet}s, used to register all minecraft {@link MaterialSet}s
 	 */
 	public static final DeferredRegister<MaterialSet> MATERIALS = DeferredRegister.create(MaterialSet.class, "minecraft");
 	

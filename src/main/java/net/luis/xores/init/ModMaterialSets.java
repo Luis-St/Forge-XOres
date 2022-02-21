@@ -15,7 +15,7 @@ import net.minecraftforge.registries.RegistryObject;
 public class ModMaterialSets {
 	
 	/**
-	 * {@link DeferredRegister} for {@link MaterialSet}, used to register all mod {@link MaterialSet}s
+	 * {@link DeferredRegister} for {@link MaterialSet}s, used to register all mod {@link MaterialSet}s
 	 */
 	public static final DeferredRegister<MaterialSet> MATERIALS = DeferredRegister.create(MaterialSet.class, XOres.MOD_ID);
 	
