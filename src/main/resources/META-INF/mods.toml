@@ -1,36 +1,49 @@
-modLoader="javafml" #mandatory
+modLoader="javafml"
 
-loaderVersion="[39,)" #mandatory
+loaderVersion="[39,)"
 
 license="All rights reserved"
 
-[[mods]] #mandatory
+[[mods]]
 
-modId="xores" #mandatory
+modId="xores"
 
-version="1.18.1-1.0" #mandatory
+version="1.18.1-1.0"
 
-displayName="XBackpack" #mandatory
+displayName="XBackpack"
 
-credits="Thanks for downloading my XOres" #optional
+credits="Thanks for downloading my Mod"
 
-authors="Luis" #optional
+authors="Luis"
 
-#displayURL="https://github.com/Luis-st/Forge-XOres/issues"
+displayURL="https://github.com/Luis-st/Forge-XOres/issues"
 
 description='''
+XOres adds a few new Ores and Tools
+Ores:
+ - Jade
+ - Saphire
+ - Limonite
+ - Rosite
+ - Enderite
+ 
+Tools:
+ - Blazing
+ - Rose Quartz
+ - Steel
+ - Night
 
 Have a lot of fun when playing
 XOres Development Team
 '''
 
-[[dependencies.xores]] #optional
+[[dependencies.xores]]
 
-    modId="forge" #mandatory
+    modId="forge"
 
-    mandatory=true #mandatory
+    mandatory=true
 
-    versionRange="[39,)" #mandatory
+    versionRange="[39,)"
 
     ordering="NONE"
 
