@@ -10,7 +10,7 @@ import com.google.common.collect.Lists;
 import com.mojang.datafixers.util.Pair;
 
 import net.luis.xores.data.OnGatherDataEvent;
-import net.luis.xores.init.ModBlocks;
+import net.luis.xores.init.XOresBlocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.loot.LootTableProvider;
@@ -31,24 +31,24 @@ import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
  * 
  * @see {@link LootTableProvider}
  * @see {@link OnGatherDataEvent}
- * @see {@link ModBlocks}
+ * @see {@link XOresBlocks}
  */
 
-public class ModLootTableProvider extends LootTableProvider {
+public class XOresLootTableProvider extends LootTableProvider {
 
 	/**
-	 * constructor for the {@link ModLootTableProvider}
+	 * constructor for the {@link XOresLootTableProvider}
 	 */
-	public ModLootTableProvider(DataGenerator generator) {
+	public XOresLootTableProvider(DataGenerator generator) {
 		super(generator);
 	}
 	
 	/**
-	 * register the {@link ModBlockLoot} with the {@link LootContextParamSets#BLOCK} as {@link LootContextParamSet}
+	 * register the {@link XOresBlockLoot} with the {@link LootContextParamSets#BLOCK} as {@link LootContextParamSet}
 	 */
 	@Override
 	protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, Builder>>>, LootContextParamSet>> getTables() {
-		return Lists.newArrayList(Pair.of(ModBlockLoot::new, LootContextParamSets.BLOCK));
+		return Lists.newArrayList(Pair.of(XOresBlockLoot::new, LootContextParamSets.BLOCK));
 	}
 	
 	/**

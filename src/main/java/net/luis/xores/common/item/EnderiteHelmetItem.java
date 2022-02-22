@@ -1,6 +1,6 @@
 package net.luis.xores.common.item;
 
-import net.luis.xores.init.ModItems;
+import net.luis.xores.init.XOresItems;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.monster.EnderMan;
 import net.minecraft.world.entity.player.Player;
@@ -11,13 +11,13 @@ import net.minecraft.world.item.Items;
 
 /**
  * extension of {@link ArmorItem} with {@link EquipmentSlot#HEAD}, works similar to<br> 
- * the {@link Items#CARVED_PUMPKIN} used for {@link ModItems#ENDERITE_HELMET}
+ * the {@link Items#CARVED_PUMPKIN} used for {@link XOresItems#ENDERITE_HELMET}
  * 
  * @author Luis-st
  * 
  * @see {@link ArmorItem}
  * @see {@link Items}
- * @see {@link ModItems}
+ * @see {@link XOresItems}
  */
 
 public class EnderiteHelmetItem extends ArmorItem {

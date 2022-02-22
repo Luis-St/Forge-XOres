@@ -16,7 +16,7 @@ import net.minecraftforge.client.gui.IIngameOverlay;
  * @see {@link OnClientSetupEvent}
  */
 
-public class ModArmorOverlay implements IIngameOverlay {
+public class XOresArmorOverlay implements IIngameOverlay {
 	
 	/**
 	 * the {@link Minecraft} client instance
@@ -24,9 +24,9 @@ public class ModArmorOverlay implements IIngameOverlay {
 	protected final Minecraft minecraft;
 	
 	/**
-	 * constructor for the {@link ModArmorOverlay}
+	 * constructor for the {@link XOresArmorOverlay}
 	 */
-	public ModArmorOverlay(Minecraft minecraft) {
+	public XOresArmorOverlay(Minecraft minecraft) {
 		this.minecraft = minecraft;
 	}
 	

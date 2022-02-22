@@ -5,12 +5,12 @@ import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.RegistryManager;
 
 /**
- * registration class for all mod {@link IForgeRegistry}s
+ * registration class for all XOres {@link IForgeRegistry}s
  * 
  * @author Luis-st
  */
 
-public class ModRegistries {
+public class XOresRegistries {
 	
 	/**
 	 * {@link IForgeRegistry} for {@link MaterialSet}

@@ -1,7 +1,7 @@
 package net.luis.xores.data.provider.recipe.builder;
 
 import net.luis.xores.common.material.Material;
-import net.luis.xores.data.provider.recipe.ModRecipeProvider;
+import net.luis.xores.data.provider.recipe.XOresRecipeProvider;
 import net.minecraft.advancements.CriterionTriggerInstance;
 import net.minecraft.advancements.critereon.EntityPredicate;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
@@ -18,62 +18,62 @@ import net.minecraft.world.level.ItemLike;
 
 /**
  * extension of {@link ShapedRecipeBuilder}, used to create easier {@link ShapedRecipe}s<br>
- * for mod {@link Item}s in {@link ModRecipeProvider}
+ * for mod {@link Item}s in {@link XOresRecipeProvider}
  * 
  * @author Luis-st
  * 
  * @see {@link ShapedRecipeBuilder}
  * @see {@link ShapedRecipe}
  * @see {@link Item}
- * @see {@link ModRecipeProvider}
+ * @see {@link XOresRecipeProvider}
  */
 
-public class ModShapedRecipeBuilder extends ShapedRecipeBuilder {
+public class XOresShapedRecipeBuilder extends ShapedRecipeBuilder {
 
 	/**
-	 * constructor for the {@link ModShapedRecipeBuilder},<br>
+	 * constructor for the {@link XOresShapedRecipeBuilder},<br>
 	 * private since you should use the factory methods
 	 * 
-	 * @see {@link ModShapedRecipeBuilder#shaped(ItemLike)}
-	 * @see {@link ModShapedRecipeBuilder#shaped(ItemLike, int)}
+	 * @see {@link XOresShapedRecipeBuilder#shaped(ItemLike)}
+	 * @see {@link XOresShapedRecipeBuilder#shaped(ItemLike, int)}
 	 */
-	private ModShapedRecipeBuilder(ItemLike result, int count) {
+	private XOresShapedRecipeBuilder(ItemLike result, int count) {
 		super(result, count);
 	}
 	
 	/**
-	 * @return a {@link ModShapedRecipeBuilder} for the given {@link ItemLike}
+	 * @return a {@link XOresShapedRecipeBuilder} for the given {@link ItemLike}
 	 * 
-	 * @see {@link ModShapedRecipeBuilder#shaped(ItemLike, int)}
+	 * @see {@link XOresShapedRecipeBuilder#shaped(ItemLike, int)}
 	 */
-	public static ModShapedRecipeBuilder shaped(ItemLike result) {
+	public static XOresShapedRecipeBuilder shaped(ItemLike result) {
 		return shaped(result, 1);
 	}
 
 	/**
-	 * @return a {@link ModShapedRecipeBuilder} for the given {@link ItemLike} and the count
+	 * @return a {@link XOresShapedRecipeBuilder} for the given {@link ItemLike} and the count
 	 */
-	public static ModShapedRecipeBuilder shaped(ItemLike result, int count) {
-		return new ModShapedRecipeBuilder(result, count);
+	public static XOresShapedRecipeBuilder shaped(ItemLike result, int count) {
+		return new XOresShapedRecipeBuilder(result, count);
 	}
 	
 	/**
 	 * sets the group for the {@link ShapedRecipe}
 	 * @param material The {@link Material} which should be used as group name
-	 * @return the {@link ModShapedRecipeBuilder} itself
+	 * @return the {@link XOresShapedRecipeBuilder} itself
 	 */
-	public ModShapedRecipeBuilder group(Material material) {
+	public XOresShapedRecipeBuilder group(Material material) {
 		return this.group(this.getGroup(material));
 	}
 	
 	/**
 	 * sets the group for the {@link ShapedRecipe}
 	 * @param group The group which should be used
-	 * @return the {@link ModShapedRecipeBuilder} itself
+	 * @return the {@link XOresShapedRecipeBuilder} itself
 	 */
 	@Override
-	public ModShapedRecipeBuilder group(String group) {
-		return (ModShapedRecipeBuilder) super.group(group);
+	public XOresShapedRecipeBuilder group(String group) {
+		return (XOresShapedRecipeBuilder) super.group(group);
 	}
 	
 	/**
@@ -81,11 +81,11 @@ public class ModShapedRecipeBuilder extends ShapedRecipeBuilder {
 	 * the key is used in the pattern
 	 * @param character The {@link Character} which is used as key
 	 * @param itemLike The {@link ItemLike} which should be defined
-	 * @return the {@link ModShapedRecipeBuilder} itself
+	 * @return the {@link XOresShapedRecipeBuilder} itself
 	 */
 	@Override
-	public ModShapedRecipeBuilder define(Character character, ItemLike itemLike) {
-		return (ModShapedRecipeBuilder) super.define(character, itemLike);
+	public XOresShapedRecipeBuilder define(Character character, ItemLike itemLike) {
+		return (XOresShapedRecipeBuilder) super.define(character, itemLike);
 	}
 	
 	/**
@@ -93,11 +93,11 @@ public class ModShapedRecipeBuilder extends ShapedRecipeBuilder {
 	 * the key is used in the pattern
 	 * @param character The {@link Character} which is used as key
 	 * @param tag which The {@link Tag} should be defined
-	 * @return the {@link ModShapedRecipeBuilder} itself
+	 * @return the {@link XOresShapedRecipeBuilder} itself
 	 */
 	@Override
-	public ModShapedRecipeBuilder define(Character character, Tag<Item> tag) {
-		return (ModShapedRecipeBuilder) super.define(character, tag);
+	public XOresShapedRecipeBuilder define(Character character, Tag<Item> tag) {
+		return (XOresShapedRecipeBuilder) super.define(character, tag);
 	}
 	
 	/**
@@ -105,9 +105,9 @@ public class ModShapedRecipeBuilder extends ShapedRecipeBuilder {
 	 * the key is used in the pattern
 	 * @param character The {@link Character} which is used as key
 	 * @param material The {@link Material} which should be defined
-	 * @return the {@link ModShapedRecipeBuilder} itself
+	 * @return the {@link XOresShapedRecipeBuilder} itself
 	 */
-	public ModShapedRecipeBuilder define(Character character, Material material) {
+	public XOresShapedRecipeBuilder define(Character character, Material material) {
 		return this.define(character, material.asIngredient());
 	}
 	
@@ -116,11 +116,11 @@ public class ModShapedRecipeBuilder extends ShapedRecipeBuilder {
 	 * the key is used in the pattern
 	 * @param character The {@link Character} which is used as key
 	 * @param ingredient The {@link Ingredient} which should be defined
-	 * @return the {@link ModShapedRecipeBuilder} itself
+	 * @return the {@link XOresShapedRecipeBuilder} itself
 	 */
 	@Override
-	public ModShapedRecipeBuilder define(Character character, Ingredient ingredient) {
-		return (ModShapedRecipeBuilder) super.define(character, ingredient);
+	public XOresShapedRecipeBuilder define(Character character, Ingredient ingredient) {
+		return (XOresShapedRecipeBuilder) super.define(character, ingredient);
 	}
 	
 	/**
@@ -128,50 +128,50 @@ public class ModShapedRecipeBuilder extends ShapedRecipeBuilder {
 	 * @param firstLine The first line of the recipe pattern as a {@link String}
 	 * @param secondLine The second line of the recipe pattern as a {@link String}
 	 * @param thirdLine The third line of the recipe pattern as a {@link String}
-	 * @return the {@link ModShapedRecipeBuilder} itself
+	 * @return the {@link XOresShapedRecipeBuilder} itself
 	 */
-	public ModShapedRecipeBuilder pattern(String firstLine, String secondLine, String thirdLine) {
+	public XOresShapedRecipeBuilder pattern(String firstLine, String secondLine, String thirdLine) {
 		return this.pattern(firstLine).pattern(secondLine).pattern(thirdLine);
 	}
 	
 	/**
 	 * sets one line of the pattern
 	 * @param pattern The recipe pattern as a {@link String}
-	 * @return the {@link ModShapedRecipeBuilder} itself
+	 * @return the {@link XOresShapedRecipeBuilder} itself
 	 */
 	@Override
-	public ModShapedRecipeBuilder pattern(String pattern) {
-		return (ModShapedRecipeBuilder) super.pattern(pattern);
+	public XOresShapedRecipeBuilder pattern(String pattern) {
+		return (XOresShapedRecipeBuilder) super.pattern(pattern);
 	}
 	
 	/**
 	 * sets the unlocked by condition of the {@link ShapedRecipe} to the given {@link Material}
 	 * @param material The {@link Material} which is used as condition
-	 * @return the {@link ModShapedRecipeBuilder} itself
+	 * @return the {@link XOresShapedRecipeBuilder} itself
 	 */
-	public ModShapedRecipeBuilder unlockedBy(Material material) {
+	public XOresShapedRecipeBuilder unlockedBy(Material material) {
 		return this.unlockedBy("has_", material);
 	}
 	
 	/**
 	 * sets the unlocked by condition of the {@link ShapedRecipe} to the given {@link Material}
-	 * @param prefix The prefix for the unlocked by condition, default is 'has_' + {@link ModShapedRecipeBuilder#getId(Material)}
+	 * @param prefix The prefix for the unlocked by condition, default is 'has_' + {@link XOresShapedRecipeBuilder#getId(Material)}
 	 * @param material The {@link Material} which is used as condition
-	 * @return the {@link ModShapedRecipeBuilder} itself
+	 * @return the {@link XOresShapedRecipeBuilder} itself
 	 */
-	public ModShapedRecipeBuilder unlockedBy(String prefix, Material material) {
-		return (ModShapedRecipeBuilder) this.unlockedBy(prefix + this.getId(material), this.has(material));
+	public XOresShapedRecipeBuilder unlockedBy(String prefix, Material material) {
+		return (XOresShapedRecipeBuilder) this.unlockedBy(prefix + this.getId(material), this.has(material));
 	}
 	
 	/**
 	 * sets the unlocked by condition of the {@link ShapedRecipe} to the given {@link CriterionTriggerInstance}
 	 * @param name The name of the condition
 	 * @param triggerInstance The {@link CriterionTriggerInstance} which is used as condition
-	 * @return the {@link ModShapedRecipeBuilder} itself
+	 * @return the {@link XOresShapedRecipeBuilder} itself
 	 */
 	@Override
-	public ModShapedRecipeBuilder unlockedBy(String name, CriterionTriggerInstance triggerInstance) {
-		return (ModShapedRecipeBuilder) super.unlockedBy(name, triggerInstance);
+	public XOresShapedRecipeBuilder unlockedBy(String name, CriterionTriggerInstance triggerInstance) {
+		return (XOresShapedRecipeBuilder) super.unlockedBy(name, triggerInstance);
 	}
 	
 	/**

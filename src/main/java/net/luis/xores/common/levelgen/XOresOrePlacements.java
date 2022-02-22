@@ -27,73 +27,73 @@ import net.minecraft.world.level.levelgen.placement.PlacementModifier;
  * @see {@link OnBiomeLoadingEvent}
  */
 
-public class ModOrePlacements {
+public class XOresOrePlacements {
 	
 	/**
 	 * {@link PlacedFeature} for the upper jade ore
-	 * @see {@link ModOreFeatures#JADE_ORE_UPPER}
+	 * @see {@link XOresOreFeatures#JADE_ORE_UPPER}
 	 */
-	public static final PlacedFeature JADE_ORE_UPPER = register("jade_ore_upper", ModOreFeatures.JADE_ORE_UPPER.placed(upperOrePlacement(20, 128)));
+	public static final PlacedFeature JADE_ORE_UPPER = register("jade_ore_upper", XOresOreFeatures.JADE_ORE_UPPER.placed(upperOrePlacement(20, 128)));
 	
 	/**
 	 * {@link PlacedFeature} for the middle jade ore
-	 * @see {@link ModOreFeatures#JADE_ORE_MIDDLE}
+	 * @see {@link XOresOreFeatures#JADE_ORE_MIDDLE}
 	 */
-	public static final PlacedFeature JADE_ORE_MIDDLE = register("jade_ore_middle", ModOreFeatures.JADE_ORE_MIDDLE.placed(uniformOrePlacement(14, -32, 96)));
+	public static final PlacedFeature JADE_ORE_MIDDLE = register("jade_ore_middle", XOresOreFeatures.JADE_ORE_MIDDLE.placed(uniformOrePlacement(14, -32, 96)));
 	
 	/**
 	 * {@link PlacedFeature} for the saphire ore
-	 * @see {@link ModOreFeatures#SAPHIRE_ORE}
+	 * @see {@link XOresOreFeatures#SAPHIRE_ORE}
 	 */
-	public static final PlacedFeature SAPHIRE_ORE = register("saphire_ore", ModOreFeatures.SAPHIRE_ORE.placed(uniformOrePlacement(18, -64, 256)));
+	public static final PlacedFeature SAPHIRE_ORE = register("saphire_ore", XOresOreFeatures.SAPHIRE_ORE.placed(uniformOrePlacement(18, -64, 256)));
 	
 	/**
 	 * {@link PlacedFeature} for the rare saphire ore
-	 * @see {@link ModOreFeatures#SAPHIRE_ORE_RARE_UPPER}
+	 * @see {@link XOresOreFeatures#SAPHIRE_ORE_RARE_UPPER}
 	 */
-	public static final PlacedFeature SAPHIRE_ORE_RARE_UPPER = register("saphire_ore_rare_upper", ModOreFeatures.SAPHIRE_ORE_RARE_UPPER.placed(upperOrePlacement(7, 256)));
+	public static final PlacedFeature SAPHIRE_ORE_RARE_UPPER = register("saphire_ore_rare_upper", XOresOreFeatures.SAPHIRE_ORE_RARE_UPPER.placed(upperOrePlacement(7, 256)));
 	
 	/**
 	 * {@link PlacedFeature} for the buried saphire ore
-	 * @see {@link ModOreFeatures#SAPHIRE_ORE_BURIED}
+	 * @see {@link XOresOreFeatures#SAPHIRE_ORE_BURIED}
 	 */
-	public static final PlacedFeature SAPHIRE_ORE_BURIED = register("saphire_ore_buried", ModOreFeatures.SAPHIRE_ORE_BURIED.placed(buriedOrePlacement(5, -32)));
+	public static final PlacedFeature SAPHIRE_ORE_BURIED = register("saphire_ore_buried", XOresOreFeatures.SAPHIRE_ORE_BURIED.placed(buriedOrePlacement(5, -32)));
 	
 	/**
 	 * {@link PlacedFeature} for the buried limonite ore
-	 * @see {@link ModOreFeatures#LIMONITE_ORE_BURIED}
+	 * @see {@link XOresOreFeatures#LIMONITE_ORE_BURIED}
 	 */
-	public static final PlacedFeature LIMONITE_ORE_BURIED = register("limonite_ore_buried", ModOreFeatures.LIMONITE_ORE_BURIED.placed(uniformOrePlacement(5, -48, 0)));
+	public static final PlacedFeature LIMONITE_ORE_BURIED = register("limonite_ore_buried", XOresOreFeatures.LIMONITE_ORE_BURIED.placed(uniformOrePlacement(5, -48, 0)));
 	
 	/**
 	 * {@link PlacedFeature} for the deep buried limonite ore
-	 * @see {@link ModOreFeatures#LIMONITE_ORE_DEEP_BURIED}
+	 * @see {@link XOresOreFeatures#LIMONITE_ORE_DEEP_BURIED}
 	 */
-	public static final PlacedFeature LIMONITE_ORE_DEEP_BURIED = register("limonite_ore_deep_buried", ModOreFeatures.LIMONITE_ORE_DEEP_BURIED.placed(buriedOrePlacement(2, -48)));
+	public static final PlacedFeature LIMONITE_ORE_DEEP_BURIED = register("limonite_ore_deep_buried", XOresOreFeatures.LIMONITE_ORE_DEEP_BURIED.placed(buriedOrePlacement(2, -48)));
 	
 	/**
 	 * {@link PlacedFeature} for the rare rosite ore
-	 * @see {@link ModOreFeatures#ROSITE_ORE_RARE}
+	 * @see {@link XOresOreFeatures#ROSITE_ORE_RARE}
 	 */
-	public static final PlacedFeature ROSITE_ORE_RARE = register("rosite_ore_rare", ModOreFeatures.ROSITE_ORE_RARE.placed(triangleOrePlacement(5, -16, 128)));
+	public static final PlacedFeature ROSITE_ORE_RARE = register("rosite_ore_rare", XOresOreFeatures.ROSITE_ORE_RARE.placed(triangleOrePlacement(5, -16, 128)));
 	
 	/**
 	 * {@link PlacedFeature} for the buried rosite ore
-	 * @see {@link ModOreFeatures#ROSITE_ORE_BURIED}
+	 * @see {@link XOresOreFeatures#ROSITE_ORE_BURIED}
 	 */
-	public static final PlacedFeature ROSITE_ORE_BURIED = register("rosite_ore_buried", ModOreFeatures.ROSITE_ORE_BURIED.placed(buriedOrePlacement(7, -32)));
+	public static final PlacedFeature ROSITE_ORE_BURIED = register("rosite_ore_buried", XOresOreFeatures.ROSITE_ORE_BURIED.placed(buriedOrePlacement(7, -32)));
 	
 	/**
 	 * {@link PlacedFeature} for the rare enderite ore
-	 * @see {@link ModOreFeatures#ENDERITE_ORE_RARE}
+	 * @see {@link XOresOreFeatures#ENDERITE_ORE_RARE}
 	 */
-	public static final PlacedFeature ENDERITE_ORE_RARE = register("enderite_ore_rare", ModOreFeatures.ENDERITE_ORE_RARE.placed(uniformOrePlacement(2, 0, 128)));
+	public static final PlacedFeature ENDERITE_ORE_RARE = register("enderite_ore_rare", XOresOreFeatures.ENDERITE_ORE_RARE.placed(uniformOrePlacement(2, 0, 128)));
 	
 	/**
 	 * {@link PlacedFeature} for the buried enderite ore
-	 * @see {@link ModOreFeatures#ENDERITE_ORE_BURIED}
+	 * @see {@link XOresOreFeatures#ENDERITE_ORE_BURIED}
 	 */
-	public static final PlacedFeature ENDERITE_ORE_BURIED = register("enderite_ore_buried", ModOreFeatures.ENDERITE_ORE_BURIED.placed(buriedEndOrePlacement(3)));
+	public static final PlacedFeature ENDERITE_ORE_BURIED = register("enderite_ore_buried", XOresOreFeatures.ENDERITE_ORE_BURIED.placed(buriedEndOrePlacement(3)));
 	
 	/**
 	 * creates the {@link PlacementModifier}s for a basic ore
@@ -121,8 +121,8 @@ public class ModOrePlacements {
 	 * 	<li>{@link CountPlacement} for the count of the ore in the chunk</li>
 	 *  <li>{@link HeightRangePlacement} for the minimum and maximum generation height</li>
 	 * </ul>
-	 * @see {@link ModOrePlacements#orePlacement(PlacementModifier, PlacementModifier)}
-	 * @see {@link ModOrePlacements#triangleMaxGeneration()} for the maximum generation height
+	 * @see {@link XOresOrePlacements#orePlacement(PlacementModifier, PlacementModifier)}
+	 * @see {@link XOresOrePlacements#triangleMaxGeneration()} for the maximum generation height
 	 */
 	protected static List<PlacementModifier> upperOrePlacement(int count, int minGeneration) {
 		return orePlacement(CountPlacement.of(count), HeightRangePlacement.triangle(VerticalAnchor.absolute(minGeneration), triangleMaxGeneration(minGeneration)));
@@ -137,8 +137,8 @@ public class ModOrePlacements {
 	 * 	<li>{@link CountPlacement} for the count of the ore in the chunk</li>
 	 *  <li>{@link HeightRangePlacement} for the minimum and maximum generation height</li>
 	 * </ul>
-	 * @see {@link ModOrePlacements#orePlacement(PlacementModifier, PlacementModifier)}
-	 * @see {@link ModOrePlacements#triangleMinGeneration(int)} for the minimum generation height
+	 * @see {@link XOresOrePlacements#orePlacement(PlacementModifier, PlacementModifier)}
+	 * @see {@link XOresOrePlacements#triangleMinGeneration(int)} for the minimum generation height
 	 */
 	protected static List<PlacementModifier> buriedOrePlacement(int count, int maxGeneration) {
 		return orePlacement(CountPlacement.of(count), HeightRangePlacement.triangle(triangleMinGeneration(maxGeneration), VerticalAnchor.absolute(maxGeneration)));
@@ -152,7 +152,7 @@ public class ModOrePlacements {
 	 * 	<li>{@link CountPlacement} for the count of the ore in the chunk</li>
 	 *  <li>{@link HeightRangePlacement} for the minimum and maximum generation height</li>
 	 * </ul>
-	 * @see {@link ModOrePlacements#orePlacement(PlacementModifier, PlacementModifier)}
+	 * @see {@link XOresOrePlacements#orePlacement(PlacementModifier, PlacementModifier)}
 	 */
 	protected static List<PlacementModifier> buriedEndOrePlacement(int count) {
 		return orePlacement(CountPlacement.of(count), HeightRangePlacement.triangle(VerticalAnchor.absolute(0), VerticalAnchor.absolute(128)));
@@ -168,7 +168,7 @@ public class ModOrePlacements {
 	 * 	<li>{@link CountPlacement} for the count of the ore in the chunk</li>
 	 *  <li>{@link HeightRangePlacement} for the minimum and maximum generation height</li>
 	 * </ul>
-	 * @see {@link ModOrePlacements#orePlacement(PlacementModifier, PlacementModifier)}
+	 * @see {@link XOresOrePlacements#orePlacement(PlacementModifier, PlacementModifier)}
 	 */
 	protected static List<PlacementModifier> uniformOrePlacement(int count, int minGeneration, int maxGeneration) {
 		return orePlacement(CountPlacement.of(count), HeightRangePlacement.uniform(VerticalAnchor.absolute(minGeneration), VerticalAnchor.absolute(maxGeneration)));
@@ -184,7 +184,7 @@ public class ModOrePlacements {
 	 * 	<li>{@link CountPlacement} for the count of the ore in the chunk</li>
 	 *  <li>{@link HeightRangePlacement} for the minimum and maximum generation height</li>
 	 * </ul>
-	 * @see {@link ModOrePlacements#orePlacement(PlacementModifier, PlacementModifier)}
+	 * @see {@link XOresOrePlacements#orePlacement(PlacementModifier, PlacementModifier)}
 	 */
 	protected static List<PlacementModifier> triangleOrePlacement(int count, int minGeneration, int maxGeneration) {
 		return orePlacement(CountPlacement.of(count), HeightRangePlacement.triangle(VerticalAnchor.absolute(minGeneration), VerticalAnchor.absolute(maxGeneration)));

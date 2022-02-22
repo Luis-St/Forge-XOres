@@ -5,6 +5,7 @@ import java.util.Random;
 
 import com.google.common.collect.Maps;
 
+import net.luis.xores.init.XOresItems;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -24,6 +25,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
  * 
  * @see {@link ArmorItem}
  * @see {@link ElytraItem}
+ * @see {@link XOresItems}
  */
 
 public class ElytraChestplateItem extends ArmorItem {

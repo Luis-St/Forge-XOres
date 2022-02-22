@@ -1,9 +1,9 @@
 package net.luis.xores.event.registry;
 
 import net.luis.xores.XOres;
-import net.luis.xores.client.render.layer.ModElytraLayer;
+import net.luis.xores.client.render.layer.XOresElytraLayer;
 import net.luis.xores.common.item.ElytraChestplateItem;
-import net.luis.xores.init.ModItems;
+import net.luis.xores.init.XOresItems;
 import net.minecraft.client.renderer.entity.player.PlayerRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
@@ -23,16 +23,16 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;;
 public class OnEntityRenderersEvent {
 	
 	/**
-	 * add the {@link ModElytraLayer} for all {@link ElytraChestplateItem}s to the {@link PlayerRenderer}
+	 * add the {@link XOresElytraLayer} for all {@link ElytraChestplateItem}s to the {@link PlayerRenderer}
 	 */
 	@SubscribeEvent
 	public static void addLayers(EntityRenderersEvent.AddLayers event) {
 		for (String skin : event.getSkins()) {
 			PlayerRenderer playerRenderer = event.getSkin(skin);
-			playerRenderer.addLayer(new ModElytraLayer<>(playerRenderer, event.getEntityModels(), ModItems.DIAMOND_ELYTRA_CHESTPLATE.get(), new ResourceLocation(XOres.MOD_ID, "textures/entity/diamond_elytra.png")));
-			playerRenderer.addLayer(new ModElytraLayer<>(playerRenderer, event.getEntityModels(), ModItems.NETHERITE_ELYTRA_CHESTPLATE.get(), new ResourceLocation(XOres.MOD_ID, "textures/entity/netherite_elytra.png")));
-			playerRenderer.addLayer(new ModElytraLayer<>(playerRenderer, event.getEntityModels(), ModItems.ENDERITE_ELYTRA_CHESTPLATE.get(), new ResourceLocation(XOres.MOD_ID, "textures/entity/enderite_elytra.png")));
-			playerRenderer.addLayer(new ModElytraLayer<>(playerRenderer, event.getEntityModels(), ModItems.NIGHT_ELYTRA_CHESTPLATE.get(), new ResourceLocation(XOres.MOD_ID, "textures/entity/night_elytra.png")));
+			playerRenderer.addLayer(new XOresElytraLayer<>(playerRenderer, event.getEntityModels(), XOresItems.DIAMOND_ELYTRA_CHESTPLATE.get(), new ResourceLocation(XOres.MOD_ID, "textures/entity/diamond_elytra.png")));
+			playerRenderer.addLayer(new XOresElytraLayer<>(playerRenderer, event.getEntityModels(), XOresItems.NETHERITE_ELYTRA_CHESTPLATE.get(), new ResourceLocation(XOres.MOD_ID, "textures/entity/netherite_elytra.png")));
+			playerRenderer.addLayer(new XOresElytraLayer<>(playerRenderer, event.getEntityModels(), XOresItems.ENDERITE_ELYTRA_CHESTPLATE.get(), new ResourceLocation(XOres.MOD_ID, "textures/entity/enderite_elytra.png")));
+			playerRenderer.addLayer(new XOresElytraLayer<>(playerRenderer, event.getEntityModels(), XOresItems.NIGHT_ELYTRA_CHESTPLATE.get(), new ResourceLocation(XOres.MOD_ID, "textures/entity/night_elytra.png")));
 		}
 	}
 	

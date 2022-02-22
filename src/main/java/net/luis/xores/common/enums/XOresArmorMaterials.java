@@ -3,7 +3,7 @@ package net.luis.xores.common.enums;
 import java.util.function.Supplier;
 
 import net.luis.xores.XOres;
-import net.luis.xores.init.ModItems;
+import net.luis.xores.init.XOresItems;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -19,37 +19,37 @@ import net.minecraft.world.item.crafting.Ingredient;
  * @author Luis-st
  * 
  * @see {@link ArmorMaterial}
- * @see {@link ModItems}
+ * @see {@link XOresItems}
  */
 
-public enum ModArmorMaterials implements ArmorMaterial {
+public enum XOresArmorMaterials implements ArmorMaterial {
 
 	/**
 	 * the {@link ArmorMaterial} for the jade armor
 	 */
 	JADE("jade", 15, new int[] {2, 5, 6, 2}, 10, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0.0F, () -> {
-		return Ingredient.of(ModItems.JADE_INGOT.get());
+		return Ingredient.of(XOresItems.JADE_INGOT.get());
 	}),
 	
 	/**
 	 * the {@link ArmorMaterial} for the blazing armor
 	 */
 	BLAZING("blazing", 0, new int[] {3, 6, 7, 3}, 9, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0.0F, () -> {
-		return Ingredient.of(ModItems.BLAZING_INGOT.get());
+		return Ingredient.of(XOresItems.BLAZING_INGOT.get());
 	}),
 	
 	/**
 	 * the {@link ArmorMaterial} for the saphire armor
 	 */
 	SAPHIRE("saphire", 35, new int[] {3, 6, 8, 3}, 12, SoundEvents.ARMOR_EQUIP_DIAMOND, 2.0F, 0.1F, () -> {
-		return Ingredient.of(ModItems.SAPHIRE_INGOT.get());
+		return Ingredient.of(XOresItems.SAPHIRE_INGOT.get());
 	}),
 	
 	/**
 	 * the {@link ArmorMaterial} for the limonite armor
 	 */
 	LIMONITE("limonite", 44, new int[] {4, 5, 9, 4}, 15, SoundEvents.ARMOR_EQUIP_IRON, 3.0F, 0.2F, () -> {
-		return Ingredient.of(ModItems.LIMONITE_INGOT.get());
+		return Ingredient.of(XOresItems.LIMONITE_INGOT.get());
 	}),
 	
 	/**
@@ -85,7 +85,7 @@ public enum ModArmorMaterials implements ArmorMaterial {
 	
 	/**
 	 * the durability multiplier of the {@link ArmorMaterial},<br>
-	 * which is applied to the {@link ModArmorMaterials#DURABILITY_PER_SLOT}<br>
+	 * which is applied to the {@link XOresArmorMaterials#DURABILITY_PER_SLOT}<br>
 	 * based on the {@link EquipmentSlot}
 	 */
 	protected final int durabilityMultiplier;
@@ -129,9 +129,9 @@ public enum ModArmorMaterials implements ArmorMaterial {
 	protected final Supplier<Ingredient> repairIngredient;
 
 	/**
-	 * constructor for the {@link ModArmorMaterials}
+	 * constructor for the {@link XOresArmorMaterials}
 	 */
-	private ModArmorMaterials(String name, int durabilityMultiplier, int[] slotDefenses, int enchantmentValue, SoundEvent sound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredient) {
+	private XOresArmorMaterials(String name, int durabilityMultiplier, int[] slotDefenses, int enchantmentValue, SoundEvent sound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredient) {
 		this.name = new ResourceLocation(XOres.MOD_ID, name);
 		this.durabilityMultiplier = durabilityMultiplier;
 		this.slotDefenses = slotDefenses;
@@ -144,7 +144,7 @@ public enum ModArmorMaterials implements ArmorMaterial {
 	
 	/**
 	 * getter for the name of the material
-	 * @return {@link ModArmorMaterials#name}
+	 * @return {@link XOresArmorMaterials#name}
 	 */
 	@Override
 	public String getName() {
@@ -154,7 +154,7 @@ public enum ModArmorMaterials implements ArmorMaterial {
 	/**
 	 * getter for the durability
 	 * @return the durability based on the {@link EquipmentSlot} and<br>
-	 * multiplied by the {@link ModArmorMaterials#durabilityMultiplier}
+	 * multiplied by the {@link XOresArmorMaterials#durabilityMultiplier}
 	 */
 	@Override
 	public int getDurabilityForSlot(EquipmentSlot equipmentSlot) {
@@ -172,7 +172,7 @@ public enum ModArmorMaterials implements ArmorMaterial {
 	
 	/**
 	 * getter for the enchantment value of the material
-	 * @return {@link ModArmorMaterials#enchantmentValue}
+	 * @return {@link XOresArmorMaterials#enchantmentValue}
 	 */
 	@Override
 	public int getEnchantmentValue() {
@@ -181,7 +181,7 @@ public enum ModArmorMaterials implements ArmorMaterial {
 
 	/**
 	 * getter for the equip sound of the material
-	 * @return {@link ModArmorMaterials#sound}
+	 * @return {@link XOresArmorMaterials#sound}
 	 */
 	@Override
 	public SoundEvent getEquipSound() {
@@ -190,7 +190,7 @@ public enum ModArmorMaterials implements ArmorMaterial {
 
 	/**
 	 * getter for the toughness of the material
-	 * @return {@link ModArmorMaterials#toughness}
+	 * @return {@link XOresArmorMaterials#toughness}
 	 */
 	@Override
 	public float getToughness() {
@@ -199,7 +199,7 @@ public enum ModArmorMaterials implements ArmorMaterial {
 
 	/**
 	 * getter for the knockback resistance of the material
-	 * @return {@link ModArmorMaterials#knockbackResistance}
+	 * @return {@link XOresArmorMaterials#knockbackResistance}
 	 */
 	@Override
 	public float getKnockbackResistance() {
@@ -208,7 +208,7 @@ public enum ModArmorMaterials implements ArmorMaterial {
 	
 	/**
 	 * getter for the repair ingredient
-	 * @return {@link ModArmorMaterials#repairIngredient} as an {@link Ingredient}
+	 * @return {@link XOresArmorMaterials#repairIngredient} as an {@link Ingredient}
 	 */
 	@Override
 	public Ingredient getRepairIngredient() {

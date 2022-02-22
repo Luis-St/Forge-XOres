@@ -3,10 +3,10 @@ package net.luis.xores.event.fml;
 import java.util.stream.Collectors;
 
 import net.luis.xores.XOres;
-import net.luis.xores.client.render.item.ModItemProperties;
-import net.luis.xores.client.render.overlay.ModArmorOverlay;
+import net.luis.xores.client.render.item.XOresItemProperties;
+import net.luis.xores.client.render.overlay.XOresArmorOverlay;
 import net.luis.xores.common.item.ElytraChestplateItem;
-import net.luis.xores.init.ModItems;
+import net.luis.xores.init.XOresItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.world.item.BowItem;
@@ -34,23 +34,23 @@ public class OnClientSetupEvent {
 	/**
 	 * register the client stuff of {@link XOres}:<br>
 	 * <ul>
-	 * 	<li>the {@link ModArmorOverlay}</li>
-	 * 	<li>the {@link ItemProperties} of all {@link ModItems#ITEMS}</li>
+	 * 	<li>the {@link XOresArmorOverlay}</li>
+	 * 	<li>the {@link ItemProperties} of all {@link XOresItems#ITEMS}</li>
 	 * </ul>
 	 */
 	@SubscribeEvent
 	public static void clientSetup(FMLClientSetupEvent event) {
-		OverlayRegistry.registerOverlayAbove(ForgeIngameGui.ARMOR_LEVEL_ELEMENT, "Armor Bar", new ModArmorOverlay(Minecraft.getInstance()));
+		OverlayRegistry.registerOverlayAbove(ForgeIngameGui.ARMOR_LEVEL_ELEMENT, "Armor Bar", new XOresArmorOverlay(Minecraft.getInstance()));
 		event.enqueueWork(() -> {
-			for (Item item : ModItems.ITEMS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
+			for (Item item : XOresItems.ITEMS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
 				if (item instanceof BowItem bow) {
-					ModItemProperties.registerBow(bow);
+					XOresItemProperties.registerBow(bow);
 				} else if (item instanceof CrossbowItem crossbow) {
-					ModItemProperties.registerCrossbow(crossbow);
+					XOresItemProperties.registerCrossbow(crossbow);
 				} else if (item instanceof ShieldItem shield) {
-					ModItemProperties.registerShield(shield);	
+					XOresItemProperties.registerShield(shield);	
 				} else if (item instanceof ElytraChestplateItem elytraChestplate) {
-					ModItemProperties.registerElytraChestplate(elytraChestplate);
+					XOresItemProperties.registerElytraChestplate(elytraChestplate);
 				}
 			}
 		});

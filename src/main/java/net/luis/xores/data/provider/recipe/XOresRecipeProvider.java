@@ -8,10 +8,10 @@ import net.luis.xores.common.material.Material;
 import net.luis.xores.common.material.MaterialSet;
 import net.luis.xores.common.material.MaterialTypes;
 import net.luis.xores.common.util.ConditionChainExecutor;
-import net.luis.xores.data.provider.recipe.builder.ModShapedRecipeBuilder;
+import net.luis.xores.data.provider.recipe.builder.XOresShapedRecipeBuilder;
 import net.luis.xores.init.MaterialSets;
-import net.luis.xores.init.ModItems;
-import net.luis.xores.init.ModMaterialSets;
+import net.luis.xores.init.XOresItems;
+import net.luis.xores.init.XOresMaterialSets;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger.TriggerInstance;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
@@ -38,24 +38,24 @@ import net.minecraftforge.registries.RegistryObject;
  * @author Luis-st
  * 
  * @see {@link RecipeProvider}
- * @see {@link ModItems}
+ * @see {@link XOresItems}
  */
 
-public class ModRecipeProvider extends RecipeProvider {
+public class XOresRecipeProvider extends RecipeProvider {
 	
 	/**
-	 * constructor for the {@link ModRecipeProvider}
+	 * constructor for the {@link XOresRecipeProvider}
 	 */
-	public ModRecipeProvider(DataGenerator generator) {
+	public XOresRecipeProvider(DataGenerator generator) {
 		super(generator);
 	}
 	
 	/**
-	 * register all recipes for {@link ModItems#ITEMS}
+	 * register all recipes for {@link XOresItems#ITEMS}
 	 */
 	@Override
 	protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
-		for (MaterialSet set : ModMaterialSets.MATERIALS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
+		for (MaterialSet set : XOresMaterialSets.MATERIALS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
 			this.materialSetRecipes(consumer, set);
 		}
 		for (MaterialSet set : MaterialSets.MATERIALS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
@@ -63,36 +63,36 @@ public class ModRecipeProvider extends RecipeProvider {
 				this.vanillaMaterialSetRecipes(consumer, set);
 			}
 		}
-		Item blazingIngot = ModItems.BLAZING_INGOT.get();
+		Item blazingIngot = XOresItems.BLAZING_INGOT.get();
 		Item goldBlock = Items.GOLD_BLOCK;
-		ModShapedRecipeBuilder.shaped(blazingIngot).group(getGroup(blazingIngot)).define('#', Items.BLAZE_ROD).define('I', goldBlock).pattern("###", "#I#", "###").unlockedBy("has_" + getId(goldBlock), has(goldBlock)).save(consumer);
-		Item roseQuartz = ModItems.ROSE_QUARTZ.get();
-		Item rositeIngot = ModItems.ROSITE_INGOT.get();
+		XOresShapedRecipeBuilder.shaped(blazingIngot).group(getGroup(blazingIngot)).define('#', Items.BLAZE_ROD).define('I', goldBlock).pattern("###", "#I#", "###").unlockedBy("has_" + getId(goldBlock), has(goldBlock)).save(consumer);
+		Item roseQuartz = XOresItems.ROSE_QUARTZ.get();
+		Item rositeIngot = XOresItems.ROSITE_INGOT.get();
 		ShapelessRecipeBuilder.shapeless(roseQuartz).group(getGroup(roseQuartz)).requires(Items.QUARTZ, 2).requires(rositeIngot, 2).unlockedBy("has_" + getId(rositeIngot), has(rositeIngot)).save(consumer);
-		Item polishedRoseQuartz = ModItems.POLISHED_ROSE_QUARTZ.get();
+		Item polishedRoseQuartz = XOresItems.POLISHED_ROSE_QUARTZ.get();
 		ShapelessRecipeBuilder.shapeless(polishedRoseQuartz).group(getGroup(polishedRoseQuartz)).requires(roseQuartz, 4).unlockedBy("has_" + getId(roseQuartz), has(roseQuartz)).save(consumer);
 		Item netheriteIngot = Items.NETHERITE_INGOT;
-		Item enderiteIngot = ModItems.ENDERITE_INGOT.get();
-		Item nightIngot = ModItems.NIGHT_INGOT.get();
-		this.smithingRecipe(consumer, Items.BOW, netheriteIngot, ModItems.NETHERITE_BOW.get());
-		this.smithingRecipe(consumer, Items.CROSSBOW, netheriteIngot, ModItems.NETHERITE_CROSSBOW.get());
-		this.smithingRecipe(consumer, ModItems.NETHERITE_BOW.get(), enderiteIngot, ModItems.ENDERITE_BOW.get());
-		this.smithingRecipe(consumer, ModItems.NETHERITE_CROSSBOW.get(), enderiteIngot, ModItems.ENDERITE_CROSSBOW.get());
-		this.smithingRecipe(consumer, ModItems.ENDERITE_BOW.get(), nightIngot, ModItems.NIGHT_BOW.get());
-		this.smithingRecipe(consumer, ModItems.ENDERITE_CROSSBOW.get(), nightIngot, ModItems.NIGHT_CROSSBOW.get());
-		ShapelessRecipeBuilder.shapeless(ModItems.STEEL_INGOT.get()).group(getGroup(ModItems.STEEL_INGOT.get())).unlockedBy("has_" + getId(Items.IRON_BLOCK), has(Items.IRON_BLOCK)).requires(Items.IRON_BLOCK, 9).save(consumer);
-		Item enderiteScrap = ModItems.ENDERITE_SCRAP.get();
+		Item enderiteIngot = XOresItems.ENDERITE_INGOT.get();
+		Item nightIngot = XOresItems.NIGHT_INGOT.get();
+		this.smithingRecipe(consumer, Items.BOW, netheriteIngot, XOresItems.NETHERITE_BOW.get());
+		this.smithingRecipe(consumer, Items.CROSSBOW, netheriteIngot, XOresItems.NETHERITE_CROSSBOW.get());
+		this.smithingRecipe(consumer, XOresItems.NETHERITE_BOW.get(), enderiteIngot, XOresItems.ENDERITE_BOW.get());
+		this.smithingRecipe(consumer, XOresItems.NETHERITE_CROSSBOW.get(), enderiteIngot, XOresItems.ENDERITE_CROSSBOW.get());
+		this.smithingRecipe(consumer, XOresItems.ENDERITE_BOW.get(), nightIngot, XOresItems.NIGHT_BOW.get());
+		this.smithingRecipe(consumer, XOresItems.ENDERITE_CROSSBOW.get(), nightIngot, XOresItems.NIGHT_CROSSBOW.get());
+		ShapelessRecipeBuilder.shapeless(XOresItems.STEEL_INGOT.get()).group(getGroup(XOresItems.STEEL_INGOT.get())).unlockedBy("has_" + getId(Items.IRON_BLOCK), has(Items.IRON_BLOCK)).requires(Items.IRON_BLOCK, 9).save(consumer);
+		Item enderiteScrap = XOresItems.ENDERITE_SCRAP.get();
 		ResourceLocation location = new ResourceLocation(XOres.MOD_ID, getId(enderiteIngot) + "_from_scrap");
 		ShapelessRecipeBuilder.shapeless(enderiteIngot).group(getGroup(enderiteIngot)).unlockedBy("has_" + getId(enderiteScrap), has(enderiteScrap)).requires(enderiteScrap, 9).save(consumer, location);
-		ShapelessRecipeBuilder.shapeless(nightIngot).group(getGroup(nightIngot)).unlockedBy("has_" + getId(ModItems.NIGHT_SCRAP.get()), has(ModItems.NIGHT_SCRAP.get())).requires(ModItems.NIGHT_SCRAP.get(), 4).save(consumer);
-		ShapelessRecipeBuilder.shapeless(ModItems.NIGHT_SCRAP.get()).group(getGroup(nightIngot)).requires(ModItems.STEEL_INGOT.get(), 2).requires(netheriteIngot, 2).unlockedBy("has_" + getId(netheriteIngot), has(netheriteIngot)).save(consumer);
+		ShapelessRecipeBuilder.shapeless(nightIngot).group(getGroup(nightIngot)).unlockedBy("has_" + getId(XOresItems.NIGHT_SCRAP.get()), has(XOresItems.NIGHT_SCRAP.get())).requires(XOresItems.NIGHT_SCRAP.get(), 4).save(consumer);
+		ShapelessRecipeBuilder.shapeless(XOresItems.NIGHT_SCRAP.get()).group(getGroup(nightIngot)).requires(XOresItems.STEEL_INGOT.get(), 2).requires(netheriteIngot, 2).unlockedBy("has_" + getId(netheriteIngot), has(netheriteIngot)).save(consumer);
 	}
 	
 	/**
 	 * generates the recipes for a vanilla {@link MaterialSet}
 	 * 
-	 * @see {@link ModRecipeProvider#shieldRecipe(Consumer, MaterialSet)}
-	 * @see {@link ModRecipeProvider#elytraChestplateRecipe(Consumer, MaterialSet)}
+	 * @see {@link XOresRecipeProvider#shieldRecipe(Consumer, MaterialSet)}
+	 * @see {@link XOresRecipeProvider#elytraChestplateRecipe(Consumer, MaterialSet)}
 	 */
 	protected void vanillaMaterialSetRecipes(Consumer<FinishedRecipe> consumer, MaterialSet set) {
 		this.shieldRecipe(consumer, set);
@@ -102,19 +102,19 @@ public class ModRecipeProvider extends RecipeProvider {
 	/**
 	 * generates the recipes for a mod {@link MaterialSet}
 	 * 
-	 * @see {@link ModRecipeProvider#oreMaterialRecipes(Consumer, MaterialSet)}
-	 * @see {@link ModRecipeProvider#materialBlockRecipes(Consumer, MaterialSet)}
-	 * @see {@link ModRecipeProvider#swordRecipe(Consumer, MaterialSet)}
-	 * @see {@link ModRecipeProvider#shieldRecipe(Consumer, MaterialSet)}
-	 * @see {@link ModRecipeProvider#pickaxeRecipe(Consumer, MaterialSet)}
-	 * @see {@link ModRecipeProvider#axeRecipe(Consumer, MaterialSet)}
-	 * @see {@link ModRecipeProvider#shovelRecipe(Consumer, MaterialSet)}
-	 * @see {@link ModRecipeProvider#hoeRecipe(Consumer, MaterialSet)}
-	 * @see {@link ModRecipeProvider#helmetRecipe(Consumer, MaterialSet)}
-	 * @see {@link ModRecipeProvider#chestplateRecipe(Consumer, MaterialSet)}
-	 * @see {@link ModRecipeProvider#elytraChestplateRecipe(Consumer, MaterialSet)}
-	 * @see {@link ModRecipeProvider#leggingsRecipe(Consumer, MaterialSet)}
-	 * @see {@link ModRecipeProvider#bootsRecipe(Consumer, MaterialSet)}
+	 * @see {@link XOresRecipeProvider#oreMaterialRecipes(Consumer, MaterialSet)}
+	 * @see {@link XOresRecipeProvider#materialBlockRecipes(Consumer, MaterialSet)}
+	 * @see {@link XOresRecipeProvider#swordRecipe(Consumer, MaterialSet)}
+	 * @see {@link XOresRecipeProvider#shieldRecipe(Consumer, MaterialSet)}
+	 * @see {@link XOresRecipeProvider#pickaxeRecipe(Consumer, MaterialSet)}
+	 * @see {@link XOresRecipeProvider#axeRecipe(Consumer, MaterialSet)}
+	 * @see {@link XOresRecipeProvider#shovelRecipe(Consumer, MaterialSet)}
+	 * @see {@link XOresRecipeProvider#hoeRecipe(Consumer, MaterialSet)}
+	 * @see {@link XOresRecipeProvider#helmetRecipe(Consumer, MaterialSet)}
+	 * @see {@link XOresRecipeProvider#chestplateRecipe(Consumer, MaterialSet)}
+	 * @see {@link XOresRecipeProvider#elytraChestplateRecipe(Consumer, MaterialSet)}
+	 * @see {@link XOresRecipeProvider#leggingsRecipe(Consumer, MaterialSet)}
+	 * @see {@link XOresRecipeProvider#bootsRecipe(Consumer, MaterialSet)}
 	 */
 	protected void materialSetRecipes(Consumer<FinishedRecipe> consumer, MaterialSet set) {
 		this.oreMaterialRecipes(consumer, set);
@@ -135,7 +135,7 @@ public class ModRecipeProvider extends RecipeProvider {
 	/**
 	 * generates the ore recipes, if there is a ore present in the given {@link MaterialSet}
 	 * 
-	 * @see {@link ModRecipeProvider#oreRecipes(Consumer, Material, Item)}
+	 * @see {@link XOresRecipeProvider#oreRecipes(Consumer, Material, Item)}
 	 */
 	protected void oreMaterialRecipes(Consumer<FinishedRecipe> consumer, MaterialSet materialSet) {
 		materialSet.ifPresent(MaterialTypes.ORE, (ore) -> {
@@ -161,8 +161,8 @@ public class ModRecipeProvider extends RecipeProvider {
 	 * generates the smelting and blasting recipe, for the given {@link Material} as ore<br>
 	 * and the given {@link Item} as result of the recipes
 	 * 
-	 * @see {@link ModRecipeProvider#smeltingRecipe(Consumer, Ingredient, Item, float, String, String)}
-	 * @see {@link ModRecipeProvider#blastingRecipe(Consumer, Ingredient, Item, float, String, String)}
+	 * @see {@link XOresRecipeProvider#smeltingRecipe(Consumer, Ingredient, Item, float, String, String)}
+	 * @see {@link XOresRecipeProvider#blastingRecipe(Consumer, Ingredient, Item, float, String, String)}
 	 */
 	protected void oreRecipes(Consumer<FinishedRecipe> consumer, Material oreMaterial, Item result) {
 		this.smeltingRecipe(consumer, oreMaterial.asIngredient(), result, 1.0F, getGroup(result), "_from_smelting_" + getId(oreMaterial));
@@ -192,12 +192,12 @@ public class ModRecipeProvider extends RecipeProvider {
 				return set.has(MaterialTypes.MATERIAL);
 			}, (set) -> {
 				Material material = set.get(MaterialTypes.MATERIAL);
-				ModShapedRecipeBuilder.shaped(sword).group(material).define('I', Items.STICK).define('#', material).pattern(" # ", " # ", " I ").unlockedBy(material).save(consumer);
+				XOresShapedRecipeBuilder.shaped(sword).group(material).define('I', Items.STICK).define('#', material).pattern(" # ", " # ", " I ").unlockedBy(material).save(consumer);
 			}).appendElseIf((set) -> {
 				return set.has(MaterialTypes.WEAPON_MATERIAL);
 			}, (set) -> {
 				Material material = materialSet.get(MaterialTypes.WEAPON_MATERIAL);
-				ModShapedRecipeBuilder.shaped(sword).group(material).define('I', Items.STICK).define('#', material).pattern(" # ", " # ", " I ").unlockedBy(material).save(consumer);
+				XOresShapedRecipeBuilder.shaped(sword).group(material).define('I', Items.STICK).define('#', material).pattern(" # ", " # ", " I ").unlockedBy(material).save(consumer);
 			}).execute(materialSet);
 		});
 	}
@@ -215,12 +215,12 @@ public class ModRecipeProvider extends RecipeProvider {
 				return set.has(MaterialTypes.MATERIAL);
 			}, (set) -> {
 				Material material = set.get(MaterialTypes.MATERIAL);
-				ModShapedRecipeBuilder.shaped(shield).group(material).define('I', Items.IRON_INGOT).define('#', material).pattern("#I#", "###", " # ").unlockedBy(material).save(consumer);
+				XOresShapedRecipeBuilder.shaped(shield).group(material).define('I', Items.IRON_INGOT).define('#', material).pattern("#I#", "###", " # ").unlockedBy(material).save(consumer);
 			}).appendElseIf((set) -> {
 				return set.has(MaterialTypes.WEAPON_MATERIAL);
 			}, (set) -> {
 				Material material = materialSet.get(MaterialTypes.WEAPON_MATERIAL);
-				ModShapedRecipeBuilder.shaped(shield).group(material).define('I', Items.IRON_INGOT).define('#', material).pattern("#I#", "###", " # ").unlockedBy(material).save(consumer);
+				XOresShapedRecipeBuilder.shaped(shield).group(material).define('I', Items.IRON_INGOT).define('#', material).pattern("#I#", "###", " # ").unlockedBy(material).save(consumer);
 			}).execute(materialSet);
 		});
 	}
@@ -238,12 +238,12 @@ public class ModRecipeProvider extends RecipeProvider {
 				return set.has(MaterialTypes.MATERIAL);
 			}, (set) -> {
 				Material material = set.get(MaterialTypes.MATERIAL);
-				ModShapedRecipeBuilder.shaped(pickaxe).group(material).define('I', Items.STICK).define('#', material).pattern("###", " I ", " I ").unlockedBy(material).save(consumer);
+				XOresShapedRecipeBuilder.shaped(pickaxe).group(material).define('I', Items.STICK).define('#', material).pattern("###", " I ", " I ").unlockedBy(material).save(consumer);
 			}).appendElseIf((set) -> {
 				return set.has(MaterialTypes.TOOL_MATERIAL);
 			}, (set) -> {
 				Material material = materialSet.get(MaterialTypes.TOOL_MATERIAL);
-				ModShapedRecipeBuilder.shaped(pickaxe).group(material).define('I', Items.STICK).define('#', material).pattern("###", " I ", " I ").unlockedBy(material).save(consumer);
+				XOresShapedRecipeBuilder.shaped(pickaxe).group(material).define('I', Items.STICK).define('#', material).pattern("###", " I ", " I ").unlockedBy(material).save(consumer);
 			}).execute(materialSet);
 		});
 	}
@@ -261,12 +261,12 @@ public class ModRecipeProvider extends RecipeProvider {
 				return set.has(MaterialTypes.MATERIAL);
 			}, (set) -> {
 				Material material = set.get(MaterialTypes.MATERIAL);
-				ModShapedRecipeBuilder.shaped(axe).group(material).define('I', Items.STICK).define('#', material).pattern("## ", "#I ", " I ").unlockedBy(material).save(consumer);
+				XOresShapedRecipeBuilder.shaped(axe).group(material).define('I', Items.STICK).define('#', material).pattern("## ", "#I ", " I ").unlockedBy(material).save(consumer);
 			}).appendElseIf((set) -> {
 				return set.has(MaterialTypes.TOOL_MATERIAL);
 			}, (set) -> {
 				Material material = materialSet.get(MaterialTypes.TOOL_MATERIAL);
-				ModShapedRecipeBuilder.shaped(axe).group(material).define('I', Items.STICK).define('#', material).pattern("## ", "#I ", " I ").unlockedBy(material).save(consumer);
+				XOresShapedRecipeBuilder.shaped(axe).group(material).define('I', Items.STICK).define('#', material).pattern("## ", "#I ", " I ").unlockedBy(material).save(consumer);
 			}).execute(materialSet);
 		});
 	}
@@ -284,12 +284,12 @@ public class ModRecipeProvider extends RecipeProvider {
 				return set.has(MaterialTypes.MATERIAL);
 			}, (set) -> {
 				Material material = set.get(MaterialTypes.MATERIAL);
-				ModShapedRecipeBuilder.shaped(shovel).group(material).define('I', Items.STICK).define('#', material).pattern(" # ", " I ", " I ").unlockedBy(material).save(consumer);
+				XOresShapedRecipeBuilder.shaped(shovel).group(material).define('I', Items.STICK).define('#', material).pattern(" # ", " I ", " I ").unlockedBy(material).save(consumer);
 			}).appendElseIf((set) -> {
 				return set.has(MaterialTypes.TOOL_MATERIAL);
 			}, (set) -> {
 				Material material = materialSet.get(MaterialTypes.TOOL_MATERIAL);
-				ModShapedRecipeBuilder.shaped(shovel).group(material).define('I', Items.STICK).define('#', material).pattern(" # ", " I ", " I ").unlockedBy(material).save(consumer);
+				XOresShapedRecipeBuilder.shaped(shovel).group(material).define('I', Items.STICK).define('#', material).pattern(" # ", " I ", " I ").unlockedBy(material).save(consumer);
 			}).execute(materialSet);
 		});
 	}
@@ -307,12 +307,12 @@ public class ModRecipeProvider extends RecipeProvider {
 				return set.has(MaterialTypes.MATERIAL);
 			}, (set) -> {
 				Material material = set.get(MaterialTypes.MATERIAL);
-				ModShapedRecipeBuilder.shaped(hoe).group(material).define('I', Items.STICK).define('#', material).pattern("## ", " I ", " I ").unlockedBy(material).save(consumer);
+				XOresShapedRecipeBuilder.shaped(hoe).group(material).define('I', Items.STICK).define('#', material).pattern("## ", " I ", " I ").unlockedBy(material).save(consumer);
 			}).appendElseIf((set) -> {
 				return set.has(MaterialTypes.TOOL_MATERIAL);
 			}, (set) -> {
 				Material material = materialSet.get(MaterialTypes.TOOL_MATERIAL);
-				ModShapedRecipeBuilder.shaped(hoe).group(material).define('I', Items.STICK).define('#', material).pattern("## ", " I ", " I ").unlockedBy(material).save(consumer);
+				XOresShapedRecipeBuilder.shaped(hoe).group(material).define('I', Items.STICK).define('#', material).pattern("## ", " I ", " I ").unlockedBy(material).save(consumer);
 			}).execute(materialSet);
 		});
 	}
@@ -330,12 +330,12 @@ public class ModRecipeProvider extends RecipeProvider {
 				return set.has(MaterialTypes.MATERIAL);
 			}, (set) -> {
 				Material material = set.get(MaterialTypes.MATERIAL);
-				ModShapedRecipeBuilder.shaped(helmet).group(material).define('#', material).pattern("###", "# #", "   ").unlockedBy(material).save(consumer);
+				XOresShapedRecipeBuilder.shaped(helmet).group(material).define('#', material).pattern("###", "# #", "   ").unlockedBy(material).save(consumer);
 			}).appendElseIf((set) -> {
 				return set.has(MaterialTypes.ARMOR_MATERIAL);
 			}, (set) -> {
 				Material material = materialSet.get(MaterialTypes.ARMOR_MATERIAL);
-				ModShapedRecipeBuilder.shaped(helmet).group(material).define('#', material).pattern("###", "# #", "   ").unlockedBy(material).save(consumer);
+				XOresShapedRecipeBuilder.shaped(helmet).group(material).define('#', material).pattern("###", "# #", "   ").unlockedBy(material).save(consumer);
 			}).execute(materialSet);
 		});
 	}
@@ -353,12 +353,12 @@ public class ModRecipeProvider extends RecipeProvider {
 				return set.has(MaterialTypes.MATERIAL);
 			}, (set) -> {
 				Material material = set.get(MaterialTypes.MATERIAL);
-				ModShapedRecipeBuilder.shaped(chestplate).group(material).define('#', material).pattern("# #", "###", "###").unlockedBy(material).save(consumer);
+				XOresShapedRecipeBuilder.shaped(chestplate).group(material).define('#', material).pattern("# #", "###", "###").unlockedBy(material).save(consumer);
 			}).appendElseIf((set) -> {
 				return set.has(MaterialTypes.ARMOR_MATERIAL);
 			}, (set) -> {
 				Material material = materialSet.get(MaterialTypes.ARMOR_MATERIAL);
-				ModShapedRecipeBuilder.shaped(chestplate).group(material).define('#', material).pattern("# #", "###", "###").unlockedBy(material).save(consumer);
+				XOresShapedRecipeBuilder.shaped(chestplate).group(material).define('#', material).pattern("# #", "###", "###").unlockedBy(material).save(consumer);
 			}).execute(materialSet);
 		});
 	}
@@ -397,12 +397,12 @@ public class ModRecipeProvider extends RecipeProvider {
 				return set.has(MaterialTypes.MATERIAL);
 			}, (set) -> {
 				Material material = set.get(MaterialTypes.MATERIAL);
-				ModShapedRecipeBuilder.shaped(leggings).group(material).define('#', material).pattern("###", "# #", "# #").unlockedBy(material).save(consumer);
+				XOresShapedRecipeBuilder.shaped(leggings).group(material).define('#', material).pattern("###", "# #", "# #").unlockedBy(material).save(consumer);
 			}).appendElseIf((set) -> {
 				return set.has(MaterialTypes.ARMOR_MATERIAL);
 			}, (set) -> {
 				Material material = materialSet.get(MaterialTypes.ARMOR_MATERIAL);
-				ModShapedRecipeBuilder.shaped(leggings).group(material).define('#', material).pattern("###", "# #", "# #").unlockedBy(material).save(consumer);
+				XOresShapedRecipeBuilder.shaped(leggings).group(material).define('#', material).pattern("###", "# #", "# #").unlockedBy(material).save(consumer);
 			}).execute(materialSet);
 		});
 	}
@@ -420,12 +420,12 @@ public class ModRecipeProvider extends RecipeProvider {
 				return set.has(MaterialTypes.MATERIAL);
 			}, (set) -> {
 				Material material = set.get(MaterialTypes.MATERIAL);
-				ModShapedRecipeBuilder.shaped(boots).group(material).define('#', material).pattern("   ", "# #", "# #").unlockedBy(material).save(consumer);
+				XOresShapedRecipeBuilder.shaped(boots).group(material).define('#', material).pattern("   ", "# #", "# #").unlockedBy(material).save(consumer);
 			}).appendElseIf((set) -> {
 				return set.has(MaterialTypes.ARMOR_MATERIAL);
 			}, (set) -> {
 				Material material = materialSet.get(MaterialTypes.ARMOR_MATERIAL);
-				ModShapedRecipeBuilder.shaped(boots).group(material).define('#', material).pattern("   ", "# #", "# #").unlockedBy(material).save(consumer);
+				XOresShapedRecipeBuilder.shaped(boots).group(material).define('#', material).pattern("   ", "# #", "# #").unlockedBy(material).save(consumer);
 			}).execute(materialSet);
 		});
 	}

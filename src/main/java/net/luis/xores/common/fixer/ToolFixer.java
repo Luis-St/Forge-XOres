@@ -9,7 +9,7 @@ import javax.annotation.Nullable;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
-import net.luis.xores.init.ModTags;
+import net.luis.xores.init.XOresTags;
 import net.luis.xores.mixin.ItemStackMixin;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.Tag;
@@ -156,19 +156,19 @@ public class ToolFixer implements VanillaFixer {
 	 * </ul>
 	 */
 	protected void register() {
-		this.registerBlocks(1, ModTags.Blocks.NEEDS_TOOL_LEVEL_1.getValues());
-		this.registerBlocks(2, ModTags.Blocks.NEEDS_TOOL_LEVEL_2.getValues());
-		this.registerBlocks(3, ModTags.Blocks.NEEDS_TOOL_LEVEL_3.getValues());
-		this.registerBlocks(4, ModTags.Blocks.NEEDS_TOOL_LEVEL_4.getValues());
-		this.registerBlocks(5, ModTags.Blocks.NEEDS_TOOL_LEVEL_5.getValues());
-		this.registerBlocks(6, ModTags.Blocks.NEEDS_TOOL_LEVEL_6.getValues());
-		this.registerTools(0, ModTags.Items.TOOL_LEVEL_0.getValues());
-		this.registerTools(1, ModTags.Items.TOOL_LEVEL_1.getValues());
-		this.registerTools(2, ModTags.Items.TOOL_LEVEL_2.getValues());
-		this.registerTools(3, ModTags.Items.TOOL_LEVEL_3.getValues());
-		this.registerTools(4, ModTags.Items.TOOL_LEVEL_4.getValues());
-		this.registerTools(5, ModTags.Items.TOOL_LEVEL_5.getValues());
-		this.registerTools(6, ModTags.Items.TOOL_LEVEL_6.getValues());
+		this.registerBlocks(1, XOresTags.Blocks.NEEDS_TOOL_LEVEL_1.getValues());
+		this.registerBlocks(2, XOresTags.Blocks.NEEDS_TOOL_LEVEL_2.getValues());
+		this.registerBlocks(3, XOresTags.Blocks.NEEDS_TOOL_LEVEL_3.getValues());
+		this.registerBlocks(4, XOresTags.Blocks.NEEDS_TOOL_LEVEL_4.getValues());
+		this.registerBlocks(5, XOresTags.Blocks.NEEDS_TOOL_LEVEL_5.getValues());
+		this.registerBlocks(6, XOresTags.Blocks.NEEDS_TOOL_LEVEL_6.getValues());
+		this.registerTools(0, XOresTags.Items.TOOL_LEVEL_0.getValues());
+		this.registerTools(1, XOresTags.Items.TOOL_LEVEL_1.getValues());
+		this.registerTools(2, XOresTags.Items.TOOL_LEVEL_2.getValues());
+		this.registerTools(3, XOresTags.Items.TOOL_LEVEL_3.getValues());
+		this.registerTools(4, XOresTags.Items.TOOL_LEVEL_4.getValues());
+		this.registerTools(5, XOresTags.Items.TOOL_LEVEL_5.getValues());
+		this.registerTools(6, XOresTags.Items.TOOL_LEVEL_6.getValues());
 	}
 	
 	/**

@@ -9,12 +9,12 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 /**
- * registration class for all mods
+ * registration class for all XOres {@link Block}s
  * 
  * @author Luis-st
  */
 
-public class ModBlocks {
+public class XOresBlocks {
 	
 	/**
 	 * {@link DeferredRegister} fors, used to register all mods

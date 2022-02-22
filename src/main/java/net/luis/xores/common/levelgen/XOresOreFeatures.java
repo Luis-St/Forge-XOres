@@ -4,8 +4,8 @@ import java.util.List;
 
 import net.luis.xores.XOres;
 import net.luis.xores.event.level.OnBiomeLoadingEvent;
-import net.luis.xores.init.ModBlocks;
-import net.luis.xores.init.ModTags;
+import net.luis.xores.init.XOresBlocks;
+import net.luis.xores.init.XOresTags;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.features.OreFeatures;
 import net.minecraft.resources.ResourceLocation;
@@ -27,7 +27,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
  * @see {@link OnBiomeLoadingEvent}
  */
 
-public class ModOreFeatures {
+public class XOresOreFeatures {
 
 	/**
 	 * {@link TagMatchTest} for the replaceables for overworld ores
@@ -42,36 +42,36 @@ public class ModOreFeatures {
 	/**
 	 * custom {@link TagMatchTest} for the replaceables for end ores
 	 */
-	protected static final RuleTest END_STONE_REPLACEABLES = new TagMatchTest(ModTags.Blocks.BASE_STONE_END);
+	protected static final RuleTest END_STONE_REPLACEABLES = new TagMatchTest(XOresTags.Blocks.BASE_STONE_END);
 	
 	/**
 	 * {@link List} of the {@link TargetBlockState}s for all jade ores
 	 */
-	protected static final List<TargetBlockState> JADE_ORE_TARGETS = List.of(OreConfiguration.target(STONE_REPLACEABLES, ModBlocks.JADE_ORE.get().defaultBlockState()),
-		OreConfiguration.target(DEEPSLATE_REPLACEABLES, ModBlocks.DEEPSLATE_JADE_ORE.get().defaultBlockState()));
+	protected static final List<TargetBlockState> JADE_ORE_TARGETS = List.of(OreConfiguration.target(STONE_REPLACEABLES, XOresBlocks.JADE_ORE.get().defaultBlockState()),
+		OreConfiguration.target(DEEPSLATE_REPLACEABLES, XOresBlocks.DEEPSLATE_JADE_ORE.get().defaultBlockState()));
 	
 	/**
 	 * {@link List} of the {@link TargetBlockState}s for all limonite ores
 	 */
-	protected static final List<TargetBlockState> LIMONITE_ORE_TARGETS = List.of(OreConfiguration.target(STONE_REPLACEABLES, ModBlocks.LIMONITE_ORE.get().defaultBlockState()),
-			OreConfiguration.target(DEEPSLATE_REPLACEABLES, ModBlocks.DEEPSLATE_LIMONITE_ORE.get().defaultBlockState()));
+	protected static final List<TargetBlockState> LIMONITE_ORE_TARGETS = List.of(OreConfiguration.target(STONE_REPLACEABLES, XOresBlocks.LIMONITE_ORE.get().defaultBlockState()),
+			OreConfiguration.target(DEEPSLATE_REPLACEABLES, XOresBlocks.DEEPSLATE_LIMONITE_ORE.get().defaultBlockState()));
 	
 	/**
 	 * {@link List} of the {@link TargetBlockState}s for all saphire ores
 	 */
-	protected static final List<TargetBlockState> SAPHIRE_ORE_TARGETS = List.of(OreConfiguration.target(STONE_REPLACEABLES, ModBlocks.SAPHIRE_ORE.get().defaultBlockState()),
-			OreConfiguration.target(DEEPSLATE_REPLACEABLES, ModBlocks.DEEPSLATE_SAPHIRE_ORE.get().defaultBlockState()));
+	protected static final List<TargetBlockState> SAPHIRE_ORE_TARGETS = List.of(OreConfiguration.target(STONE_REPLACEABLES, XOresBlocks.SAPHIRE_ORE.get().defaultBlockState()),
+			OreConfiguration.target(DEEPSLATE_REPLACEABLES, XOresBlocks.DEEPSLATE_SAPHIRE_ORE.get().defaultBlockState()));
 	
 	/**
 	 * {@link List} of the {@link TargetBlockState}s for all rosite ores
 	 */
-	protected static final List<TargetBlockState> ROSITE_ORE_TARGETS = List.of(OreConfiguration.target(STONE_REPLACEABLES, ModBlocks.ROSITE_ORE.get().defaultBlockState()),
-			OreConfiguration.target(DEEPSLATE_REPLACEABLES, ModBlocks.DEEPSLATE_ROSITE_ORE.get().defaultBlockState()));
+	protected static final List<TargetBlockState> ROSITE_ORE_TARGETS = List.of(OreConfiguration.target(STONE_REPLACEABLES, XOresBlocks.ROSITE_ORE.get().defaultBlockState()),
+			OreConfiguration.target(DEEPSLATE_REPLACEABLES, XOresBlocks.DEEPSLATE_ROSITE_ORE.get().defaultBlockState()));
 	
 	/**
 	 * {@link List} of the {@link TargetBlockState}s for all end ores
 	 */
-	protected static final List<TargetBlockState> ENDERITE_ORE_TARGETS = List.of(OreConfiguration.target(END_STONE_REPLACEABLES, ModBlocks.ENDERITE_ORE.get().defaultBlockState()));
+	protected static final List<TargetBlockState> ENDERITE_ORE_TARGETS = List.of(OreConfiguration.target(END_STONE_REPLACEABLES, XOresBlocks.ENDERITE_ORE.get().defaultBlockState()));
 	
 	/**
 	 * the {@link ConfiguredFeature} for the upper jade ore, ore properties:

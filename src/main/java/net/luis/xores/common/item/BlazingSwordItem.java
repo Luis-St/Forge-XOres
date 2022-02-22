@@ -2,19 +2,19 @@ package net.luis.xores.common.item;
 
 import java.util.Random;
 
-import net.luis.xores.init.ModItems;
+import net.luis.xores.init.XOresItems;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 
 /**
- * extension of {@link SwordItem}, used for {@link ModItems#BLAZING_SWORD}
+ * extension of {@link SwordItem}, used for {@link XOresItems#BLAZING_SWORD}
  * 
  * @author Luis-st
  * 
  * @see {@link SwordItem}
- * @see {@link ModItems}
+ * @see {@link XOresItems}
  */
 
 public class BlazingSwordItem extends SwordItem {

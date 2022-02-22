@@ -11,12 +11,12 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
 /**
- * registration class for all mod {@link Named} tags
+ * registration class for all XOres {@link Named} tags
  * 
  * @author Luis-st
  */
 
-public class ModTags {
+public class XOresTags {
 	
 	/**
 	 * registration sub-class for all mod {@link Block} {@link Named} tags

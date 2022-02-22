@@ -21,7 +21,7 @@ import net.minecraft.world.item.ShieldItem;
  * @see {@link OnClientSetupEvent}
  */
 
-public class ModItemProperties {
+public class XOresItemProperties {
 	
 	/**
 	 * register the {@link ItemProperties} for a {@link BowItem}

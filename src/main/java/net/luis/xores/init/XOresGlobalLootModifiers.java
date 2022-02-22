@@ -8,12 +8,12 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 /**
- * registration class for all mod {@link GlobalLootModifierSerializer}s
+ * registration class for all XOres {@link GlobalLootModifierSerializer}s
  * 
  * @author Luis-st
  */
 
-public class ModGlobalLootModifiers {
+public class XOresGlobalLootModifiers {
 	
 	/**
 	 * {@link DeferredRegister} for {@link GlobalLootModifierSerializer}s, used to register all mod {@link GlobalLootModifierSerializer}s

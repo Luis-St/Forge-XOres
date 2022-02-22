@@ -5,7 +5,7 @@ import java.util.List;
 import com.google.common.collect.Lists;
 import com.google.gson.JsonObject;
 
-import net.luis.xores.init.ModTags.Items;
+import net.luis.xores.init.XOresTags.Items;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.ItemStack;
@@ -19,12 +19,12 @@ import net.minecraftforge.common.loot.LootModifier;
 import net.minecraftforge.items.ItemHandlerHelper;
 
 /**
- * extension of {@link LootModifier}, used to replace the {@link Block} drop<br>
+ * extension of {@link SmeltingModifier}, used to replace the {@link Block} drop<br>
  * if the Block is mined with a {@link Items#BLAZING} Tool
  * 
  * @author Luis-st
  * 
- * @see {@link LootModifier}
+ * @see {@link SmeltingModifier}
  * @see {@link Items}
  */
 

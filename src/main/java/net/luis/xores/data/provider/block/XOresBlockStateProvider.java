@@ -4,8 +4,7 @@ import java.util.stream.Collectors;
 
 import net.luis.xores.XOres;
 import net.luis.xores.data.OnGatherDataEvent;
-import net.luis.xores.init.ModBlocks;
-import net.minecraft.client.renderer.block.model.BlockModel;
+import net.luis.xores.init.XOresBlocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
 import net.minecraft.resources.ResourceLocation;
@@ -26,10 +25,10 @@ import net.minecraftforge.registries.RegistryObject;
  * 
  * @see {@link BlockStateProvider}
  * @see {@link OnGatherDataEvent}
- * @see {@link ModBlocks}
+ * @see {@link XOresBlocks}
  */
 
-public class ModBlockStateProvider extends BlockStateProvider {
+public class XOresBlockStateProvider extends BlockStateProvider {
 
 	/**
 	 * the existing file helper of the data run
@@ -37,20 +36,20 @@ public class ModBlockStateProvider extends BlockStateProvider {
 	protected final ExistingFileHelper existingFileHelper;
 	
 	/**
-	 * constructor for the {@link ModBlockStateProvider}
+	 * constructor for the {@link XOresBlockStateProvider}
 	 */
-	public ModBlockStateProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
+	public XOresBlockStateProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
 		super(generator, XOres.MOD_ID, existingFileHelper);
 		this.existingFileHelper = existingFileHelper;
 	}
 	
 	/**
-	 * register all {@link BlockModel}s, block states and item models for {@link ModBlocks#BLOCKS}
+	 * register all {@link BlockXOresel}s, block states and item models for {@link XOresBlocks#BLOCKS}
 	 */
 	@Override
 	protected void registerStatesAndModels() {
-		for (Block block : ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
-			if (block == ModBlocks.ENDERITE_ORE.get()) {
+		for (Block block : XOresBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
+			if (block == XOresBlocks.ENDERITE_ORE.get()) {
 				this.columnBlock(block);
 			} else {
 				this.simpleBlock(block);

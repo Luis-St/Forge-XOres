@@ -2,7 +2,7 @@ package net.luis.xores.data.provider.loottable;
 
 import java.util.stream.Collectors;
 
-import net.luis.xores.init.ModBlocks;
+import net.luis.xores.init.XOresBlocks;
 import net.minecraft.data.loot.BlockLoot;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.world.level.block.Block;
@@ -11,32 +11,32 @@ import net.minecraftforge.registries.RegistryObject;
 
 /**
  * extension of {@link BlockLoot}, creates the loot tables for all mod {@link Block}s,
- * used in {@link ModLootTableProvider}
+ * used in {@link XOresLootTableProvider}
  * 
  * @author Luis-st
  * 
  * @see {@link LootTableProvider}
- * @see {@link ModBlocks}
- * @see {@link ModLootTableProvider}
+ * @see {@link XOresBlocks}
+ * @see {@link XOresLootTableProvider}
  */
 
-public class ModBlockLoot extends BlockLoot {
+public class XOresBlockLoot extends BlockLoot {
 	
 	/**
-	 * constructor for the {@link ModBlockLoot}<br>
+	 * constructor for the {@link XOresBlockLoot}<br>
 	 * constructor is package private,<br>
-	 * because a new instance should only be created in {@link ModLootTableProvider}
+	 * because a new instance should only be created in {@link XOresLootTableProvider}
 	 */
-	ModBlockLoot() {
+	XOresBlockLoot() {
 		
 	}
 	
 	/**
-	 * register all {@link LootTable}s for {@link ModBlocks#BLOCKS}
+	 * register all {@link LootTable}s for {@link XOresBlocks#BLOCKS}
 	 */
 	@Override
 	protected void addTables() {
-		for (Block block : ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
+		for (Block block : XOresBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
 			this.dropSelf(block);
 		}
 	}
@@ -46,7 +46,7 @@ public class ModBlockLoot extends BlockLoot {
 	 */
 	@Override
 	protected Iterable<Block> getKnownBlocks() {
-		return ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList());
+		return XOresBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList());
 	}
 
 }

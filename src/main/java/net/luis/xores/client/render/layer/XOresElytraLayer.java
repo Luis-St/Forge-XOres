@@ -1,7 +1,7 @@
 package net.luis.xores.client.render.layer;
 
 import net.luis.xores.common.item.ElytraChestplateItem;
-import net.luis.xores.init.ModItems;
+import net.luis.xores.init.XOresItems;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
@@ -19,10 +19,10 @@ import net.minecraft.world.item.ItemStack;
  * @author Luis-st
  * 
  * @see {@link ElytraChestplateItem}
- * @see {@link ModItems}
+ * @see {@link XOresItems}
  */
 
-public class ModElytraLayer<T extends LivingEntity, M extends EntityModel<T>> extends ElytraLayer<T, M> {
+public class XOresElytraLayer<T extends LivingEntity, M extends EntityModel<T>> extends ElytraLayer<T, M> {
 
 	/**
 	 * the related {@link ElytraItem} or {@link ElytraChestplateItem}
@@ -35,9 +35,9 @@ public class ModElytraLayer<T extends LivingEntity, M extends EntityModel<T>> ex
 	protected final ResourceLocation elytraTexture;
 	
 	/**
-	 * constructor for the {@link ModElytraLayer}
+	 * constructor for the {@link XOresElytraLayer}
 	 */
-	public ModElytraLayer(RenderLayerParent<T, M> renderParent, EntityModelSet modelSet, Item elytraItem, ResourceLocation elytraTexture) {
+	public XOresElytraLayer(RenderLayerParent<T, M> renderParent, EntityModelSet modelSet, Item elytraItem, ResourceLocation elytraTexture) {
 		super(renderParent, modelSet);
 		this.elytraItem = elytraItem;
 		this.elytraTexture = elytraTexture;
@@ -54,7 +54,7 @@ public class ModElytraLayer<T extends LivingEntity, M extends EntityModel<T>> ex
 	
 	/**
 	 * getter for the elytra texture
-	 * @return {@link ModElytraLayer#elytraTexture}
+	 * @return {@link XOresElytraLayer#elytraTexture}
 	 */
 	@Override
 	public ResourceLocation getElytraTexture(ItemStack stack, T entity) {

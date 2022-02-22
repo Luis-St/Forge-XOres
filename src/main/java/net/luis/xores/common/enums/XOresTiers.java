@@ -3,7 +3,7 @@ package net.luis.xores.common.enums;
 import java.util.function.Supplier;
 
 import net.luis.xores.XOres;
-import net.luis.xores.init.ModItems;
+import net.luis.xores.init.XOresItems;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tier;
@@ -16,51 +16,51 @@ import net.minecraft.world.item.crafting.Ingredient;
  * @author Luis-st
  * 
  * @see {@link Tier}
- * @see {@link ModItems}
+ * @see {@link XOresItems}
  */
 
-public enum ModTiers implements Tier {
+public enum XOresTiers implements Tier {
 	
 	/**
 	 * the {@link Tier} for the jade tools
 	 */
 	JADE("jade", 190, 5.0F, 5.0F, 2, 28, () -> {
-		return Ingredient.of(ModItems.JADE_INGOT.get());
+		return Ingredient.of(XOresItems.JADE_INGOT.get());
 	}),
 	
 	/**
 	 * the {@link Tier} for the blazing tools
 	 */
 	BLAZING("blazing", 905, 7.0F, 6.0F, 2, 12, () -> {
-		return Ingredient.of(ModItems.BLAZING_INGOT.get());
+		return Ingredient.of(XOresItems.BLAZING_INGOT.get());
 	}),
 	
 	/**
 	 * the {@link Tier} for the saphire tools
 	 */
 	SAPHIRE("saphire", 1718, 8.0F, 8.0F, 3, 42, () -> {
-		return Ingredient.of(ModItems.SAPHIRE_INGOT.get());
+		return Ingredient.of(XOresItems.SAPHIRE_INGOT.get());
 	}),
 	
 	/**
 	 * the {@link Tier} for the limonite tools
 	 */
 	LIMONITE("limonite", 3178, 10.0F, 10.0F, 5, 26, () -> {
-		return Ingredient.of(ModItems.LIMONITE_INGOT.get());
+		return Ingredient.of(XOresItems.LIMONITE_INGOT.get());
 	}),
 	
 	/**
 	 * the {@link Tier} for the rosite tools
 	 */
 	ROSITE("rosite", 4916, 10.0F, 11.0F, 4, 12, () -> {
-		return Ingredient.of(ModItems.ROSITE_INGOT.get());
+		return Ingredient.of(XOresItems.ROSITE_INGOT.get());
 	}),
 	
 	/**
 	 * the {@link Tier} for the rose quartz tools
 	 */
 	ROSE_QUARTZ("rose_quartz", 7693, 11.0F, 12.0F, 4, 17, () -> {
-		return Ingredient.of(ModItems.ROSE_QUARTZ.get());
+		return Ingredient.of(XOresItems.ROSE_QUARTZ.get());
 	}),
 	
 	/**
@@ -74,7 +74,7 @@ public enum ModTiers implements Tier {
 	 * the {@link Tier} for the steel tools
 	 */
 	STEEL("steel", 12924, 18.0F, 5.0F, 6, 9, () -> {
-		return Ingredient.of(ModItems.STEEL_INGOT.get());
+		return Ingredient.of(XOresItems.STEEL_INGOT.get());
 	}),
 	
 	/**
@@ -121,9 +121,9 @@ public enum ModTiers implements Tier {
 	protected final Supplier<Ingredient> repairIngredient;
 
 	/**
-	 * constructor for the {@link ModTiers}
+	 * constructor for the {@link XOresTiers}
 	 */
-	private ModTiers(String name, int uses, float speed, float attackDamageBonus, int level, int enchantmentValue, Supplier<Ingredient> repairIngredient) {
+	private XOresTiers(String name, int uses, float speed, float attackDamageBonus, int level, int enchantmentValue, Supplier<Ingredient> repairIngredient) {
 		this.name = new ResourceLocation(XOres.MOD_ID, name);
 		this.uses = uses;
 		this.speed = speed;
@@ -135,7 +135,7 @@ public enum ModTiers implements Tier {
 	
 	/**
 	 * getter for the name of the tier
-	 * @return {@link ModTiers#name}
+	 * @return {@link XOresTiers#name}
 	 */
 	public ResourceLocation getName() {
 		return this.name;
@@ -143,7 +143,7 @@ public enum ModTiers implements Tier {
 	
 	/**
 	 * getter for the uses of the tier
-	 * @return {@link ModTiers#uses}
+	 * @return {@link XOresTiers#uses}
 	 */
 	@Override
 	public int getUses() {
@@ -152,7 +152,7 @@ public enum ModTiers implements Tier {
 
 	/**
 	 * getter for the mining speed of the tier
-	 * @return {@link ModTiers#speed}
+	 * @return {@link XOresTiers#speed}
 	 */
 	@Override
 	public float getSpeed() {
@@ -162,7 +162,7 @@ public enum ModTiers implements Tier {
 	/**
 	 * getter for the attack damage bonus,<br>
 	 * which will be add to the default damge
-	 * @return {@link ModTiers#attackDamageBonus}
+	 * @return {@link XOresTiers#attackDamageBonus}
 	 */
 	@Override
 	public float getAttackDamageBonus() {
@@ -171,7 +171,7 @@ public enum ModTiers implements Tier {
 
 	/**
 	 * getter for the harvest level of the tier
-	 * @return {@link ModTiers#level}
+	 * @return {@link XOresTiers#level}
 	 */
 	@Override
 	public int getLevel() {
@@ -180,7 +180,7 @@ public enum ModTiers implements Tier {
 	
 	/**
 	 * getter for the enchantment value of the tier
-	 * @return {@link ModTiers#enchantmentValue}
+	 * @return {@link XOresTiers#enchantmentValue}
 	 */
 	@Override
 	public int getEnchantmentValue() {
@@ -189,7 +189,7 @@ public enum ModTiers implements Tier {
 
 	/**
 	 * getter for the repair ingredient
-	 * @return {@link ModTiers#repairIngredient} as an {@link Ingredient}
+	 * @return {@link XOresTiers#repairIngredient} as an {@link Ingredient}
 	 */
 	@Override
 	public Ingredient getRepairIngredient() {

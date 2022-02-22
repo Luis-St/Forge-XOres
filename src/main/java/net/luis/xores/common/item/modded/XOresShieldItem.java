@@ -2,8 +2,8 @@ package net.luis.xores.common.item.modded;
 
 import java.util.function.Consumer;
 
-import net.luis.xores.client.render.item.ModShieldRenderer;
-import net.luis.xores.init.ModItems;
+import net.luis.xores.client.render.item.XOresShieldRenderer;
+import net.luis.xores.init.XOresItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.resources.ResourceLocation;
@@ -17,10 +17,10 @@ import net.minecraftforge.client.IItemRenderProperties;
  * @author Luis-st
  * 
  * @see {@link ShieldItem}
- * @see {@link ModItems}
+ * @see {@link XOresItems}
  */
 
-public class ModShieldItem extends ShieldItem {
+public class XOresShieldItem extends ShieldItem {
 
 	/**
 	 * texture of the shield as a {@link ResourceLocation}
@@ -28,9 +28,9 @@ public class ModShieldItem extends ShieldItem {
 	protected final ResourceLocation shieldTexture;
 	
 	/**
-	 * constructor for the {@link ModShieldItem}
+	 * constructor for the {@link XOresShieldItem}
 	 */
-	public ModShieldItem(Properties properties, ResourceLocation shieldTexture) {
+	public XOresShieldItem(Properties properties, ResourceLocation shieldTexture) {
 		super(properties);
 		this.shieldTexture = shieldTexture;
 	}
@@ -38,7 +38,7 @@ public class ModShieldItem extends ShieldItem {
 	/**
 	 * initialize the client stuff of the shield<br>
 	 * in this case we replce the {@link BlockEntityWithoutLevelRenderer}<br>
-	 * with a new instance of {@link ModShieldRenderer}
+	 * with a new instance of {@link XOresShieldRenderer}
 	 */
 	@Override
 	public void initializeClient(Consumer<IItemRenderProperties> consumer) {
@@ -46,7 +46,7 @@ public class ModShieldItem extends ShieldItem {
 			@Override
 			public BlockEntityWithoutLevelRenderer getItemStackRenderer() {
 				Minecraft minecraft = Minecraft.getInstance();
-				return new ModShieldRenderer(minecraft.getBlockEntityRenderDispatcher(), minecraft.getEntityModels(), ModShieldItem.this.shieldTexture);
+				return new XOresShieldRenderer(minecraft.getBlockEntityRenderDispatcher(), minecraft.getEntityModels(), XOresShieldItem.this.shieldTexture);
 			}
 		});
 	}

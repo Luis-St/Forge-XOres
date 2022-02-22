@@ -3,14 +3,15 @@ package net.luis.xores;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import net.luis.xores.common.ModCreativeModeTab;
+import net.luis.xores.common.XOresCreativeModeTab;
 import net.luis.xores.init.MaterialSets;
-import net.luis.xores.init.ModBlockItems;
-import net.luis.xores.init.ModBlocks;
-import net.luis.xores.init.ModGlobalLootModifiers;
-import net.luis.xores.init.ModItems;
-import net.luis.xores.init.ModMaterialSets;
+import net.luis.xores.init.XOresBlockItems;
+import net.luis.xores.init.XOresBlocks;
+import net.luis.xores.init.XOresGlobalLootModifiers;
+import net.luis.xores.init.XOresItems;
+import net.luis.xores.init.XOresMaterialSets;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -26,7 +27,7 @@ import net.minecraftforge.registries.DeferredRegister;
 public class XOres {
 	
 	/**
-	 * mod id of the {@link XOres} mod
+	 * {@link XOres} mod id
 	 */
 	public static final String MOD_ID = "xores";
 	
@@ -38,22 +39,22 @@ public class XOres {
 	/**
 	 * {@link CreativeModeTab} for all mod {@link Item}s
 	 * 
-	 * @see {@link ModItems}
-	 * @see {@link ModBlockItems}
+	 * @see {@link XOresItems}
+	 * @see {@link XOresBlockItems}
 	 */
-	public static final ModCreativeModeTab XORES_TAB = new ModCreativeModeTab("xores", ModItems.LIMONITE_PICKAXE);
+	public static final CreativeModeTab XORES_TAB = new XOresCreativeModeTab("xores", XOresItems.LIMONITE_PICKAXE);
 	
 	/**
 	 * constructor for the {@link XOres}
 	 */
 	public XOres() {
 		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-		ModBlocks.BLOCKS.register(modEventBus);
-		ModBlockItems.ITEMS.register(modEventBus);
-		ModItems.ITEMS.register(modEventBus);
+		XOresBlocks.BLOCKS.register(modEventBus);
+		XOresBlockItems.ITEMS.register(modEventBus);
+		XOresItems.ITEMS.register(modEventBus);
 		MaterialSets.MATERIALS.register(modEventBus);
-		ModMaterialSets.MATERIALS.register(modEventBus);	
-		ModGlobalLootModifiers.LOOT_MODIFIERS.register(modEventBus);
+		XOresMaterialSets.MATERIALS.register(modEventBus);	
+		XOresGlobalLootModifiers.LOOT_MODIFIERS.register(modEventBus);
 	}
 	
 }

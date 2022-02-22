@@ -3,8 +3,8 @@ package net.luis.xores.client.render.item;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 
-import net.luis.xores.common.item.modded.ModShieldItem;
-import net.luis.xores.init.ModItems;
+import net.luis.xores.common.item.modded.XOresShieldItem;
+import net.luis.xores.init.XOresItems;
 import net.minecraft.client.model.ShieldModel;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.model.geom.ModelLayers;
@@ -22,11 +22,11 @@ import net.minecraft.world.item.ShieldItem;
  * 
  * @author Luis-st
  * 
- * @see {@link ModShieldItem}
- * @see {@link ModItems}
+ * @see {@link XOresShieldItem}
+ * @see {@link XOresItems}
  */
 
-public class ModShieldRenderer extends BlockEntityWithoutLevelRenderer {
+public class XOresShieldRenderer extends BlockEntityWithoutLevelRenderer {
 
 	/**
 	 * the texture of the shield as a {@link ResourceLocation}
@@ -36,27 +36,27 @@ public class ModShieldRenderer extends BlockEntityWithoutLevelRenderer {
 	/**
 	 * the model for the {@link ShieldItem}
 	 */
-	protected final ShieldModel shieldModel;
+	protected final ShieldModel shieldXOresel;
 	
 	/**
-	 * constructor for the {@link ModShieldRender}
+	 * constructor for the {@link XOresShieldRender}
 	 */
-	public ModShieldRenderer(BlockEntityRenderDispatcher renderDispatcher, EntityModelSet modelSet, ResourceLocation shieldTexture) {
+	public XOresShieldRenderer(BlockEntityRenderDispatcher renderDispatcher, EntityModelSet modelSet, ResourceLocation shieldTexture) {
 		super(renderDispatcher, modelSet);
 		this.shieldTexture = shieldTexture;
-		this.shieldModel = new ShieldModel(modelSet.bakeLayer(ModelLayers.SHIELD));
+		this.shieldXOresel = new ShieldModel(modelSet.bakeLayer(ModelLayers.SHIELD));
 	}
 	
 	/**
-	 * render the {@link ModShieldRenderer#shieldModel} with the {@link ModShieldRenderer#shieldTexture}
+	 * render the {@link XOresShieldRenderer#shieldXOresel} with the {@link XOresShieldRenderer#shieldTexture}
 	 */
 	@Override
 	public void renderByItem(ItemStack stack, TransformType transformType, PoseStack poseStack, MultiBufferSource bufferSource, int light, int overlay) {
 		poseStack.pushPose();
 		poseStack.scale(1.0F, -1.0F, -1.0F);
-        VertexConsumer vertexconsumer = ItemRenderer.getFoilBufferDirect(bufferSource, this.shieldModel.renderType(this.shieldTexture), true, stack.hasFoil());
-        this.shieldModel.handle().render(poseStack, vertexconsumer, light, overlay, 1.0F, 1.0F, 1.0F, 1.0F);
-        this.shieldModel.plate().render(poseStack, vertexconsumer, light, overlay, 1.0F, 1.0F, 1.0F, 1.0F);
+        VertexConsumer vertexconsumer = ItemRenderer.getFoilBufferDirect(bufferSource, this.shieldXOresel.renderType(this.shieldTexture), true, stack.hasFoil());
+        this.shieldXOresel.handle().render(poseStack, vertexconsumer, light, overlay, 1.0F, 1.0F, 1.0F, 1.0F);
+        this.shieldXOresel.plate().render(poseStack, vertexconsumer, light, overlay, 1.0F, 1.0F, 1.0F, 1.0F);
         poseStack.popPose();
 	}
 
