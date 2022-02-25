@@ -5,10 +5,10 @@ import java.util.List;
 import net.luis.xores.XOres;
 import net.luis.xores.event.level.OnBiomeLoadingEvent;
 import net.luis.xores.init.XOresBlocks;
-import net.luis.xores.init.XOresTags;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.features.OreFeatures;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
@@ -40,9 +40,9 @@ public class XOresOreFeatures {
 	protected static final RuleTest DEEPSLATE_REPLACEABLES = OreFeatures.DEEPSLATE_ORE_REPLACEABLES;
 	
 	/**
-	 * custom {@link TagMatchTest} for the replaceables for end ores
+	 * custom {@link BlockListMatchTest} for the replaceables for end ores
 	 */
-	protected static final RuleTest END_STONE_REPLACEABLES = new TagMatchTest(XOresTags.Blocks.BASE_STONE_END);
+	protected static final RuleTest END_STONE_REPLACEABLES = new BlockListMatchTest(Blocks.END_STONE);
 	
 	/**
 	 * {@link List} of the {@link TargetBlockState}s for all jade ores
