@@ -25,7 +25,8 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;;
 public class OnEntityRenderersEvent {
 	
 	/**
-	 * add the {@link XOresElytraLayer} for all {@link ElytraChestplateItem}s to the {@link PlayerRenderer}
+	 * add the {@link XOresElytraLayer} for all {@link ElytraChestplateItem}s to<br>
+	 * the {@link PlayerRenderer} and the {@link ArmorStandRenderer}
 	 */
 	@SubscribeEvent
 	public static void addLayers(EntityRenderersEvent.AddLayers event) {
