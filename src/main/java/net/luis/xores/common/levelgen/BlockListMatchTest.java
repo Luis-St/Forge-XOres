@@ -30,7 +30,7 @@ public class BlockListMatchTest extends RuleTest {
 	 */
 	@SuppressWarnings("deprecation")
 	public static final Codec<BlockListMatchTest> CODEC = RecordCodecBuilder.create((instance) -> {
-		return instance.group(Codec.list(Registry.BLOCK.byNameCodec()).fieldOf("").forGetter((matchTest) -> {
+		return instance.group(Codec.list(Registry.BLOCK.byNameCodec()).fieldOf("blocks").forGetter((matchTest) -> {
 			return matchTest.blocks;
 		})).apply(instance, BlockListMatchTest::new);
 	});
