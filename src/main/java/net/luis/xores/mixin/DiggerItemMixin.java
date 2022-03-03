@@ -5,6 +5,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import net.luis.xores.common.event.MixinEventInfo;
+import net.luis.xores.common.event.XOresEventFactory;
+import net.luis.xores.common.event.MixinEvent.DiggerItemMixinEvent;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.AxeItem;
@@ -36,14 +39,17 @@ public abstract class DiggerItemMixin extends TieredItem {
 	 * changes the {@link AxeItem} damage behaviour when hitting an {@link LivingEntity}<br>
 	 * in this case the damage value of the {@link AxeItem} will be increased by 1 instead of 2,<br>
 	 * the vanilla logic is in this case never called
+	 * 
+	 * fires the {@link DiggerItemMixinEvent}
 	 */
 	@Inject(method = "hurtEnemy", at = @At("HEAD"), cancellable = true)
-	public void hurtEnemy(ItemStack stack, LivingEntity targetEntity, LivingEntity attackerEntity, CallbackInfoReturnable<Boolean> info) {
+	public void hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker, CallbackInfoReturnable<Boolean> info) {
 		if (this.asItem() instanceof AxeItem) {
-			stack.hurtAndBreak(1, attackerEntity, e -> e.broadcastBreakEvent(EquipmentSlot.MAINHAND));
+			stack.hurtAndBreak(1, attacker, e -> e.broadcastBreakEvent(EquipmentSlot.MAINHAND));
 			info.setReturnValue(true);
 			info.cancel();
 		}
+		XOresEventFactory.onDiggerItemMixin(new MixinEventInfo(DiggerItem.class, "hurtEnemy", info.isCancelled()), stack, target, attacker);
 	}
 	
 }
