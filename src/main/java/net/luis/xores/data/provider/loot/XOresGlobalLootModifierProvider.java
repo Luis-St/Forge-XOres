@@ -49,7 +49,7 @@ public class XOresGlobalLootModifierProvider extends GlobalLootModifierProvider 
 	 */
 	@Override
 	public String getName() {
-		return "XOres Global Loot XOresifiers";
+		return "XOres Global Loot Modifiers";
 	}
 
 }

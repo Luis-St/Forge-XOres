@@ -36,7 +36,7 @@ public class XOresShieldRenderer extends BlockEntityWithoutLevelRenderer {
 	/**
 	 * the model for the {@link ShieldItem}
 	 */
-	protected final ShieldModel shieldXOresel;
+	protected final ShieldModel shieldModel;
 	
 	/**
 	 * constructor for the {@link XOresShieldRender}
@@ -44,7 +44,7 @@ public class XOresShieldRenderer extends BlockEntityWithoutLevelRenderer {
 	public XOresShieldRenderer(BlockEntityRenderDispatcher renderDispatcher, EntityModelSet modelSet, ResourceLocation shieldTexture) {
 		super(renderDispatcher, modelSet);
 		this.shieldTexture = shieldTexture;
-		this.shieldXOresel = new ShieldModel(modelSet.bakeLayer(ModelLayers.SHIELD));
+		this.shieldModel = new ShieldModel(modelSet.bakeLayer(ModelLayers.SHIELD));
 	}
 	
 	/**
@@ -54,9 +54,9 @@ public class XOresShieldRenderer extends BlockEntityWithoutLevelRenderer {
 	public void renderByItem(ItemStack stack, TransformType transformType, PoseStack poseStack, MultiBufferSource bufferSource, int light, int overlay) {
 		poseStack.pushPose();
 		poseStack.scale(1.0F, -1.0F, -1.0F);
-        VertexConsumer vertexconsumer = ItemRenderer.getFoilBufferDirect(bufferSource, this.shieldXOresel.renderType(this.shieldTexture), true, stack.hasFoil());
-        this.shieldXOresel.handle().render(poseStack, vertexconsumer, light, overlay, 1.0F, 1.0F, 1.0F, 1.0F);
-        this.shieldXOresel.plate().render(poseStack, vertexconsumer, light, overlay, 1.0F, 1.0F, 1.0F, 1.0F);
+        VertexConsumer vertexconsumer = ItemRenderer.getFoilBufferDirect(bufferSource, this.shieldModel.renderType(this.shieldTexture), true, stack.hasFoil());
+        this.shieldModel.handle().render(poseStack, vertexconsumer, light, overlay, 1.0F, 1.0F, 1.0F, 1.0F);
+        this.shieldModel.plate().render(poseStack, vertexconsumer, light, overlay, 1.0F, 1.0F, 1.0F, 1.0F);
         poseStack.popPose();
 	}
 

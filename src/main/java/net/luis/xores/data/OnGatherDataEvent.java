@@ -7,6 +7,7 @@ import net.luis.xores.data.provider.language.XOresLanguageProvider;
 import net.luis.xores.data.provider.loot.XOresGlobalLootModifierProvider;
 import net.luis.xores.data.provider.loottable.XOresLootTableProvider;
 import net.luis.xores.data.provider.recipe.XOresRecipeProvider;
+import net.luis.xores.data.provider.tag.XOresBlockTagsProvider;
 import net.luis.xores.data.provider.tag.XOresItemTagsProvider;
 import net.minecraft.data.DataProvider;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -31,6 +32,7 @@ public class OnGatherDataEvent {
 	 * 	<li>{@link XOresLanguageProvider}</li>
 	 * 	<li>{@link XOresLootTableProvider}</li>
 	 * 	<li>{@link XOresRecipeProvider}</li>
+	 * 	<li>{@link XOresBlockTagsProvider}</li>
 	 * 	<li>{@link XOresItemTagsProvider}</li>
 	 * 	<li>{@link XOresGlobalLootModifierProvider}</li>
 	 * </ul>
@@ -40,17 +42,17 @@ public class OnGatherDataEvent {
 //		DataGenerator generator = event.getGenerator();
 //		if (event.includeDev()) {
 //			if (event.includeClient()) {
-//				generator.addProvider(new ModBlockStateProvider(generator, event.getExistingFileHelper()));
-//				generator.addProvider(new ModItemModelProvider(generator, event.getExistingFileHelper()));
-//				generator.addProvider(new ModLanguageProvider(generator));
+//				generator.addProvider(new XOresBlockStateProvider(generator, event.getExistingFileHelper()));
+//				generator.addProvider(new XOresItemModelProvider(generator, event.getExistingFileHelper()));
+//				generator.addProvider(new XOresLanguageProvider(generator));
 //			}
 //			if (event.includeServer()) {
-//				generator.addProvider(new ModLootTableProvider(generator));
-//				generator.addProvider(new ModRecipeProvider(generator));
-//				ModBlockTagsProvider blockTagsProvider = new ModBlockTagsProvider(generator, event.getExistingFileHelper());
+//				generator.addProvider(new XOresLootTableProvider(generator));
+//				generator.addProvider(new XOresRecipeProvider(generator));
+//				XOresBlockTagsProvider blockTagsProvider = new XOresBlockTagsProvider(generator, event.getExistingFileHelper());
 //				generator.addProvider(blockTagsProvider);
-//				generator.addProvider(new ModItemTagsProvider(generator, blockTagsProvider, event.getExistingFileHelper()));
-//				generator.addProvider(new ModGlobalLootModifierProvider(generator));
+//				generator.addProvider(new XOresItemTagsProvider(generator, blockTagsProvider, event.getExistingFileHelper()));
+//				generator.addProvider(new XOresGlobalLootModifierProvider(generator));
 //			}
 //		}
 	}

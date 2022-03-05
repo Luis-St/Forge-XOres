@@ -32,7 +32,7 @@ import net.minecraftforge.registries.RegistryObject;
  * 
  * @see {@link ItemModelProvider}
  * @see {@link OnGatherDataEvent}
- * @see {@link ModItems}
+ * @see {@link XOresItems}
  */
 
 public class XOresItemModelProvider extends ItemModelProvider {
@@ -45,7 +45,7 @@ public class XOresItemModelProvider extends ItemModelProvider {
 	}
 
 	/**
-	 * register all item models for {@link ModItems#ITEMS}
+	 * register all item models for {@link XOresItems#ITEMS}
 	 */
 	@Override
 	protected void registerModels() {
