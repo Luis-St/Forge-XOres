@@ -6,10 +6,12 @@ import com.google.common.collect.Lists;
 
 import net.luis.xores.XOres;
 import net.luis.xores.event.level.OnBiomeLoadingEvent;
+import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.placement.OrePlacements;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.BiomeFilter;
 import net.minecraft.world.level.levelgen.placement.CountPlacement;
 import net.minecraft.world.level.levelgen.placement.HeightRangePlacement;
@@ -33,67 +35,67 @@ public class XOresOrePlacements {
 	 * {@link PlacedFeature} for the upper jade ore
 	 * @see {@link XOresOreFeatures#JADE_ORE_UPPER}
 	 */
-	public static final PlacedFeature JADE_ORE_UPPER = register("jade_ore_upper", XOresOreFeatures.JADE_ORE_UPPER.placed(upperOrePlacement(20, 128)));
+	public static final Holder<PlacedFeature> JADE_ORE_UPPER = register("jade_ore_upper", XOresOreFeatures.JADE_ORE_UPPER, upperOrePlacement(20, 128));
 	
 	/**
 	 * {@link PlacedFeature} for the middle jade ore
 	 * @see {@link XOresOreFeatures#JADE_ORE_MIDDLE}
 	 */
-	public static final PlacedFeature JADE_ORE_MIDDLE = register("jade_ore_middle", XOresOreFeatures.JADE_ORE_MIDDLE.placed(uniformOrePlacement(14, -32, 96)));
+	public static final Holder<PlacedFeature> JADE_ORE_MIDDLE = register("jade_ore_middle", XOresOreFeatures.JADE_ORE_MIDDLE, uniformOrePlacement(14, -32, 96));
 	
 	/**
 	 * {@link PlacedFeature} for the saphire ore
 	 * @see {@link XOresOreFeatures#SAPHIRE_ORE}
 	 */
-	public static final PlacedFeature SAPHIRE_ORE = register("saphire_ore", XOresOreFeatures.SAPHIRE_ORE.placed(uniformOrePlacement(18, -64, 256)));
+	public static final Holder<PlacedFeature> SAPHIRE_ORE = register("saphire_ore", XOresOreFeatures.SAPHIRE_ORE, uniformOrePlacement(18, -64, 256));
 	
 	/**
 	 * {@link PlacedFeature} for the rare saphire ore
 	 * @see {@link XOresOreFeatures#SAPHIRE_ORE_RARE_UPPER}
 	 */
-	public static final PlacedFeature SAPHIRE_ORE_RARE_UPPER = register("saphire_ore_rare_upper", XOresOreFeatures.SAPHIRE_ORE_RARE_UPPER.placed(upperOrePlacement(7, 256)));
+	public static final Holder<PlacedFeature> SAPHIRE_ORE_RARE_UPPER = register("saphire_ore_rare_upper", XOresOreFeatures.SAPHIRE_ORE_RARE_UPPER, upperOrePlacement(7, 256));
 	
 	/**
 	 * {@link PlacedFeature} for the buried saphire ore
 	 * @see {@link XOresOreFeatures#SAPHIRE_ORE_BURIED}
 	 */
-	public static final PlacedFeature SAPHIRE_ORE_BURIED = register("saphire_ore_buried", XOresOreFeatures.SAPHIRE_ORE_BURIED.placed(buriedOrePlacement(5, -32)));
+	public static final Holder<PlacedFeature> SAPHIRE_ORE_BURIED = register("saphire_ore_buried", XOresOreFeatures.SAPHIRE_ORE_BURIED, buriedOrePlacement(5, -32));
 	
 	/**
 	 * {@link PlacedFeature} for the buried limonite ore
 	 * @see {@link XOresOreFeatures#LIMONITE_ORE_BURIED}
 	 */
-	public static final PlacedFeature LIMONITE_ORE_BURIED = register("limonite_ore_buried", XOresOreFeatures.LIMONITE_ORE_BURIED.placed(uniformOrePlacement(5, -48, 0)));
+	public static final Holder<PlacedFeature> LIMONITE_ORE_BURIED = register("limonite_ore_buried", XOresOreFeatures.LIMONITE_ORE_BURIED, uniformOrePlacement(5, -48, 0));
 	
 	/**
 	 * {@link PlacedFeature} for the deep buried limonite ore
 	 * @see {@link XOresOreFeatures#LIMONITE_ORE_DEEP_BURIED}
 	 */
-	public static final PlacedFeature LIMONITE_ORE_DEEP_BURIED = register("limonite_ore_deep_buried", XOresOreFeatures.LIMONITE_ORE_DEEP_BURIED.placed(buriedOrePlacement(2, -48)));
+	public static final Holder<PlacedFeature> LIMONITE_ORE_DEEP_BURIED = register("limonite_ore_deep_buried", XOresOreFeatures.LIMONITE_ORE_DEEP_BURIED, buriedOrePlacement(2, -48));
 	
 	/**
 	 * {@link PlacedFeature} for the rare rosite ore
 	 * @see {@link XOresOreFeatures#ROSITE_ORE_RARE}
 	 */
-	public static final PlacedFeature ROSITE_ORE_RARE = register("rosite_ore_rare", XOresOreFeatures.ROSITE_ORE_RARE.placed(triangleOrePlacement(5, -16, 128)));
+	public static final Holder<PlacedFeature> ROSITE_ORE_RARE = register("rosite_ore_rare", XOresOreFeatures.ROSITE_ORE_RARE, triangleOrePlacement(5, -16, 128));
 	
 	/**
 	 * {@link PlacedFeature} for the buried rosite ore
 	 * @see {@link XOresOreFeatures#ROSITE_ORE_BURIED}
 	 */
-	public static final PlacedFeature ROSITE_ORE_BURIED = register("rosite_ore_buried", XOresOreFeatures.ROSITE_ORE_BURIED.placed(buriedOrePlacement(7, -32)));
+	public static final Holder<PlacedFeature> ROSITE_ORE_BURIED = register("rosite_ore_buried", XOresOreFeatures.ROSITE_ORE_BURIED, buriedOrePlacement(7, -32));
 	
 	/**
 	 * {@link PlacedFeature} for the rare enderite ore
 	 * @see {@link XOresOreFeatures#ENDERITE_ORE_RARE}
 	 */
-	public static final PlacedFeature ENDERITE_ORE_RARE = register("enderite_ore_rare", XOresOreFeatures.ENDERITE_ORE_RARE.placed(uniformOrePlacement(2, 0, 128)));
+	public static final Holder<PlacedFeature> ENDERITE_ORE_RARE = register("enderite_ore_rare", XOresOreFeatures.ENDERITE_ORE_RARE, uniformOrePlacement(2, 0, 128));
 	
 	/**
 	 * {@link PlacedFeature} for the buried enderite ore
 	 * @see {@link XOresOreFeatures#ENDERITE_ORE_BURIED}
 	 */
-	public static final PlacedFeature ENDERITE_ORE_BURIED = register("enderite_ore_buried", XOresOreFeatures.ENDERITE_ORE_BURIED.placed(buriedEndOrePlacement(3)));
+	public static final Holder<PlacedFeature> ENDERITE_ORE_BURIED = register("enderite_ore_buried", XOresOreFeatures.ENDERITE_ORE_BURIED, buriedEndOrePlacement(3));
 	
 	/**
 	 * creates the {@link PlacementModifier}s for a basic ore
@@ -212,8 +214,8 @@ public class XOresOrePlacements {
 	 * @param placedFeature The {@link PlacedFeature} which should be registered
 	 * @return the given {@link PlacedFeature}
 	 */
-	protected static PlacedFeature register(String name, PlacedFeature placedFeature) {
-		return PlacementUtils.register(new ResourceLocation(XOres.MOD_ID, name).toString(), placedFeature);
+	protected static Holder<PlacedFeature> register(String name, Holder<? extends ConfiguredFeature<?, ?>> configuredFeature, List<PlacementModifier> placementModifiers) {
+		return PlacementUtils.register(new ResourceLocation(XOres.MOD_ID, name).toString(), configuredFeature, placementModifiers);
 	}
 
 }

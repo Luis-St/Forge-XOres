@@ -6,17 +6,17 @@ import java.util.function.Consumer;
 
 import javax.annotation.Nullable;
 
-import net.minecraft.tags.Tag.Named;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
 
 /**
- * summary of {@link Item} and {@link Named} tag, into one class
+ * summary of {@link Item} and {@link TagKey} tag, into one class
  * 
  * @author Luis-st
  * 
  * @see {@link Item}
- * @see {@link Named}
+ * @see {@link TagKey}
  */
 
 public class Material {
@@ -27,9 +27,9 @@ public class Material {
 	protected final Optional<Item> item;
 	
 	/**
-	 * the {@link Optional} of the {@link Named} tag
+	 * the {@link Optional} of the {@link TagKey} tag
 	 */
-	protected final Optional<Named<Item>> tag;
+	protected final Optional<TagKey<Item>> tag;
 	
 	/**
 	 * @see {@link Material#Material(Optional, Optional)}
@@ -41,7 +41,7 @@ public class Material {
 	/**
 	 * @see {@link Material#Material(Optional, Optional)}
 	 */
-	Material(Named<Item> tag) {
+	Material(TagKey<Item> tag) {
 		this(Optional.empty(), Optional.of(tag));
 	}
 	
@@ -50,9 +50,9 @@ public class Material {
 	 * private since you should use the factory methods
 	 * 
 	 * @see {@link Material#item(Item)}
-	 * @see {@link Material#tag(Named)}
+	 * @see {@link Material#tag(TagKey)}
 	 */
-	private Material(Optional<Item> item, Optional<Named<Item>> tag) {
+	private Material(Optional<Item> item, Optional<TagKey<Item>> tag) {
 		this.item = Objects.requireNonNull(item, "Optional can't be null");
 		this.tag = Objects.requireNonNull(tag, "Optional can't be null");
 	}
@@ -68,10 +68,10 @@ public class Material {
 	
 	/**
 	 * creates a new {@link Material}
-	 * @param tag The {@link Named} tag for the {@link Material}
-	 * @return a {@link Material} for the given {@link Named} tags
+	 * @param tag The {@link TagKey} tag for the {@link Material}
+	 * @return a {@link Material} for the given {@link TagKey} tags
 	 */
-	public static Material tag(Named<Item> tag) {
+	public static Material tag(TagKey<Item> tag) {
 		return new Material(tag);
 	}
 	
@@ -133,8 +133,8 @@ public class Material {
 	}
 	
 	/**
-	 * checks if the {@link Material} is a {@link Named} tag material
-	 * @return {@code true} if the {@link Material} is a {@link Named} tag material else {@code false}
+	 * checks if the {@link Material} is a {@link TagKey} tag material
+	 * @return {@code true} if the {@link Material} is a {@link TagKey} tag material else {@code false}
 	 */
 	public boolean isTag() {
 		return this.tag.isPresent();
@@ -142,10 +142,10 @@ public class Material {
 	
 	/**
 	 * getter for the {@link Material#tag}
-	 * @return the {@link Named} of the {@link Material} if {@link Material#isTag()} returns {@code true}
+	 * @return the {@link TagKey} of the {@link Material} if {@link Material#isTag()} returns {@code true}
 	 */
 	@Nullable
-	public Named<Item> getTag() {
+	public TagKey<Item> getTag() {
 		if (this.isTag()) {
 			return this.tag.get();
 		}
@@ -153,10 +153,10 @@ public class Material {
 	}
 	
 	/**
-	 * @param tag The fallback {@link Named} tag
-	 * @return {@link Material#getTag()} if {@link Material#getTag()} returns {@code true} else the given {@link Named} tag
+	 * @param tag The fallback {@link TagKey} tag
+	 * @return {@link Material#getTag()} if {@link Material#getTag()} returns {@code true} else the given {@link TagKey} tag
 	 */
-	public Named<Item> tagOrElse(Named<Item> tag) {
+	public TagKey<Item> tagOrElse(TagKey<Item> tag) {
 		return this.isTag() ? this.getTag() : tag;
 	}
 	
@@ -165,7 +165,7 @@ public class Material {
 	 * @return {@link Material#getTag()} if {@link Material#isTag()} returns {@code true}
 	 * @throws a {@link NullPointerException} if {@link Material#isTag()} returns {@code false}
 	 */
-	public Named<Item> tagOrThrow() {
+	public TagKey<Item> tagOrThrow() {
 		if (this.isTag()) {
 			return this.getTag();
 		}
@@ -176,7 +176,7 @@ public class Material {
 	 * accept the given {@link Consumer} if {@link Material#isTag()} returns {@code true}
 	 * @param consumer The {@link Consumer} which is execute
 	 */
-	public void ifTagPresent(Consumer<Named<Item>> consumer) {
+	public void ifTagPresent(Consumer<TagKey<Item>> consumer) {
 		if (this.isTag()) {
 			consumer.accept(this.tagOrThrow());
 		}
@@ -215,7 +215,7 @@ public class Material {
 		if (this.isItem()) {
 			builder.append("Item Material of ").append(this.itemOrThrow().getRegistryName());
 		} else if (this.isTag()) {
-			builder.append("Tag Material of ").append(this.tagOrThrow().getName());
+			builder.append("Tag Material of ").append(this.tagOrThrow().location());
 		} else {
 			throw new IllegalStateException("Material can not be empty");
 		}

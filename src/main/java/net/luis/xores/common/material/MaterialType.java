@@ -3,7 +3,7 @@ package net.luis.xores.common.material;
 import javax.annotation.Nullable;
 
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.Tag.Named;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 
 /**
@@ -107,7 +107,7 @@ public class MaterialType {
 		ITEM("item"),
 		
 		/**
-		 * {@link Type} for all {@link MaterialType}s which only accepts {@link Named} tags
+		 * {@link Type} for all {@link MaterialType}s which only accepts {@link TagKey} tags
 		 */
 		TAG("tag");
 		

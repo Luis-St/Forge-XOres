@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 import com.google.common.collect.Maps;
 
 import net.luis.xores.common.item.ElytraChestplateItem;
-import net.minecraft.tags.Tag.Named;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.BowItem;
@@ -265,12 +265,12 @@ public class MaterialSet extends ForgeRegistryEntry<MaterialSet> {
 		}
 		
 		/**
-		 * adds the given {@link Named} tag to the {@link Builder} with the given {@link MaterialType} as key
+		 * adds the given {@link TagKey} tag to the {@link Builder} with the given {@link MaterialType} as key
 		 * @param type The {@link MaterialType}  which is used as key
-		 * @param tag The {@link Named} tag which should be add
+		 * @param tag The {@link TagKey} tag which should be add
 		 * @return the {@link Builder} itself
 		 */
-		public Builder add(MaterialType type, Named<Item> tag) {
+		public Builder add(MaterialType type, TagKey<Item> tag) {
 			return this.add(type, Material.tag(tag));
 		}
 		
@@ -297,13 +297,13 @@ public class MaterialSet extends ForgeRegistryEntry<MaterialSet> {
 		}
 		
 		/**
-		 * adds the given {@link Named} tag to the {@link Builder},<br>
-		 * the {@link MaterialType} is got from {@link Builder#getMaterialTypeByTag(Named)}
-		 * @param tag The {@link Named} tag which should be add
+		 * adds the given {@link TagKey} tag to the {@link Builder},<br>
+		 * the {@link MaterialType} is got from {@link Builder#getMaterialTypeByTag(TagKey)}
+		 * @param tag The {@link TagKey} tag which should be add
 		 * @return the {@link Builder} itself
-		 * @see {@link Builder#getMaterialTypeByTag(Named)}
+		 * @see {@link Builder#getMaterialTypeByTag(TagKey)}
 		 */
-		public Builder add(Named<Item> tag) {
+		public Builder add(TagKey<Item> tag) {
 			return this.add(this.getMaterialTypeByTag(tag), Material.tag(tag));
 		}
 
@@ -386,10 +386,10 @@ public class MaterialSet extends ForgeRegistryEntry<MaterialSet> {
 		}
 
 		/**
-		 * @param tag The {@link Named} tag for which a {@link MaterialType} should be found
+		 * @param tag The {@link TagKey} tag for which a {@link MaterialType} should be found
 		 * @return a {@link MaterialType} or {@code null} if all {@link MaterialType}s are already present
 		 */
-		protected MaterialType getMaterialTypeByTag(Named<Item> tag) {
+		protected MaterialType getMaterialTypeByTag(TagKey<Item> tag) {
 			if (!this.has(MaterialTypes.MATERIAL)) {
 				return MaterialTypes.MATERIAL;
 			} else if (!this.has(MaterialTypes.MATERIAL_PART)) {

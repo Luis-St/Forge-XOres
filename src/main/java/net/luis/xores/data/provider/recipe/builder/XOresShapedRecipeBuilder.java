@@ -9,8 +9,7 @@ import net.minecraft.advancements.critereon.InventoryChangeTrigger.TriggerInstan
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.MinMaxBounds;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.tags.Tag;
-import net.minecraft.tags.Tag.Named;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.ShapedRecipe;
@@ -89,14 +88,14 @@ public class XOresShapedRecipeBuilder extends ShapedRecipeBuilder {
 	}
 	
 	/**
-	 * defines a {@link Tag} as a {@link Character} key for the {@link ShapedRecipe},
+	 * defines a {@link TagKey} as a {@link Character} key for the {@link ShapedRecipe},
 	 * the key is used in the pattern
 	 * @param character The {@link Character} which is used as key
-	 * @param tag which The {@link Tag} should be defined
+	 * @param tag which The {@link TagKey} should be defined
 	 * @return the {@link XOresShapedRecipeBuilder} itself
 	 */
 	@Override
-	public XOresShapedRecipeBuilder define(Character character, Tag<Item> tag) {
+	public XOresShapedRecipeBuilder define(Character character, TagKey<Item> tag) {
 		return (XOresShapedRecipeBuilder) super.define(character, tag);
 	}
 	
@@ -191,11 +190,11 @@ public class XOresShapedRecipeBuilder extends ShapedRecipeBuilder {
 		if (material.isItem()) {
 			return this.getId(material.itemOrThrow());
 		} else if (material.isTag()) {
-			Named<Item> tag = material.tagOrThrow();
-			if (!tag.getName().getPath().contains("/")) {
-				return tag.getName().getPath();
+			TagKey<Item> tag = material.tagOrThrow();
+			if (!tag.location().getPath().contains("/")) {
+				return tag.location().getPath();
 			}
-			String[] pathParts = tag.getName().getPath().split("/");
+			String[] pathParts = tag.location().getPath().split("/");
 			return pathParts[pathParts.length - 1];
 		}
 		throw new IllegalStateException("Fail to get ID for a empty Material");

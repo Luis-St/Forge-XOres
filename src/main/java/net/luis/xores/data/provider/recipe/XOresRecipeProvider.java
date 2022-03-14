@@ -21,7 +21,7 @@ import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
 import net.minecraft.data.recipes.UpgradeRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.Tag.Named;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.BlastingRecipe;
@@ -481,11 +481,11 @@ public class XOresRecipeProvider extends RecipeProvider {
 		if (material.isItem()) {
 			return getId(material.itemOrThrow());
 		} else if (material.isTag()) {
-			Named<Item> tag = material.tagOrThrow();
-			if (!tag.getName().getPath().contains("/")) {
-				return tag.getName().getPath();
+			TagKey<Item> tag = material.tagOrThrow();
+			if (!tag.location().getPath().contains("/")) {
+				return tag.location().getPath();
 			}
-			String[] pathParts = tag.getName().getPath().split("/");
+			String[] pathParts = tag.location().getPath().split("/");
 			return pathParts[pathParts.length - 1];
 		}
 		throw new IllegalStateException("Fail to get ID for a empty Material");

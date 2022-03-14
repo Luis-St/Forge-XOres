@@ -3,17 +3,21 @@ package net.luis.xores.common.fixer;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.stream.Collectors;
 
 import javax.annotation.Nullable;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
+import net.luis.xores.XOres;
 import net.luis.xores.init.XOresTags;
 import net.luis.xores.mixin.ItemStackMixin;
+import net.minecraft.core.Holder;
+import net.minecraft.core.Registry;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.Tag;
-import net.minecraft.tags.Tag.Named;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.DiggerItem;
 import net.minecraft.world.item.HoeItem;
@@ -152,23 +156,41 @@ public class ToolFixer implements VanillaFixer {
 	 * regsiter all 
 	 * <ul>
 	 * 	<li>{@link Block}s from the tool level tags to it's block harvest level</li>
-	 * 	<li>{@link Items}s from the tool level tags to it's tool harvest level</li>
+	 * 	<li>{@link Item}s from the tool level tags to it's tool harvest level</li>
 	 * </ul>
 	 */
 	protected void register() {
-		this.registerBlocks(1, XOresTags.Blocks.NEEDS_TOOL_LEVEL_1.getValues());
-		this.registerBlocks(2, XOresTags.Blocks.NEEDS_TOOL_LEVEL_2.getValues());
-		this.registerBlocks(3, XOresTags.Blocks.NEEDS_TOOL_LEVEL_3.getValues());
-		this.registerBlocks(4, XOresTags.Blocks.NEEDS_TOOL_LEVEL_4.getValues());
-		this.registerBlocks(5, XOresTags.Blocks.NEEDS_TOOL_LEVEL_5.getValues());
-		this.registerBlocks(6, XOresTags.Blocks.NEEDS_TOOL_LEVEL_6.getValues());
-		this.registerTools(0, XOresTags.Items.TOOL_LEVEL_0.getValues());
-		this.registerTools(1, XOresTags.Items.TOOL_LEVEL_1.getValues());
-		this.registerTools(2, XOresTags.Items.TOOL_LEVEL_2.getValues());
-		this.registerTools(3, XOresTags.Items.TOOL_LEVEL_3.getValues());
-		this.registerTools(4, XOresTags.Items.TOOL_LEVEL_4.getValues());
-		this.registerTools(5, XOresTags.Items.TOOL_LEVEL_5.getValues());
-		this.registerTools(6, XOresTags.Items.TOOL_LEVEL_6.getValues());
+		this.registerBlocks(1, this.getBlockValues(XOresTags.Blocks.NEEDS_TOOL_LEVEL_1));
+		this.registerBlocks(2, this.getBlockValues(XOresTags.Blocks.NEEDS_TOOL_LEVEL_2));
+		this.registerBlocks(3, this.getBlockValues(XOresTags.Blocks.NEEDS_TOOL_LEVEL_3));
+		this.registerBlocks(4, this.getBlockValues(XOresTags.Blocks.NEEDS_TOOL_LEVEL_4));
+		this.registerBlocks(5, this.getBlockValues(XOresTags.Blocks.NEEDS_TOOL_LEVEL_5));
+		this.registerBlocks(6, this.getBlockValues(XOresTags.Blocks.NEEDS_TOOL_LEVEL_6));
+		this.registerTools(0, this.getItemValues(XOresTags.Items.TOOL_LEVEL_0));
+		this.registerTools(1, this.getItemValues(XOresTags.Items.TOOL_LEVEL_1));
+		this.registerTools(2, this.getItemValues(XOresTags.Items.TOOL_LEVEL_2));
+		this.registerTools(3, this.getItemValues(XOresTags.Items.TOOL_LEVEL_3));
+		this.registerTools(4, this.getItemValues(XOresTags.Items.TOOL_LEVEL_4));
+		this.registerTools(5, this.getItemValues(XOresTags.Items.TOOL_LEVEL_5));
+		this.registerTools(6, this.getItemValues(XOresTags.Items.TOOL_LEVEL_6));
+	}
+	
+	/**
+	 * @param key The {@link TagKey} for which the values should get
+	 * @return a {@link List} of all {@link Block}s for the given {@link TagKey}
+	 */
+	@SuppressWarnings("deprecation")
+	protected List<Block> getBlockValues(TagKey<Block> key) {
+		return Lists.newArrayList(Registry.BLOCK.getTagOrEmpty(key)).stream().map(Holder::value).map(Block.class::cast).collect(Collectors.toList());
+	}
+	
+	/**
+	 * @param key The {@link TagKey} for which the values should get
+	 * @return a {@link List} of all {@link Item}s for the given {@link TagKey}
+	 */
+	@SuppressWarnings("deprecation")
+	protected List<Item> getItemValues(TagKey<Item> key) {
+		return Lists.newArrayList(Registry.ITEM.getTagOrEmpty(key)).stream().map(Holder::value).map(Item.class::cast).collect(Collectors.toList());
 	}
 	
 	/**
@@ -262,20 +284,30 @@ public class ToolFixer implements VanillaFixer {
 	 */
 	@SuppressWarnings("deprecation")
 	public boolean isCorrectToolForDrops(Item tool, ItemStack stack, BlockState state) {
+		XOres.LOGGER.info("isCorrectToolForDrops");
 		Block block = state.getBlock();
 		int tierLevel = -1;
 		int toolLevel = this.getLevelForTool(tool);
+		XOres.LOGGER.info("block: {}", block);
+		XOres.LOGGER.info("tierLevel: {}", tierLevel);
+		XOres.LOGGER.info("toolLevel: {}", toolLevel);
 		if (tool instanceof DiggerItem diggerItem) {
 			tierLevel = diggerItem.getTier().getLevel();
+			XOres.LOGGER.info("instance of DiggerItem {}", tierLevel);
 		}
 		if (tierLevel > -1 && tierLevel != toolLevel) {
+			XOres.LOGGER.info("{} && {}", tierLevel > -1, tierLevel != toolLevel);
 			return false;
 		} else {
 			int blockLevel = this.getLevelForBlock(block);
+			XOres.LOGGER.info("{}", blockLevel);
 			if (tierLevel >= blockLevel || blockLevel == 0) {
-				Named<Block> blocks = this.getTagForTool(tool);
+				XOres.LOGGER.info("{} || {}", tierLevel >= blockLevel, blockLevel == 0);
+				TagKey<Block> blocks = this.getTagForTool(tool);
+				XOres.LOGGER.info("{} {}", blocks, blocks != null ? this.getTagForTool(tool) : null);
 				if (blocks != null) {
-					return blocks.getValues().contains(block);
+					XOres.LOGGER.info("{} is in {}", this.getBlockValues(blocks), block);
+					return this.getBlockValues(blocks).contains(block);
 				}
 				return true;
 			}
@@ -288,7 +320,7 @@ public class ToolFixer implements VanillaFixer {
 	 * @return the {@link Tag} for the given {@link Item}, if the {@link Item} is a vanilla tool else {@code null}
 	 */
 	@Nullable
-	protected Named<Block> getTagForTool(Item tool) {
+	protected TagKey<Block> getTagForTool(Item tool) {
 		if (tool instanceof PickaxeItem) {
 			return BlockTags.MINEABLE_WITH_PICKAXE;
 		} else if (tool instanceof AxeItem) {
