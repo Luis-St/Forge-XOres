@@ -32,6 +32,11 @@ public class XOres {
 	public static final String MOD_ID = "xores";
 	
 	/**
+	 * {@link XOres} mod name
+	 */
+	public static final String MOD_NAME = "XOres";
+	
+	/**
 	 * internal Logger
 	 */
 	public static final Logger LOGGER = LogManager.getLogger(XOres.class);
@@ -42,7 +47,7 @@ public class XOres {
 	 * @see {@link XOresItems}
 	 * @see {@link XOresBlockItems}
 	 */
-	public static final CreativeModeTab XORES_TAB = new XOresCreativeModeTab("xores", XOresItems.LIMONITE_PICKAXE);
+	public static final CreativeModeTab TAB = new XOresCreativeModeTab(XOres.MOD_ID, XOresItems.LIMONITE_PICKAXE);
 	
 	/**
 	 * constructor for the {@link XOres}

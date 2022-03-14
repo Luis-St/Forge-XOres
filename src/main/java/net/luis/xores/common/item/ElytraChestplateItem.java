@@ -34,8 +34,8 @@ public class ElytraChestplateItem extends ArmorItem {
 	 * {@link Map} of all {@link ElytraChestplateItem}s and thier time damage values,<br> 
 	 * which are registered in {@link FMLCommonSetupEvent}<br>
 	 * <br>
-	 * if you want to register your own {@link ElytraChestplateItem} and<br>
-	 * it's time damage value, use something like this in {@link FMLCommonSetupEvent}:
+	 * <s>if you want to register your own {@link ElytraChestplateItem} and<br>
+	 * it's time damage value, use something like this in {@link FMLCommonSetupEvent}</s>:
 	 * <pre> {@code
 	 * 	public static void commonSetup(FMLCommonSetupEvent event) {
 	 * 		Util.make(ElytraChestplateItem.ELYTRA_TIME_DAMAGE_VALUES, map -> {
@@ -43,7 +43,10 @@ public class ElytraChestplateItem extends ArmorItem {
 	 * 		});
 	 * 	}
 	 * } </pre>
+	 * 
+	 * @deprecated use {@link ElytraChestplateItem#register(ElytraChestplateItem, int)} instead
 	 */
+	@Deprecated(since = "1.2")
 	public static final Map<ElytraChestplateItem, Integer> ELYTRA_TIME_DAMAGE_VALUES = Maps.newHashMap();
 	
 	/**
@@ -88,6 +91,15 @@ public class ElytraChestplateItem extends ArmorItem {
 	@Override
 	public SoundEvent getEquipSound() {
 		return RNG.nextInt(2) == 0 ? SoundEvents.ARMOR_EQUIP_ELYTRA : super.getEquipSound();
+	}
+	
+	/**
+	 * Register the given {@link ElytraChestplateItem} with the given damage value to {@link ElytraChestplateItem#ELYTRA_TIME_DAMAGE_VALUES}
+	 * @param elytraChestplate The {@link ElytraChestplateItem} which should be registered
+	 * @param damageValue The damage value for the given {@link ElytraChestplateItem}
+	 */
+	public static void register(ElytraChestplateItem elytraChestplate, int damageValue) {
+		ELYTRA_TIME_DAMAGE_VALUES.put(elytraChestplate, damageValue);
 	}
 	
 }

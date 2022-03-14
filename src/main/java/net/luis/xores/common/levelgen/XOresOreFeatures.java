@@ -8,7 +8,6 @@ import net.luis.xores.init.XOresBlocks;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.features.OreFeatures;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
@@ -16,6 +15,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguratio
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration.TargetBlockState;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
+import net.minecraftforge.common.Tags;
 
 /**
  * registration class for all mod {@link ConfiguredFeature}s
@@ -40,9 +40,9 @@ public class XOresOreFeatures {
 	protected static final RuleTest DEEPSLATE_REPLACEABLES = OreFeatures.DEEPSLATE_ORE_REPLACEABLES;
 	
 	/**
-	 * custom {@link BlockListMatchTest} for the replaceables for end ores
+	 * {@link TagMatchTest} for the replaceables for end ores
 	 */
-	protected static final RuleTest END_STONE_REPLACEABLES = new BlockListMatchTest(Blocks.END_STONE);
+	protected static final RuleTest END_STONE_REPLACEABLES = new TagMatchTest(Tags.Blocks.END_STONES);
 	
 	/**
 	 * {@link List} of the {@link TargetBlockState}s for all jade ores

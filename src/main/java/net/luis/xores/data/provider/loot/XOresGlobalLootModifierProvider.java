@@ -39,7 +39,7 @@ public class XOresGlobalLootModifierProvider extends GlobalLootModifierProvider 
 	 */
 	@Override
 	protected void start() {
-		add("smelting", XOresGlobalLootModifiers.SMELTING_MODIFIER.get(), new SmeltingModifier(new LootItemCondition[] {
+		this.add("smelting", XOresGlobalLootModifiers.SMELTING_MODIFIER.get(), new SmeltingModifier(new LootItemCondition[] {
 				MatchTool.toolMatches(ItemPredicate.Builder.item().of(XOresTags.Items.BLAZING)).build()
 		}));
 	}

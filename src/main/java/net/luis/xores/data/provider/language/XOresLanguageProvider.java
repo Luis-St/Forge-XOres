@@ -59,7 +59,7 @@ public class XOresLanguageProvider extends LanguageProvider {
 		for (Item item : XOresItems.ITEMS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
 			this.add(item, getName(item.getRegistryName()));
 		}
-		this.add(XOres.XORES_TAB.getDisplayName().getString(), "XOres");
+		this.add(XOres.TAB.getDisplayName().getString(), "XOres");
 	}
 	
 	/**
