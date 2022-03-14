@@ -14,24 +14,24 @@ import com.mojang.datafixers.util.Pair;
  * @author Luis-st
  */
 
-public class ConditionChainExecutor<T> {
+public final class ConditionChainExecutor<T> {
 	
 	/**
 	 * the main if condition as a {@link Pair} with a {@link Predicate} as the condition<br>
 	 * and the {@link Consumer} as the {@code true} action
 	 */
-	protected final Pair<Predicate<T>, Consumer<T>> ifCondition;
+	private final Pair<Predicate<T>, Consumer<T>> ifCondition;
 	
 	/**
 	 * a {@link List} of all else conditions as a {@link Pair} with a<br> 
 	 * {@link Predicate} as the condition and the {@link Consumer} as the {@code true} action
 	 */
-	protected final List<Pair<Predicate<T>, Consumer<T>>> elseIFConditions;
+	private final List<Pair<Predicate<T>, Consumer<T>>> elseIFConditions;
 	
 	/**
 	 * a {@link List} of all else actions as a {@link Consumer}
 	 */
-	protected final List<Consumer<T>> elseActions;
+	private final List<Consumer<T>> elseActions;
 	
 	/**
 	 * the ignore true value,<br>
@@ -39,13 +39,13 @@ public class ConditionChainExecutor<T> {
 	 * would be ignored. This means all other conditions<br>
 	 * are also called
 	 */
-	protected boolean ignoreTrue = false;
+	private boolean ignoreTrue = false;
 	
 	/**
 	 * the call else always value,<br>
 	 * if this is {@code true} the else actions are always called.
 	 */
-	protected boolean callElseAlways = false;
+	private boolean callElseAlways = false;
 	
 	/**
 	 * constructor for the {@link ConditionChainExecutor},<br>

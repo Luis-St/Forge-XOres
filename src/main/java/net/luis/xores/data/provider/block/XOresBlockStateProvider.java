@@ -61,7 +61,7 @@ public class XOresBlockStateProvider extends BlockStateProvider {
 	/**
 	 * register a column block model for the given {@link Block}
 	 */
-	public void columnBlock(Block block) {
+	protected void columnBlock(Block block) {
 		ModelFile modelFile = this.models().cubeColumn(block.getRegistryName().getPath(), new ResourceLocation(this.blockTexture(block).toString() + "_side"), new ResourceLocation(this.blockTexture(block).toString() + "_top"));
 		this.getVariantBuilder(block).partialState().setModels(new ConfiguredModel(modelFile));
 	}
@@ -69,7 +69,7 @@ public class XOresBlockStateProvider extends BlockStateProvider {
 	/**
 	 * @return a {@link ExistingModelFile} for the given {@link Block}
 	 */
-	public ModelFile getModel(Block block) {
+	protected ModelFile getModel(Block block) {
 		return new ExistingModelFile(this.blockTexture(block), this.existingFileHelper);
 	}
 	

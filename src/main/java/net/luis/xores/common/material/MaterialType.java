@@ -22,12 +22,12 @@ public class MaterialType {
 	/**
 	 * the name of the {@link MaterialType} as a {@link ResourceLocation}
 	 */
-	protected final ResourceLocation name;
+	private final ResourceLocation name;
 	
 	/**
 	 * the type of the {@link MaterialType}
 	 */
-	protected final MaterialType.Type type;
+	private final MaterialType.Type type;
 	
 	/**
 	 * @see {@link MaterialType#MaterialType(ResourceLocation, Type)}
@@ -114,7 +114,7 @@ public class MaterialType {
 		/**
 		 * the name of the {@link Type} as a {@link String}
 		 */
-		protected final String name;
+		private final String name;
 		
 		/**
 		 * constructor for the {@link Type}

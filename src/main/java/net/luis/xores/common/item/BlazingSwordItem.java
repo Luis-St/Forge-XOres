@@ -20,9 +20,9 @@ import net.minecraft.world.item.Tier;
 public class BlazingSwordItem extends SwordItem {
 
 	/**
-	 * system time based random
+	 * system time based {@link Random}
 	 */
-	protected static final Random RNG = new Random(System.currentTimeMillis());
+	private static final Random RNG = new Random(System.currentTimeMillis());
 	
 	/**
 	 * constructor for the {@link BlazingSwordItem}

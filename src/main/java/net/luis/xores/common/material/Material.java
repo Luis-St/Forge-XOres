@@ -24,24 +24,24 @@ public class Material {
 	/**
 	 * the {@link Optional} of the {@link Item}
 	 */
-	protected final Optional<Item> item;
+	private final Optional<Item> item;
 	
 	/**
 	 * the {@link Optional} of the {@link TagKey} tag
 	 */
-	protected final Optional<TagKey<Item>> tag;
+	private final Optional<TagKey<Item>> tag;
 	
 	/**
 	 * @see {@link Material#Material(Optional, Optional)}
 	 */
-	Material(Item item) {
+	private Material(Item item) {
 		this(Optional.of(item), Optional.empty());
 	}
 	
 	/**
 	 * @see {@link Material#Material(Optional, Optional)}
 	 */
-	Material(TagKey<Item> tag) {
+	private Material(TagKey<Item> tag) {
 		this(Optional.empty(), Optional.of(tag));
 	}
 	

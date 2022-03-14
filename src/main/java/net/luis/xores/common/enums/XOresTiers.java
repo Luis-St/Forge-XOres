@@ -87,38 +87,38 @@ public enum XOresTiers implements Tier {
 	/**
 	 * the name of the {@link Tier} as a {@link ResourceLocation}
 	 */
-	protected final ResourceLocation name;
+	private final ResourceLocation name;
 	
 	/**
 	 * the uses of the {@link Tier}
 	 */
-	protected final int uses;
+	private final int uses;
 	
 	/**
 	 * the mining speed of the {@link Tier}
 	 */
-	protected final float speed;
+	private final float speed;
 	
 	/**
 	 * the attack damage bonus of the {@link Tier}
 	 */
-	protected final float attackDamageBonus;
+	private final float attackDamageBonus;
 	
 	/**
 	 * the harvest level of the {@link Tier}
 	 */
-	protected final int level;
+	private final int level;
 	
 	/**
 	 * the enchantment value of the {@link Tier}
 	 */
-	protected final int enchantmentValue;
+	private final int enchantmentValue;
 	
 	/**
 	 * the repair ingredient of the {@link Tier} as an {@link Supplier},<br>
 	 * since the value of the {@link Ingredient} needs to be lazy load
 	 */
-	protected final Supplier<Ingredient> repairIngredient;
+	private final Supplier<Ingredient> repairIngredient;
 
 	/**
 	 * constructor for the {@link XOresTiers}

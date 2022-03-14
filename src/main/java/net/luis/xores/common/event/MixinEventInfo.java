@@ -16,17 +16,17 @@ public class MixinEventInfo {
 	/**
 	 * the {@link Mixin} {@link Class} which is modified by mixin
 	 */
-	protected final Class<?> mixinClass;
+	private final Class<?> mixinClass;
 	
 	/**
 	 * the method which is modified
 	 */
-	protected final String method;
+	private final String method;
 	
 	/**
 	 * the value of {@link CallbackInfo#isCancelled()}
 	 */
-	protected final boolean canceled;
+	private final boolean canceled;
 	
 	
 	/**

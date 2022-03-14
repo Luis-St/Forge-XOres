@@ -74,7 +74,7 @@ public class OnBiomeLoadingEvent {
 	 * @param location The name of the {@link Biome} as a {@link String}
 	 * @return {@code true} if the biome is a Peak Biome
 	 */
-	protected static boolean isPeakBiome(String location) {
+	private static boolean isPeakBiome(String location) {
 		return location.equals("meadow") || location.equals("grove") || location.equals("snowy_slopes") || location.equals("frozen_peaks") || location.equals("jagged_peaks") || location.equals("stony_peaks");
 	}
 	

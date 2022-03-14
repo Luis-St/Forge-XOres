@@ -28,7 +28,7 @@ public class XOresCreativeModeTab extends CreativeModeTab {
 	 * the icon of the {@link CreativeXOreseTab} as an {@link Supplier},<br>
 	 * since the icon needs to be lazy load
 	 */
-	protected final Supplier<? extends Item> icon;
+	private final Supplier<? extends Item> icon;
 	
 	/**
 	 * constructor for the {@link XOresCreativeModeTab}

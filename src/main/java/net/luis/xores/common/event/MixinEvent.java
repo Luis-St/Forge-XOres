@@ -28,7 +28,7 @@ public abstract class MixinEvent extends Event {
 	/**
 	 * the {@link MixinEventInfo} for the event
 	 */
-	protected final MixinEventInfo mixinInfo;
+	private final MixinEventInfo mixinInfo;
 	
 	/**
 	 * constructor for the {@link MixinEvent}
@@ -58,17 +58,17 @@ public abstract class MixinEvent extends Event {
 		/**
 		 * the {@link ItemStack} which is used to hurt the enemy
 		 */
-		protected final ItemStack stack;
+		private final ItemStack stack;
 		
 		/**
 		 * the target as a {@link LivingEntity}
 		 */
-		protected final LivingEntity target;
+		private final LivingEntity target;
 		
 		/**
 		 * the attacker as a {@link LivingEntity}
 		 */
-		protected final LivingEntity attacker;
+		private final LivingEntity attacker;
 		
 		/**
 		 * constructor for the {@link DiggerItemMixinEvent}
@@ -119,17 +119,17 @@ public abstract class MixinEvent extends Event {
 		/**
 		 * the {@link Item} of the given {@link ItemStack}
 		 */
-		protected final Item item;
+		private final Item item;
 		
 		/**
 		 * the {@link ItemStack} which is used to mine the given {@link BlockState}
 		 */
-		protected final ItemStack stack;
+		private final ItemStack stack;
 		
 		/**
 		 * the {@link BlockState} which is mined
 		 */
-		protected final BlockState state;
+		private final BlockState state;
 		
 		/**
 		 * constructor for the {@link ItemStackMixinEvent}
@@ -179,27 +179,27 @@ public abstract class MixinEvent extends Event {
 		/**
 		 * the {@link ItemStack} which is used to mine the given {@link BlockState}
 		 */
-		protected final ItemStack stack;
+		private final ItemStack stack;
 		
 		/**
 		 * the {@link Level} where the given {@link BlockState} is mined in
 		 */
-		protected final Level level;
+		private final Level level;
 		
 		/**
 		 * the {@link BlockState} which is mined
 		 */
-		protected final BlockState state;
+		private final BlockState state;
 		
 		/**
 		 * the {@link BlockPos} where the given {@link BlockState} is mined in the given {@link Level}
 		 */
-		protected final BlockPos pos;
+		private final BlockPos pos;
 		
 		/**
 		 * the {@link LivingEntity} which is mine the given {@link BlockState}
 		 */
-		protected final LivingEntity entity;
+		private final LivingEntity entity;
 		
 		/**
 		 * constructor for the {@link SwordItemMixinEvent}

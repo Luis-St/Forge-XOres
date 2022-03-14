@@ -24,8 +24,7 @@ public class XOresBlockLoot extends BlockLoot {
 	
 	/**
 	 * constructor for the {@link XOresBlockLoot}<br>
-	 * constructor is package private,<br>
-	 * because a new instance should only be created in {@link XOresLootTableProvider}
+	 * package private since a new instance should only be created in {@link XOresLootTableProvider}
 	 */
 	XOresBlockLoot() {
 		

@@ -38,7 +38,7 @@ public class BlockListMatchTest extends RuleTest {
 	/**
 	 * the {@link Block}s in a {@link List}
 	 */
-	protected final List<Block> blocks;
+	private final List<Block> blocks;
 	
 	/**
 	 * constructor for the {@link BlockListMatchTest}

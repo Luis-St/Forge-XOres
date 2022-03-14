@@ -109,7 +109,7 @@ public class XOresOrePlacements {
 	 *  <li>{@link BiomeFilter}</li>
 	 * </ul>
 	 */
-	protected static List<PlacementModifier> orePlacement(PlacementModifier countPlacement, PlacementModifier heightPlacement) {
+	private static List<PlacementModifier> orePlacement(PlacementModifier countPlacement, PlacementModifier heightPlacement) {
 		return Lists.newArrayList(countPlacement, InSquarePlacement.spread(), heightPlacement, BiomeFilter.biome());
 	}
 
@@ -126,7 +126,7 @@ public class XOresOrePlacements {
 	 * @see {@link XOresOrePlacements#orePlacement(PlacementModifier, PlacementModifier)}
 	 * @see {@link XOresOrePlacements#triangleMaxGeneration()} for the maximum generation height
 	 */
-	protected static List<PlacementModifier> upperOrePlacement(int count, int minGeneration) {
+	private static List<PlacementModifier> upperOrePlacement(int count, int minGeneration) {
 		return orePlacement(CountPlacement.of(count), HeightRangePlacement.triangle(VerticalAnchor.absolute(minGeneration), triangleMaxGeneration(minGeneration)));
 	}
 	
@@ -142,7 +142,7 @@ public class XOresOrePlacements {
 	 * @see {@link XOresOrePlacements#orePlacement(PlacementModifier, PlacementModifier)}
 	 * @see {@link XOresOrePlacements#triangleMinGeneration(int)} for the minimum generation height
 	 */
-	protected static List<PlacementModifier> buriedOrePlacement(int count, int maxGeneration) {
+	private static List<PlacementModifier> buriedOrePlacement(int count, int maxGeneration) {
 		return orePlacement(CountPlacement.of(count), HeightRangePlacement.triangle(triangleMinGeneration(maxGeneration), VerticalAnchor.absolute(maxGeneration)));
 	}
 
@@ -156,7 +156,7 @@ public class XOresOrePlacements {
 	 * </ul>
 	 * @see {@link XOresOrePlacements#orePlacement(PlacementModifier, PlacementModifier)}
 	 */
-	protected static List<PlacementModifier> buriedEndOrePlacement(int count) {
+	private static List<PlacementModifier> buriedEndOrePlacement(int count) {
 		return orePlacement(CountPlacement.of(count), HeightRangePlacement.triangle(VerticalAnchor.absolute(0), VerticalAnchor.absolute(128)));
 	}
 	
@@ -172,7 +172,7 @@ public class XOresOrePlacements {
 	 * </ul>
 	 * @see {@link XOresOrePlacements#orePlacement(PlacementModifier, PlacementModifier)}
 	 */
-	protected static List<PlacementModifier> uniformOrePlacement(int count, int minGeneration, int maxGeneration) {
+	private static List<PlacementModifier> uniformOrePlacement(int count, int minGeneration, int maxGeneration) {
 		return orePlacement(CountPlacement.of(count), HeightRangePlacement.uniform(VerticalAnchor.absolute(minGeneration), VerticalAnchor.absolute(maxGeneration)));
 	}
 	
@@ -188,7 +188,7 @@ public class XOresOrePlacements {
 	 * </ul>
 	 * @see {@link XOresOrePlacements#orePlacement(PlacementModifier, PlacementModifier)}
 	 */
-	protected static List<PlacementModifier> triangleOrePlacement(int count, int minGeneration, int maxGeneration) {
+	private static List<PlacementModifier> triangleOrePlacement(int count, int minGeneration, int maxGeneration) {
 		return orePlacement(CountPlacement.of(count), HeightRangePlacement.triangle(VerticalAnchor.absolute(minGeneration), VerticalAnchor.absolute(maxGeneration)));
 	}
 	
@@ -196,7 +196,7 @@ public class XOresOrePlacements {
 	 * @param minGeneration The minimum generation height
 	 * @return the maximum generation height for a triangle ore
 	 */
-	protected static VerticalAnchor triangleMaxGeneration(int minGeneration) {
+	private static VerticalAnchor triangleMaxGeneration(int minGeneration) {
 		return VerticalAnchor.absolute(320 + (320 - minGeneration));
 	}
 	
@@ -204,7 +204,7 @@ public class XOresOrePlacements {
 	 * @param maxGeneration The maximum generation height
 	 * @return the minimum generation height for a triangle ore
 	 */
-	protected static VerticalAnchor triangleMinGeneration(int maxGeneration) {
+	private static VerticalAnchor triangleMinGeneration(int maxGeneration) {
 		return VerticalAnchor.absolute((64 + maxGeneration) * -1 - 64);
 	}
 	
@@ -214,7 +214,7 @@ public class XOresOrePlacements {
 	 * @param placedFeature The {@link PlacedFeature} which should be registered
 	 * @return the given {@link PlacedFeature}
 	 */
-	protected static Holder<PlacedFeature> register(String name, Holder<? extends ConfiguredFeature<?, ?>> configuredFeature, List<PlacementModifier> placementModifiers) {
+	private static Holder<PlacedFeature> register(String name, Holder<? extends ConfiguredFeature<?, ?>> configuredFeature, List<PlacementModifier> placementModifiers) {
 		return PlacementUtils.register(new ResourceLocation(XOres.MOD_ID, name).toString(), configuredFeature, placementModifiers);
 	}
 

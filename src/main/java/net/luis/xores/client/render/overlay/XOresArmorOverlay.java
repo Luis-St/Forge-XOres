@@ -44,7 +44,7 @@ public class XOresArmorOverlay implements IIngameOverlay {
 	/**
 	 * render the armor bar from 21 to 40
 	 */
-	protected void renderArmor(ForgeIngameGui gui, PoseStack poseStack, float partialTicks, int width, int height) { 
+	private void renderArmor(ForgeIngameGui gui, PoseStack poseStack, float partialTicks, int width, int height) { 
 		RenderSystem.enableBlend();
 		int left = width / 2 - 91;
 		int top = height - gui.left_height;

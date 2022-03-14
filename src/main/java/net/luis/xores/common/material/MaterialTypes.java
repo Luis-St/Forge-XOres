@@ -135,7 +135,7 @@ public class MaterialTypes {
 	 * @param type The {@link MaterialType} which should be registered
 	 * @return the given {@link MaterialType}
 	 */
-	protected static MaterialType register(MaterialType type) {
+	public static MaterialType register(MaterialType type) {
 		TYPES.add(type);
 		NAME_TO_TYPE.put(type.getName(), type);
 		return type;

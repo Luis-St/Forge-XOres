@@ -33,46 +33,46 @@ public class XOresOreFeatures {
 	/**
 	 * {@link TagMatchTest} for the replaceables for overworld ores
 	 */
-	protected static final RuleTest STONE_REPLACEABLES = OreFeatures.STONE_ORE_REPLACEABLES;
+	private static final RuleTest STONE_REPLACEABLES = OreFeatures.STONE_ORE_REPLACEABLES;
 	
 	/**
 	 * {@link TagMatchTest} for the replaceables for deeplsate overworld ores
 	 */
-	protected static final RuleTest DEEPSLATE_REPLACEABLES = OreFeatures.DEEPSLATE_ORE_REPLACEABLES;
+	private static final RuleTest DEEPSLATE_REPLACEABLES = OreFeatures.DEEPSLATE_ORE_REPLACEABLES;
 	
 	/**
 	 * {@link TagMatchTest} for the replaceables for end ores
 	 */
-	protected static final RuleTest END_STONE_REPLACEABLES = new TagMatchTest(Tags.Blocks.END_STONES);
+	private static final RuleTest END_STONE_REPLACEABLES = new TagMatchTest(Tags.Blocks.END_STONES);
 	
 	/**
 	 * {@link List} of the {@link TargetBlockState}s for all jade ores
 	 */
-	protected static final List<TargetBlockState> JADE_ORE_TARGETS = List.of(OreConfiguration.target(STONE_REPLACEABLES, XOresBlocks.JADE_ORE.get().defaultBlockState()),
+	private static final List<TargetBlockState> JADE_ORE_TARGETS = List.of(OreConfiguration.target(STONE_REPLACEABLES, XOresBlocks.JADE_ORE.get().defaultBlockState()),
 		OreConfiguration.target(DEEPSLATE_REPLACEABLES, XOresBlocks.DEEPSLATE_JADE_ORE.get().defaultBlockState()));
 	
 	/**
 	 * {@link List} of the {@link TargetBlockState}s for all limonite ores
 	 */
-	protected static final List<TargetBlockState> LIMONITE_ORE_TARGETS = List.of(OreConfiguration.target(STONE_REPLACEABLES, XOresBlocks.LIMONITE_ORE.get().defaultBlockState()),
+	private static final List<TargetBlockState> LIMONITE_ORE_TARGETS = List.of(OreConfiguration.target(STONE_REPLACEABLES, XOresBlocks.LIMONITE_ORE.get().defaultBlockState()),
 			OreConfiguration.target(DEEPSLATE_REPLACEABLES, XOresBlocks.DEEPSLATE_LIMONITE_ORE.get().defaultBlockState()));
 	
 	/**
 	 * {@link List} of the {@link TargetBlockState}s for all saphire ores
 	 */
-	protected static final List<TargetBlockState> SAPHIRE_ORE_TARGETS = List.of(OreConfiguration.target(STONE_REPLACEABLES, XOresBlocks.SAPHIRE_ORE.get().defaultBlockState()),
+	private static final List<TargetBlockState> SAPHIRE_ORE_TARGETS = List.of(OreConfiguration.target(STONE_REPLACEABLES, XOresBlocks.SAPHIRE_ORE.get().defaultBlockState()),
 			OreConfiguration.target(DEEPSLATE_REPLACEABLES, XOresBlocks.DEEPSLATE_SAPHIRE_ORE.get().defaultBlockState()));
 	
 	/**
 	 * {@link List} of the {@link TargetBlockState}s for all rosite ores
 	 */
-	protected static final List<TargetBlockState> ROSITE_ORE_TARGETS = List.of(OreConfiguration.target(STONE_REPLACEABLES, XOresBlocks.ROSITE_ORE.get().defaultBlockState()),
+	private static final List<TargetBlockState> ROSITE_ORE_TARGETS = List.of(OreConfiguration.target(STONE_REPLACEABLES, XOresBlocks.ROSITE_ORE.get().defaultBlockState()),
 			OreConfiguration.target(DEEPSLATE_REPLACEABLES, XOresBlocks.DEEPSLATE_ROSITE_ORE.get().defaultBlockState()));
 	
 	/**
 	 * {@link List} of the {@link TargetBlockState}s for all end ores
 	 */
-	protected static final List<TargetBlockState> ENDERITE_ORE_TARGETS = List.of(OreConfiguration.target(END_STONE_REPLACEABLES, XOresBlocks.ENDERITE_ORE.get().defaultBlockState()));
+	private static final List<TargetBlockState> ENDERITE_ORE_TARGETS = List.of(OreConfiguration.target(END_STONE_REPLACEABLES, XOresBlocks.ENDERITE_ORE.get().defaultBlockState()));
 	
 	/**
 	 * the {@link ConfiguredFeature} for the upper jade ore, ore properties:
@@ -234,7 +234,7 @@ public class XOresOreFeatures {
 	 * @param configuredFeature The {@link ConfiguredFeature} which should be registered
 	 * @return the given {@link ConfiguredFeature}
 	 */
-	protected static <FC extends FeatureConfiguration, F extends Feature<FC>> Holder<ConfiguredFeature<FC, ?>> register(String name, F feature, FC config) {
+	private static <FC extends FeatureConfiguration, F extends Feature<FC>> Holder<ConfiguredFeature<FC, ?>> register(String name, F feature, FC config) {
 		return FeatureUtils.register(new ResourceLocation(XOres.MOD_ID, name).toString(), feature, config);
 	}
 	

@@ -76,19 +76,19 @@ public enum XOresArmorMaterials implements ArmorMaterial {
 	 * 	<li>{@link EquipmentSlot#HEAD}</li>
 	 * </ol>
 	 */
-	protected static final int[] DURABILITY_PER_SLOT = new int[] {13, 15, 16, 11};
+	private static final int[] DURABILITY_PER_SLOT = new int[] {13, 15, 16, 11};
 	
 	/**
 	 * the name of the {@link ArmorMaterial} as a {@link ResourceLocation}
 	 */
-	protected final ResourceLocation name;
+	private final ResourceLocation name;
 	
 	/**
 	 * the durability multiplier of the {@link ArmorMaterial},<br>
 	 * which is applied to the {@link XOresArmorMaterials#DURABILITY_PER_SLOT}<br>
 	 * based on the {@link EquipmentSlot}
 	 */
-	protected final int durabilityMultiplier;
+	private final int durabilityMultiplier;
 	
 	/**
 	 * the slot defenses of the {@link ArmorMaterial} for the {@link EquipmentSlot},<br>
@@ -100,33 +100,33 @@ public enum XOresArmorMaterials implements ArmorMaterial {
 	 * 	<li>{@link EquipmentSlot#HEAD}</li>
 	 * </ol>
 	 */
-	protected final int[] slotDefenses;
+	private final int[] slotDefenses;
 	
 	/**
 	 * the enchantment value of the {@link ArmorMaterial}
 	 */
-	protected final int enchantmentValue;
+	private final int enchantmentValue;
 	
 	/**
 	 * the equip sound of the {@link ArmorMaterial}
 	 */
-	protected final SoundEvent sound;
+	private final SoundEvent sound;
 	
 	/**
 	 * the toughness of the {@link ArmorMaterial}
 	 */
-	protected final float toughness;
+	private final float toughness;
 	
 	/**
 	 * the knockback resistance of the {@link ArmorMaterial}
 	 */
-	protected final float knockbackResistance;
+	private final float knockbackResistance;
 	
 	/**
 	 * the repair ingredient of the {@link ArmorMaterial} as an {@link Supplier},<br>
 	 * since the value of the {@link Ingredient} needs to be lazy load
 	 */
-	protected final Supplier<Ingredient> repairIngredient;
+	private final Supplier<Ingredient> repairIngredient;
 
 	/**
 	 * constructor for the {@link XOresArmorMaterials}

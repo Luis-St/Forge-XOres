@@ -47,7 +47,7 @@ public class OnCommonSetupEvent {
 	 * @param attribute The {@link RangedAttribute}
 	 * @param maxValue The new max value
 	 */
-	protected static void replaceAttributeValue(RangedAttribute attribute, double maxValue) {
+	private static void replaceAttributeValue(RangedAttribute attribute, double maxValue) {
 		attribute.maxValue = maxValue;
 	}
 	

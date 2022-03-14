@@ -50,9 +50,9 @@ public class ElytraChestplateItem extends ArmorItem {
 	public static final Map<ElytraChestplateItem, Integer> ELYTRA_TIME_DAMAGE_VALUES = Maps.newHashMap();
 	
 	/**
-	 * system time based random
+	 * system time based {@link Random}
 	 */
-	protected static final Random RNG = new Random(System.currentTimeMillis());
+	private static final Random RNG = new Random(System.currentTimeMillis());
 	
 	/**
 	 * constructor for the {@link ElytraChestplateItem}

@@ -57,7 +57,7 @@ public class MaterialSet extends ForgeRegistryEntry<MaterialSet> {
 
 	/**
 	 * constructor for the {@link MaterialSet},<br>
-	 * private, since a new {@link MaterialSet} should be create with the {@link Builder}
+	 * private since a new {@link MaterialSet} should be create with the {@link Builder}
 	 */
 	private MaterialSet(Map<MaterialType, Material> materialSet, Optional<Supplier<MaterialSet>> upgradeSet) {
 		this.materialSet = materialSet;
@@ -209,18 +209,18 @@ public class MaterialSet extends ForgeRegistryEntry<MaterialSet> {
 		/**
 		 * the {@link Map} of {@link MaterialType}s and the related {@link Material}
 		 */
-		protected final Map<MaterialType, Material> materialSet;
+		private final Map<MaterialType, Material> materialSet;
 		
 		/**
 		 * the {@link Supplier} of a {@link MaterialSet}
 		 */
-		protected Supplier<MaterialSet> upgradeSet = null;
+		private Supplier<MaterialSet> upgradeSet = null;
 
 		/**
 		 * constructor for the {@link MaterialSet},<br>
-		 * package private, since you should use {@link MaterialSet#of()}
+		 * private since you should use {@link MaterialSet#of()}
 		 */
-		Builder() {
+		private Builder() {
 			this.materialSet = Maps.newHashMap();
 		}
 
