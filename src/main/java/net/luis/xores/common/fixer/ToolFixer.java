@@ -9,8 +9,8 @@ import javax.annotation.Nullable;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import com.mojang.datafixers.util.Either;
 
-import net.luis.xores.XOres;
 import net.luis.xores.init.XOresTags;
 import net.luis.xores.mixin.ItemStackMixin;
 import net.minecraft.core.Holder;
@@ -46,12 +46,7 @@ public class ToolFixer implements VanillaFixer {
 	 * {@link ToolFixer} instance use this field,<br>
 	 * if you want to use the {@link ToolFixer}
 	 */
-	public static final ToolFixer INSTANCE = new ToolFixer() {
-		@Override
-		public void init() {
-			this.register();
-		}
-	};
+	public static final ToolFixer INSTANCE = new ToolFixer();
 	
 	/**
 	 * constant for the hand harvest level
@@ -136,12 +131,12 @@ public class ToolFixer implements VanillaFixer {
 	/**
 	 * {@link Map} of all registered {@link Block}s with the related block harvest level
 	 */
-	protected final Map<Integer, List<Block>> blocks;
+	protected final Map<Integer, List<Either<TagKey<Block>, Block>>> blocks;
 	
 	/**
 	 * {@link Map} of all registered {@link Item}s with the related tool harvest level
 	 */
-	protected final Map<Integer, List<Item>> tools;
+	protected final Map<Integer, List<Either<TagKey<Item>, Item>>> tools;
 	
 	/**
 	 * constructor for the {@link ToolFixer},<br>
@@ -150,6 +145,7 @@ public class ToolFixer implements VanillaFixer {
 	private ToolFixer() {
 		this.blocks = Maps.newHashMap();
 		this.tools = Maps.newHashMap();
+		this.register();
 	}
 	
 	/**
@@ -160,44 +156,28 @@ public class ToolFixer implements VanillaFixer {
 	 * </ul>
 	 */
 	protected void register() {
-		this.registerBlocks(1, this.getBlockValues(XOresTags.Blocks.NEEDS_TOOL_LEVEL_1));
-		this.registerBlocks(2, this.getBlockValues(XOresTags.Blocks.NEEDS_TOOL_LEVEL_2));
-		this.registerBlocks(3, this.getBlockValues(XOresTags.Blocks.NEEDS_TOOL_LEVEL_3));
-		this.registerBlocks(4, this.getBlockValues(XOresTags.Blocks.NEEDS_TOOL_LEVEL_4));
-		this.registerBlocks(5, this.getBlockValues(XOresTags.Blocks.NEEDS_TOOL_LEVEL_5));
-		this.registerBlocks(6, this.getBlockValues(XOresTags.Blocks.NEEDS_TOOL_LEVEL_6));
-		this.registerTools(0, this.getItemValues(XOresTags.Items.TOOL_LEVEL_0));
-		this.registerTools(1, this.getItemValues(XOresTags.Items.TOOL_LEVEL_1));
-		this.registerTools(2, this.getItemValues(XOresTags.Items.TOOL_LEVEL_2));
-		this.registerTools(3, this.getItemValues(XOresTags.Items.TOOL_LEVEL_3));
-		this.registerTools(4, this.getItemValues(XOresTags.Items.TOOL_LEVEL_4));
-		this.registerTools(5, this.getItemValues(XOresTags.Items.TOOL_LEVEL_5));
-		this.registerTools(6, this.getItemValues(XOresTags.Items.TOOL_LEVEL_6));
+		this.registerBlockTag(1, XOresTags.Blocks.NEEDS_TOOL_LEVEL_1);
+		this.registerBlockTag(2, XOresTags.Blocks.NEEDS_TOOL_LEVEL_2);
+		this.registerBlockTag(3, XOresTags.Blocks.NEEDS_TOOL_LEVEL_3);
+		this.registerBlockTag(4, XOresTags.Blocks.NEEDS_TOOL_LEVEL_4);
+		this.registerBlockTag(5, XOresTags.Blocks.NEEDS_TOOL_LEVEL_5);
+		this.registerBlockTag(6, XOresTags.Blocks.NEEDS_TOOL_LEVEL_6);
+		this.registerToolTag(0, XOresTags.Items.TOOL_LEVEL_0);
+		this.registerToolTag(1, XOresTags.Items.TOOL_LEVEL_1);
+		this.registerToolTag(2, XOresTags.Items.TOOL_LEVEL_2);
+		this.registerToolTag(3, XOresTags.Items.TOOL_LEVEL_3);
+		this.registerToolTag(4, XOresTags.Items.TOOL_LEVEL_4);
+		this.registerToolTag(5, XOresTags.Items.TOOL_LEVEL_5);
+		this.registerToolTag(6, XOresTags.Items.TOOL_LEVEL_6);
 	}
 	
 	/**
+	 * @param registry The {@link Registry} from which the values should get
 	 * @param key The {@link TagKey} for which the values should get
-	 * @return a {@link List} of all {@link Block}s for the given {@link TagKey}
+	 * @return a {@link List} of all values for the given {@link TagKey}
 	 */
-	@SuppressWarnings("deprecation")
-	protected List<Block> getBlockValues(TagKey<Block> key) {
-		return Lists.newArrayList(Registry.BLOCK.getTagOrEmpty(key)).stream().map(Holder::value).map(Block.class::cast).collect(Collectors.toList());
-	}
-	
-	/**
-	 * @param key The {@link TagKey} for which the values should get
-	 * @return a {@link List} of all {@link Item}s for the given {@link TagKey}
-	 */
-	@SuppressWarnings("deprecation")
-	protected List<Item> getItemValues(TagKey<Item> key) {
-		return Lists.newArrayList(Registry.ITEM.getTagOrEmpty(key)).stream().map(Holder::value).map(Item.class::cast).collect(Collectors.toList());
-	}
-	
-	/**
-	 * @see {@link ToolFixer#registerBlocks(int, List)}
-	 */
-	public void registerBlocks(int level, Block... blocks) {
-		this.registerBlocks(level, Lists.newArrayList(blocks));
+	private <T> List<T> getTagValues(Registry<T> registry, TagKey<T> key) {
+		return Lists.newArrayList(registry.getTagOrEmpty(key)).stream().map(Holder::value).collect(Collectors.toList());
 	}
 	
 	/**
@@ -205,18 +185,31 @@ public class ToolFixer implements VanillaFixer {
 	 * @param level The level to which the {@link Block}s are registered to
 	 * @param blocks The {@link Block}s which should be registered
 	 */
-	protected void registerBlocks(int level, List<Block> blocks) {
-		if (!this.blocks.containsKey(level)) {
-			this.blocks.put(level, Lists.newArrayList());
-		}
-		this.blocks.get(level).addAll(blocks);
+	public void registerBlocks(int level, Block... blocks) {
+		this.registerBlocks(level, Lists.newArrayList(blocks).stream().map((block) -> {
+			return Either.<TagKey<Block>, Block>right(block);
+		}).collect(Collectors.toList()));
 	}
 	
 	/**
-	 * @see {@link ToolFixer#registerTools(int, List)}
+	 * register the given {@link TagKey} to the given block harvest level
+	 * @param level The level to which the {@link TagKey} is registered to
+	 * @param tagKey The {@link TagKey} which should be registered
 	 */
-	public void registerTools(int level, Item... tools) {
-		this.registerTools(level, Lists.newArrayList(tools));
+	public void registerBlockTag(int level, TagKey<Block> tagKey) {
+		this.registerBlocks(level, Lists.newArrayList(Either.left(tagKey)));
+	}
+	
+	/**
+	 * register the given values to the given block harvest level
+	 * @param level The level to which the values are registered to
+	 * @param values The values which should be registered
+	 */
+	private void registerBlocks(int level, List<Either<TagKey<Block>, Block>> values) {
+		if (!this.blocks.containsKey(level)) {
+			this.blocks.put(level, Lists.newArrayList());
+		}
+		this.blocks.get(level).addAll(values);
 	}
 	
 	/**
@@ -224,20 +217,48 @@ public class ToolFixer implements VanillaFixer {
 	 * @param level The to which the {@link Item}s are registered to
 	 * @param tools The {@link Item}s which should be registered
 	 */
-	protected void registerTools(int level, List<Item> tools) {
+	public void registerTools(int level, Item... tools) {
+		this.registerTools(level, Lists.newArrayList(tools).stream().map((tool) -> {
+			return Either.<TagKey<Item>, Item>right(tool);
+		}).collect(Collectors.toList()));
+	}
+	
+	/**
+	 * register the given {@link TagKey} to the given tool harvest level
+	 * @param level The to which the {@link TagKey} is registered to
+	 * @param tools The {@link TagKey} which should be registered
+	 */
+	public void registerToolTag(int level, TagKey<Item> tagKey) {
+		this.registerTools(level, Lists.newArrayList(Either.left(tagKey)));
+	}
+	
+	/**
+	 * register the given values to the given tool harvest level
+	 * @param level The to which the values are registered to
+	 * @param tools The values which should be registered
+	 */
+	private void registerTools(int level, List<Either<TagKey<Item>, Item>> values) {
 		if (!this.tools.containsKey(level)) {
 			this.tools.put(level, Lists.newArrayList());
 		}
-		this.tools.get(level).addAll(tools);
+		this.tools.get(level).addAll(values);
 	}
 	
 	/**
 	 * @return all registered {@link Block}s as a {@link List}
 	 */
+	@SuppressWarnings("deprecation")
 	public List<Block> getRegisteredBlocks() {
 		List<Block> registeredBlocks = Lists.newArrayList();
-		for (List<Block> blocks : Lists.newArrayList(this.blocks.values().iterator())) {
-			registeredBlocks.addAll(blocks);
+		for (List<Either<TagKey<Block>, Block>> blocks : Lists.newArrayList(this.blocks.values().iterator())) {
+			for (Either<TagKey<Block>, Block> either : blocks) {
+				either.ifLeft((tag) -> {
+					registeredBlocks.addAll(ToolFixer.this.getTagValues(Registry.BLOCK, tag));
+				});
+				either.ifRight((block) -> {
+					registeredBlocks.add(block);
+				});
+			}
 		}
 		return registeredBlocks;
 	}
@@ -248,18 +269,24 @@ public class ToolFixer implements VanillaFixer {
 	 * @return {@code true} if the given {@link Block} is registered else {@code false}
 	 */
 	public boolean isBlockRegistered(Block block) {
-		return this.getRegisteredBlocks().stream().anyMatch(registeredBlock -> {
-			return block == registeredBlock;
-		});
+		return this.getRegisteredBlocks().contains(block);
 	}
 	
 	/**
 	 * @return all registered {@link Item}s as a {@link List}
 	 */
+	@SuppressWarnings("deprecation")
 	public List<Item> getRegisteredTools() {
 		List<Item> registeredTools = Lists.newArrayList();
-		for (List<Item> tools : Lists.newArrayList(this.tools.values().iterator())) {
-			registeredTools.addAll(tools);
+		for (List<Either<TagKey<Item>, Item>> tools : Lists.newArrayList(this.tools.values().iterator())) {
+			for (Either<TagKey<Item>, Item> either : tools) {
+				either.ifLeft((tag) -> {
+					registeredTools.addAll(ToolFixer.this.getTagValues(Registry.ITEM, tag));
+				});
+				either.ifRight((tool) -> {
+					registeredTools.add(tool);
+				});
+			}
 		}
 		return registeredTools;
 	}
@@ -270,9 +297,7 @@ public class ToolFixer implements VanillaFixer {
 	 * @return {@code true} if the given {@link Item} is registered else {@code false}
 	 */
 	public boolean isToolRegistered(Item tool) {
-		return this.getRegisteredTools().stream().anyMatch(registeredTool -> {
-			return tool == registeredTool;
-		});
+		return this.getRegisteredTools().contains(tool);
 	}
 	
 	/**
@@ -284,30 +309,20 @@ public class ToolFixer implements VanillaFixer {
 	 */
 	@SuppressWarnings("deprecation")
 	public boolean isCorrectToolForDrops(Item tool, ItemStack stack, BlockState state) {
-		XOres.LOGGER.info("isCorrectToolForDrops");
 		Block block = state.getBlock();
 		int tierLevel = -1;
 		int toolLevel = this.getLevelForTool(tool);
-		XOres.LOGGER.info("block: {}", block);
-		XOres.LOGGER.info("tierLevel: {}", tierLevel);
-		XOres.LOGGER.info("toolLevel: {}", toolLevel);
 		if (tool instanceof DiggerItem diggerItem) {
 			tierLevel = diggerItem.getTier().getLevel();
-			XOres.LOGGER.info("instance of DiggerItem {}", tierLevel);
 		}
 		if (tierLevel > -1 && tierLevel != toolLevel) {
-			XOres.LOGGER.info("{} && {}", tierLevel > -1, tierLevel != toolLevel);
 			return false;
 		} else {
 			int blockLevel = this.getLevelForBlock(block);
-			XOres.LOGGER.info("{}", blockLevel);
 			if (tierLevel >= blockLevel || blockLevel == 0) {
-				XOres.LOGGER.info("{} || {}", tierLevel >= blockLevel, blockLevel == 0);
 				TagKey<Block> blocks = this.getTagForTool(tool);
-				XOres.LOGGER.info("{} {}", blocks, blocks != null ? this.getTagForTool(tool) : null);
 				if (blocks != null) {
-					XOres.LOGGER.info("{} is in {}", this.getBlockValues(blocks), block);
-					return this.getBlockValues(blocks).contains(block);
+					return this.getTagValues(Registry.BLOCK, blocks).contains(block);
 				}
 				return true;
 			}
@@ -320,7 +335,7 @@ public class ToolFixer implements VanillaFixer {
 	 * @return the {@link Tag} for the given {@link Item}, if the {@link Item} is a vanilla tool else {@code null}
 	 */
 	@Nullable
-	protected TagKey<Block> getTagForTool(Item tool) {
+	private TagKey<Block> getTagForTool(Item tool) {
 		if (tool instanceof PickaxeItem) {
 			return BlockTags.MINEABLE_WITH_PICKAXE;
 		} else if (tool instanceof AxeItem) {
@@ -337,28 +352,58 @@ public class ToolFixer implements VanillaFixer {
 	 * @param block The {@link Block} for which the level should be get
 	 * @return the block harvest level for the given {@link Block}, if the {@link Block} is registered else {@code 0}
 	 */
+	@SuppressWarnings("deprecation")
 	public int getLevelForBlock(Block block) {
-		for (Entry<Integer, List<Block>> entry : this.blocks.entrySet()) {
-			int level = entry.getKey();
-			if (entry.getValue().contains(block)) {
-				return level;
+		if (this.getRegisteredBlocks().contains(block)) {
+			for (Entry<Integer, List<Block>> entry : this.map(Registry.BLOCK, this.blocks).entrySet()) {
+				if (entry.getValue().contains(block)) {
+					return entry.getKey();
+				}
 			}
 		}
-		return 0;
+		return Integer.MAX_VALUE;
 	}
 	
 	/**
 	 * @param tool The {@link Item} for which the level should be get
 	 * @return the tool harvest level for the given {@link Item}, if the {@link Item} is registered else {@code 0}
 	 */
+	@SuppressWarnings("deprecation")
 	public int getLevelForTool(Item tool) {
-		for (Entry<Integer, List<Item>> entry : this.tools.entrySet()) {
-			int level = entry.getKey();
-			if (entry.getValue().contains(tool)) {
-				return level;
+		if (this.getRegisteredTools().contains(tool)) {
+			for (Entry<Integer, List<Item>> entry : this.map(Registry.ITEM, this.tools).entrySet()) {
+				if (entry.getValue().contains(tool)) {
+					return entry.getKey();
+				}
 			}
 		}
-		return 0;
+		return Integer.MAX_VALUE;
+	}
+	
+	/**
+	 * maps the given {@link Map} to a new {@link Map} with pattern {@code <Integer, List<T>>}
+	 * @param registry The {@link Registry} which is used to get the {@link Tag} values<br>
+	 * from the given {@link TagKey} in the {@link Map}
+	 * @param map The {@link Map} which should be mapped to the pattern 
+	 * @return a new {@link Map} with pattern {@code <Integer, List<T>>}
+	 */
+	private <T> Map<Integer, List<T>> map(Registry<T> registry, Map<Integer, List<Either<TagKey<T>, T>>> map) {
+		Map<Integer, List<T>> newMap = Maps.newHashMap();
+		for (Entry<Integer, List<Either<TagKey<T>, T>>> entry : map.entrySet()) {
+			int level = entry.getKey();
+			if (!newMap.containsKey(level)) {
+				newMap.put(level, Lists.newArrayList());
+			}
+			for (Either<TagKey<T>, T> either : entry.getValue()) {
+				either.ifLeft((tagValue) -> {
+					newMap.get(level).addAll(ToolFixer.this.getTagValues(registry, tagValue));
+				});
+				either.ifRight((value) -> {
+					newMap.get(level).add(value);
+				});
+			}
+		}
+		return newMap;
 	}
 	
 }
