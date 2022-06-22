@@ -1,11 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "blazing",
-  "pattern": [
-    "###",
-    "#I#",
-    "###"
-  ],
   "key": {
     "#": {
       "item": "minecraft:blaze_rod"
@@ -14,6 +9,11 @@
       "item": "minecraft:gold_block"
     }
   },
+  "pattern": [
+    "###",
+    "#I#",
+    "###"
+  ],
   "result": {
     "item": "xores:blazing_ingot"
   }

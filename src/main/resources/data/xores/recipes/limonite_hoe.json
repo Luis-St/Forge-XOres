@@ -1,19 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "limonite",
-  "pattern": [
-    "## ",
-    " I ",
-    " I "
-  ],
   "key": {
-    "I": {
-      "item": "minecraft:stick"
-    },
     "#": {
       "item": "xores:limonite_ingot"
+    },
+    "I": {
+      "item": "minecraft:stick"
     }
   },
+  "pattern": [
+    "## ",
+    "I  ",
+    "I  "
+  ],
   "result": {
     "item": "xores:limonite_hoe"
   }

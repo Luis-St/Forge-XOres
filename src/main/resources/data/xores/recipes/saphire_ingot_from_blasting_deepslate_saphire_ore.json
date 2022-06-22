@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:blasting",
+  "cookingtime": 100,
+  "experience": 0.75,
+  "group": "saphire",
+  "ingredient": {
+    "item": "xores:deepslate_saphire_ore"
+  },
+  "result": "xores:saphire_ingot"
+}

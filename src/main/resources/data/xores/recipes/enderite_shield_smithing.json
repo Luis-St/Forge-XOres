@@ -1,10 +1,10 @@
 {
   "type": "minecraft:smithing",
-  "base": {
-    "item": "xores:netherite_shield"
-  },
   "addition": {
     "item": "xores:enderite_ingot"
+  },
+  "base": {
+    "item": "xores:netherite_shield"
   },
   "result": {
     "item": "xores:enderite_shield"

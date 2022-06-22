@@ -1,10 +1,10 @@
 {
   "type": "minecraft:smelting",
+  "cookingtime": 200,
+  "experience": 1.0,
   "group": "limonite",
   "ingredient": {
-    "tag": "xores:ores/limonite_ore"
+    "item": "xores:limonite_ore"
   },
-  "result": "xores:limonite_ingot",
-  "experience": 1.0,
-  "cookingtime": 200
+  "result": "xores:limonite_ingot"
 }

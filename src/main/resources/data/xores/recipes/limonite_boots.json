@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "limonite",
-  "pattern": [
-    "   ",
-    "# #",
-    "# #"
-  ],
   "key": {
     "#": {
       "item": "xores:limonite_ingot"
     }
   },
+  "pattern": [
+    "   ",
+    "# #",
+    "# #"
+  ],
   "result": {
     "item": "xores:limonite_boots"
   }

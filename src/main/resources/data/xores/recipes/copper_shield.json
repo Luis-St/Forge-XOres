@@ -1,19 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "copper",
+  "key": {
+    "#": {
+      "item": "minecraft:copper_ingot"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
   "pattern": [
     "#I#",
     "###",
     " # "
   ],
-  "key": {
-    "I": {
-      "item": "minecraft:iron_ingot"
-    },
-    "#": {
-      "item": "minecraft:copper_ingot"
-    }
-  },
   "result": {
     "item": "xores:copper_shield"
   }
