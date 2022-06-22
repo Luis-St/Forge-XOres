@@ -5,8 +5,8 @@ import java.util.stream.Collectors;
 import net.luis.xores.XOres;
 import net.luis.xores.common.XOresCreativeModeTab;
 import net.luis.xores.data.OnGatherDataEvent;
-import net.luis.xores.init.XOresBlocks;
 import net.luis.xores.init.XOresItems;
+import net.luis.xores.init.block.XOresBlocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
 import net.minecraft.resources.ResourceLocation;
@@ -14,6 +14,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.LanguageProvider;
 import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 /**
@@ -54,10 +55,10 @@ public class XOresLanguageProvider extends LanguageProvider {
 	@Override
 	protected void addTranslations() {
 		for (Block block : XOresBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
-			this.add(block, getName(block.getRegistryName()));
+			this.add(block, getName(ForgeRegistries.BLOCKS.getKey(block)));
 		}
 		for (Item item : XOresItems.ITEMS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
-			this.add(item, getName(item.getRegistryName()));
+			this.add(item, getName(ForgeRegistries.ITEMS.getKey(item)));
 		}
 		this.add(XOres.TAB.getDisplayName().getString(), "XOres");
 	}

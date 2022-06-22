@@ -3,8 +3,8 @@ package net.luis.xores.common;
 import java.util.function.Supplier;
 
 import net.luis.xores.XOres;
-import net.luis.xores.init.XOresBlockItems;
 import net.luis.xores.init.XOresItems;
+import net.luis.xores.init.block.XOresBlockItems;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Item.Properties;

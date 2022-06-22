@@ -1,20 +1,5 @@
 package net.luis.xores.data.provider.tag;
 
-import static net.luis.xores.init.XOresBlocks.BLOCKS;
-import static net.luis.xores.init.XOresBlocks.DEEPSLATE_JADE_ORE;
-import static net.luis.xores.init.XOresBlocks.DEEPSLATE_LIMONITE_ORE;
-import static net.luis.xores.init.XOresBlocks.DEEPSLATE_ROSITE_ORE;
-import static net.luis.xores.init.XOresBlocks.DEEPSLATE_SAPHIRE_ORE;
-import static net.luis.xores.init.XOresBlocks.ENDERITE_BLOCK;
-import static net.luis.xores.init.XOresBlocks.ENDERITE_ORE;
-import static net.luis.xores.init.XOresBlocks.JADE_BLOCK;
-import static net.luis.xores.init.XOresBlocks.JADE_ORE;
-import static net.luis.xores.init.XOresBlocks.LIMONITE_BLOCK;
-import static net.luis.xores.init.XOresBlocks.LIMONITE_ORE;
-import static net.luis.xores.init.XOresBlocks.ROSITE_BLOCK;
-import static net.luis.xores.init.XOresBlocks.ROSITE_ORE;
-import static net.luis.xores.init.XOresBlocks.SAPHIRE_BLOCK;
-import static net.luis.xores.init.XOresBlocks.SAPHIRE_ORE;
 import static net.luis.xores.init.XOresTags.Blocks.BASE_STONE_END;
 import static net.luis.xores.init.XOresTags.Blocks.ENDERITE_ORES;
 import static net.luis.xores.init.XOresTags.Blocks.JADE_ORES;
@@ -23,19 +8,33 @@ import static net.luis.xores.init.XOresTags.Blocks.ORE_BLOCKS;
 import static net.luis.xores.init.XOresTags.Blocks.ROSITE_ORES;
 import static net.luis.xores.init.XOresTags.Blocks.SAPHIRE_ORES;
 import static net.luis.xores.init.XOresTags.Blocks.STONES;
+import static net.luis.xores.init.block.XOresBlocks.BLOCKS;
+import static net.luis.xores.init.block.XOresBlocks.DEEPSLATE_JADE_ORE;
+import static net.luis.xores.init.block.XOresBlocks.DEEPSLATE_LIMONITE_ORE;
+import static net.luis.xores.init.block.XOresBlocks.DEEPSLATE_ROSITE_ORE;
+import static net.luis.xores.init.block.XOresBlocks.DEEPSLATE_SAPHIRE_ORE;
+import static net.luis.xores.init.block.XOresBlocks.ENDERITE_BLOCK;
+import static net.luis.xores.init.block.XOresBlocks.ENDERITE_ORE;
+import static net.luis.xores.init.block.XOresBlocks.JADE_BLOCK;
+import static net.luis.xores.init.block.XOresBlocks.JADE_ORE;
+import static net.luis.xores.init.block.XOresBlocks.LIMONITE_BLOCK;
+import static net.luis.xores.init.block.XOresBlocks.LIMONITE_ORE;
+import static net.luis.xores.init.block.XOresBlocks.ROSITE_BLOCK;
+import static net.luis.xores.init.block.XOresBlocks.ROSITE_ORE;
+import static net.luis.xores.init.block.XOresBlocks.SAPHIRE_BLOCK;
+import static net.luis.xores.init.block.XOresBlocks.SAPHIRE_ORE;
 import static net.minecraft.tags.BlockTags.MINEABLE_WITH_PICKAXE;
 
 import java.util.stream.Collectors;
 
 import net.luis.xores.XOres;
 import net.luis.xores.data.OnGatherDataEvent;
-import net.luis.xores.init.XOresBlocks;
 import net.luis.xores.init.XOresTags;
+import net.luis.xores.init.block.XOresBlocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.Tag;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -64,7 +63,7 @@ public class XOresBlockTagsProvider extends BlockTagsProvider {
 	}
 	
 	/**
-	 * register all {@link Block} {@link Tag}s
+	 * register all {@link Block} Tags
 	 */
 	@Override
 	protected void addTags() {

@@ -2,7 +2,7 @@ package net.luis.xores.data.provider.loottable;
 
 import java.util.stream.Collectors;
 
-import net.luis.xores.init.XOresBlocks;
+import net.luis.xores.init.block.XOresBlocks;
 import net.minecraft.data.loot.BlockLoot;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.world.level.block.Block;

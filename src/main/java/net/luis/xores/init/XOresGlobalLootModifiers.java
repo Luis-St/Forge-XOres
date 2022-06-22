@@ -18,7 +18,7 @@ public class XOresGlobalLootModifiers {
 	/**
 	 * {@link DeferredRegister} for {@link GlobalLootModifierSerializer}s, used to register all mod {@link GlobalLootModifierSerializer}s
 	 */
-	public static final DeferredRegister<GlobalLootModifierSerializer<?>> LOOT_MODIFIERS = DeferredRegister.create(ForgeRegistries.LOOT_MODIFIER_SERIALIZERS, XOres.MOD_ID);
+	public static final DeferredRegister<GlobalLootModifierSerializer<?>> LOOT_MODIFIERS = DeferredRegister.create(ForgeRegistries.Keys.LOOT_MODIFIER_SERIALIZERS, XOres.MOD_ID);
 	
 	/**
 	 * {@link GlobalLootModifierSerializer} for the {@link SmeltingModifier}

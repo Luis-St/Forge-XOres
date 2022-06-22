@@ -9,9 +9,9 @@ import net.luis.xores.common.material.MaterialSet;
 import net.luis.xores.common.material.MaterialTypes;
 import net.luis.xores.common.util.ConditionChainExecutor;
 import net.luis.xores.data.provider.recipe.builder.XOresShapedRecipeBuilder;
-import net.luis.xores.init.MaterialSets;
 import net.luis.xores.init.XOresItems;
-import net.luis.xores.init.XOresMaterialSets;
+import net.luis.xores.init.material.MaterialSets;
+import net.luis.xores.init.material.XOresMaterialSets;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger.TriggerInstance;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
@@ -29,6 +29,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.SmeltingRecipe;
 import net.minecraft.world.item.crafting.UpgradeRecipe;
 import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 /**
@@ -469,7 +470,7 @@ public class XOresRecipeProvider extends RecipeProvider {
 	 * @return the id for the given {@link Item} as a {@link String}
 	 */
 	protected static String getId(Item item) {
-		return item.getRegistryName().getPath();
+		return ForgeRegistries.ITEMS.getKey(item).getPath();
 	}
 	
 	/**
@@ -496,7 +497,7 @@ public class XOresRecipeProvider extends RecipeProvider {
 	 * @return the group name for the given {@link Item} as a {@link String}
 	 */
 	protected static String getGroup(Item item) {
-		String path = item.getRegistryName().getPath();
+		String path = ForgeRegistries.ITEMS.getKey(item).getPath();
 		if (!path.contains("_")) {
 			return path;
 		}
@@ -513,7 +514,7 @@ public class XOresRecipeProvider extends RecipeProvider {
 	 */
 	protected static String getGroup(Material material) {
 		if (material.isItem()) {
-			String path = material.itemOrThrow().getRegistryName().getPath();
+			String path = ForgeRegistries.ITEMS.getKey(material.itemOrThrow()).getPath();
 			if (!path.contains("_")) {
 				return path;
 			}

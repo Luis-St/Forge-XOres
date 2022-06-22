@@ -4,12 +4,14 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import net.luis.xores.common.XOresCreativeModeTab;
-import net.luis.xores.init.MaterialSets;
-import net.luis.xores.init.XOresBlockItems;
-import net.luis.xores.init.XOresBlocks;
 import net.luis.xores.init.XOresGlobalLootModifiers;
 import net.luis.xores.init.XOresItems;
-import net.luis.xores.init.XOresMaterialSets;
+import net.luis.xores.init.block.XOresBlockItems;
+import net.luis.xores.init.block.XOresBlocks;
+import net.luis.xores.init.level.XOresOreFeatures;
+import net.luis.xores.init.level.XOresOrePlacements;
+import net.luis.xores.init.material.MaterialSets;
+import net.luis.xores.init.material.XOresMaterialSets;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -60,6 +62,8 @@ public class XOres {
 		MaterialSets.MATERIALS.register(modEventBus);
 		XOresMaterialSets.MATERIALS.register(modEventBus);	
 		XOresGlobalLootModifiers.LOOT_MODIFIERS.register(modEventBus);
+		XOresOreFeatures.CONFIGURED_FEATURES.register(modEventBus);
+		XOresOrePlacements.PLACED_FEATURES.register(modEventBus);
 	}
 	
 }

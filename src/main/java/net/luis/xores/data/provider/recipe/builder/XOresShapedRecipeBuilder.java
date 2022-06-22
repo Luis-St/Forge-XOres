@@ -14,6 +14,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.ShapedRecipe;
 import net.minecraft.world.level.ItemLike;
+import net.minecraftforge.registries.ForgeRegistries;
 
 /**
  * extension of {@link ShapedRecipeBuilder}, used to create easier {@link ShapedRecipe}s<br>
@@ -178,7 +179,7 @@ public class XOresShapedRecipeBuilder extends ShapedRecipeBuilder {
 	 * @return the id for the given {@link Item} as a {@link String}
 	 */
 	protected final String getId(Item item) {
-		return item.getRegistryName().getPath();
+		return ForgeRegistries.ITEMS.getKey(item).getPath();
 	}
 	
 	/**
@@ -206,7 +207,7 @@ public class XOresShapedRecipeBuilder extends ShapedRecipeBuilder {
 	 */
 	protected final String getGroup(Material material) {
 		if (material.isItem()) {
-			String path = material.itemOrThrow().getRegistryName().getPath();
+			String path = ForgeRegistries.ITEMS.getKey(material.itemOrThrow()).getPath();
 			if (!path.contains("_")) {
 				return path;
 			}

@@ -16,7 +16,6 @@ import net.luis.xores.mixin.ItemStackMixin;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.Tag;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.DiggerItem;
@@ -331,8 +330,8 @@ public class ToolFixer implements VanillaFixer {
 	}
 	
 	/**
-	 * @param tool The {@link Item} for which the {@link Tag} should be get
-	 * @return the {@link Tag} for the given {@link Item}, if the {@link Item} is a vanilla tool else {@code null}
+	 * @param tool The {@link Item} for which the Tag should be get
+	 * @return the Tag for the given {@link Item}, if the {@link Item} is a vanilla tool else {@code null}
 	 */
 	@Nullable
 	private TagKey<Block> getTagForTool(Item tool) {
@@ -382,7 +381,7 @@ public class ToolFixer implements VanillaFixer {
 	
 	/**
 	 * maps the given {@link Map} to a new {@link Map} with pattern {@code <Integer, List<T>>}
-	 * @param registry The {@link Registry} which is used to get the {@link Tag} values<br>
+	 * @param registry The {@link Registry} which is used to get the Tag values<br>
 	 * from the given {@link TagKey} in the {@link Map}
 	 * @param map The {@link Map} which should be mapped to the pattern 
 	 * @return a new {@link Map} with pattern {@code <Integer, List<T>>}

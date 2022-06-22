@@ -79,15 +79,14 @@ import net.luis.xores.XOres;
 import net.luis.xores.common.item.ElytraChestplateItem;
 import net.luis.xores.common.item.modded.XOresShieldItem;
 import net.luis.xores.data.OnGatherDataEvent;
-import net.luis.xores.init.XOresBlocks;
 import net.luis.xores.init.XOresItems;
 import net.luis.xores.init.XOresTags;
+import net.luis.xores.init.block.XOresBlocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.Tag;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.BowItem;
@@ -127,7 +126,7 @@ public class XOresItemTagsProvider extends ItemTagsProvider {
 	}
 	
 	/**
-	 * register all {@link Item} {@link Tag}s
+	 * register all {@link Item} Tags
 	 */
 	@Override
 	@SuppressWarnings("deprecation")

@@ -25,25 +25,18 @@ import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.ShieldItem;
 import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.item.SwordItem;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistryEntry;;
+import net.minecraftforge.registries.DeferredRegister;;
 
 /**
- * set of {@link Material}s, extension of {@link ForgeRegistryEntry},<br>
- * can be registered via:
- * <ul>
- * 	<li>{@link RegistryEvent}</li>
- * 	<li>{@link DeferredRegister}</li>
- * <ul>
+ * set of {@link Material}s,<br>
+ * can be registered via {@link DeferredRegister}
  * 
  * @author Luis-st
  * 
  * @see {@link Material}
- * @see {@link ForgeRegistryEntry}
  */
 
-public class MaterialSet extends ForgeRegistryEntry<MaterialSet> {
+public class MaterialSet {
 
 	/**
 	 * the {@link Map} of {@link MaterialType}s and the related {@link Material}

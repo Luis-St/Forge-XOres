@@ -4,7 +4,7 @@ import java.util.stream.Collectors;
 
 import net.luis.xores.XOres;
 import net.luis.xores.data.OnGatherDataEvent;
-import net.luis.xores.init.XOresBlocks;
+import net.luis.xores.init.block.XOresBlocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
 import net.minecraft.resources.ResourceLocation;
@@ -15,6 +15,7 @@ import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.client.model.generators.ModelFile.ExistingModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 /**
@@ -62,7 +63,7 @@ public class XOresBlockStateProvider extends BlockStateProvider {
 	 * register a column block model for the given {@link Block}
 	 */
 	protected void columnBlock(Block block) {
-		ModelFile modelFile = this.models().cubeColumn(block.getRegistryName().getPath(), new ResourceLocation(this.blockTexture(block).toString() + "_side"), new ResourceLocation(this.blockTexture(block).toString() + "_top"));
+		ModelFile modelFile = this.models().cubeColumn(ForgeRegistries.BLOCKS.getKey(block).getPath(), new ResourceLocation(this.blockTexture(block).toString() + "_side"), new ResourceLocation(this.blockTexture(block).toString() + "_top"));
 		this.getVariantBuilder(block).partialState().setModels(new ConfiguredModel(modelFile));
 	}
 	

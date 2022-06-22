@@ -9,6 +9,7 @@ import javax.annotation.Nullable;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraftforge.registries.ForgeRegistries;
 
 /**
  * summary of {@link Item} and {@link TagKey} tag, into one class
@@ -213,7 +214,7 @@ public class Material {
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		if (this.isItem()) {
-			builder.append("Item Material of ").append(this.itemOrThrow().getRegistryName());
+			builder.append("Item Material of ").append(ForgeRegistries.ITEMS.getKey(this.itemOrThrow()));
 		} else if (this.isTag()) {
 			builder.append("Tag Material of ").append(this.tagOrThrow().location());
 		} else {

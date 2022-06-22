@@ -1,10 +1,8 @@
 package net.luis.xores.common.loot;
 
-import java.util.List;
-
-import com.google.common.collect.Lists;
 import com.google.gson.JsonObject;
 
+import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.luis.xores.init.XOresTags.Items;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.SimpleContainer;
@@ -41,8 +39,8 @@ public class SmeltingModifier extends LootModifier {
 	 * apply the loot modifier to loot table
 	 */
 	@Override
-	protected List<ItemStack> doApply(List<ItemStack> generatedLoot, LootContext context) {
-		List<ItemStack> loot = Lists.newArrayList();
+	protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
+		ObjectArrayList<ItemStack> loot = new ObjectArrayList<>();
 		generatedLoot.forEach(stack -> {
 			loot.add(SmeltingModifier.this.smelt(stack, context));
 		});
