@@ -1,27 +1,20 @@
 package net.luis.xores.data.provider.recipe;
 
+import static net.luis.xores.init.XOresItems.*;
+import static net.luis.xores.init.block.XOresBlockItems.*;
 import java.util.function.Consumer;
-import java.util.stream.Collectors;
 
 import net.luis.xores.XOres;
-import net.luis.xores.common.material.Material;
-import net.luis.xores.common.material.MaterialSet;
-import net.luis.xores.common.material.MaterialTypes;
-import net.luis.xores.common.util.ConditionChainExecutor;
-import net.luis.xores.data.provider.recipe.builder.XOresShapedRecipeBuilder;
 import net.luis.xores.init.XOresItems;
-import net.luis.xores.init.material.MaterialSets;
-import net.luis.xores.init.material.XOresMaterialSets;
-import net.minecraft.advancements.critereon.InventoryChangeTrigger.TriggerInstance;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
 import net.minecraft.data.recipes.UpgradeRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.BlastingRecipe;
@@ -30,7 +23,6 @@ import net.minecraft.world.item.crafting.SmeltingRecipe;
 import net.minecraft.world.item.crafting.UpgradeRecipe;
 import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
 
 /**
  * extension of {@link RecipeProvider}, called by {@link GatherDataEvent},<br>
@@ -56,379 +48,224 @@ public class XOresRecipeProvider extends RecipeProvider {
 	 */
 	@Override
 	protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
-		for (MaterialSet set : XOresMaterialSets.MATERIALS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
-			this.materialSetRecipes(consumer, set);
-		}
-		for (MaterialSet set : MaterialSets.MATERIALS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
-			if (set != MaterialSets.WOODEN.get() && set != MaterialSets.LEATHER.get() && set != MaterialSets.STONE.get() && set != MaterialSets.CHAINMAIL.get()) {
-				this.vanillaMaterialSetRecipes(consumer, set);
-			}
-		}
-		Item blazingIngot = XOresItems.BLAZING_INGOT.get();
-		Item goldBlock = Items.GOLD_BLOCK;
-		XOresShapedRecipeBuilder.shaped(blazingIngot).group(getGroup(blazingIngot)).define('#', Items.BLAZE_ROD).define('I', goldBlock).pattern("###", "#I#", "###").unlockedBy("has_" + getId(goldBlock), has(goldBlock)).save(consumer);
-		Item roseQuartz = XOresItems.ROSE_QUARTZ.get();
-		Item rositeIngot = XOresItems.ROSITE_INGOT.get();
-		ShapelessRecipeBuilder.shapeless(roseQuartz).group(getGroup(roseQuartz)).requires(Items.QUARTZ, 2).requires(rositeIngot, 2).unlockedBy("has_" + getId(rositeIngot), has(rositeIngot)).save(consumer);
-		Item polishedRoseQuartz = XOresItems.POLISHED_ROSE_QUARTZ.get();
-		ShapelessRecipeBuilder.shapeless(polishedRoseQuartz).group(getGroup(polishedRoseQuartz)).requires(roseQuartz, 4).unlockedBy("has_" + getId(roseQuartz), has(roseQuartz)).save(consumer);
-		Item netheriteIngot = Items.NETHERITE_INGOT;
-		Item enderiteIngot = XOresItems.ENDERITE_INGOT.get();
-		Item nightIngot = XOresItems.NIGHT_INGOT.get();
-		this.smithingRecipe(consumer, Items.BOW, netheriteIngot, XOresItems.NETHERITE_BOW.get());
-		this.smithingRecipe(consumer, Items.CROSSBOW, netheriteIngot, XOresItems.NETHERITE_CROSSBOW.get());
-		this.smithingRecipe(consumer, XOresItems.NETHERITE_BOW.get(), enderiteIngot, XOresItems.ENDERITE_BOW.get());
-		this.smithingRecipe(consumer, XOresItems.NETHERITE_CROSSBOW.get(), enderiteIngot, XOresItems.ENDERITE_CROSSBOW.get());
-		this.smithingRecipe(consumer, XOresItems.ENDERITE_BOW.get(), nightIngot, XOresItems.NIGHT_BOW.get());
-		this.smithingRecipe(consumer, XOresItems.ENDERITE_CROSSBOW.get(), nightIngot, XOresItems.NIGHT_CROSSBOW.get());
-		ShapelessRecipeBuilder.shapeless(XOresItems.STEEL_INGOT.get()).group(getGroup(XOresItems.STEEL_INGOT.get())).unlockedBy("has_" + getId(Items.IRON_BLOCK), has(Items.IRON_BLOCK)).requires(Items.IRON_BLOCK, 9).save(consumer);
-		Item enderiteScrap = XOresItems.ENDERITE_SCRAP.get();
-		ResourceLocation location = new ResourceLocation(XOres.MOD_ID, getId(enderiteIngot) + "_from_scrap");
-		ShapelessRecipeBuilder.shapeless(enderiteIngot).group(getGroup(enderiteIngot)).unlockedBy("has_" + getId(enderiteScrap), has(enderiteScrap)).requires(enderiteScrap, 9).save(consumer, location);
-		ShapelessRecipeBuilder.shapeless(nightIngot).group(getGroup(nightIngot)).unlockedBy("has_" + getId(XOresItems.NIGHT_SCRAP.get()), has(XOresItems.NIGHT_SCRAP.get())).requires(XOresItems.NIGHT_SCRAP.get(), 4).save(consumer);
-		ShapelessRecipeBuilder.shapeless(XOresItems.NIGHT_SCRAP.get()).group(getGroup(nightIngot)).requires(XOresItems.STEEL_INGOT.get(), 2).requires(netheriteIngot, 2).unlockedBy("has_" + getId(netheriteIngot), has(netheriteIngot)).save(consumer);
+		// vanilla additional recipes
+		this.shieldRecipe(consumer, Items.GOLD_INGOT, GOLDEN_SHIELD.get());
+		this.shieldRecipe(consumer, Items.COPPER_INGOT, COPPER_SHIELD.get());
+		this.shieldRecipe(consumer, Items.IRON_INGOT, IRON_SHIELD.get());
+		this.shieldRecipe(consumer, Items.DIAMOND, DIAMOND_SHIELD.get());
+		this.smithingRecipe(consumer, DIAMOND_SHIELD.get(), Items.NETHERITE_INGOT, NETHERITE_SHIELD.get());
+		this.elytraChestplateRecipe(consumer, Items.DIAMOND_CHESTPLATE, Items.ELYTRA, DIAMOND_ELYTRA_CHESTPLATE.get());
+		this.smithingRecipe(consumer, DIAMOND_ELYTRA_CHESTPLATE.get(), Items.NETHERITE_INGOT, NETHERITE_ELYTRA_CHESTPLATE.get());
+		this.smithingRecipe(consumer, Items.BOW, Items.NETHERITE_INGOT, NETHERITE_BOW.get());
+		this.smithingRecipe(consumer, Items.CROSSBOW, Items.NETHERITE_INGOT, NETHERITE_CROSSBOW.get());
+		// jade recipes
+		this.oreRecipes(consumer, JADE_ORE.get(), JADE_INGOT.get());
+		this.oreRecipes(consumer, DEEPSLATE_JADE_ORE.get(), JADE_INGOT.get());
+		this.blockRecipes(consumer, JADE_INGOT.get(), JADE_BLOCK.get());
+		this.swordRecipe(consumer, JADE_INGOT.get(), JADE_SWORD.get());
+		this.pickaxeRecipe(consumer, JADE_INGOT.get(), JADE_PICKAXE.get());
+		this.axeRecipe(consumer, JADE_INGOT.get(), JADE_AXE.get());
+		this.shovelRecipe(consumer, JADE_INGOT.get(), JADE_SHOVEL.get());
+		this.hoeRecipe(consumer, JADE_INGOT.get(), JADE_HOE.get());
+		this.helmetRecipe(consumer, JADE_INGOT.get(), JADE_HELMET.get());
+		this.chestplateRecipe(consumer, JADE_INGOT.get(), JADE_CHESTPLATE.get());
+		this.leggingsRecipe(consumer, JADE_INGOT.get(), JADE_LEGGINGS.get());
+		this.bootsRecipe(consumer, JADE_INGOT.get(), JADE_BOOTS.get());
+		// blazing recipes
+		ShapedRecipeBuilder.shaped(BLAZING_INGOT.get()).group(getGroup(BLAZING_INGOT.get())).define('#', Items.BLAZE_ROD).define('I', Items.GOLD_BLOCK).pattern("###").pattern("#I#").pattern("###").unlockedBy("has_" + getId(Items.BLAZE_ROD), has(Items.BLAZE_ROD)).unlockedBy("has_" + getId(Items.GOLD_BLOCK), has(Items.GOLD_BLOCK)).save(consumer);
+		this.swordRecipe(consumer, BLAZING_INGOT.get(), BLAZING_SWORD.get());
+		this.pickaxeRecipe(consumer, BLAZING_INGOT.get(), BLAZING_PICKAXE.get());
+		this.axeRecipe(consumer, BLAZING_INGOT.get(), BLAZING_AXE.get());
+		this.shovelRecipe(consumer, BLAZING_INGOT.get(), BLAZING_SHOVEL.get());
+		this.hoeRecipe(consumer, BLAZING_INGOT.get(), BLAZING_HOE.get());
+		this.helmetRecipe(consumer, BLAZING_INGOT.get(), BLAZING_HELMET.get());
+		this.chestplateRecipe(consumer, BLAZING_INGOT.get(), BLAZING_CHESTPLATE.get());
+		this.leggingsRecipe(consumer, BLAZING_INGOT.get(), BLAZING_LEGGINGS.get());
+		this.bootsRecipe(consumer, BLAZING_INGOT.get(), BLAZING_BOOTS.get());
+		// saphire recipes
+		this.oreRecipes(consumer, SAPHIRE_ORE.get(), SAPHIRE_INGOT.get());
+		this.oreRecipes(consumer, DEEPSLATE_SAPHIRE_ORE.get(), SAPHIRE_INGOT.get());
+		this.blockRecipes(consumer, SAPHIRE_INGOT.get(), SAPHIRE_BLOCK.get());
+		this.swordRecipe(consumer, SAPHIRE_INGOT.get(), SAPHIRE_SWORD.get());
+		this.shieldRecipe(consumer, SAPHIRE_INGOT.get(), SAPHIRE_SHIELD.get());
+		this.pickaxeRecipe(consumer, SAPHIRE_INGOT.get(), SAPHIRE_PICKAXE.get());
+		this.axeRecipe(consumer, SAPHIRE_INGOT.get(), SAPHIRE_AXE.get());
+		this.shovelRecipe(consumer, SAPHIRE_INGOT.get(), SAPHIRE_SHOVEL.get());
+		this.hoeRecipe(consumer, SAPHIRE_INGOT.get(), SAPHIRE_HOE.get());
+		this.helmetRecipe(consumer, SAPHIRE_INGOT.get(), SAPHIRE_HELMET.get());
+		this.chestplateRecipe(consumer, SAPHIRE_INGOT.get(), SAPHIRE_CHESTPLATE.get());
+		this.leggingsRecipe(consumer, SAPHIRE_INGOT.get(), SAPHIRE_LEGGINGS.get());
+		this.bootsRecipe(consumer, SAPHIRE_INGOT.get(), SAPHIRE_BOOTS.get());
+		// limonite recipes
+		this.oreRecipes(consumer, LIMONITE_ORE.get(), LIMONITE_INGOT.get());
+		this.oreRecipes(consumer, DEEPSLATE_LIMONITE_ORE.get(), LIMONITE_INGOT.get());
+		this.blockRecipes(consumer, LIMONITE_INGOT.get(), LIMONITE_BLOCK.get());
+		this.swordRecipe(consumer, LIMONITE_INGOT.get(), LIMONITE_SWORD.get());
+		this.pickaxeRecipe(consumer, LIMONITE_INGOT.get(), LIMONITE_PICKAXE.get());
+		this.axeRecipe(consumer, LIMONITE_INGOT.get(), LIMONITE_AXE.get());
+		this.shovelRecipe(consumer, LIMONITE_INGOT.get(), LIMONITE_SHOVEL.get());
+		this.hoeRecipe(consumer, LIMONITE_INGOT.get(), LIMONITE_HOE.get());
+		this.helmetRecipe(consumer, LIMONITE_INGOT.get(), LIMONITE_HELMET.get());
+		this.chestplateRecipe(consumer, LIMONITE_INGOT.get(), LIMONITE_CHESTPLATE.get());
+		this.leggingsRecipe(consumer, LIMONITE_INGOT.get(), LIMONITE_LEGGINGS.get());
+		this.bootsRecipe(consumer, LIMONITE_INGOT.get(), LIMONITE_BOOTS.get());
+		// rosite recipes
+		this.oreRecipes(consumer, ROSITE_ORE.get(), ROSITE_INGOT.get());
+		this.oreRecipes(consumer, DEEPSLATE_ROSITE_ORE.get(), ROSITE_INGOT.get());
+		this.blockRecipes(consumer, ROSITE_INGOT.get(), ROSITE_BLOCK.get());
+		this.swordRecipe(consumer, ROSITE_INGOT.get(), ROSITE_SWORD.get());
+		this.pickaxeRecipe(consumer, ROSITE_INGOT.get(), ROSITE_PICKAXE.get());
+		this.axeRecipe(consumer, ROSITE_INGOT.get(), ROSITE_AXE.get());
+		this.shovelRecipe(consumer, ROSITE_INGOT.get(), ROSITE_SHOVEL.get());
+		this.hoeRecipe(consumer, ROSITE_INGOT.get(), ROSITE_HOE.get());
+		// rose quartz recipes
+		ShapelessRecipeBuilder.shapeless(ROSE_QUARTZ.get()).group(getGroup(ROSE_QUARTZ.get())).requires(Items.QUARTZ, 2).requires(ROSITE_INGOT.get(), 2).unlockedBy("has_" + getId(Items.QUARTZ), has(Items.QUARTZ)).unlockedBy("has_" + getId(ROSITE_INGOT.get()), has(ROSITE_INGOT.get())).save(consumer);
+		ShapelessRecipeBuilder.shapeless(POLISHED_ROSE_QUARTZ.get()).group(getGroup(POLISHED_ROSE_QUARTZ.get())).requires(ROSE_QUARTZ.get(), 4).unlockedBy("has_" + getId(ROSE_QUARTZ.get()), has(ROSE_QUARTZ.get())).save(consumer);
+		this.swordRecipe(consumer, POLISHED_ROSE_QUARTZ.get(), ROSE_QUARTZ_SWORD.get());
+		this.pickaxeRecipe(consumer, POLISHED_ROSE_QUARTZ.get(), ROSE_QUARTZ_PICKAXE.get());
+		this.axeRecipe(consumer, POLISHED_ROSE_QUARTZ.get(), ROSE_QUARTZ_AXE.get());
+		this.shovelRecipe(consumer, POLISHED_ROSE_QUARTZ.get(), ROSE_QUARTZ_SHOVEL.get());
+		this.hoeRecipe(consumer, POLISHED_ROSE_QUARTZ.get(), ROSE_QUARTZ_HOE.get());
+		// enderite recipes
+		this.oreRecipes(consumer, ENDERITE_ORE.get(), ENDERITE_SCRAP.get(), 400);
+		ShapelessRecipeBuilder.shapeless(ENDERITE_INGOT.get()).group(getGroup(ENDERITE_INGOT.get())).requires(ENDERITE_SCRAP.get(), 9).unlockedBy("has_" + getId(ENDERITE_SCRAP.get()), has(ENDERITE_SCRAP.get())).save(consumer, new ResourceLocation(XOres.MOD_ID, getId(ENDERITE_INGOT.get()) + "_from_scrap"));
+		this.blockRecipes(consumer, ENDERITE_INGOT.get(), ENDERITE_BLOCK.get());
+		this.smithingRecipe(consumer, Items.NETHERITE_SWORD, ENDERITE_INGOT.get(), ENDERITE_SWORD.get());
+		this.smithingRecipe(consumer, NETHERITE_SHIELD.get(), ENDERITE_INGOT.get(), ENDERITE_SHIELD.get());
+		this.smithingRecipe(consumer, NETHERITE_BOW.get(), ENDERITE_INGOT.get(), ENDERITE_BOW.get());
+		this.smithingRecipe(consumer, NETHERITE_CROSSBOW.get(), ENDERITE_INGOT.get(), ENDERITE_CROSSBOW.get());
+		this.smithingRecipe(consumer, Items.NETHERITE_PICKAXE, ENDERITE_INGOT.get(), ENDERITE_PICKAXE.get());
+		this.smithingRecipe(consumer, Items.NETHERITE_AXE, ENDERITE_INGOT.get(), ENDERITE_AXE.get());
+		this.smithingRecipe(consumer, Items.NETHERITE_SHOVEL, ENDERITE_INGOT.get(), ENDERITE_SHOVEL.get());
+		this.smithingRecipe(consumer, Items.NETHERITE_HOE, ENDERITE_INGOT.get(), ENDERITE_HOE.get());
+		this.smithingRecipe(consumer, Items.NETHERITE_HELMET, ENDERITE_INGOT.get(), ENDERITE_HELMET.get());
+		this.smithingRecipe(consumer, Items.NETHERITE_CHESTPLATE, ENDERITE_INGOT.get(), ENDERITE_CHESTPLATE.get());
+		this.smithingRecipe(consumer, ENDERITE_CHESTPLATE.get(), Items.ELYTRA, ENDERITE_ELYTRA_CHESTPLATE.get());
+		this.smithingRecipe(consumer, Items.NETHERITE_LEGGINGS, ENDERITE_INGOT.get(), ENDERITE_LEGGINGS.get());
+		this.smithingRecipe(consumer, Items.NETHERITE_BOOTS, ENDERITE_INGOT.get(), ENDERITE_BOOTS.get());
+		// steel recipes
+		ShapelessRecipeBuilder.shapeless(STEEL_INGOT.get()).group(getGroup(STEEL_INGOT.get())).requires(Items.IRON_BLOCK, 9).unlockedBy("has_" + getId(Items.IRON_BLOCK), has(Items.IRON_BLOCK)).save(consumer);
+		this.swordRecipe(consumer, STEEL_INGOT.get(), STEEL_SWORD.get());
+		this.pickaxeRecipe(consumer, STEEL_INGOT.get(), STEEL_PICKAXE.get());
+		this.axeRecipe(consumer, STEEL_INGOT.get(), STEEL_AXE.get());
+		this.shovelRecipe(consumer, STEEL_INGOT.get(), STEEL_SHOVEL.get());
+		this.hoeRecipe(consumer, STEEL_INGOT.get(), STEEL_HOE.get());
+		// night recipes
+		ShapelessRecipeBuilder.shapeless(NIGHT_SCRAP.get()).group(getGroup(NIGHT_INGOT.get())).requires(STEEL_INGOT.get(), 2).requires(Items.NETHERITE_INGOT, 2).unlockedBy("has_" + getId(STEEL_INGOT.get()), has(STEEL_INGOT.get())).unlockedBy("has_" + getId(Items.NETHERITE_INGOT), has(Items.NETHERITE_INGOT)).save(consumer);
+		ShapelessRecipeBuilder.shapeless(NIGHT_INGOT.get()).group(getGroup(NIGHT_INGOT.get())).requires(NIGHT_SCRAP.get(), 4).unlockedBy("has_" + getId(NIGHT_SCRAP.get()), has(NIGHT_SCRAP.get())).save(consumer);
+		this.smithingRecipe(consumer, ENDERITE_SWORD.get(), NIGHT_INGOT.get(), NIGHT_SWORD.get());
+		this.smithingRecipe(consumer, ENDERITE_SHIELD.get(), NIGHT_INGOT.get(), NIGHT_SHIELD.get());
+		this.smithingRecipe(consumer, ENDERITE_BOW.get(), NIGHT_INGOT.get(), NIGHT_BOW.get());
+		this.smithingRecipe(consumer, ENDERITE_CROSSBOW.get(), NIGHT_INGOT.get(), NIGHT_CROSSBOW.get());
+		this.smithingRecipe(consumer, ENDERITE_PICKAXE.get(), NIGHT_INGOT.get(), NIGHT_PICKAXE.get());
+		this.smithingRecipe(consumer, ENDERITE_AXE.get(), NIGHT_INGOT.get(), NIGHT_AXE.get());
+		this.smithingRecipe(consumer, ENDERITE_SHOVEL.get(), NIGHT_INGOT.get(), NIGHT_SHOVEL.get());
+		this.smithingRecipe(consumer, ENDERITE_HOE.get(), NIGHT_INGOT.get(), NIGHT_HOE.get());
+		this.smithingRecipe(consumer, ENDERITE_HELMET.get(), NIGHT_INGOT.get(), NIGHT_HELMET.get());
+		this.smithingRecipe(consumer, ENDERITE_CHESTPLATE.get(), NIGHT_INGOT.get(), NIGHT_CHESTPLATE.get());
+		this.smithingRecipe(consumer, NIGHT_CHESTPLATE.get(), Items.ELYTRA, NIGHT_ELYTRA_CHESTPLATE.get());
+		this.smithingRecipe(consumer, ENDERITE_LEGGINGS.get(), NIGHT_INGOT.get(), NIGHT_LEGGINGS.get());
+		this.smithingRecipe(consumer, ENDERITE_BOOTS.get(), NIGHT_INGOT.get(), NIGHT_BOOTS.get());
 	}
 	
 	/**
-	 * generates the recipes for a vanilla {@link MaterialSet}
-	 * 
-	 * @see {@link XOresRecipeProvider#shieldRecipe(Consumer, MaterialSet)}
-	 * @see {@link XOresRecipeProvider#elytraChestplateRecipe(Consumer, MaterialSet)}
+	 * generates the smelting and blasting recipe for a ore
 	 */
-	protected void vanillaMaterialSetRecipes(Consumer<FinishedRecipe> consumer, MaterialSet set) {
-		this.shieldRecipe(consumer, set);
-		this.elytraChestplateRecipe(consumer, set);
+	protected void oreRecipes(Consumer<FinishedRecipe> consumer, Item ore, Item ingot) {
+		oreRecipes(consumer, ore, ingot, 200);
 	}
 	
 	/**
-	 * generates the recipes for a mod {@link MaterialSet}
-	 * 
-	 * @see {@link XOresRecipeProvider#oreMaterialRecipes(Consumer, MaterialSet)}
-	 * @see {@link XOresRecipeProvider#materialBlockRecipes(Consumer, MaterialSet)}
-	 * @see {@link XOresRecipeProvider#swordRecipe(Consumer, MaterialSet)}
-	 * @see {@link XOresRecipeProvider#shieldRecipe(Consumer, MaterialSet)}
-	 * @see {@link XOresRecipeProvider#pickaxeRecipe(Consumer, MaterialSet)}
-	 * @see {@link XOresRecipeProvider#axeRecipe(Consumer, MaterialSet)}
-	 * @see {@link XOresRecipeProvider#shovelRecipe(Consumer, MaterialSet)}
-	 * @see {@link XOresRecipeProvider#hoeRecipe(Consumer, MaterialSet)}
-	 * @see {@link XOresRecipeProvider#helmetRecipe(Consumer, MaterialSet)}
-	 * @see {@link XOresRecipeProvider#chestplateRecipe(Consumer, MaterialSet)}
-	 * @see {@link XOresRecipeProvider#elytraChestplateRecipe(Consumer, MaterialSet)}
-	 * @see {@link XOresRecipeProvider#leggingsRecipe(Consumer, MaterialSet)}
-	 * @see {@link XOresRecipeProvider#bootsRecipe(Consumer, MaterialSet)}
+	 * generates the smelting and blasting recipe for a ore
 	 */
-	protected void materialSetRecipes(Consumer<FinishedRecipe> consumer, MaterialSet set) {
-		this.oreMaterialRecipes(consumer, set);
-		this.materialBlockRecipes(consumer, set);
-		this.swordRecipe(consumer, set);
-		this.shieldRecipe(consumer, set);
-		this.pickaxeRecipe(consumer, set);
-		this.axeRecipe(consumer, set);
-		this.shovelRecipe(consumer, set);
-		this.hoeRecipe(consumer, set);
-		this.helmetRecipe(consumer, set);
-		this.chestplateRecipe(consumer, set);
-		this.elytraChestplateRecipe(consumer, set);
-		this.leggingsRecipe(consumer, set);
-		this.bootsRecipe(consumer, set);
+	protected void oreRecipes(Consumer<FinishedRecipe> consumer, Item ore, Item ingot, int time) {
+		this.smeltingRecipe(consumer, Ingredient.of(ore), ingot, 1.0F, time, getGroup(ingot), "_from_smelting_" + getId(ore));
+		this.blastingRecipe(consumer, Ingredient.of(ore), ingot, 0.75F, time / 2, getGroup(ingot), "_from_blasting_" + getId(ore));
 	}
 	
 	/**
-	 * generates the ore recipes, if there is a ore present in the given {@link MaterialSet}
-	 * 
-	 * @see {@link XOresRecipeProvider#oreRecipes(Consumer, Material, Item)}
+	 * generates the block recipes
 	 */
-	protected void oreMaterialRecipes(Consumer<FinishedRecipe> consumer, MaterialSet materialSet) {
-		materialSet.ifPresent(MaterialTypes.ORE, (ore) -> {
-			ConditionChainExecutor.<MaterialSet>of((set) -> {
-				return set.has(MaterialTypes.MATERIAL_PART);
-			}, (set) -> {
-				Item resultItem = set.get(MaterialTypes.MATERIAL_PART).itemOrThrow();
-				set.ifPresent(MaterialTypes.ORE, Material::self, (oreMaterial) -> {
-					this.oreRecipes(consumer, oreMaterial, resultItem);
-				});
-			}).appendElseIf((set) -> {
-				return set.has(MaterialTypes.MATERIAL);
-			}, (set) -> {
-				Item resultItem = set.get(MaterialTypes.MATERIAL).itemOrThrow();
-				set.ifPresent(MaterialTypes.ORE, Material::self, (oreMaterial) -> {
-					this.oreRecipes(consumer, oreMaterial, resultItem);
-				});
-			}).execute(materialSet);
-		});
-	}
-	
-	/**
-	 * generates the smelting and blasting recipe, for the given {@link Material} as ore<br>
-	 * and the given {@link Item} as result of the recipes
-	 * 
-	 * @see {@link XOresRecipeProvider#smeltingRecipe(Consumer, Ingredient, Item, float, String, String)}
-	 * @see {@link XOresRecipeProvider#blastingRecipe(Consumer, Ingredient, Item, float, String, String)}
-	 */
-	protected void oreRecipes(Consumer<FinishedRecipe> consumer, Material oreMaterial, Item result) {
-		this.smeltingRecipe(consumer, oreMaterial.asIngredient(), result, 1.0F, getGroup(result), "_from_smelting_" + getId(oreMaterial));
-		this.blastingRecipe(consumer, oreMaterial.asIngredient(), result, 0.75F, getGroup(result), "_from_blasting_" + getId(oreMaterial));
-	}
-	
-	/**
-	 * generates the block recipes, if there is a block present in the given {@link MaterialSet}
-	 */
-	protected void materialBlockRecipes(Consumer<FinishedRecipe> consumer, MaterialSet set) {
-		set.ifPresent(MaterialTypes.MATERIAL, MaterialTypes.BLOCK, Material::itemOrThrow, (item, block) -> {
-			ShapelessRecipeBuilder.shapeless(block).group(getGroup(item)).unlockedBy("has_" + getId(item), has(item)).requires(item, 9).save(consumer);
-			ShapelessRecipeBuilder.shapeless(item, 9).group(getGroup(item)).unlockedBy("has_" + getId(block), has(block)).requires(block).save(consumer);
-		});
+	protected void blockRecipes(Consumer<FinishedRecipe> consumer, Item ingot, Item block) {
+		ShapelessRecipeBuilder.shapeless(block).group(getGroup(ingot)).unlockedBy("has_" + getId(ingot), has(ingot)).requires(ingot, 9).save(consumer);
+		ShapelessRecipeBuilder.shapeless(ingot, 9).group(getGroup(ingot)).unlockedBy("has_" + getId(block), has(block)).requires(block).save(consumer);
 	}
 
 	/**
-	 * generates the sword recipes, if there is a sword present in the given {@link MaterialSet}
+	 * generates the sword recipes
 	 */
-	protected void swordRecipe(Consumer<FinishedRecipe> consumer, MaterialSet materialSet) {
-		materialSet.ifPresent(MaterialTypes.SWORD, Material::itemOrThrow, (sword) -> {
-			ConditionChainExecutor.<MaterialSet>of((set) -> {
-				return set.has(MaterialTypes.MATERIAL) && set.hasUpgrade(MaterialTypes.SWORD);
-			}, (set) -> {
-				this.smithingRecipe(consumer, set.getUpgrade(MaterialTypes.SWORD).itemOrThrow(), set.get(MaterialTypes.MATERIAL).itemOrThrow(), sword);
-			}).appendElseIf((set) -> {
-				return set.has(MaterialTypes.MATERIAL);
-			}, (set) -> {
-				Material material = set.get(MaterialTypes.MATERIAL);
-				XOresShapedRecipeBuilder.shaped(sword).group(material).define('I', Items.STICK).define('#', material).pattern(" # ", " # ", " I ").unlockedBy(material).save(consumer);
-			}).appendElseIf((set) -> {
-				return set.has(MaterialTypes.WEAPON_MATERIAL);
-			}, (set) -> {
-				Material material = materialSet.get(MaterialTypes.WEAPON_MATERIAL);
-				XOresShapedRecipeBuilder.shaped(sword).group(material).define('I', Items.STICK).define('#', material).pattern(" # ", " # ", " I ").unlockedBy(material).save(consumer);
-			}).execute(materialSet);
-		});
+	protected void swordRecipe(Consumer<FinishedRecipe> consumer, Item ingot, Item sword) {
+		ShapedRecipeBuilder.shaped(sword).group(getGroup(ingot)).define('I', Items.STICK).define('#', ingot).pattern(" # ").pattern(" # ").pattern(" I ").unlockedBy("has_" + getId(ingot), has(ingot)).save(consumer);
 	}
 	
 	/**
-	 * generates the shield recipes, if there is a shield present in the given {@link MaterialSet}
+	 * generates the shield recipes
 	 */
-	protected void shieldRecipe(Consumer<FinishedRecipe> consumer, MaterialSet materialSet) {
-		materialSet.ifPresent(MaterialTypes.SHIELD, Material::itemOrThrow, (shield) -> {
-			ConditionChainExecutor.<MaterialSet>of((set) -> {
-				return set.has(MaterialTypes.MATERIAL) && set.hasUpgrade(MaterialTypes.SHIELD);
-			}, (set) -> {
-				this.smithingRecipe(consumer, set.getUpgrade(MaterialTypes.SHIELD).itemOrThrow(), set.get(MaterialTypes.MATERIAL).itemOrThrow(), shield);
-			}).appendElseIf((set) -> {
-				return set.has(MaterialTypes.MATERIAL);
-			}, (set) -> {
-				Material material = set.get(MaterialTypes.MATERIAL);
-				XOresShapedRecipeBuilder.shaped(shield).group(material).define('I', Items.IRON_INGOT).define('#', material).pattern("#I#", "###", " # ").unlockedBy(material).save(consumer);
-			}).appendElseIf((set) -> {
-				return set.has(MaterialTypes.WEAPON_MATERIAL);
-			}, (set) -> {
-				Material material = materialSet.get(MaterialTypes.WEAPON_MATERIAL);
-				XOresShapedRecipeBuilder.shaped(shield).group(material).define('I', Items.IRON_INGOT).define('#', material).pattern("#I#", "###", " # ").unlockedBy(material).save(consumer);
-			}).execute(materialSet);
-		});
+	protected void shieldRecipe(Consumer<FinishedRecipe> consumer, Item ingot, Item shield) {
+		ShapedRecipeBuilder.shaped(shield).group(getGroup(ingot)).define('I', Items.IRON_INGOT).define('#', ingot).pattern("#I#").pattern("###").pattern(" # ").unlockedBy("has_" + getId(ingot), has(ingot)).save(consumer);
 	}
 	
 	/**
-	 * generates the pickaxe recipes, if there is a pickaxe present in the given {@link MaterialSet}
+	 * generates the pickaxe recipes
 	 */
-	protected void pickaxeRecipe(Consumer<FinishedRecipe> consumer, MaterialSet materialSet) {
-		materialSet.ifPresent(MaterialTypes.PICKAXE, Material::itemOrThrow, (pickaxe) -> {
-			ConditionChainExecutor.<MaterialSet>of((set) -> {
-				return set.has(MaterialTypes.MATERIAL) && set.hasUpgrade(MaterialTypes.PICKAXE);
-			}, (set) -> {
-				this.smithingRecipe(consumer, set.getUpgrade(MaterialTypes.PICKAXE).itemOrThrow(), set.get(MaterialTypes.MATERIAL).itemOrThrow(), pickaxe);
-			}).appendElseIf((set) -> {
-				return set.has(MaterialTypes.MATERIAL);
-			}, (set) -> {
-				Material material = set.get(MaterialTypes.MATERIAL);
-				XOresShapedRecipeBuilder.shaped(pickaxe).group(material).define('I', Items.STICK).define('#', material).pattern("###", " I ", " I ").unlockedBy(material).save(consumer);
-			}).appendElseIf((set) -> {
-				return set.has(MaterialTypes.TOOL_MATERIAL);
-			}, (set) -> {
-				Material material = materialSet.get(MaterialTypes.TOOL_MATERIAL);
-				XOresShapedRecipeBuilder.shaped(pickaxe).group(material).define('I', Items.STICK).define('#', material).pattern("###", " I ", " I ").unlockedBy(material).save(consumer);
-			}).execute(materialSet);
-		});
+	protected void pickaxeRecipe(Consumer<FinishedRecipe> consumer, Item ingot, Item pickaxe) {
+		ShapedRecipeBuilder.shaped(pickaxe).group(getGroup(ingot)).define('I', Items.STICK).define('#', ingot).pattern("###").pattern(" I ").pattern(" I ").unlockedBy("has_" + getId(ingot), has(ingot)).save(consumer);
 	}
 	
 	/**
-	 * generates the axe recipes, if there is a axe present in the given {@link MaterialSet}
+	 * generates the axe recipes
 	 */
-	protected void axeRecipe(Consumer<FinishedRecipe> consumer, MaterialSet materialSet) {
-		materialSet.ifPresent(MaterialTypes.AXE, Material::itemOrThrow, (axe) -> {
-			ConditionChainExecutor.<MaterialSet>of((set) -> {
-				return set.has(MaterialTypes.MATERIAL) && set.hasUpgrade(MaterialTypes.AXE);
-			}, (set) -> {
-				this.smithingRecipe(consumer, set.getUpgrade(MaterialTypes.AXE).itemOrThrow(), set.get(MaterialTypes.MATERIAL).itemOrThrow(), axe);
-			}).appendElseIf((set) -> {
-				return set.has(MaterialTypes.MATERIAL);
-			}, (set) -> {
-				Material material = set.get(MaterialTypes.MATERIAL);
-				XOresShapedRecipeBuilder.shaped(axe).group(material).define('I', Items.STICK).define('#', material).pattern("## ", "#I ", " I ").unlockedBy(material).save(consumer);
-			}).appendElseIf((set) -> {
-				return set.has(MaterialTypes.TOOL_MATERIAL);
-			}, (set) -> {
-				Material material = materialSet.get(MaterialTypes.TOOL_MATERIAL);
-				XOresShapedRecipeBuilder.shaped(axe).group(material).define('I', Items.STICK).define('#', material).pattern("## ", "#I ", " I ").unlockedBy(material).save(consumer);
-			}).execute(materialSet);
-		});
+	protected void axeRecipe(Consumer<FinishedRecipe> consumer, Item ingot, Item axe) {
+		ShapedRecipeBuilder.shaped(axe).group(getGroup(ingot)).define('I', Items.STICK).define('#', ingot).pattern("## ").pattern("#I ").pattern(" I ").unlockedBy("has_" + getId(ingot), has(ingot)).save(consumer);
 	}
 	
 	/**
-	 * generates the shovel recipes, if there is a shovel present in the given {@link MaterialSet}
+	 * generates the shovel recipes
 	 */
-	protected void shovelRecipe(Consumer<FinishedRecipe> consumer, MaterialSet materialSet) {
-		materialSet.ifPresent(MaterialTypes.SHOVEL, Material::itemOrThrow, (shovel) -> {
-			ConditionChainExecutor.<MaterialSet>of((set) -> {
-				return set.has(MaterialTypes.MATERIAL) && set.hasUpgrade(MaterialTypes.SHOVEL);
-			}, (set) -> {
-				this.smithingRecipe(consumer, set.getUpgrade(MaterialTypes.SHOVEL).itemOrThrow(), set.get(MaterialTypes.MATERIAL).itemOrThrow(), shovel);
-			}).appendElseIf((set) -> {
-				return set.has(MaterialTypes.MATERIAL);
-			}, (set) -> {
-				Material material = set.get(MaterialTypes.MATERIAL);
-				XOresShapedRecipeBuilder.shaped(shovel).group(material).define('I', Items.STICK).define('#', material).pattern(" # ", " I ", " I ").unlockedBy(material).save(consumer);
-			}).appendElseIf((set) -> {
-				return set.has(MaterialTypes.TOOL_MATERIAL);
-			}, (set) -> {
-				Material material = materialSet.get(MaterialTypes.TOOL_MATERIAL);
-				XOresShapedRecipeBuilder.shaped(shovel).group(material).define('I', Items.STICK).define('#', material).pattern(" # ", " I ", " I ").unlockedBy(material).save(consumer);
-			}).execute(materialSet);
-		});
+	protected void shovelRecipe(Consumer<FinishedRecipe> consumer, Item ingot, Item shovel) {
+		ShapedRecipeBuilder.shaped(shovel).group(getGroup(ingot)).define('I', Items.STICK).define('#', ingot).pattern(" # ").pattern(" I ").pattern(" I ").unlockedBy("has_" + getId(ingot), has(ingot)).save(consumer);
 	}
 	
 	/**
-	 * generates the hoe recipes, if there is a hoe present in the given {@link MaterialSet}
+	 * generates the hoe recipes
 	 */
-	protected void hoeRecipe(Consumer<FinishedRecipe> consumer, MaterialSet materialSet) {
-		materialSet.ifPresent(MaterialTypes.HOE, Material::itemOrThrow, (hoe) -> {
-			ConditionChainExecutor.<MaterialSet>of((set) -> {
-				return set.has(MaterialTypes.MATERIAL) && set.hasUpgrade(MaterialTypes.HOE);
-			}, (set) -> {
-				this.smithingRecipe(consumer, set.getUpgrade(MaterialTypes.HOE).itemOrThrow(), set.get(MaterialTypes.MATERIAL).itemOrThrow(), hoe);
-			}).appendElseIf((set) -> {
-				return set.has(MaterialTypes.MATERIAL);
-			}, (set) -> {
-				Material material = set.get(MaterialTypes.MATERIAL);
-				XOresShapedRecipeBuilder.shaped(hoe).group(material).define('I', Items.STICK).define('#', material).pattern("## ", " I ", " I ").unlockedBy(material).save(consumer);
-			}).appendElseIf((set) -> {
-				return set.has(MaterialTypes.TOOL_MATERIAL);
-			}, (set) -> {
-				Material material = materialSet.get(MaterialTypes.TOOL_MATERIAL);
-				XOresShapedRecipeBuilder.shaped(hoe).group(material).define('I', Items.STICK).define('#', material).pattern("## ", " I ", " I ").unlockedBy(material).save(consumer);
-			}).execute(materialSet);
-		});
+	protected void hoeRecipe(Consumer<FinishedRecipe> consumer, Item ingot, Item hoe) {
+		ShapedRecipeBuilder.shaped(hoe).group(getGroup(ingot)).define('I', Items.STICK).define('#', ingot).pattern("## ").pattern("I  ").pattern("I  ").unlockedBy("has_" + getId(ingot), has(ingot)).save(consumer);
 	}
 	
 	/**
-	 * generates the helmet recipes, if there is a helmet present in the given {@link MaterialSet}
+	 * generates the helmet recipes
 	 */
-	protected void helmetRecipe(Consumer<FinishedRecipe> consumer, MaterialSet materialSet) {
-		materialSet.ifPresent(MaterialTypes.HELMET, Material::itemOrThrow, (helmet) -> {
-			ConditionChainExecutor.<MaterialSet>of((set) -> {
-				return set.has(MaterialTypes.MATERIAL) && set.hasUpgrade(MaterialTypes.HELMET);
-			}, (set) -> {
-				this.smithingRecipe(consumer, set.getUpgrade(MaterialTypes.HELMET).itemOrThrow(), set.get(MaterialTypes.MATERIAL).itemOrThrow(), helmet);
-			}).appendElseIf((set) -> {
-				return set.has(MaterialTypes.MATERIAL);
-			}, (set) -> {
-				Material material = set.get(MaterialTypes.MATERIAL);
-				XOresShapedRecipeBuilder.shaped(helmet).group(material).define('#', material).pattern("###", "# #", "   ").unlockedBy(material).save(consumer);
-			}).appendElseIf((set) -> {
-				return set.has(MaterialTypes.ARMOR_MATERIAL);
-			}, (set) -> {
-				Material material = materialSet.get(MaterialTypes.ARMOR_MATERIAL);
-				XOresShapedRecipeBuilder.shaped(helmet).group(material).define('#', material).pattern("###", "# #", "   ").unlockedBy(material).save(consumer);
-			}).execute(materialSet);
-		});
+	protected void helmetRecipe(Consumer<FinishedRecipe> consumer, Item ingot, Item helmet) {
+		ShapedRecipeBuilder.shaped(helmet).group(getGroup(ingot)).define('#', ingot).pattern("###").pattern("# #").pattern("   ").unlockedBy("has_" + getId(ingot), has(ingot)).save(consumer);
 	}
 	
 	/**
-	 * generates the chestplate recipes, if there is a chestplate present in the given {@link MaterialSet}
+	 * generates the chestplate recipes
 	 */
-	protected void chestplateRecipe(Consumer<FinishedRecipe> consumer, MaterialSet materialSet) {
-		materialSet.ifPresent(MaterialTypes.CHESTPLATE, Material::itemOrThrow, (chestplate) -> {
-			ConditionChainExecutor.<MaterialSet>of((set) -> {
-				return set.has(MaterialTypes.MATERIAL) && set.hasUpgrade(MaterialTypes.CHESTPLATE);
-			}, (set) -> {
-				this.smithingRecipe(consumer, set.getUpgrade(MaterialTypes.CHESTPLATE).itemOrThrow(), set.get(MaterialTypes.MATERIAL).itemOrThrow(), chestplate);
-			}).appendElseIf((set) -> {
-				return set.has(MaterialTypes.MATERIAL);
-			}, (set) -> {
-				Material material = set.get(MaterialTypes.MATERIAL);
-				XOresShapedRecipeBuilder.shaped(chestplate).group(material).define('#', material).pattern("# #", "###", "###").unlockedBy(material).save(consumer);
-			}).appendElseIf((set) -> {
-				return set.has(MaterialTypes.ARMOR_MATERIAL);
-			}, (set) -> {
-				Material material = materialSet.get(MaterialTypes.ARMOR_MATERIAL);
-				XOresShapedRecipeBuilder.shaped(chestplate).group(material).define('#', material).pattern("# #", "###", "###").unlockedBy(material).save(consumer);
-			}).execute(materialSet);
-		});
+	protected void chestplateRecipe(Consumer<FinishedRecipe> consumer, Item ingot, Item chestplate) {
+		ShapedRecipeBuilder.shaped(chestplate).group(getGroup(ingot)).define('#', ingot).pattern("# #").pattern("###").pattern("###").unlockedBy("has_" + getId(ingot), has(ingot)).save(consumer);
 	}
 	
 	/**
-	 * generates the elytra chestplate recipes, if there is a elytra chestplate present in the given {@link MaterialSet}
+	 * generates the elytra chestplate recipes
 	 */
-	protected void elytraChestplateRecipe(Consumer<FinishedRecipe> consumer, MaterialSet materialSet) {
-		materialSet.ifPresent(MaterialTypes.CHESTPLATE, MaterialTypes.ELYTRA_CHESTPLATE, Material::itemOrThrow, (chestplate, elytraChestplate) -> {
-			ConditionChainExecutor.<MaterialSet>of((set) -> {
-				return set.has(MaterialTypes.MATERIAL) && set.hasUpgrade(MaterialTypes.ELYTRA_CHESTPLATE);
-			}, (set) -> {
-				this.smithingRecipe(consumer, set.getUpgrade(MaterialTypes.ELYTRA_CHESTPLATE).itemOrThrow(), set.get(MaterialTypes.MATERIAL).itemOrThrow(), elytraChestplate);
-			}).appendElseIf((set) -> {
-				return set.has(MaterialTypes.MATERIAL);
-			}, (set) -> {
-				ShapelessRecipeBuilder.shapeless(elytraChestplate).group(getGroup(set.get(MaterialTypes.MATERIAL))).requires(chestplate).requires(Items.ELYTRA).unlockedBy("has_" + getId(chestplate), has(chestplate)).save(consumer);
-			}).appendElseIf((set) -> {
-				return set.has(MaterialTypes.ARMOR_MATERIAL);
-			}, (set) -> {
-				ShapelessRecipeBuilder.shapeless(elytraChestplate).group(getGroup(set.get(MaterialTypes.ARMOR_MATERIAL))).requires(chestplate).requires(Items.ELYTRA).unlockedBy("has_" + getId(chestplate), has(chestplate)).save(consumer);
-			}).execute(materialSet);
-		});
+	protected void elytraChestplateRecipe(Consumer<FinishedRecipe> consumer, Item chestplate, Item elytra, Item elytraChestplate) {
+		ShapelessRecipeBuilder.shapeless(elytraChestplate).requires(chestplate).requires(elytra).unlockedBy("has_" + getId(chestplate), has(chestplate)).unlockedBy("has_" + getId(elytra), has(elytra)).save(consumer);
 	}
 	
 	/**
-	 * generates the leggings recipes, if there is a leggings present in the given {@link MaterialSet}
+	 * generates the leggings recipes
 	 */
-	protected void leggingsRecipe(Consumer<FinishedRecipe> consumer, MaterialSet materialSet) {
-		materialSet.ifPresent(MaterialTypes.LEGGINGS, Material::itemOrThrow, (leggings) -> {
-			ConditionChainExecutor.<MaterialSet>of((set) -> {
-				return set.has(MaterialTypes.MATERIAL) && set.hasUpgrade(MaterialTypes.LEGGINGS);
-			}, (set) -> {
-				this.smithingRecipe(consumer, set.getUpgrade(MaterialTypes.LEGGINGS).itemOrThrow(), set.get(MaterialTypes.MATERIAL).itemOrThrow(), leggings);
-			}).appendElseIf((set) -> {
-				return set.has(MaterialTypes.MATERIAL);
-			}, (set) -> {
-				Material material = set.get(MaterialTypes.MATERIAL);
-				XOresShapedRecipeBuilder.shaped(leggings).group(material).define('#', material).pattern("###", "# #", "# #").unlockedBy(material).save(consumer);
-			}).appendElseIf((set) -> {
-				return set.has(MaterialTypes.ARMOR_MATERIAL);
-			}, (set) -> {
-				Material material = materialSet.get(MaterialTypes.ARMOR_MATERIAL);
-				XOresShapedRecipeBuilder.shaped(leggings).group(material).define('#', material).pattern("###", "# #", "# #").unlockedBy(material).save(consumer);
-			}).execute(materialSet);
-		});
+	protected void leggingsRecipe(Consumer<FinishedRecipe> consumer, Item ingot, Item leggings) {
+		ShapedRecipeBuilder.shaped(leggings).group(getGroup(ingot)).define('#', ingot).pattern("###").pattern("# #").pattern("# #").unlockedBy("has_" + getId(ingot), has(ingot)).save(consumer);
 	}
 	
 	/**
-	 * generates the boots recipes, if there is a boots present in the given {@link MaterialSet}
+	 * generates the boots recipes
 	 */
-	protected void bootsRecipe(Consumer<FinishedRecipe> consumer, MaterialSet materialSet) {
-		materialSet.ifPresent(MaterialTypes.BOOTS, Material::itemOrThrow, (boots) -> {
-			ConditionChainExecutor.<MaterialSet>of((set) -> {
-				return set.has(MaterialTypes.MATERIAL) && set.hasUpgrade(MaterialTypes.BOOTS);
-			}, (set) -> {
-				this.smithingRecipe(consumer, set.getUpgrade(MaterialTypes.BOOTS).itemOrThrow(), set.get(MaterialTypes.MATERIAL).itemOrThrow(), boots);
-			}).appendElseIf((set) -> {
-				return set.has(MaterialTypes.MATERIAL);
-			}, (set) -> {
-				Material material = set.get(MaterialTypes.MATERIAL);
-				XOresShapedRecipeBuilder.shaped(boots).group(material).define('#', material).pattern("   ", "# #", "# #").unlockedBy(material).save(consumer);
-			}).appendElseIf((set) -> {
-				return set.has(MaterialTypes.ARMOR_MATERIAL);
-			}, (set) -> {
-				Material material = materialSet.get(MaterialTypes.ARMOR_MATERIAL);
-				XOresShapedRecipeBuilder.shaped(boots).group(material).define('#', material).pattern("   ", "# #", "# #").unlockedBy(material).save(consumer);
-			}).execute(materialSet);
-		});
+	protected void bootsRecipe(Consumer<FinishedRecipe> consumer, Item ingot, Item boots) {
+		ShapedRecipeBuilder.shaped(boots).group(getGroup(ingot)).define('#', ingot).pattern("   ").pattern("# #").pattern("# #").unlockedBy("has_" + getId(ingot), has(ingot)).save(consumer);
 	}
 	
 	/**
@@ -449,8 +286,8 @@ public class XOresRecipeProvider extends RecipeProvider {
 	 * @param group The group of the {@link SmeltingRecipe}
 	 * @param prefix The prefix for the recipe json file name
 	 */
-	protected void smeltingRecipe(Consumer<FinishedRecipe> consumer, Ingredient input, Item result, float experience, String group, String prefix) {
-		SimpleCookingRecipeBuilder.smelting(input, result, experience, 200).group(group).unlockedBy("has_" + getId(result), has(result)).save(consumer, new ResourceLocation(XOres.MOD_ID, getId(result) + prefix));
+	protected void smeltingRecipe(Consumer<FinishedRecipe> consumer, Ingredient input, Item result, float experience, int time, String group, String prefix) {
+		SimpleCookingRecipeBuilder.smelting(input, result, experience, time).group(group).unlockedBy("has_" + getId(result), has(result)).save(consumer, new ResourceLocation(XOres.MOD_ID, getId(result) + prefix));
 	}
 	
 	/**
@@ -461,8 +298,8 @@ public class XOresRecipeProvider extends RecipeProvider {
 	 * @param group The group of the {@link BlastingRecipe}
 	 * @param prefix The prefix for the recipe json file name
 	 */
-	protected void blastingRecipe(Consumer<FinishedRecipe> consumer, Ingredient input, Item result, float experience, String group, String prefix) {
-		SimpleCookingRecipeBuilder.blasting(input, result, experience, 100).group(group).unlockedBy("has_" + getId(result), has(result)).save(consumer, new ResourceLocation(XOres.MOD_ID, getId(result) + prefix));
+	protected void blastingRecipe(Consumer<FinishedRecipe> consumer, Ingredient input, Item result, float experience, int time, String group, String prefix) {
+		SimpleCookingRecipeBuilder.blasting(input, result, experience, time).group(group).unlockedBy("has_" + getId(result), has(result)).save(consumer, new ResourceLocation(XOres.MOD_ID, getId(result) + prefix));
 	}
 	
 	/**
@@ -471,25 +308,6 @@ public class XOresRecipeProvider extends RecipeProvider {
 	 */
 	protected static String getId(Item item) {
 		return ForgeRegistries.ITEMS.getKey(item).getPath();
-	}
-	
-	/**
-	 * @param material The {@link Material} for which a id should be get
-	 * @return the id for the given {@link Material} as a {@link String}
-	 * @throws IllegalStateException if the given {@link Material} is empty
-	 */
-	protected static String getId(Material material) {
-		if (material.isItem()) {
-			return getId(material.itemOrThrow());
-		} else if (material.isTag()) {
-			TagKey<Item> tag = material.tagOrThrow();
-			if (!tag.location().getPath().contains("/")) {
-				return tag.location().getPath();
-			}
-			String[] pathParts = tag.location().getPath().split("/");
-			return pathParts[pathParts.length - 1];
-		}
-		throw new IllegalStateException("Fail to get ID for a empty Material");
 	}
 	
 	/**
@@ -506,39 +324,6 @@ public class XOresRecipeProvider extends RecipeProvider {
 			return "rose_quartz";
 		}
 		return pathParts[0];
-	}
-	
-	/**
-	 * @param material The {@link Material} for which a group should be get
-	 * @return the group name for the given {@link Material} as a {@link String}
-	 */
-	protected static String getGroup(Material material) {
-		if (material.isItem()) {
-			String path = ForgeRegistries.ITEMS.getKey(material.itemOrThrow()).getPath();
-			if (!path.contains("_")) {
-				return path;
-			}
-			String[] pathParts = path.split("_");
-			if (pathParts[0].equals("polished") || pathParts[0].equals("rose")) {
-				return "rose_quartz";
-			}
-			return pathParts[0];
-		}
-		return getId(material);
-	}
-	
-	/**
-	 * @param material The {@link Material} for which a {@link TriggerInstance} should be get
-	 * @return a {@link TriggerInstance} for the given {@link Material}
-	 * @throws IllegalStateException if the given {@link Material} is empty
-	 */
-	protected static TriggerInstance has(Material material) {
-		if (material.isItem()) {
-			return has(material.itemOrThrow());
-		} else if (material.isTag()) {
-			return has(material.tagOrThrow());
-		}
-		throw new IllegalStateException("Fail to get TriggerInstance for a empty Material");
 	}
 	
 	/**
