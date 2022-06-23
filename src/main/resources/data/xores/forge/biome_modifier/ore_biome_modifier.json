@@ -1,0 +1,9 @@
+{
+  "type": "xores:ore_biome_modifier",
+  "end_biomes": "#minecraft:is_end",
+  "end_features": ["xores:enderite_ore_rare", "xores:enderite_ore_buried"],
+  "overworld_biomes": "#minecraft:is_overworld",
+  "overworld_features": ["xores:jade_ore_middle", "xores:saphire_ore", "xores:saphire_ore_buried", "xores:limonite_ore_buried", "xores:limonite_ore_deep_buried", "xores:rosite_ore_rare", "xores:rosite_ore_buried"],
+  "peak_biomes": "#forge:is_peak",
+  "peak_features": ["xores:jade_ore_upper", "xores:saphire_ore_rare_upper"]
+}

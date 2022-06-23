@@ -8,6 +8,7 @@ import net.luis.xores.init.XOresGlobalLootModifiers;
 import net.luis.xores.init.XOresItems;
 import net.luis.xores.init.block.XOresBlockItems;
 import net.luis.xores.init.block.XOresBlocks;
+import net.luis.xores.init.level.XOresBiomeModifiers;
 import net.luis.xores.init.level.XOresOreFeatures;
 import net.luis.xores.init.level.XOresOrePlacements;
 import net.minecraft.world.item.CreativeModeTab;
@@ -60,6 +61,7 @@ public class XOres {
 		XOresGlobalLootModifiers.LOOT_MODIFIERS.register(modEventBus);
 		XOresOreFeatures.CONFIGURED_FEATURES.register(modEventBus);
 		XOresOrePlacements.PLACED_FEATURES.register(modEventBus);
+		XOresBiomeModifiers.BIOME_MODIFIERS.register(modEventBus);
 	}
 	
 }
