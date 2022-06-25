@@ -10,7 +10,7 @@ import com.google.common.collect.Lists;
 import com.mojang.datafixers.util.Pair;
 
 import net.luis.xores.data.OnGatherDataEvent;
-import net.luis.xores.init.block.XOresBlocks;
+import net.luis.xores.world.level.block.XOresBlocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.loot.LootTableProvider;

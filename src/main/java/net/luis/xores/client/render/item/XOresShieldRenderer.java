@@ -3,8 +3,8 @@ package net.luis.xores.client.render.item;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 
-import net.luis.xores.common.item.modded.XOresShieldItem;
-import net.luis.xores.init.XOresItems;
+import net.luis.xores.world.item.XOresItems;
+import net.luis.xores.world.item.XOresShieldItem;
 import net.minecraft.client.model.ShieldModel;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.model.geom.ModelLayers;

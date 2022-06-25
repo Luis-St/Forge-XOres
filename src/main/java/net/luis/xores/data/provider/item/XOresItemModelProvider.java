@@ -3,9 +3,9 @@ package net.luis.xores.data.provider.item;
 import java.util.stream.Collectors;
 
 import net.luis.xores.XOres;
-import net.luis.xores.common.item.ElytraChestplateItem;
 import net.luis.xores.data.OnGatherDataEvent;
-import net.luis.xores.init.XOresItems;
+import net.luis.xores.world.item.ElytraChestplateItem;
+import net.luis.xores.world.item.XOresItems;
 import net.minecraft.client.renderer.block.model.BlockModel.GuiLight;
 import net.minecraft.client.renderer.block.model.ItemTransforms.TransformType;
 import net.minecraft.data.DataGenerator;

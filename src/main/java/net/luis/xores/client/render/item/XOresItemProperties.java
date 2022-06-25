@@ -1,8 +1,8 @@
 package net.luis.xores.client.render.item;
 
 import net.luis.xores.XOres;
-import net.luis.xores.common.item.ElytraChestplateItem;
 import net.luis.xores.event.fml.OnClientSetupEvent;
+import net.luis.xores.world.item.ElytraChestplateItem;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BowItem;

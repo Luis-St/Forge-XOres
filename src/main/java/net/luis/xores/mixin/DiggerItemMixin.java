@@ -5,9 +5,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import net.luis.xores.common.event.MixinEventInfo;
-import net.luis.xores.common.event.XOresEventFactory;
-import net.luis.xores.common.event.MixinEvent.DiggerItemMixinEvent;
+import net.luis.xores.event.xores.MixinEventInfo;
+import net.luis.xores.event.xores.XOresEventFactory;
+import net.luis.xores.event.xores.MixinEvent.DiggerItemMixinEvent;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.AxeItem;

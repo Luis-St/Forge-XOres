@@ -1,11 +1,12 @@
 package net.luis.xores.data.provider.recipe;
 
-import static net.luis.xores.init.XOresItems.*;
-import static net.luis.xores.init.block.XOresBlockItems.*;
+import static net.luis.xores.world.item.XOresBlockItems.*;
+import static net.luis.xores.world.item.XOresItems.*;
+
 import java.util.function.Consumer;
 
 import net.luis.xores.XOres;
-import net.luis.xores.init.XOresItems;
+import net.luis.xores.world.item.XOresItems;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.recipes.FinishedRecipe;

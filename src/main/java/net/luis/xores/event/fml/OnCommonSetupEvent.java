@@ -1,8 +1,8 @@
 package net.luis.xores.event.fml;
 
 import net.luis.xores.XOres;
-import net.luis.xores.common.item.ElytraChestplateItem;
-import net.luis.xores.init.XOresItems;
+import net.luis.xores.world.item.ElytraChestplateItem;
+import net.luis.xores.world.item.XOresItems;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.attributes.RangedAttribute;
 import net.minecraftforge.eventbus.api.SubscribeEvent;

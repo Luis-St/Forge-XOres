@@ -6,10 +6,10 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import net.luis.xores.common.event.MixinEvent.ItemStackMixinEvent;
-import net.luis.xores.common.event.MixinEventInfo;
-import net.luis.xores.common.event.XOresEventFactory;
-import net.luis.xores.common.fixer.ToolFixer;
+import net.luis.xores.event.xores.MixinEventInfo;
+import net.luis.xores.event.xores.XOresEventFactory;
+import net.luis.xores.event.xores.MixinEvent.ItemStackMixinEvent;
+import net.luis.xores.world.fixer.ToolFixer;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;

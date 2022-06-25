@@ -1,7 +1,7 @@
 package net.luis.xores.client.render.layer;
 
-import net.luis.xores.common.item.ElytraChestplateItem;
-import net.luis.xores.init.XOresItems;
+import net.luis.xores.world.item.ElytraChestplateItem;
+import net.luis.xores.world.item.XOresItems;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.renderer.entity.RenderLayerParent;

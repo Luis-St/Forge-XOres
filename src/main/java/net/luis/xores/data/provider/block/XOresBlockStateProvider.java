@@ -4,7 +4,7 @@ import java.util.stream.Collectors;
 
 import net.luis.xores.XOres;
 import net.luis.xores.data.OnGatherDataEvent;
-import net.luis.xores.init.block.XOresBlocks;
+import net.luis.xores.world.level.block.XOresBlocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
 import net.minecraft.resources.ResourceLocation;
