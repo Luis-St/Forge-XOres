@@ -1,7 +1,7 @@
 package net.luis.xores.event.registry;
 
 import net.luis.xores.XOres;
-import net.luis.xores.client.render.layer.XOresElytraLayer;
+import net.luis.xores.client.renderer.entity.layers.XOresElytraLayer;
 import net.luis.xores.world.item.ElytraChestplateItem;
 import net.luis.xores.world.item.XOresItems;
 import net.minecraft.client.renderer.entity.ArmorStandRenderer;

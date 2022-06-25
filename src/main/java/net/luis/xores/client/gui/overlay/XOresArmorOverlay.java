@@ -1,4 +1,4 @@
-package net.luis.xores.client.render.overlay;
+package net.luis.xores.client.gui.overlay;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;

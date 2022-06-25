@@ -1,4 +1,4 @@
-package net.luis.xores.client.render.item;
+package net.luis.xores.client.renderer.item;
 
 import net.luis.xores.XOres;
 import net.luis.xores.event.fml.OnClientSetupEvent;

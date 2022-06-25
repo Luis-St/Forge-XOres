@@ -2,7 +2,7 @@ package net.luis.xores.world.item;
 
 import java.util.function.Consumer;
 
-import net.luis.xores.client.render.item.XOresShieldRenderer;
+import net.luis.xores.client.renderer.item.XOresShieldRenderer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.resources.ResourceLocation;

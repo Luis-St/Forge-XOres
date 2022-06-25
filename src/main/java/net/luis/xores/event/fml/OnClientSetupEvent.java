@@ -3,8 +3,8 @@ package net.luis.xores.event.fml;
 import java.util.stream.Collectors;
 
 import net.luis.xores.XOres;
-import net.luis.xores.client.render.item.XOresItemProperties;
-import net.luis.xores.client.render.overlay.XOresArmorOverlay;
+import net.luis.xores.client.gui.overlay.XOresArmorOverlay;
+import net.luis.xores.client.renderer.item.XOresItemProperties;
 import net.luis.xores.world.item.ElytraChestplateItem;
 import net.luis.xores.world.item.XOresItems;
 import net.minecraft.client.Minecraft;

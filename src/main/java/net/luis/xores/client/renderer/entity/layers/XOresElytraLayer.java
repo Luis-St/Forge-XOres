@@ -1,4 +1,4 @@
-package net.luis.xores.client.render.layer;
+package net.luis.xores.client.renderer.entity.layers;
 
 import net.luis.xores.world.item.ElytraChestplateItem;
 import net.luis.xores.world.item.XOresItems;
