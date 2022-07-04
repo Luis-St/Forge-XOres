@@ -2,7 +2,7 @@
 	"required": true,
 	"package": "net.luis.xores.mixin",
 	"compatibilityLevel": "JAVA_17",
-#	"refmap": "mixins.xores.refmap.json",
+	"refmap": "mixins.xores.refmap.json",
 	"mixins": [
 		"ItemStackMixin",
 		"SwordItemMixin",
