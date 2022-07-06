@@ -135,6 +135,7 @@ publishing {
 	publications {
 		mavenJava(MavenPublication) {
 			artifact jar
+			artifact sourcesJar
 		}
 	}
 	
