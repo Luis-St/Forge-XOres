@@ -24,7 +24,7 @@ public class OnRegisterGuiOverlaysEvent {
 	 */
 	@SubscribeEvent
 	public static void registerGuiOverlays(RegisterGuiOverlaysEvent event) {
-		event.registerAbove(VanillaGuiOverlay.ARMOR_LEVEL.id(), "Armor Bar", new XOresArmorOverlay(Minecraft.getInstance()));
+		event.registerAbove(VanillaGuiOverlay.ARMOR_LEVEL.id(), "armor_bar", new XOresArmorOverlay(Minecraft.getInstance()));
 	}
 	
 }

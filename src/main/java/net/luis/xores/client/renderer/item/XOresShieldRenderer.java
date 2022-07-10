@@ -3,8 +3,6 @@ package net.luis.xores.client.renderer.item;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 
-import net.luis.xores.world.item.XOresItems;
-import net.luis.xores.world.item.XOresShieldItem;
 import net.minecraft.client.model.ShieldModel;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.model.geom.ModelLayers;
@@ -21,9 +19,6 @@ import net.minecraft.world.item.ShieldItem;
  * extension of {@link BlockEntityWithoutLevelRenderer}, used to render all mod {@link ShieldItem}s
  * 
  * @author Luis-st
- * 
- * @see {@link XOresShieldItem}
- * @see {@link XOresItems}
  */
 
 public class XOresShieldRenderer extends BlockEntityWithoutLevelRenderer {

@@ -3,7 +3,6 @@ package net.luis.xores.data.provider.item;
 import java.util.stream.Collectors;
 
 import net.luis.xores.XOres;
-import net.luis.xores.data.OnGatherDataEvent;
 import net.luis.xores.world.item.ElytraChestplateItem;
 import net.luis.xores.world.item.XOresItems;
 import net.minecraft.client.renderer.block.model.BlockModel.GuiLight;
@@ -30,10 +29,6 @@ import net.minecraftforge.registries.RegistryObject;
  * used to generate the models for all mod {@link Item}s
  * 
  * @author Luis-st
- * 
- * @see {@link ItemModelProvider}
- * @see {@link OnGatherDataEvent}
- * @see {@link XOresItems}
  */
 
 public class XOresItemModelProvider extends ItemModelProvider {

@@ -13,10 +13,6 @@ import net.minecraft.world.item.Items;
  * the {@link Items#CARVED_PUMPKIN} used for {@link XOresItems#ENDERITE_HELMET}
  * 
  * @author Luis-st
- * 
- * @see {@link ArmorItem}
- * @see {@link Items}
- * @see {@link XOresItems}
  */
 
 public class EnderiteHelmetItem extends ArmorItem {

@@ -1,7 +1,6 @@
 package net.luis.xores.data.provider.loot;
 
 import net.luis.xores.XOres;
-import net.luis.xores.data.OnGatherDataEvent;
 import net.luis.xores.tags.XOresItemTags;
 import net.luis.xores.world.level.storage.loot.SmeltingModifier;
 import net.minecraft.advancements.critereon.ItemPredicate;
@@ -18,10 +17,6 @@ import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
  * used to generate the loot modifiers for all mod {@link LootModifier}s
  * 
  * @author Luis-st
- * 
- * @see {@link SmeltingModifier}
- * @see {@link GlobalLootModifierProvider}
- * @see {@link OnGatherDataEvent}
  */
 
 public class XOresGlobalLootModifierProvider extends GlobalLootModifierProvider {

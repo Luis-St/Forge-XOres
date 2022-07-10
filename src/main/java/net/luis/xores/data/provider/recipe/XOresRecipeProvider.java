@@ -1,6 +1,6 @@
 package net.luis.xores.data.provider.recipe;
 
-import static net.luis.xores.world.item.XOresBlockItems.*;
+import static net.luis.xores.world.level.block.XOresBlocks.*;
 import static net.luis.xores.world.item.XOresItems.*;
 
 import java.util.function.Consumer;
@@ -30,9 +30,6 @@ import net.minecraftforge.registries.ForgeRegistries;
  * used to generate the recipes for all mod {@link Item}s
  * 
  * @author Luis-st
- * 
- * @see {@link RecipeProvider}
- * @see {@link XOresItems}
  */
 
 public class XOresRecipeProvider extends RecipeProvider {
@@ -60,9 +57,9 @@ public class XOresRecipeProvider extends RecipeProvider {
 		this.smithingRecipe(consumer, Items.BOW, Items.NETHERITE_INGOT, NETHERITE_BOW.get());
 		this.smithingRecipe(consumer, Items.CROSSBOW, Items.NETHERITE_INGOT, NETHERITE_CROSSBOW.get());
 		// jade recipes
-		this.oreRecipes(consumer, JADE_ORE.get(), JADE_INGOT.get());
-		this.oreRecipes(consumer, DEEPSLATE_JADE_ORE.get(), JADE_INGOT.get());
-		this.blockRecipes(consumer, JADE_INGOT.get(), JADE_BLOCK.get());
+		this.oreRecipes(consumer, JADE_ORE.get().asItem(), JADE_INGOT.get());
+		this.oreRecipes(consumer, DEEPSLATE_JADE_ORE.get().asItem(), JADE_INGOT.get());
+		this.blockRecipes(consumer, JADE_INGOT.get(), JADE_BLOCK.get().asItem());
 		this.swordRecipe(consumer, JADE_INGOT.get(), JADE_SWORD.get());
 		this.pickaxeRecipe(consumer, JADE_INGOT.get(), JADE_PICKAXE.get());
 		this.axeRecipe(consumer, JADE_INGOT.get(), JADE_AXE.get());
@@ -84,9 +81,9 @@ public class XOresRecipeProvider extends RecipeProvider {
 		this.leggingsRecipe(consumer, BLAZING_INGOT.get(), BLAZING_LEGGINGS.get());
 		this.bootsRecipe(consumer, BLAZING_INGOT.get(), BLAZING_BOOTS.get());
 		// saphire recipes
-		this.oreRecipes(consumer, SAPHIRE_ORE.get(), SAPHIRE_INGOT.get());
-		this.oreRecipes(consumer, DEEPSLATE_SAPHIRE_ORE.get(), SAPHIRE_INGOT.get());
-		this.blockRecipes(consumer, SAPHIRE_INGOT.get(), SAPHIRE_BLOCK.get());
+		this.oreRecipes(consumer, SAPHIRE_ORE.get().asItem(), SAPHIRE_INGOT.get());
+		this.oreRecipes(consumer, DEEPSLATE_SAPHIRE_ORE.get().asItem(), SAPHIRE_INGOT.get());
+		this.blockRecipes(consumer, SAPHIRE_INGOT.get(), SAPHIRE_BLOCK.get().asItem());
 		this.swordRecipe(consumer, SAPHIRE_INGOT.get(), SAPHIRE_SWORD.get());
 		this.shieldRecipe(consumer, SAPHIRE_INGOT.get(), SAPHIRE_SHIELD.get());
 		this.pickaxeRecipe(consumer, SAPHIRE_INGOT.get(), SAPHIRE_PICKAXE.get());
@@ -98,9 +95,9 @@ public class XOresRecipeProvider extends RecipeProvider {
 		this.leggingsRecipe(consumer, SAPHIRE_INGOT.get(), SAPHIRE_LEGGINGS.get());
 		this.bootsRecipe(consumer, SAPHIRE_INGOT.get(), SAPHIRE_BOOTS.get());
 		// limonite recipes
-		this.oreRecipes(consumer, LIMONITE_ORE.get(), LIMONITE_INGOT.get());
-		this.oreRecipes(consumer, DEEPSLATE_LIMONITE_ORE.get(), LIMONITE_INGOT.get());
-		this.blockRecipes(consumer, LIMONITE_INGOT.get(), LIMONITE_BLOCK.get());
+		this.oreRecipes(consumer, LIMONITE_ORE.get().asItem(), LIMONITE_INGOT.get());
+		this.oreRecipes(consumer, DEEPSLATE_LIMONITE_ORE.get().asItem(), LIMONITE_INGOT.get());
+		this.blockRecipes(consumer, LIMONITE_INGOT.get(), LIMONITE_BLOCK.get().asItem());
 		this.swordRecipe(consumer, LIMONITE_INGOT.get(), LIMONITE_SWORD.get());
 		this.pickaxeRecipe(consumer, LIMONITE_INGOT.get(), LIMONITE_PICKAXE.get());
 		this.axeRecipe(consumer, LIMONITE_INGOT.get(), LIMONITE_AXE.get());
@@ -111,9 +108,9 @@ public class XOresRecipeProvider extends RecipeProvider {
 		this.leggingsRecipe(consumer, LIMONITE_INGOT.get(), LIMONITE_LEGGINGS.get());
 		this.bootsRecipe(consumer, LIMONITE_INGOT.get(), LIMONITE_BOOTS.get());
 		// rosite recipes
-		this.oreRecipes(consumer, ROSITE_ORE.get(), ROSITE_INGOT.get());
-		this.oreRecipes(consumer, DEEPSLATE_ROSITE_ORE.get(), ROSITE_INGOT.get());
-		this.blockRecipes(consumer, ROSITE_INGOT.get(), ROSITE_BLOCK.get());
+		this.oreRecipes(consumer, ROSITE_ORE.get().asItem(), ROSITE_INGOT.get());
+		this.oreRecipes(consumer, DEEPSLATE_ROSITE_ORE.get().asItem(), ROSITE_INGOT.get());
+		this.blockRecipes(consumer, ROSITE_INGOT.get(), ROSITE_BLOCK.get().asItem());
 		this.swordRecipe(consumer, ROSITE_INGOT.get(), ROSITE_SWORD.get());
 		this.pickaxeRecipe(consumer, ROSITE_INGOT.get(), ROSITE_PICKAXE.get());
 		this.axeRecipe(consumer, ROSITE_INGOT.get(), ROSITE_AXE.get());
@@ -128,9 +125,9 @@ public class XOresRecipeProvider extends RecipeProvider {
 		this.shovelRecipe(consumer, POLISHED_ROSE_QUARTZ.get(), ROSE_QUARTZ_SHOVEL.get());
 		this.hoeRecipe(consumer, POLISHED_ROSE_QUARTZ.get(), ROSE_QUARTZ_HOE.get());
 		// enderite recipes
-		this.oreRecipes(consumer, ENDERITE_ORE.get(), ENDERITE_SCRAP.get(), 400);
+		this.oreRecipes(consumer, ENDERITE_ORE.get().asItem(), ENDERITE_SCRAP.get(), 400);
 		ShapelessRecipeBuilder.shapeless(ENDERITE_INGOT.get()).group(getGroup(ENDERITE_INGOT.get())).requires(ENDERITE_SCRAP.get(), 9).unlockedBy("has_" + getId(ENDERITE_SCRAP.get()), has(ENDERITE_SCRAP.get())).save(consumer, new ResourceLocation(XOres.MOD_ID, getId(ENDERITE_INGOT.get()) + "_from_scrap"));
-		this.blockRecipes(consumer, ENDERITE_INGOT.get(), ENDERITE_BLOCK.get());
+		this.blockRecipes(consumer, ENDERITE_INGOT.get(), ENDERITE_BLOCK.get().asItem());
 		this.smithingRecipe(consumer, Items.NETHERITE_SWORD, ENDERITE_INGOT.get(), ENDERITE_SWORD.get());
 		this.smithingRecipe(consumer, NETHERITE_SHIELD.get(), ENDERITE_INGOT.get(), ENDERITE_SHIELD.get());
 		this.smithingRecipe(consumer, NETHERITE_BOW.get(), ENDERITE_INGOT.get(), ENDERITE_BOW.get());

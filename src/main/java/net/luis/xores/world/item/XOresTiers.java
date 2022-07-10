@@ -13,9 +13,6 @@ import net.minecraft.world.item.crafting.Ingredient;
  * implementation of {@link Tier}, used for all mod {@link TieredItem}s
  * 
  * @author Luis-st
- * 
- * @see {@link Tier}
- * @see {@link XOresItems}
  */
 
 public enum XOresTiers implements Tier {

@@ -14,9 +14,6 @@ import net.minecraftforge.client.extensions.common.IClientItemExtensions;
  * the vanilla additional {@link ShieldItem}s
  * 
  * @author Luis-st
- * 
- * @see {@link ShieldItem}
- * @see {@link XOresItems}
  */
 
 public class XOresShieldItem extends ShieldItem {

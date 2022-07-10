@@ -21,9 +21,6 @@ import net.minecraftforge.registries.RegistryObject;
  * registration class for all mod {@link ConfiguredFeature}s
  * 
  * @author Luis-st
- * 
- * @see {@link ConfiguredFeature}
- * @see {@link OreFeatures}
  */
 
 public class XOresOreFeatures {

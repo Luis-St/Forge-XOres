@@ -9,8 +9,6 @@ import java.util.function.Supplier;
 import com.google.common.collect.Lists;
 import com.mojang.datafixers.util.Pair;
 
-import net.luis.xores.data.OnGatherDataEvent;
-import net.luis.xores.world.level.block.XOresBlocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.loot.LootTableProvider;
@@ -28,10 +26,6 @@ import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
  * used to generate the loot tables for all mod {@link Block}s
  * 
  * @author Luis-st
- * 
- * @see {@link LootTableProvider}
- * @see {@link OnGatherDataEvent}
- * @see {@link XOresBlocks}
  */
 
 public class XOresLootTableProvider extends LootTableProvider {

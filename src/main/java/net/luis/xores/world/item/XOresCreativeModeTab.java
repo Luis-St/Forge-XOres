@@ -2,7 +2,6 @@ package net.luis.xores.world.item;
 
 import java.util.function.Supplier;
 
-import net.luis.xores.XOres;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Item.Properties;
@@ -13,11 +12,6 @@ import net.minecraft.world.item.ItemStack;
  * for the  {@link Properties#tab()}
  * 
  * @author Luis-st
- * 
- * @see {@link CreativeModeTab}
- * @see {@link XOresItems}
- * @see {@link XOresBlockItems}
- * @see {@link XOres}
  */
 
 public class XOresCreativeModeTab extends CreativeModeTab {

@@ -28,9 +28,7 @@ import static net.minecraft.tags.BlockTags.MINEABLE_WITH_PICKAXE;
 import java.util.stream.Collectors;
 
 import net.luis.xores.XOres;
-import net.luis.xores.data.OnGatherDataEvent;
 import net.luis.xores.tags.XOresBlockTags;
-import net.luis.xores.world.level.block.XOresBlocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.tags.BlockTagsProvider;
@@ -46,11 +44,6 @@ import net.minecraftforge.registries.RegistryObject;
  * used to generate the block tags for all mod {@link Block}s
  * 
  * @author Luis-st
- * 
- * @see {@link BlockTagsProvider}
- * @see {@link OnGatherDataEvent}
- * @see {@link XOresTags}
- * @see {@link XOresBlocks}
  */
 
 public class XOresBlockTagsProvider extends BlockTagsProvider {
@@ -75,7 +68,6 @@ public class XOresBlockTagsProvider extends BlockTagsProvider {
 		this.tag(XOresBlockTags.NEEDS_TOOL_LEVEL_6).add(ENDERITE_ORE.get());
 		
 		TagAppender<Block> pickaxeMinable = this.tag(MINEABLE_WITH_PICKAXE);
-		
 		for (Block block : BLOCKS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
 			pickaxeMinable.add(block);
 		}

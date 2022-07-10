@@ -3,7 +3,6 @@ package net.luis.xores.client.gui.overlay;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 
-import net.luis.xores.event.fml.OnClientSetupEvent;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.gui.overlay.ForgeGui;
 import net.minecraftforge.client.gui.overlay.IGuiOverlay;
@@ -12,8 +11,6 @@ import net.minecraftforge.client.gui.overlay.IGuiOverlay;
  * implementation of {@link IGuiOverlay}, used to render the armor bar extension
  * 
  * @author Luis-st
- * 
- * @see {@link OnClientSetupEvent}
  */
 
 public class XOresArmorOverlay implements IGuiOverlay {

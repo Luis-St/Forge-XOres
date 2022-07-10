@@ -17,9 +17,6 @@ import net.minecraftforge.common.world.ModifiableBiomeInfo.BiomeInfo.Builder;
  * implementation of {@link BiomeModifier}, used to generate all mod ores in the level 
  * 
  * @author Luis-st
- * 
- * @see {@link BiomeModifier}
- * @see {@link XOresOrePlacements}
  */
 
 public record XOresBiomeModifier(HolderSet<Biome> overworldBiomes, HolderSet<PlacedFeature> overworldFeatures, HolderSet<Biome> mountainPeakBiomes, HolderSet<PlacedFeature> mountainPeakFeatures, HolderSet<Biome> endBiomes, 
@@ -89,10 +86,7 @@ public record XOresBiomeModifier(HolderSet<Biome> overworldBiomes, HolderSet<Pla
 			}
 		}
 	}
-
-	/**
-	 * getter for the {@link Codec} of the {@link XOresBiomeModifier}
-	 */
+	
 	@Override
 	public Codec<XOresBiomeModifier> codec() {
 		return XOresBiomeModifiers.ORE_BIOME_MODIFIER.get();

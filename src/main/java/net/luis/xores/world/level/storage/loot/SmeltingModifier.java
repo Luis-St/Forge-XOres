@@ -20,9 +20,6 @@ import net.minecraftforge.items.ItemHandlerHelper;
  * if the Block is mined with a {@link XOresItemTags#BLAZING} Tool
  * 
  * @author Luis-st
- * 
- * @see {@link SmeltingModifier}
- * @see {@link XOresItemTags}
  */
 
 public class SmeltingModifier extends LootModifier {

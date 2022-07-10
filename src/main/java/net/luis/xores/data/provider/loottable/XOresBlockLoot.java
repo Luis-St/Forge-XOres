@@ -4,7 +4,6 @@ import java.util.stream.Collectors;
 
 import net.luis.xores.world.level.block.XOresBlocks;
 import net.minecraft.data.loot.BlockLoot;
-import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraftforge.registries.RegistryObject;
@@ -14,10 +13,6 @@ import net.minecraftforge.registries.RegistryObject;
  * used in {@link XOresLootTableProvider}
  * 
  * @author Luis-st
- * 
- * @see {@link LootTableProvider}
- * @see {@link XOresBlocks}
- * @see {@link XOresLootTableProvider}
  */
 
 public class XOresBlockLoot extends BlockLoot {

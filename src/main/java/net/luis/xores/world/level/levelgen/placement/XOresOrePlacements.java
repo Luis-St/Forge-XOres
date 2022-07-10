@@ -7,7 +7,6 @@ import com.google.common.collect.Lists;
 import net.luis.xores.XOres;
 import net.luis.xores.world.level.levelgen.feature.XOresOreFeatures;
 import net.minecraft.core.Registry;
-import net.minecraft.data.worldgen.placement.OrePlacements;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.placement.BiomeFilter;
 import net.minecraft.world.level.levelgen.placement.CountPlacement;
@@ -22,9 +21,6 @@ import net.minecraftforge.registries.RegistryObject;
  * registration class for all mod {@link PlacedFeature}s
  * 
  * @author Luis-st
- * 
- * @see {@link PlacedFeature}
- * @see {@link OrePlacements}
  */
 
 public class XOresOrePlacements {

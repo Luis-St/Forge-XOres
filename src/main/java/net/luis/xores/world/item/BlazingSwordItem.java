@@ -11,9 +11,6 @@ import net.minecraft.world.item.Tier;
  * extension of {@link SwordItem}, used for {@link XOresItems#BLAZING_SWORD}
  * 
  * @author Luis-st
- * 
- * @see {@link SwordItem}
- * @see {@link XOresItems}
  */
 
 public class BlazingSwordItem extends SwordItem {

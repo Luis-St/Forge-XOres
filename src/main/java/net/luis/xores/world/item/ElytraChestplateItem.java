@@ -21,10 +21,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
  * vanilla additional {@link ElytraChestplateItem}s
  * 
  * @author Luis-st
- * 
- * @see {@link ArmorItem}
- * @see {@link ElytraItem}
- * @see {@link XOresItems}
  */
 
 public class ElytraChestplateItem extends ArmorItem {

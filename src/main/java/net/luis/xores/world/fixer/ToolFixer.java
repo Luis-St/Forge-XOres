@@ -11,7 +11,6 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.mojang.datafixers.util.Either;
 
-import net.luis.xores.mixin.ItemStackMixin;
 import net.luis.xores.tags.XOresBlockTags;
 import net.luis.xores.tags.XOresItemTags;
 import net.minecraft.core.Holder;
@@ -35,9 +34,6 @@ import net.minecraft.world.level.block.state.BlockState;
  * manually and in a better way
  * 
  * @author Luis-st
- * 
- * @see {@link VanillaFixer}
- * @see {@link ItemStackMixin}
  */
 
 public class ToolFixer implements VanillaFixer {

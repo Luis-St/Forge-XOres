@@ -1,7 +1,6 @@
 package net.luis.xores.client.renderer.item;
 
 import net.luis.xores.XOres;
-import net.luis.xores.event.fml.OnClientSetupEvent;
 import net.luis.xores.world.item.ElytraChestplateItem;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
@@ -17,8 +16,6 @@ import net.minecraft.world.item.ShieldItem;
  * which are used to register the {@link ItemProperties} for the mod {@link Item}s
  * 
  * @author Luis-st
- * 
- * @see {@link OnClientSetupEvent}
  */
 
 public class XOresItemProperties {

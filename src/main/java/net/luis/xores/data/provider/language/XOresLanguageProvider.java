@@ -3,8 +3,6 @@ package net.luis.xores.data.provider.language;
 import java.util.stream.Collectors;
 
 import net.luis.xores.XOres;
-import net.luis.xores.data.OnGatherDataEvent;
-import net.luis.xores.world.item.XOresCreativeModeTab;
 import net.luis.xores.world.item.XOresItems;
 import net.luis.xores.world.level.block.XOresBlocks;
 import net.minecraft.data.DataGenerator;
@@ -27,12 +25,6 @@ import net.minecraftforge.registries.RegistryObject;
  * </ul>
  * 
  * @author Luis-st
- * 
- * @see {@link LanguageProvider}
- * @see {@link OnGatherDataEvent}
- * @see {@link XOresBlocks}
- * @see {@link XOresItems}
- * @see {@link XOresCreativeModeTab}
  */
 
 public class XOresLanguageProvider extends LanguageProvider {

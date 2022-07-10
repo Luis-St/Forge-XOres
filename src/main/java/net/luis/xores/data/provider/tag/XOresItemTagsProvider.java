@@ -76,13 +76,10 @@ import static net.minecraft.world.item.Items.WOODEN_SWORD;
 import java.util.stream.Collectors;
 
 import net.luis.xores.XOres;
-import net.luis.xores.data.OnGatherDataEvent;
 import net.luis.xores.tags.XOresBlockTags;
 import net.luis.xores.tags.XOresItemTags;
 import net.luis.xores.world.item.ElytraChestplateItem;
-import net.luis.xores.world.item.XOresItems;
 import net.luis.xores.world.item.XOresShieldItem;
-import net.luis.xores.world.level.block.XOresBlocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.tags.BlockTagsProvider;
@@ -109,12 +106,6 @@ import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
  * used to generate the item tags for all mod {@link Items}s and {@link Block}s
  * 
  * @author Luis-st
- * 
- * @see {@link ItemTagsProvider}
- * @see {@link OnGatherDataEvent}
- * @see {@link XOresTags}
- * @see {@link XOresItems}
- * @see {@link XOresBlocks}
  */
 
 public class XOresItemTagsProvider extends ItemTagsProvider {
