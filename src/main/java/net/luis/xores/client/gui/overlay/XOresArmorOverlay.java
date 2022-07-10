@@ -5,18 +5,18 @@ import com.mojang.blaze3d.vertex.PoseStack;
 
 import net.luis.xores.event.fml.OnClientSetupEvent;
 import net.minecraft.client.Minecraft;
-import net.minecraftforge.client.gui.ForgeIngameGui;
-import net.minecraftforge.client.gui.IIngameOverlay;
+import net.minecraftforge.client.gui.overlay.ForgeGui;
+import net.minecraftforge.client.gui.overlay.IGuiOverlay;
 
 /**
- * implementation of {@link IIngameOverlay}, used to render the armor bar extension
+ * implementation of {@link IGuiOverlay}, used to render the armor bar extension
  * 
  * @author Luis-st
  * 
  * @see {@link OnClientSetupEvent}
  */
 
-public class XOresArmorOverlay implements IIngameOverlay {
+public class XOresArmorOverlay implements IGuiOverlay {
 	
 	/**
 	 * the {@link Minecraft} client instance
@@ -34,7 +34,7 @@ public class XOresArmorOverlay implements IIngameOverlay {
 	 * setup the render state and check if the extended armor bar should be rendered
 	 */
 	@Override
-	public void render(ForgeIngameGui gui, PoseStack poseStack, float partialTicks, int width, int height) {
+	public void render(ForgeGui gui, PoseStack poseStack, float partialTicks, int width, int height) {
 		if (!this.minecraft.options.hideGui && gui.shouldDrawSurvivalElements()) {
 			gui.setupOverlayRenderState(true, false);
 			this.renderArmor(gui, poseStack, partialTicks, width, height);
@@ -44,10 +44,10 @@ public class XOresArmorOverlay implements IIngameOverlay {
 	/**
 	 * render the armor bar from 21 to 40
 	 */
-	private void renderArmor(ForgeIngameGui gui, PoseStack poseStack, float partialTicks, int width, int height) { 
+	private void renderArmor(ForgeGui gui, PoseStack poseStack, float partialTicks, int width, int height) { 
 		RenderSystem.enableBlend();
 		int left = width / 2 - 91;
-		int top = height - gui.left_height;
+		int top = height - gui.leftHeight;
 		int level = this.minecraft.player.getArmorValue();
 		for (int i = 21; level > 20 && i < 40; i += 2) {
 			if (i < level) {
@@ -59,7 +59,7 @@ public class XOresArmorOverlay implements IIngameOverlay {
 			}
 			left += 8;
 		}
-		gui.left_height += 10;
+		gui.leftHeight += 10;
 		RenderSystem.disableBlend();
 	}
 	

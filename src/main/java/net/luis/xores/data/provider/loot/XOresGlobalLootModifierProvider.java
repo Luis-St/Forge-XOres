@@ -4,7 +4,6 @@ import net.luis.xores.XOres;
 import net.luis.xores.data.OnGatherDataEvent;
 import net.luis.xores.tags.XOresItemTags;
 import net.luis.xores.world.level.storage.loot.SmeltingModifier;
-import net.luis.xores.world.level.storage.loot.XOresGlobalLootModifiers;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
@@ -20,9 +19,9 @@ import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
  * 
  * @author Luis-st
  * 
+ * @see {@link SmeltingModifier}
  * @see {@link GlobalLootModifierProvider}
  * @see {@link OnGatherDataEvent}
- * @see {@link XOresGlobalLootModifiers}
  */
 
 public class XOresGlobalLootModifierProvider extends GlobalLootModifierProvider {
@@ -35,11 +34,11 @@ public class XOresGlobalLootModifierProvider extends GlobalLootModifierProvider 
 	}
 
 	/**
-	 * register all {@link LootModifier}s for {@link XOresGlobalLootModifiers#LOOT_MODIFIERS}
+	 * register all mod {@link LootModifier}s
 	 */
 	@Override
 	protected void start() {
-		this.add("smelting", XOresGlobalLootModifiers.SMELTING_MODIFIER.get(), new SmeltingModifier(new LootItemCondition[] {
+		this.add("smelting", new SmeltingModifier(new LootItemCondition[] {
 				MatchTool.toolMatches(ItemPredicate.Builder.item().of(XOresItemTags.BLAZING)).build()
 		}));
 	}

@@ -1,10 +1,10 @@
 package net.luis.xores.world.level.storage.loot;
 
-import com.google.gson.JsonObject;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.luis.xores.tags.XOresItemTags;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeType;
@@ -12,7 +12,6 @@ import net.minecraft.world.item.crafting.SmeltingRecipe;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
-import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
 import net.minecraftforge.common.loot.LootModifier;
 import net.minecraftforge.items.ItemHandlerHelper;
 
@@ -27,14 +26,26 @@ import net.minecraftforge.items.ItemHandlerHelper;
  */
 
 public class SmeltingModifier extends LootModifier {
-
+	
+	/**
+	 * {@link Codec} for the {@link SmeltingModifier}
+	 */
+	public static final Codec<SmeltingModifier> CODEC = RecordCodecBuilder.create((instance) -> {
+		return LootModifier.codecStart(instance).apply(instance, SmeltingModifier::new);
+	});
+	
 	/**
 	 * constructor for the {@link SmeltingModifier}
 	 */
 	public SmeltingModifier(LootItemCondition[] lootCondition) {
 		super(lootCondition);
 	}
-
+	
+	@Override
+	public Codec<SmeltingModifier> codec() {
+		return XOresGlobalLootModifiers.SMELTING_MODIFIER.get();
+	}
+	
 	/**
 	 * apply the loot modifier to loot table
 	 */
@@ -56,31 +67,6 @@ public class SmeltingModifier extends LootModifier {
 				.map(SmeltingRecipe::getResultItem).filter(itemStack -> !itemStack.isEmpty())
 				.map(itemStack -> ItemHandlerHelper.copyStackWithSize(itemStack, stack.getCount() * itemStack.getCount()))
 				.orElse(stack);
-	}
-
-	/**
-	 * 
-	 * @author Luis-st
-	 *
-	 */
-	public static class Serializer extends GlobalLootModifierSerializer<SmeltingModifier> {
-
-		/**
-		 * read the loot modifier from file
-		 */
-		@Override
-		public SmeltingModifier read(ResourceLocation location, JsonObject object, LootItemCondition[] lootCondition) {
-			return new SmeltingModifier(lootCondition);
-		}
-
-		/**
-		 * write the loot modifier to file
-		 */
-		@Override
-		public JsonObject write(SmeltingModifier instance) {
-			return makeConditions(instance.conditions);
-		}
-		
 	}
 	
 }

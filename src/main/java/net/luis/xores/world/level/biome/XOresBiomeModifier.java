@@ -1,6 +1,7 @@
 package net.luis.xores.world.level.biome;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import net.luis.xores.world.level.levelgen.placement.XOresOrePlacements;
 import net.minecraft.core.Holder;
@@ -23,7 +24,26 @@ import net.minecraftforge.common.world.ModifiableBiomeInfo.BiomeInfo.Builder;
 
 public record XOresBiomeModifier(HolderSet<Biome> overworldBiomes, HolderSet<PlacedFeature> overworldFeatures, HolderSet<Biome> mountainPeakBiomes, HolderSet<PlacedFeature> mountainPeakFeatures, HolderSet<Biome> endBiomes, 
 	HolderSet<PlacedFeature> endFeatures) implements BiomeModifier {
-
+	
+	/**
+	 * {@link Codec} for the {@link XOresBiomeModifier}
+	 */
+	public static final Codec<XOresBiomeModifier> CODEC = RecordCodecBuilder.create((instance) -> {
+		return instance.group(Biome.LIST_CODEC.fieldOf("overworld_biomes").forGetter((biomeModifier) -> {
+			return biomeModifier.overworldBiomes();
+		}), PlacedFeature.LIST_CODEC.fieldOf("overworld_features").forGetter((biomeModifier) -> {
+			return biomeModifier.overworldFeatures();
+		}), Biome.LIST_CODEC.fieldOf("peak_biomes").forGetter((biomeModifier) -> {
+			return biomeModifier.mountainPeakBiomes();
+		}), PlacedFeature.LIST_CODEC.fieldOf("peak_features").forGetter((biomeModifier) -> {
+			return biomeModifier.mountainPeakFeatures();
+		}), Biome.LIST_CODEC.fieldOf("end_biomes").forGetter((biomeModifier) -> {
+			return biomeModifier.endBiomes();
+		}), PlacedFeature.LIST_CODEC.fieldOf("end_features").forGetter((biomeModifier) -> {
+			return biomeModifier.endFeatures();
+		})).apply(instance, XOresBiomeModifier::new);
+	});
+	
 	/**
 	 * add the ores to the level generation:
 	 * <ul>

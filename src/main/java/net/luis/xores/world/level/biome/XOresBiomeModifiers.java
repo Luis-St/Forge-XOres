@@ -1,11 +1,8 @@
 package net.luis.xores.world.level.biome;
 
 import com.mojang.serialization.Codec;
-import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import net.luis.xores.XOres;
-import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraftforge.common.world.BiomeModifier;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -30,21 +27,7 @@ public class XOresBiomeModifiers {
 	 * {@link RegistryObject} for the {@link Codec} of the {@link XOresBiomeModifier}
 	 */
 	public static final RegistryObject<Codec<XOresBiomeModifier>> ORE_BIOME_MODIFIER = BIOME_MODIFIERS.register("ore_biome_modifier", () -> {
-		return RecordCodecBuilder.create((instance) -> {
-			return instance.group(Biome.LIST_CODEC.fieldOf("overworld_biomes").forGetter((biomeModifier) -> {
-				return biomeModifier.overworldBiomes();
-			}), PlacedFeature.LIST_CODEC.fieldOf("overworld_features").forGetter((biomeModifier) -> {
-				return biomeModifier.overworldFeatures();
-			}), Biome.LIST_CODEC.fieldOf("peak_biomes").forGetter((biomeModifier) -> {
-				return biomeModifier.mountainPeakBiomes();
-			}), PlacedFeature.LIST_CODEC.fieldOf("peak_features").forGetter((biomeModifier) -> {
-				return biomeModifier.mountainPeakFeatures();
-			}), Biome.LIST_CODEC.fieldOf("end_biomes").forGetter((biomeModifier) -> {
-				return biomeModifier.endBiomes();
-			}), PlacedFeature.LIST_CODEC.fieldOf("end_features").forGetter((biomeModifier) -> {
-				return biomeModifier.endFeatures();
-			})).apply(instance, XOresBiomeModifier::new);
-		});
+		return XOresBiomeModifier.CODEC;
 	});
 	
 }
