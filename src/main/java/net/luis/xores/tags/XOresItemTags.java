@@ -218,27 +218,27 @@ public class XOresItemTags {
 	/**
 	 * {@link TagKey} tag for {@link Item}s that needs tool level 0
 	 */
-	public static final TagKey<Item> TOOL_LEVEL_0 = bind(new ResourceLocation(XOres.MOD_ID, "needs_tool_level_0"));
+	public static final TagKey<Item> TOOL_LEVEL_0 = bind(new ResourceLocation(XOres.MOD_ID, "tool_level_0"));
 	
 	/**
 	 * {@link TagKey} tag for {@link Item}s that needs tool level 1
 	 */
-	public static final TagKey<Item> TOOL_LEVEL_1 = bind(new ResourceLocation(XOres.MOD_ID, "needs_tool_level_1"));
+	public static final TagKey<Item> TOOL_LEVEL_1 = bind(new ResourceLocation(XOres.MOD_ID, "tool_level_1"));
 	
 	/**
 	 * {@link TagKey} tag for {@link Item}s that needs tool level 2
 	 */
-	public static final TagKey<Item> TOOL_LEVEL_2 = bind(new ResourceLocation(XOres.MOD_ID, "needs_tool_level_2"));
+	public static final TagKey<Item> TOOL_LEVEL_2 = bind(new ResourceLocation(XOres.MOD_ID, "tool_level_2"));
 	
 	/**
 	 * {@link TagKey} tag for {@link Item}s that needs tool level 3
 	 */
-	public static final TagKey<Item> TOOL_LEVEL_3 = bind(new ResourceLocation(XOres.MOD_ID, "needs_tool_level_3"));
+	public static final TagKey<Item> TOOL_LEVEL_3 = bind(new ResourceLocation(XOres.MOD_ID, "tool_level_3"));
 	
 	/**
 	 * {@link TagKey} tag for {@link Item}s that needs tool level 4
 	 */
-	public static final TagKey<Item> TOOL_LEVEL_4 = bind(new ResourceLocation(XOres.MOD_ID, "needs_tool_level_4"));
+	public static final TagKey<Item> TOOL_LEVEL_4 = bind(new ResourceLocation(XOres.MOD_ID, "tool_level_4"));
 	
 	/**
 	 * {@link TagKey} tag for {@link Item}s that needs tool level 5

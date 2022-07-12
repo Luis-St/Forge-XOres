@@ -1,0 +1,111 @@
+{
+  "parent": "minecraft:item/generated",
+  "display": {
+    "firstperson_lefthand": {
+      "rotation": [
+        -90,
+        0,
+        35
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        -90,
+        0,
+        -55
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        -90,
+        0,
+        30
+      ],
+      "scale": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "translation": [
+        2,
+        0.1,
+        -3
+      ]
+    },
+    "thirdperson_righthand": {
+      "rotation": [
+        -90,
+        0,
+        -60
+      ],
+      "scale": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "translation": [
+        2,
+        0.1,
+        -3
+      ]
+    }
+  },
+  "overrides": [
+    {
+      "model": "xores:item/netherite_crossbow_pulling_0",
+      "predicate": {
+        "xores:pulling": 1.0
+      }
+    },
+    {
+      "model": "xores:item/netherite_crossbow_pulling_1",
+      "predicate": {
+        "xores:pull": 0.58,
+        "xores:pulling": 1.0
+      }
+    },
+    {
+      "model": "xores:item/netherite_crossbow_pulling_2",
+      "predicate": {
+        "xores:pull": 1.0,
+        "xores:pulling": 1.0
+      }
+    },
+    {
+      "model": "xores:item/netherite_crossbow_arrow",
+      "predicate": {
+        "xores:charged": 1.0
+      }
+    },
+    {
+      "model": "xores:item/netherite_crossbow_firework",
+      "predicate": {
+        "xores:charged": 1.0,
+        "xores:firework": 1.0
+      }
+    }
+  ],
+  "textures": {
+    "layer0": "xores:item/netherite_crossbow_standby"
+  }
+}

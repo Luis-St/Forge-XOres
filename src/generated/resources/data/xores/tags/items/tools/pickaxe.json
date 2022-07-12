@@ -1,0 +1,19 @@
+{
+  "values": [
+    "minecraft:wooden_pickaxe",
+    "minecraft:stone_pickaxe",
+    "minecraft:golden_pickaxe",
+    "minecraft:iron_pickaxe",
+    "minecraft:diamond_pickaxe",
+    "minecraft:netherite_pickaxe",
+    "xores:jade_pickaxe",
+    "xores:blazing_pickaxe",
+    "xores:saphire_pickaxe",
+    "xores:limonite_pickaxe",
+    "xores:rosite_pickaxe",
+    "xores:rose_quartz_pickaxe",
+    "xores:enderite_pickaxe",
+    "xores:steel_pickaxe",
+    "xores:night_pickaxe"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "values": [
+    "minecraft:wooden_shovel",
+    "minecraft:stone_shovel",
+    "minecraft:golden_shovel",
+    "minecraft:iron_shovel",
+    "minecraft:diamond_shovel",
+    "minecraft:netherite_shovel",
+    "xores:jade_shovel",
+    "xores:blazing_shovel",
+    "xores:saphire_shovel",
+    "xores:limonite_shovel",
+    "xores:rosite_shovel",
+    "xores:rose_quartz_shovel",
+    "xores:enderite_shovel",
+    "xores:steel_shovel",
+    "xores:night_shovel"
+  ]
+}

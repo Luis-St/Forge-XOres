@@ -1,0 +1,20 @@
+{
+  "values": [
+    "minecraft:leather_chestplate",
+    "minecraft:chainmail_chestplate",
+    "minecraft:iron_chestplate",
+    "minecraft:diamond_chestplate",
+    "minecraft:golden_chestplate",
+    "minecraft:netherite_chestplate",
+    "xores:diamond_elytra_chestplate",
+    "xores:netherite_elytra_chestplate",
+    "xores:jade_chestplate",
+    "xores:blazing_chestplate",
+    "xores:saphire_chestplate",
+    "xores:limonite_chestplate",
+    "xores:enderite_chestplate",
+    "xores:enderite_elytra_chestplate",
+    "xores:night_chestplate",
+    "xores:night_elytra_chestplate"
+  ]
+}
