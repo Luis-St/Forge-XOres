@@ -10,7 +10,7 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraftforge.common.data.GlobalLootModifierProvider;
 import net.minecraftforge.common.loot.LootModifier;
-import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
+import net.minecraftforge.data.event.GatherDataEvent;
 
 /**
  * extension of {@link GlobalLootModifierProvider}, called by {@link GatherDataEvent},<br>
@@ -33,7 +33,7 @@ public class XOresGlobalLootModifierProvider extends GlobalLootModifierProvider 
 	 */
 	@Override
 	protected void start() {
-		this.add("smelting", new SmeltingModifier(new LootItemCondition[] {
+		this.add("smelting_modifier", new SmeltingModifier(new LootItemCondition[] {
 				MatchTool.toolMatches(ItemPredicate.Builder.item().of(XOresItemTags.BLAZING)).build()
 		}));
 	}

@@ -1,7 +1,20 @@
 package net.luis.xores.data.provider.recipe;
 
-import static net.luis.xores.world.level.block.XOresBlocks.*;
 import static net.luis.xores.world.item.XOresItems.*;
+import static net.luis.xores.world.level.block.XOresBlocks.DEEPSLATE_JADE_ORE;
+import static net.luis.xores.world.level.block.XOresBlocks.DEEPSLATE_LIMONITE_ORE;
+import static net.luis.xores.world.level.block.XOresBlocks.DEEPSLATE_ROSITE_ORE;
+import static net.luis.xores.world.level.block.XOresBlocks.DEEPSLATE_SAPHIRE_ORE;
+import static net.luis.xores.world.level.block.XOresBlocks.ENDERITE_BLOCK;
+import static net.luis.xores.world.level.block.XOresBlocks.ENDERITE_ORE;
+import static net.luis.xores.world.level.block.XOresBlocks.JADE_BLOCK;
+import static net.luis.xores.world.level.block.XOresBlocks.JADE_ORE;
+import static net.luis.xores.world.level.block.XOresBlocks.LIMONITE_BLOCK;
+import static net.luis.xores.world.level.block.XOresBlocks.LIMONITE_ORE;
+import static net.luis.xores.world.level.block.XOresBlocks.ROSITE_BLOCK;
+import static net.luis.xores.world.level.block.XOresBlocks.ROSITE_ORE;
+import static net.luis.xores.world.level.block.XOresBlocks.SAPHIRE_BLOCK;
+import static net.luis.xores.world.level.block.XOresBlocks.SAPHIRE_ORE;
 
 import java.util.function.Consumer;
 
@@ -22,7 +35,7 @@ import net.minecraft.world.item.crafting.BlastingRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.SmeltingRecipe;
 import net.minecraft.world.item.crafting.UpgradeRecipe;
-import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
+import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 
 /**
