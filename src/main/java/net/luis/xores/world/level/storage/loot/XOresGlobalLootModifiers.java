@@ -19,7 +19,7 @@ public class XOresGlobalLootModifiers {
 	/**
 	 * {@link DeferredRegister} for {@link Codec}s, used to register the {@link Codec}s of all mod {@link IGlobalLootModifier}
 	 */
-	public static final DeferredRegister<Codec<? extends IGlobalLootModifier>> LOOT_MODIFIERS = DeferredRegister.create(ForgeRegistries.Keys.LOOT_MODIFIER_SERIALIZERS, XOres.MOD_ID);
+	public static final DeferredRegister<Codec<? extends IGlobalLootModifier>> LOOT_MODIFIERS = DeferredRegister.create(ForgeRegistries.Keys.GLOBAL_LOOT_MODIFIER_SERIALIZERS, XOres.MOD_ID);
 	
 	/**
 	 * {@link RegistryObject} for the {@link Codec} of the {@link SmeltingModifier}
