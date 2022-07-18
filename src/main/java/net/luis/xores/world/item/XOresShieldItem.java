@@ -10,32 +10,20 @@ import net.minecraft.world.item.ShieldItem;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 
 /**
- * extension of {@link ShieldItem}, use for all mod {@link ShieldItem}s and<br>
- * the vanilla additional {@link ShieldItem}s
  * 
  * @author Luis-st
+ *
  */
 
 public class XOresShieldItem extends ShieldItem {
-
-	/**
-	 * texture of the shield as a {@link ResourceLocation}
-	 */
-	protected final ResourceLocation shieldTexture;
 	
-	/**
-	 * constructor for the {@link XOresShieldItem}
-	 */
+	private final ResourceLocation shieldTexture;
+	
 	public XOresShieldItem(Properties properties, ResourceLocation shieldTexture) {
 		super(properties);
 		this.shieldTexture = shieldTexture;
 	}
 	
-	/**
-	 * initialize the client stuff of the shield<br>
-	 * in this case we replce the {@link BlockEntityWithoutLevelRenderer}<br>
-	 * with a new instance of {@link XOresShieldRenderer}
-	 */
 	@Override
 	public void initializeClient(Consumer<IClientItemExtensions> consumer) {
 		consumer.accept(new IClientItemExtensions() {

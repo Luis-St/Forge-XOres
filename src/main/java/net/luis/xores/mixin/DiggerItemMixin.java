@@ -14,29 +14,19 @@ import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TieredItem;
 
 /**
- * {@link Mixin} class for {@link DiggerItem}
  * 
  * @author Luis-st
+ *
  */
 
 @Mixin(DiggerItem.class)
 public abstract class DiggerItemMixin extends TieredItem {
 	
-	/**
-	 * @deprecated since this constructor should never be called
-	 */
-	@Deprecated
-	DiggerItemMixin(Tier tier, Properties properties) {
+	private DiggerItemMixin(Tier tier, Properties properties) {
 		super(tier, properties);
 		throw new UnsupportedOperationException();
 	}
 	
-	/**
-	 * mixin for {@link DiggerItem#hurtEnemy(ItemStack, LivingEntity, LivingEntity)},<br>
-	 * changes the {@link AxeItem} damage behaviour when hitting an {@link LivingEntity}<br>
-	 * in this case the damage value of the {@link AxeItem} will be increased by 1 instead of 2,<br>
-	 * the vanilla logic is in this case never called
-	 */
 	@Inject(method = "hurtEnemy", at = @At("HEAD"), cancellable = true)
 	public void hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker, CallbackInfoReturnable<Boolean> info) {
 		if (this.asItem() instanceof AxeItem) {

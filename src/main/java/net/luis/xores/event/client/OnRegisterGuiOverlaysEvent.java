@@ -11,17 +11,14 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 
 /**
- * {@link RegisterGuiOverlaysEvent} event handler
  * 
  * @author Luis-st
+ *
  */
 
 @EventBusSubscriber(modid = XOres.MOD_ID, bus = Bus.MOD, value = Dist.CLIENT)
 public class OnRegisterGuiOverlaysEvent {
 	
-	/**
-	 * register the {@link XOresArmorOverlay}
-	 */
 	@SubscribeEvent
 	public static void registerGuiOverlays(RegisterGuiOverlaysEvent event) {
 		event.registerAbove(VanillaGuiOverlay.ARMOR_LEVEL.id(), "armor_bar", new XOresArmorOverlay(Minecraft.getInstance()));

@@ -7,22 +7,17 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.CrossbowItem;
 import net.minecraft.world.item.ElytraItem;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ShieldItem;
 
 /**
- * helper class for {@link ItemProperties}, contains all methods<br>
- * which are used to register the {@link ItemProperties} for the mod {@link Item}s
  * 
  * @author Luis-st
+ *
  */
 
 public class XOresItemProperties {
 	
-	/**
-	 * register the {@link ItemProperties} for a {@link BowItem}
-	 */
 	public static void registerBow(BowItem bow) {
 		ItemProperties.register(bow, new ResourceLocation(XOres.MOD_ID, "pull"), (stack, level, livingEntity, seed) -> {
 			if (livingEntity == null) {
@@ -36,9 +31,6 @@ public class XOresItemProperties {
 		});
 	}
 	
-	/**
-	 * register the {@link ItemProperties} for a {@link CrossbowItem}
-	 */
 	public static void registerCrossbow(CrossbowItem crossbow) {
 		ItemProperties.register(crossbow, new ResourceLocation(XOres.MOD_ID, "pull"), (stack, level, livingEntity, seed) -> {
 			if (livingEntity == null) {
@@ -58,18 +50,12 @@ public class XOresItemProperties {
 		});
 	}
 	
-	/**
-	 * register the {@link ItemProperties} for a {@link ShieldItem}
-	 */
 	public static void registerShield(ShieldItem shield) {
 		ItemProperties.register(shield, new ResourceLocation(XOres.MOD_ID, "blocking"), (stack, level, livingEntity, seed) -> {
 			return livingEntity != null && livingEntity.isUsingItem() && livingEntity.getUseItem() == stack ? 1.0F : 0.0F;
 		});
 	}
 	
-	/**
-	 * register the {@link ItemProperties} for a {@link ElytraChestplateItem}
-	 */
 	public static void registerElytraChestplate(ElytraChestplateItem elytraChestplate) {
 		ItemProperties.register(elytraChestplate, new ResourceLocation(XOres.MOD_ID, "broken"), (stack, level, livingEntity, seed) -> {
 			return ElytraItem.isFlyEnabled(stack) ? 0.0F : 1.0F;

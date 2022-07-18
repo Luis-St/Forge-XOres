@@ -8,28 +8,19 @@ import net.minecraftforge.client.gui.overlay.ForgeGui;
 import net.minecraftforge.client.gui.overlay.IGuiOverlay;
 
 /**
- * implementation of {@link IGuiOverlay}, used to render the armor bar extension
  * 
  * @author Luis-st
+ *
  */
 
 public class XOresArmorOverlay implements IGuiOverlay {
 	
-	/**
-	 * the {@link Minecraft} client instance
-	 */
-	protected final Minecraft minecraft;
+	private final Minecraft minecraft;
 	
-	/**
-	 * constructor for the {@link XOresArmorOverlay}
-	 */
 	public XOresArmorOverlay(Minecraft minecraft) {
 		this.minecraft = minecraft;
 	}
 	
-	/**
-	 * setup the render state and check if the extended armor bar should be rendered
-	 */
 	@Override
 	public void render(ForgeGui gui, PoseStack poseStack, float partialTicks, int width, int height) {
 		if (!this.minecraft.options.hideGui && gui.shouldDrawSurvivalElements()) {
@@ -38,9 +29,6 @@ public class XOresArmorOverlay implements IGuiOverlay {
 		}
 	}
 	
-	/**
-	 * render the armor bar from 21 to 40
-	 */
 	private void renderArmor(ForgeGui gui, PoseStack poseStack, float partialTicks, int width, int height) { 
 		RenderSystem.enableBlend();
 		int left = width / 2 - 91;

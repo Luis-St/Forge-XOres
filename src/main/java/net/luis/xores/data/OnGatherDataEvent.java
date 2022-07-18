@@ -10,7 +10,6 @@ import net.luis.xores.data.provider.recipe.XOresRecipeProvider;
 import net.luis.xores.data.provider.tag.XOresBlockTagsProvider;
 import net.luis.xores.data.provider.tag.XOresItemTagsProvider;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.DataProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -18,27 +17,14 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 
 /**
- * {@link GatherDataEvent} event handler
  * 
  * @author Luis-st
+ *
  */
 
 @EventBusSubscriber(modid = XOres.MOD_ID, bus = Bus.MOD)
 public class OnGatherDataEvent {
 	
-	/**
-	 * register all {@link XOres} {@link DataProvider}:
-	 * <ul>
-	 * 	<li>{@link XOresBlockStateProvider}</li>
-	 * 	<li>{@link XOresItemModelProvider}</li>
-	 * 	<li>{@link XOresLanguageProvider}</li>
-	 * 	<li>{@link XOresLootTableProvider}</li>
-	 * 	<li>{@link XOresRecipeProvider}</li>
-	 * 	<li>{@link XOresBlockTagsProvider}</li>
-	 * 	<li>{@link XOresItemTagsProvider}</li>
-	 * 	<li>{@link XOresGlobalLootModifierProvider}</li>
-	 * </ul>
-	 */
 	@SubscribeEvent
 	public static void gatherData(GatherDataEvent event) {
 		DataGenerator generator = event.getGenerator();

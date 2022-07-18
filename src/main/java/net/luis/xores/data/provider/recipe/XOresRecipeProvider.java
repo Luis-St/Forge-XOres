@@ -19,9 +19,7 @@ import static net.luis.xores.world.level.block.XOresBlocks.SAPHIRE_ORE;
 import java.util.function.Consumer;
 
 import net.luis.xores.XOres;
-import net.luis.xores.world.item.XOresItems;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.DataProvider;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
@@ -31,32 +29,21 @@ import net.minecraft.data.recipes.UpgradeRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.BlastingRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.SmeltingRecipe;
-import net.minecraft.world.item.crafting.UpgradeRecipe;
-import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 
 /**
- * extension of {@link RecipeProvider}, called by {@link GatherDataEvent},<br>
- * used to generate the recipes for all mod {@link Item}s
  * 
  * @author Luis-st
+ *
  */
 
 public class XOresRecipeProvider extends RecipeProvider {
 	
-	/**
-	 * constructor for the {@link XOresRecipeProvider}
-	 */
 	public XOresRecipeProvider(DataGenerator generator) {
 		super(generator);
 	}
 	
-	/**
-	 * register all recipes for {@link XOresItems#ITEMS}
-	 */
 	@Override
 	protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
 		// vanilla additional recipes
@@ -179,153 +166,81 @@ public class XOresRecipeProvider extends RecipeProvider {
 		this.smithingRecipe(consumer, ENDERITE_BOOTS.get(), NIGHT_INGOT.get(), NIGHT_BOOTS.get());
 	}
 	
-	/**
-	 * generates the smelting and blasting recipe for a ore
-	 */
-	protected void oreRecipes(Consumer<FinishedRecipe> consumer, Item ore, Item ingot) {
+	private void oreRecipes(Consumer<FinishedRecipe> consumer, Item ore, Item ingot) {
 		oreRecipes(consumer, ore, ingot, 200);
 	}
 	
-	/**
-	 * generates the smelting and blasting recipe for a ore
-	 */
-	protected void oreRecipes(Consumer<FinishedRecipe> consumer, Item ore, Item ingot, int time) {
+	private void oreRecipes(Consumer<FinishedRecipe> consumer, Item ore, Item ingot, int time) {
 		this.smeltingRecipe(consumer, Ingredient.of(ore), ingot, 1.0F, time, getGroup(ingot), "_from_smelting_" + getId(ore));
 		this.blastingRecipe(consumer, Ingredient.of(ore), ingot, 0.75F, time / 2, getGroup(ingot), "_from_blasting_" + getId(ore));
 	}
 	
-	/**
-	 * generates the block recipes
-	 */
-	protected void blockRecipes(Consumer<FinishedRecipe> consumer, Item ingot, Item block) {
+	private void blockRecipes(Consumer<FinishedRecipe> consumer, Item ingot, Item block) {
 		ShapelessRecipeBuilder.shapeless(block).group(getGroup(ingot)).unlockedBy("has_" + getId(ingot), has(ingot)).requires(ingot, 9).save(consumer);
 		ShapelessRecipeBuilder.shapeless(ingot, 9).group(getGroup(ingot)).unlockedBy("has_" + getId(block), has(block)).requires(block).save(consumer);
 	}
-
-	/**
-	 * generates the sword recipes
-	 */
-	protected void swordRecipe(Consumer<FinishedRecipe> consumer, Item ingot, Item sword) {
+	
+	private void swordRecipe(Consumer<FinishedRecipe> consumer, Item ingot, Item sword) {
 		ShapedRecipeBuilder.shaped(sword).group(getGroup(ingot)).define('I', Items.STICK).define('#', ingot).pattern(" # ").pattern(" # ").pattern(" I ").unlockedBy("has_" + getId(ingot), has(ingot)).save(consumer);
 	}
 	
-	/**
-	 * generates the shield recipes
-	 */
-	protected void shieldRecipe(Consumer<FinishedRecipe> consumer, Item ingot, Item shield) {
+	private void shieldRecipe(Consumer<FinishedRecipe> consumer, Item ingot, Item shield) {
 		ShapedRecipeBuilder.shaped(shield).group(getGroup(ingot)).define('I', Items.IRON_INGOT).define('#', ingot).pattern("#I#").pattern("###").pattern(" # ").unlockedBy("has_" + getId(ingot), has(ingot)).save(consumer);
 	}
 	
-	/**
-	 * generates the pickaxe recipes
-	 */
-	protected void pickaxeRecipe(Consumer<FinishedRecipe> consumer, Item ingot, Item pickaxe) {
+	private void pickaxeRecipe(Consumer<FinishedRecipe> consumer, Item ingot, Item pickaxe) {
 		ShapedRecipeBuilder.shaped(pickaxe).group(getGroup(ingot)).define('I', Items.STICK).define('#', ingot).pattern("###").pattern(" I ").pattern(" I ").unlockedBy("has_" + getId(ingot), has(ingot)).save(consumer);
 	}
 	
-	/**
-	 * generates the axe recipes
-	 */
-	protected void axeRecipe(Consumer<FinishedRecipe> consumer, Item ingot, Item axe) {
+	private void axeRecipe(Consumer<FinishedRecipe> consumer, Item ingot, Item axe) {
 		ShapedRecipeBuilder.shaped(axe).group(getGroup(ingot)).define('I', Items.STICK).define('#', ingot).pattern("## ").pattern("#I ").pattern(" I ").unlockedBy("has_" + getId(ingot), has(ingot)).save(consumer);
 	}
 	
-	/**
-	 * generates the shovel recipes
-	 */
-	protected void shovelRecipe(Consumer<FinishedRecipe> consumer, Item ingot, Item shovel) {
+	private void shovelRecipe(Consumer<FinishedRecipe> consumer, Item ingot, Item shovel) {
 		ShapedRecipeBuilder.shaped(shovel).group(getGroup(ingot)).define('I', Items.STICK).define('#', ingot).pattern(" # ").pattern(" I ").pattern(" I ").unlockedBy("has_" + getId(ingot), has(ingot)).save(consumer);
 	}
 	
-	/**
-	 * generates the hoe recipes
-	 */
-	protected void hoeRecipe(Consumer<FinishedRecipe> consumer, Item ingot, Item hoe) {
+	private void hoeRecipe(Consumer<FinishedRecipe> consumer, Item ingot, Item hoe) {
 		ShapedRecipeBuilder.shaped(hoe).group(getGroup(ingot)).define('I', Items.STICK).define('#', ingot).pattern("## ").pattern("I  ").pattern("I  ").unlockedBy("has_" + getId(ingot), has(ingot)).save(consumer);
 	}
 	
-	/**
-	 * generates the helmet recipes
-	 */
-	protected void helmetRecipe(Consumer<FinishedRecipe> consumer, Item ingot, Item helmet) {
+	private void helmetRecipe(Consumer<FinishedRecipe> consumer, Item ingot, Item helmet) {
 		ShapedRecipeBuilder.shaped(helmet).group(getGroup(ingot)).define('#', ingot).pattern("###").pattern("# #").pattern("   ").unlockedBy("has_" + getId(ingot), has(ingot)).save(consumer);
 	}
 	
-	/**
-	 * generates the chestplate recipes
-	 */
-	protected void chestplateRecipe(Consumer<FinishedRecipe> consumer, Item ingot, Item chestplate) {
+	private void chestplateRecipe(Consumer<FinishedRecipe> consumer, Item ingot, Item chestplate) {
 		ShapedRecipeBuilder.shaped(chestplate).group(getGroup(ingot)).define('#', ingot).pattern("# #").pattern("###").pattern("###").unlockedBy("has_" + getId(ingot), has(ingot)).save(consumer);
 	}
 	
-	/**
-	 * generates the elytra chestplate recipes
-	 */
-	protected void elytraChestplateRecipe(Consumer<FinishedRecipe> consumer, Item chestplate, Item elytra, Item elytraChestplate) {
+	private void elytraChestplateRecipe(Consumer<FinishedRecipe> consumer, Item chestplate, Item elytra, Item elytraChestplate) {
 		ShapelessRecipeBuilder.shapeless(elytraChestplate).requires(chestplate).requires(elytra).unlockedBy("has_" + getId(chestplate), has(chestplate)).unlockedBy("has_" + getId(elytra), has(elytra)).save(consumer);
 	}
 	
-	/**
-	 * generates the leggings recipes
-	 */
-	protected void leggingsRecipe(Consumer<FinishedRecipe> consumer, Item ingot, Item leggings) {
+	private void leggingsRecipe(Consumer<FinishedRecipe> consumer, Item ingot, Item leggings) {
 		ShapedRecipeBuilder.shaped(leggings).group(getGroup(ingot)).define('#', ingot).pattern("###").pattern("# #").pattern("# #").unlockedBy("has_" + getId(ingot), has(ingot)).save(consumer);
 	}
 	
-	/**
-	 * generates the boots recipes
-	 */
-	protected void bootsRecipe(Consumer<FinishedRecipe> consumer, Item ingot, Item boots) {
+	private void bootsRecipe(Consumer<FinishedRecipe> consumer, Item ingot, Item boots) {
 		ShapedRecipeBuilder.shaped(boots).group(getGroup(ingot)).define('#', ingot).pattern("   ").pattern("# #").pattern("# #").unlockedBy("has_" + getId(ingot), has(ingot)).save(consumer);
 	}
 	
-	/**
-	 * generates a {@link UpgradeRecipe}
-	 * @param base The base as an {@link Item} for the {@link UpgradeRecipe}
-	 * @param addition The addition as an {@link Item} for the {@link UpgradeRecipe}
-	 * @param result The result as an {@link Item} for the {@link UpgradeRecipe}
-	 */
-	protected void smithingRecipe(Consumer<FinishedRecipe> consumer, Item base, Item addition, Item result) {
+	private void smithingRecipe(Consumer<FinishedRecipe> consumer, Item base, Item addition, Item result) {
 		UpgradeRecipeBuilder.smithing(Ingredient.of(base), Ingredient.of(addition), result).unlocks("has_" + getId(base), has(base)).save(consumer, new ResourceLocation(XOres.MOD_ID, getId(result) + "_smithing"));
 	}
 	
-	/**
-	 * generates a {@link SmeltingRecipe}
-	 * @param input The input as an {@link Ingredient} for the {@link SmeltingRecipe}
-	 * @param result The result as an {@link Item} for the {@link SmeltingRecipe}
-	 * @param experience The experience of the {@link SmeltingRecipe}
-	 * @param group The group of the {@link SmeltingRecipe}
-	 * @param prefix The prefix for the recipe json file name
-	 */
-	protected void smeltingRecipe(Consumer<FinishedRecipe> consumer, Ingredient input, Item result, float experience, int time, String group, String prefix) {
+	private void smeltingRecipe(Consumer<FinishedRecipe> consumer, Ingredient input, Item result, float experience, int time, String group, String prefix) {
 		SimpleCookingRecipeBuilder.smelting(input, result, experience, time).group(group).unlockedBy("has_" + getId(result), has(result)).save(consumer, new ResourceLocation(XOres.MOD_ID, getId(result) + prefix));
 	}
 	
-	/**
-	 * generates a {@link BlastingRecipe}
-	 * @param input The input as an {@link Ingredient} for the {@link BlastingRecipe}
-	 * @param result The result as an {@link Item} for the {@link BlastingRecipe}
-	 * @param experience The experience of the {@link BlastingRecipe} for the {@link BlastingRecipe}
-	 * @param group The group of the {@link BlastingRecipe}
-	 * @param prefix The prefix for the recipe json file name
-	 */
-	protected void blastingRecipe(Consumer<FinishedRecipe> consumer, Ingredient input, Item result, float experience, int time, String group, String prefix) {
+	private void blastingRecipe(Consumer<FinishedRecipe> consumer, Ingredient input, Item result, float experience, int time, String group, String prefix) {
 		SimpleCookingRecipeBuilder.blasting(input, result, experience, time).group(group).unlockedBy("has_" + getId(result), has(result)).save(consumer, new ResourceLocation(XOres.MOD_ID, getId(result) + prefix));
 	}
 	
-	/**
-	 * @param item The {@link Item} for which a id should be get
-	 * @return the id for the given {@link Item} as a {@link String}
-	 */
-	protected static String getId(Item item) {
+	private static String getId(Item item) {
 		return ForgeRegistries.ITEMS.getKey(item).getPath();
 	}
 	
-	/**
-	 * @param item The {@link Item} for which a group should be get
-	 * @return the group name for the given {@link Item} as a {@link String}
-	 */
-	protected static String getGroup(Item item) {
+	private static String getGroup(Item item) {
 		String path = ForgeRegistries.ITEMS.getKey(item).getPath();
 		if (!path.contains("_")) {
 			return path;
@@ -337,9 +252,6 @@ public class XOresRecipeProvider extends RecipeProvider {
 		return pathParts[0];
 	}
 	
-	/**
-	 * @return the name of the {@link DataProvider}
-	 */
 	@Override
 	public String getName() {
 		return "XOres Recipes";

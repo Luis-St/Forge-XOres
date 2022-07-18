@@ -8,28 +8,20 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 
 /**
- * {@link Mixin} class for {@link SwordItem}
  * 
  * @author Luis-st
+ *
  */
 
 @Mixin(SwordItem.class)
 public abstract class SwordItemMixin {
 	
-	/**
-	 * mixin for {@link SwordItem#mineBlock(ItemStack, Level, BlockState, BlockPos, LivingEntity)},<br>
-	 * changes the {@link Item} damage behaviour when destroy a insta breakable {@link Block}<br>
-	 * in this case the {@link SwordItem} damage value will be increased by 1 instead of 2,<br>
-	 * the vanilla logic is in this case never called
-	 */
 	@Inject(method = "mineBlock", at = @At("HEAD"), cancellable = true)
 	public void mineBlock(ItemStack stack, Level level, BlockState state, BlockPos pos, LivingEntity entity, CallbackInfoReturnable<Boolean> info) {
 		if (state.getDestroySpeed(level, pos) != 0.0F) {

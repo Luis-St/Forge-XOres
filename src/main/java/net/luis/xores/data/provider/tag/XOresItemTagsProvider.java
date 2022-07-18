@@ -81,7 +81,6 @@ import net.luis.xores.tags.XOresItemTags;
 import net.luis.xores.world.item.ElytraChestplateItem;
 import net.luis.xores.world.item.XOresShieldItem;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.DataProvider;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.ItemTags;
@@ -96,30 +95,21 @@ import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.TieredItem;
-import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.data.event.GatherDataEvent;
 
 /**
- * extension of {@link ItemTagsProvider}, called by {@link GatherDataEvent},<br>
- * used to generate the item tags for all mod {@link Items}s and {@link Block}s
  * 
  * @author Luis-st
+ *
  */
 
 public class XOresItemTagsProvider extends ItemTagsProvider {
-
-	/**
-	 * constructor for the {@link XOresItemTagsProvider}
-	 */
+	
 	public XOresItemTagsProvider(DataGenerator generator, BlockTagsProvider blockTagsProvider, ExistingFileHelper existingFileHelper) {
 		super(generator, blockTagsProvider, XOres.MOD_ID, existingFileHelper);
 	}
 	
-	/**
-	 * register all {@link Item} Tags
-	 */
 	@Override
 	@SuppressWarnings("deprecation")
 	protected void addTags() {
@@ -241,10 +231,7 @@ public class XOresItemTagsProvider extends ItemTagsProvider {
 			}
 		}
 	}
-
-	/**
-	 * @return the name of the {@link DataProvider}
-	 */
+	
 	@Override
 	public String getName() {
 		return "XOres Item Tags";

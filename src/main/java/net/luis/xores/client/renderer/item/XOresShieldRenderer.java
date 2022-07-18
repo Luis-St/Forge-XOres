@@ -13,38 +13,24 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher;
 import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.ShieldItem;
 
 /**
- * extension of {@link BlockEntityWithoutLevelRenderer}, used to render all mod {@link ShieldItem}s
  * 
  * @author Luis-st
+ *
  */
 
 public class XOresShieldRenderer extends BlockEntityWithoutLevelRenderer {
-
-	/**
-	 * the texture of the shield as a {@link ResourceLocation}
-	 */
-	protected final ResourceLocation shieldTexture;
 	
-	/**
-	 * the model for the {@link ShieldItem}
-	 */
-	protected final ShieldModel shieldModel;
+	private final ResourceLocation shieldTexture;
+	private final ShieldModel shieldModel;
 	
-	/**
-	 * constructor for the {@link XOresShieldRender}
-	 */
 	public XOresShieldRenderer(BlockEntityRenderDispatcher renderDispatcher, EntityModelSet modelSet, ResourceLocation shieldTexture) {
 		super(renderDispatcher, modelSet);
 		this.shieldTexture = shieldTexture;
 		this.shieldModel = new ShieldModel(modelSet.bakeLayer(ModelLayers.SHIELD));
 	}
 	
-	/**
-	 * render the {@link XOresShieldRenderer#shieldXOresel} with the {@link XOresShieldRenderer#shieldTexture}
-	 */
 	@Override
 	public void renderByItem(ItemStack stack, TransformType transformType, PoseStack poseStack, MultiBufferSource bufferSource, int light, int overlay) {
 		poseStack.pushPose();

@@ -30,34 +30,25 @@ import java.util.stream.Collectors;
 import net.luis.xores.XOres;
 import net.luis.xores.tags.XOresBlockTags;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.DataProvider;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.registries.RegistryObject;
 
 /**
- * extension of {@link BlockTagsProvider}, called by {@link GatherDataEvent},<br>
- * used to generate the block tags for all mod {@link Block}s
  * 
  * @author Luis-st
+ *
  */
 
 public class XOresBlockTagsProvider extends BlockTagsProvider {
-
-	/**
-	 * constructor for the {@link XOresBlockTagsProvider}
-	 */
+	
 	public XOresBlockTagsProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
 		super(generator, XOres.MOD_ID, existingFileHelper);
 	}
 	
-	/**
-	 * register all {@link Block} Tags
-	 */
 	@Override
 	protected void addTags() {
 		this.tag(XOresBlockTags.NEEDS_TOOL_LEVEL_1).addTag(BlockTags.NEEDS_STONE_TOOL).add(JADE_ORE.get(), DEEPSLATE_JADE_ORE.get(), JADE_BLOCK.get());
@@ -83,9 +74,6 @@ public class XOresBlockTagsProvider extends BlockTagsProvider {
 		this.tag(STONES).add(Blocks.STONE, Blocks.BLACKSTONE, Blocks.DEEPSLATE);
 	}
 	
-	/**
-	 * @return the name of the {@link DataProvider}
-	 */
 	@Override
 	public String getName() {
 		return "XOres Block Tags";

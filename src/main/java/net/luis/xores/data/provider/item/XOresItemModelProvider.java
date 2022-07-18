@@ -8,7 +8,6 @@ import net.luis.xores.world.item.XOresItems;
 import net.minecraft.client.renderer.block.model.BlockModel.GuiLight;
 import net.minecraft.client.renderer.block.model.ItemTransforms.TransformType;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.DataProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.CrossbowItem;
@@ -20,29 +19,21 @@ import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.client.model.generators.ModelFile.ExistingModelFile;
 import net.minecraftforge.client.model.generators.ModelFile.UncheckedModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 /**
- * extension of {@link ItemModelProvider}, called by {@link GatherDataEvent},<br>
- * used to generate the models for all mod {@link Item}s
  * 
  * @author Luis-st
+ *
  */
 
 public class XOresItemModelProvider extends ItemModelProvider {
-
-	/**
-	 * constructor for the {@link ModItemModelProvider}
-	 */
+	
 	public XOresItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
 		super(generator, XOres.MOD_ID, existingFileHelper);
 	}
-
-	/**
-	 * register all item models for {@link XOresItems#ITEMS}
-	 */
+	
 	@Override
 	protected void registerModels() {
 		for (Item item : XOresItems.ITEMS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
@@ -62,28 +53,19 @@ public class XOresItemModelProvider extends ItemModelProvider {
 		}
 	}
 	
-	/**
-	 * register a generated item model for the given {@link Item}
-	 */
-	protected void generatedItem(Item item) {
+	private void generatedItem(Item item) {
 		ResourceLocation location = ForgeRegistries.ITEMS.getKey(item);
 		ModelFile model = new ExistingModelFile(new ResourceLocation("item/generated"), this.existingFileHelper);
 		this.getBuilder(location.getPath()).parent(model).texture("layer0", new ResourceLocation(XOres.MOD_ID, "item/" + location.getPath()));
 	}
 	
-	/**
-	 * register a handheld item model for the given {@link TieredItem}
-	 */
-	protected void handheldItem(TieredItem tool) {
+	private void handheldItem(TieredItem tool) {
 		ResourceLocation location = ForgeRegistries.ITEMS.getKey(tool);
 		ModelFile model = new ExistingModelFile(new ResourceLocation("item/handheld"), this.existingFileHelper);
 		this.getBuilder(location.getPath()).parent(model).texture("layer0", new ResourceLocation(XOres.MOD_ID, "item/" + location.getPath()));
 	}
 	
-	/**
-	 * register a elytra chestplate item model for the given {@link ElytraChestplateItem}
-	 */
-	protected void elytraChestplateItem(ElytraChestplateItem elytraChestplate) {
+	private void elytraChestplateItem(ElytraChestplateItem elytraChestplate) {
 		ResourceLocation location = ForgeRegistries.ITEMS.getKey(elytraChestplate);
 		ModelFile model = new ExistingModelFile(new ResourceLocation("item/generated"), this.existingFileHelper);
 		this.getBuilder(location.getPath()).parent(model).texture("layer0", new ResourceLocation(XOres.MOD_ID, "item/" + location.getPath()))
@@ -93,10 +75,7 @@ public class XOresItemModelProvider extends ItemModelProvider {
 		this.getBuilder("broken_" + location.getPath()).parent(model).texture("layer0", new ResourceLocation(XOres.MOD_ID, "item/broken_" + location.getPath()));
 	}
 	
-	/**
-	 * register a bow item model for the given {@link BowItem}
-	 */
-	protected void bowItem(BowItem bow) {
+	private void bowItem(BowItem bow) {
 		ResourceLocation location = ForgeRegistries.ITEMS.getKey(bow);
 		ModelFile model = new ExistingModelFile(new ResourceLocation("item/generated"), this.existingFileHelper);
 		this.getBuilder(location.getPath()).parent(model).texture("layer0", new ResourceLocation(XOres.MOD_ID, "item/" + location.getPath()))
@@ -117,10 +96,7 @@ public class XOresItemModelProvider extends ItemModelProvider {
 		}
 	}
 	
-	/**
-	 * register a crossbow item model for the given {@link CrossbowItem}
-	 */
-	protected void crossbowItem(CrossbowItem crossbow) {
+	private void crossbowItem(CrossbowItem crossbow) {
 		ResourceLocation location = ForgeRegistries.ITEMS.getKey(crossbow);
 		ModelFile model = new ExistingModelFile(new ResourceLocation("item/generated"), this.existingFileHelper);
 		this.getBuilder(location.getPath()).parent(model).texture("layer0", new ResourceLocation(XOres.MOD_ID, "item/" + location.getPath() + "_standby"))
@@ -147,10 +123,7 @@ public class XOresItemModelProvider extends ItemModelProvider {
 		this.getBuilder(location.getPath() + "_firework").parent(this.uncheckedModel(location.getPath())).texture("layer0", new ResourceLocation(XOres.MOD_ID, "item/" + location.getPath() + "_firework"));
 	}
 	
-	/**
-	 * register a shield item model for the given {@link ShieldItem}
-	 */
-	protected void shieldItem(ShieldItem shield) {
+	private void shieldItem(ShieldItem shield) {
 		ResourceLocation location = ForgeRegistries.ITEMS.getKey(shield);
 		ModelFile model = new UncheckedModelFile(new ResourceLocation("builtin/entity"));
 		this.getBuilder(location.getPath()).parent(model).guiLight(GuiLight.FRONT).texture("particle", new ResourceLocation("block/dark_oak_planks"))
@@ -174,23 +147,10 @@ public class XOresItemModelProvider extends ItemModelProvider {
 			.end();
 	}
 	
-	/**
-	 * @return a {@link ExistingModelFile} for the given path
-	 */
-	protected ModelFile existingModel(String path) {
-		return new ExistingModelFile(new ResourceLocation(XOres.MOD_ID, "item/" + path), this.existingFileHelper);
-	}
-	
-	/**
-	 * @return a {@link UncheckedModelFile} for the given path
-	 */
-	protected ModelFile uncheckedModel(String path) {
+	private ModelFile uncheckedModel(String path) {
 		return new UncheckedModelFile(new ResourceLocation(XOres.MOD_ID, "item/" + path));
 	}
 	
-	/**
-	 * @return the name of the {@link DataProvider}
-	 */
 	@Override
 	public String getName() {
 		return "XOres Item Models";

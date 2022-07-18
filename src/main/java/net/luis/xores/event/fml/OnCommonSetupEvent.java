@@ -11,25 +11,14 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
 /**
- * {@link FMLCommonSetupEvent} event handler
  * 
  * @author Luis-st
+ *
  */
 
 @EventBusSubscriber(modid = XOres.MOD_ID, bus = Bus.MOD)
 public class OnCommonSetupEvent {
 	
-	/**
-	 * register the common stuff of {@link XOres}:<br>
-	 * <ul>
-	 * 	<li>{@link ElytraChestplateItem#ELYTRA_TIME_DAMAGE_VALUES}</li>
-	 * </ul>
-	 * replace the max value of the following {@link RangedAttribute}s:
-	 * <ul>
-	 * 	<li>{@link Attributes#ARMOR}</li>
-	 * 	<li>{@link Attributes#KNOCKBACK_RESISTANCE}</li>
-	 * </ul>
-	 */
 	@SubscribeEvent
 	public static void commonSetup(FMLCommonSetupEvent event) {
 		ElytraChestplateItem.register(XOresItems.DIAMOND_ELYTRA_CHESTPLATE.get(), 40);
@@ -42,11 +31,6 @@ public class OnCommonSetupEvent {
 		});
 	}
 	
-	/**
-	 * replace the max value of the given {@link RangedAttribute}
-	 * @param attribute The {@link RangedAttribute}
-	 * @param maxValue The new max value
-	 */
 	private static void replaceAttributeValue(RangedAttribute attribute, double maxValue) {
 		attribute.maxValue = maxValue;
 	}

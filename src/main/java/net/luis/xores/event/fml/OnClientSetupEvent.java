@@ -6,7 +6,6 @@ import net.luis.xores.XOres;
 import net.luis.xores.client.renderer.item.XOresItemProperties;
 import net.luis.xores.world.item.ElytraChestplateItem;
 import net.luis.xores.world.item.XOresItems;
-import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.CrossbowItem;
 import net.minecraft.world.item.Item;
@@ -19,20 +18,14 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.registries.RegistryObject;
 
 /**
- * {@link FMLClientSetupEvent} event handler
  * 
  * @author Luis-st
+ *
  */
 
 @EventBusSubscriber(modid = XOres.MOD_ID, bus = Bus.MOD, value = Dist.CLIENT)
 public class OnClientSetupEvent {
 	
-	/**
-	 * register the client stuff of {@link XOres}:<br>
-	 * <ul>
-	 * 	<li>the {@link ItemProperties} of all {@link XOresItems#ITEMS}</li>
-	 * </ul>
-	 */
 	@SubscribeEvent
 	public static void clientSetup(FMLClientSetupEvent event) {
 		event.enqueueWork(() -> {
