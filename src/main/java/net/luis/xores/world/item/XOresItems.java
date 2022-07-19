@@ -121,6 +121,9 @@ public class XOresItems {
 	public static final RegistryObject<SwordItem> SAPHIRE_SWORD = ITEMS.register("saphire_sword", () -> {
 		return new SwordItem(XOresTiers.SAPHIRE, -2, -2.4F, new Item.Properties().tab(XOres.TAB));
 	});
+	public static final RegistryObject<ShieldItem> SAPHIRE_SHIELD = ITEMS.register("saphire_shield", () -> {
+		return new XOresShieldItem(new Item.Properties().tab(XOres.TAB).defaultDurability(5086), new ResourceLocation(XOres.MOD_ID, "textures/entity/saphire_shield.png"));
+	});
 	public static final RegistryObject<PickaxeItem> SAPHIRE_PICKAXE = ITEMS.register("saphire_pickaxe", () -> {
 		return new PickaxeItem(XOresTiers.SAPHIRE, -4, -2.8F, new Item.Properties().tab(XOres.TAB));
 	});
@@ -132,9 +135,6 @@ public class XOresItems {
 	});
 	public static final RegistryObject<HoeItem> SAPHIRE_HOE = ITEMS.register("saphire_hoe", () -> {
 		return new HoeItem(XOresTiers.SAPHIRE, -8, 0.0F, new Item.Properties().tab(XOres.TAB));
-	});
-	public static final RegistryObject<ShieldItem> SAPHIRE_SHIELD = ITEMS.register("saphire_shield", () -> {
-		return new XOresShieldItem(new Item.Properties().tab(XOres.TAB).defaultDurability(5086), new ResourceLocation(XOres.MOD_ID, "textures/entity/saphire_shield.png"));
 	});
 	public static final RegistryObject<ArmorItem> SAPHIRE_HELMET = ITEMS.register("saphire_helmet", () -> {
 		return new ArmorItem(XOresArmorMaterials.SAPHIRE, EquipmentSlot.HEAD, new Item.Properties().tab(XOres.TAB));
@@ -226,6 +226,15 @@ public class XOresItems {
 	public static final RegistryObject<SwordItem> ENDERITE_SWORD = ITEMS.register("enderite_sword", () -> {
 		return new SwordItem(XOresTiers.ENDERITE, -2, -2.2F, new Item.Properties().tab(XOres.TAB));
 	});
+	public static final RegistryObject<ShieldItem> ENDERITE_SHIELD = ITEMS.register("enderite_shield", () -> {
+		return new XOresShieldItem(new Item.Properties().tab(XOres.TAB).defaultDurability(22812), new ResourceLocation(XOres.MOD_ID, "textures/entity/enderite_shield.png"));
+	});
+	public static final RegistryObject<BowItem> ENDERITE_BOW = ITEMS.register("enderite_bow", () -> {
+		return new BowItem(new Item.Properties().tab(XOres.TAB).defaultDurability(1538));
+	});
+	public static final RegistryObject<CrossbowItem> ENDERITE_CROSSBOW = ITEMS.register("enderite_crossbow", () -> {
+		return new CrossbowItem(new Item.Properties().tab(XOres.TAB).defaultDurability(1493));
+	});
 	public static final RegistryObject<PickaxeItem> ENDERITE_PICKAXE = ITEMS.register("enderite_pickaxe", () -> {
 		return new PickaxeItem(XOresTiers.ENDERITE, -4, -2.8F, new Item.Properties().tab(XOres.TAB));
 	});
@@ -237,15 +246,6 @@ public class XOresItems {
 	});
 	public static final RegistryObject<HoeItem> ENDERITE_HOE = ITEMS.register("enderite_hoe", () -> {
 		return new HoeItem(XOresTiers.ENDERITE, -16, 0.0F, new Item.Properties().tab(XOres.TAB));
-	});
-	public static final RegistryObject<BowItem> ENDERITE_BOW = ITEMS.register("enderite_bow", () -> {
-		return new BowItem(new Item.Properties().tab(XOres.TAB).defaultDurability(1538));
-	});
-	public static final RegistryObject<CrossbowItem> ENDERITE_CROSSBOW = ITEMS.register("enderite_crossbow", () -> {
-		return new CrossbowItem(new Item.Properties().tab(XOres.TAB).defaultDurability(1493));
-	});
-	public static final RegistryObject<ShieldItem> ENDERITE_SHIELD = ITEMS.register("enderite_shield", () -> {
-		return new XOresShieldItem(new Item.Properties().tab(XOres.TAB).defaultDurability(22812), new ResourceLocation(XOres.MOD_ID, "textures/entity/enderite_shield.png"));
 	});
 	public static final RegistryObject<EnderiteHelmetItem> ENDERITE_HELMET = ITEMS.register("enderite_helmet", () -> {
 		return new EnderiteHelmetItem(XOresArmorMaterials.ENDERITE, new Item.Properties().tab(XOres.TAB));
@@ -289,6 +289,15 @@ public class XOresItems {
 	public static final RegistryObject<SwordItem> NIGHT_SWORD = ITEMS.register("night_sword", () -> {
 		return new SwordItem(XOresTiers.NIGHT, -2, -2.0F, new Item.Properties().tab(XOres.TAB));
 	});
+	public static final RegistryObject<ShieldItem> NIGHT_SHIELD = ITEMS.register("night_shield", () -> {
+		return new XOresShieldItem(new Item.Properties().tab(XOres.TAB).defaultDurability(38978), new ResourceLocation(XOres.MOD_ID, "textures/entity/night_shield.png"));
+	});
+	public static final RegistryObject<BowItem> NIGHT_BOW = ITEMS.register("night_bow", () -> {
+		return new BowItem(new Item.Properties().tab(XOres.TAB).defaultDurability(3245));
+	});
+	public static final RegistryObject<CrossbowItem> NIGHT_CROSSBOW = ITEMS.register("night_crossbow", () -> {
+		return new CrossbowItem(new Item.Properties().tab(XOres.TAB).defaultDurability(3185));
+	});
 	public static final RegistryObject<PickaxeItem> NIGHT_PICKAXE = ITEMS.register("night_pickaxe", () -> {
 		return new PickaxeItem(XOresTiers.NIGHT, -4, -2.8F, new Item.Properties().tab(XOres.TAB));
 	});
@@ -300,15 +309,6 @@ public class XOresItems {
 	});
 	public static final RegistryObject<HoeItem> NIGHT_HOE = ITEMS.register("night_hoe", () -> {
 		return new HoeItem(XOresTiers.NIGHT, -19, 0.0F, new Item.Properties().tab(XOres.TAB));
-	});
-	public static final RegistryObject<BowItem> NIGHT_BOW = ITEMS.register("night_bow", () -> {
-		return new BowItem(new Item.Properties().tab(XOres.TAB).defaultDurability(3245));
-	});
-	public static final RegistryObject<CrossbowItem> NIGHT_CROSSBOW = ITEMS.register("night_crossbow", () -> {
-		return new CrossbowItem(new Item.Properties().tab(XOres.TAB).defaultDurability(3185));
-	});
-	public static final RegistryObject<ShieldItem> NIGHT_SHIELD = ITEMS.register("night_shield", () -> {
-		return new XOresShieldItem(new Item.Properties().tab(XOres.TAB).defaultDurability(38978), new ResourceLocation(XOres.MOD_ID, "textures/entity/night_shield.png"));
 	});
 	public static final RegistryObject<ArmorItem> NIGHT_HELMET = ITEMS.register("night_helmet", () -> {
 		return new ArmorItem(XOresArmorMaterials.NIGHT, EquipmentSlot.HEAD, new Item.Properties().tab(XOres.TAB));
