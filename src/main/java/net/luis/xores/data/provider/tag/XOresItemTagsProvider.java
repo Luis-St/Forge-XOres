@@ -119,7 +119,9 @@ public class XOresItemTagsProvider extends ItemTagsProvider {
 		this.copy(XOresBlockTags.ROSITE_ORES, XOresItemTags.ROSITE_ORES);
 		this.copy(XOresBlockTags.ENDERITE_ORES, XOresItemTags.ENDERITE_ORES);
 		this.copy(XOresBlockTags.ORE_BLOCKS, XOresItemTags.ORE_BLOCKS);
-		this.copy(XOresBlockTags.STONES, XOresItemTags.STONES);
+		this.copy(Tags.Blocks.ORES, Tags.Items.ORES);
+		this.copy(Tags.Blocks.ORES_IN_GROUND_STONE, Tags.Items.ORES_IN_GROUND_STONE);
+		this.copy(Tags.Blocks.ORES_IN_GROUND_DEEPSLATE, Tags.Items.ORES_IN_GROUND_DEEPSLATE);
 		
 		this.tag(Tags.Items.INGOTS).add(JADE_INGOT.get(), BLAZING_INGOT.get(), SAPHIRE_INGOT.get(), LIMONITE_INGOT.get(), ENDERITE_INGOT.get(), STEEL_INGOT.get(), NIGHT_INGOT.get());
 		
@@ -136,7 +138,6 @@ public class XOresItemTagsProvider extends ItemTagsProvider {
 				.add(DIAMOND_SHIELD.get()).add(DIAMOND_HELMET, DIAMOND_CHESTPLATE, DIAMOND_ELYTRA_CHESTPLATE.get(), DIAMOND_LEGGINGS, DIAMOND_BOOTS, DIAMOND_HORSE_ARMOR);
 		this.tag(XOresItemTags.NETHERITE).add(NETHERITE_SCRAP, NETHERITE_INGOT, NETHERITE_SWORD, NETHERITE_PICKAXE, NETHERITE_AXE, NETHERITE_SHOVEL, NETHERITE_HOE)
 				.add(NETHERITE_BOW.get(), NETHERITE_CROSSBOW.get(), NETHERITE_SHIELD.get()).add(NETHERITE_HELMET, NETHERITE_CHESTPLATE, NETHERITE_ELYTRA_CHESTPLATE.get(), NETHERITE_LEGGINGS, NETHERITE_BOOTS);
-		
 		this.tag(XOresItemTags.JADE).add(JADE_INGOT.get(), JADE_SWORD.get(), JADE_PICKAXE.get(), JADE_AXE.get(), JADE_SHOVEL.get(), JADE_HOE.get())
 					.add(JADE_HELMET.get(), JADE_CHESTPLATE.get(), JADE_LEGGINGS.get(), JADE_BOOTS.get());
 		this.tag(XOresItemTags.BLAZING).add(BLAZING_INGOT.get(), BLAZING_SWORD.get(), BLAZING_PICKAXE.get(), BLAZING_AXE.get(), BLAZING_SHOVEL.get(), BLAZING_HOE.get())

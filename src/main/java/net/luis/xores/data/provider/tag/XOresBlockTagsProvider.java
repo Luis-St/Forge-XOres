@@ -1,13 +1,5 @@
 package net.luis.xores.data.provider.tag;
 
-import static net.luis.xores.tags.XOresBlockTags.BASE_STONE_END;
-import static net.luis.xores.tags.XOresBlockTags.ENDERITE_ORES;
-import static net.luis.xores.tags.XOresBlockTags.JADE_ORES;
-import static net.luis.xores.tags.XOresBlockTags.LIMONITE_ORES;
-import static net.luis.xores.tags.XOresBlockTags.ORE_BLOCKS;
-import static net.luis.xores.tags.XOresBlockTags.ROSITE_ORES;
-import static net.luis.xores.tags.XOresBlockTags.SAPHIRE_ORES;
-import static net.luis.xores.tags.XOresBlockTags.STONES;
 import static net.luis.xores.world.level.block.XOresBlocks.BLOCKS;
 import static net.luis.xores.world.level.block.XOresBlocks.DEEPSLATE_JADE_ORE;
 import static net.luis.xores.world.level.block.XOresBlocks.DEEPSLATE_LIMONITE_ORE;
@@ -33,7 +25,7 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -50,6 +42,7 @@ public class XOresBlockTagsProvider extends BlockTagsProvider {
 	}
 	
 	@Override
+	@SuppressWarnings("unchecked")
 	protected void addTags() {
 		this.tag(XOresBlockTags.NEEDS_TOOL_LEVEL_1).addTag(BlockTags.NEEDS_STONE_TOOL).add(JADE_ORE.get(), DEEPSLATE_JADE_ORE.get(), JADE_BLOCK.get());
 		this.tag(XOresBlockTags.NEEDS_TOOL_LEVEL_2).addTag(BlockTags.NEEDS_IRON_TOOL).add(SAPHIRE_ORE.get(), DEEPSLATE_SAPHIRE_ORE.get(), SAPHIRE_BLOCK.get(), LIMONITE_BLOCK.get(), ROSITE_BLOCK.get());
@@ -63,15 +56,16 @@ public class XOresBlockTagsProvider extends BlockTagsProvider {
 			pickaxeMinable.add(block);
 		}
 		
-		this.tag(JADE_ORES).add(JADE_ORE.get(), DEEPSLATE_JADE_ORE.get());
-		this.tag(SAPHIRE_ORES).add(SAPHIRE_ORE.get(), DEEPSLATE_SAPHIRE_ORE.get());
-		this.tag(LIMONITE_ORES).add(LIMONITE_ORE.get(), DEEPSLATE_LIMONITE_ORE.get());
-		this.tag(ROSITE_ORES).add(ROSITE_ORE.get(), DEEPSLATE_ROSITE_ORE.get());
-		this.tag(ENDERITE_ORES).add(ENDERITE_ORE.get());
-		this.tag(ORE_BLOCKS).add(JADE_BLOCK.get(), SAPHIRE_BLOCK.get(), LIMONITE_BLOCK.get(), ROSITE_BLOCK.get(), ENDERITE_BLOCK.get());
+		this.tag(XOresBlockTags.JADE_ORES).add(JADE_ORE.get(), DEEPSLATE_JADE_ORE.get());
+		this.tag(XOresBlockTags.SAPHIRE_ORES).add(SAPHIRE_ORE.get(), DEEPSLATE_SAPHIRE_ORE.get());
+		this.tag(XOresBlockTags.LIMONITE_ORES).add(LIMONITE_ORE.get(), DEEPSLATE_LIMONITE_ORE.get());
+		this.tag(XOresBlockTags.ROSITE_ORES).add(ROSITE_ORE.get(), DEEPSLATE_ROSITE_ORE.get());
+		this.tag(XOresBlockTags.ENDERITE_ORES).add(ENDERITE_ORE.get());
+		this.tag(XOresBlockTags.ORE_BLOCKS).add(JADE_BLOCK.get(), SAPHIRE_BLOCK.get(), LIMONITE_BLOCK.get(), ROSITE_BLOCK.get(), ENDERITE_BLOCK.get());
 		
-		this.tag(BASE_STONE_END).add(Blocks.END_STONE);
-		this.tag(STONES).add(Blocks.STONE, Blocks.BLACKSTONE, Blocks.DEEPSLATE);
+		this.tag(Tags.Blocks.ORES).addTags(XOresBlockTags.JADE_ORES, XOresBlockTags.SAPHIRE_ORES, XOresBlockTags.LIMONITE_ORES, XOresBlockTags.ROSITE_ORES, XOresBlockTags.ENDERITE_ORES);
+		this.tag(Tags.Blocks.ORES_IN_GROUND_STONE).add(JADE_ORE.get(), SAPHIRE_ORE.get(), LIMONITE_ORE.get(), ROSITE_ORE.get());
+		this.tag(Tags.Blocks.ORES_IN_GROUND_DEEPSLATE).add(DEEPSLATE_JADE_ORE.get(), DEEPSLATE_SAPHIRE_ORE.get(), DEEPSLATE_LIMONITE_ORE.get(), DEEPSLATE_ROSITE_ORE.get());
 	}
 	
 	@Override
