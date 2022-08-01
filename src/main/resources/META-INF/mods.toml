@@ -1,10 +1,10 @@
 modLoader="javafml"
-loaderVersion="[41,)"
+loaderVersion="[42,)"
 license="All rights reserved"
 
 [[mods]]
 modId="xores"
-version="1.19-1.8"
+version="1.19.1-1.8"
 displayName="XOres"
 credits="Thanks for downloading my Mod"
 authors="Luis"
@@ -19,6 +19,11 @@ Ores:
  - Enderite
  
 Tools:
+ - Jade
+ - Saphire
+ - Limonite
+ - Rosite
+ - Enderite
  - Blazing
  - Rose Quartz
  - Steel
@@ -31,13 +36,13 @@ XOres Development Team
 [[dependencies.xores]]
 modId="forge"
 mandatory=true
-versionRange="[41,)"
+versionRange="[42,)"
 ordering="NONE"
 side="BOTH"
     
 [[dependencies.xores]]
 modId="minecraft"
 mandatory=true
-versionRange="[1.19,1.20)"
+versionRange="[1.19.1,1.20)"
 ordering="NONE"
 side="BOTH"
