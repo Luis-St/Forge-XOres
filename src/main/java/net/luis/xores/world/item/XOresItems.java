@@ -55,6 +55,7 @@ public class XOresItems {
 	public static final RegistryObject<CrossbowItem> NETHERITE_CROSSBOW = ITEMS.register("netherite_crossbow", () -> {
 		return new CrossbowItem(new Item.Properties().tab(XOres.TAB).defaultDurability(714));
 	});
+	
 	public static final RegistryObject<Item> JADE_INGOT = ITEMS.register("jade_ingot", () -> {
 		return new Item(new Item.Properties().tab(XOres.TAB));
 	});
@@ -85,6 +86,7 @@ public class XOresItems {
 	public static final RegistryObject<ArmorItem> JADE_BOOTS = ITEMS.register("jade_boots", () -> {
 		return new ArmorItem(XOresArmorMaterials.JADE, EquipmentSlot.FEET, new Item.Properties().tab(XOres.TAB));
 	});
+	
 	public static final RegistryObject<Item> BLAZING_INGOT = ITEMS.register("blazing_ingot", () -> {
 		return new Item(new Item.Properties().tab(XOres.TAB));
 	});
@@ -115,6 +117,7 @@ public class XOresItems {
 	public static final RegistryObject<BlazingArmorItem> BLAZING_BOOTS = ITEMS.register("blazing_boots", () -> {
 		return new BlazingArmorItem(XOresArmorMaterials.BLAZING, EquipmentSlot.FEET, new Item.Properties().tab(XOres.TAB));
 	});
+	
 	public static final RegistryObject<Item> SAPHIRE_INGOT = ITEMS.register("saphire_ingot", () -> {
 		return new Item(new Item.Properties().tab(XOres.TAB));
 	});
@@ -148,6 +151,7 @@ public class XOresItems {
 	public static final RegistryObject<SaphireArmorItem> SAPHIRE_BOOTS = ITEMS.register("saphire_boots", () -> {
 		return new SaphireArmorItem(XOresArmorMaterials.SAPHIRE, EquipmentSlot.FEET, new Item.Properties().tab(XOres.TAB));
 	});
+	
 	public static final RegistryObject<Item> LIMONITE_INGOT = ITEMS.register("limonite_ingot", () -> {
 		return new Item(new Item.Properties().tab(XOres.TAB));
 	});
@@ -178,6 +182,7 @@ public class XOresItems {
 	public static final RegistryObject<LimoniteArmorItem> LIMONITE_BOOTS = ITEMS.register("limonite_boots", () -> {
 		return new LimoniteArmorItem(XOresArmorMaterials.LIMONITE, EquipmentSlot.FEET, new Item.Properties().tab(XOres.TAB));
 	});
+	
 	public static final RegistryObject<Item> ROSITE_INGOT = ITEMS.register("rosite_ingot", () -> {
 		return new Item(new Item.Properties().tab(XOres.TAB));
 	});
@@ -196,6 +201,7 @@ public class XOresItems {
 	public static final RegistryObject<HoeItem> ROSITE_HOE = ITEMS.register("rosite_hoe", () -> {
 		return new HoeItem(XOresTiers.ROSITE, -11, 0.0F, new Item.Properties().tab(XOres.TAB));
 	});
+	
 	public static final RegistryObject<Item> ROSE_QUARTZ = ITEMS.register("rose_quartz", () -> {
 		return new Item(new Item.Properties().tab(XOres.TAB));
 	});
@@ -217,6 +223,7 @@ public class XOresItems {
 	public static final RegistryObject<HoeItem> ROSE_QUARTZ_HOE = ITEMS.register("rose_quartz_hoe", () -> {
 		return new HoeItem(XOresTiers.ROSE_QUARTZ, -12, 0.0F, new Item.Properties().tab(XOres.TAB));
 	});
+	
 	public static final RegistryObject<Item> ENDERITE_SCRAP = ITEMS.register("enderite_scrap", () -> {
 		return new Item(new Item.Properties().tab(XOres.TAB));
 	});
@@ -262,6 +269,7 @@ public class XOresItems {
 	public static final RegistryObject<EnderiteArmorItem> ENDERITE_BOOTS = ITEMS.register("enderite_boots", () -> {
 		return new EnderiteArmorItem(XOresArmorMaterials.ENDERITE, EquipmentSlot.FEET, new Item.Properties().tab(XOres.TAB));
 	});
+	
 	public static final RegistryObject<Item> STEEL_INGOT = ITEMS.register("steel_ingot", () -> {
 		return new Item(new Item.Properties().tab(XOres.TAB));
 	});
@@ -280,6 +288,7 @@ public class XOresItems {
 	public static final RegistryObject<HoeItem> STEEL_HOE = ITEMS.register("steel_hoe", () -> {
 		return new HoeItem(XOresTiers.STEEL, -5, 0.0F, new Item.Properties().tab(XOres.TAB));
 	});
+	
 	public static final RegistryObject<Item> NIGHT_SCRAP = ITEMS.register("night_scrap", () -> {
 		return new Item(new Item.Properties().tab(XOres.TAB));
 	});
