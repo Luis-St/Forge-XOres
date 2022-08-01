@@ -37,8 +37,8 @@ public interface AbilityArmor {
 		}
 		return stacks.stream().map(ItemStack::getItem).filter((stack) -> {
 			return stack instanceof ArmorItem;
-		}).map(ArmorItem.class::cast).filter((stack) -> {
-			return stack.getMaterial() != this.self().getMaterial();
+		}).map(ArmorItem.class::cast).filter((item) -> {
+			return item.getMaterial() != this.self().getMaterial();
 		}).findAny().isEmpty();
 	}
 	
