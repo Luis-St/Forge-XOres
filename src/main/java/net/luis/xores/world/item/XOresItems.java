@@ -7,6 +7,7 @@ import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterials;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.BowItem;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CrossbowItem;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.Item;
@@ -29,31 +30,31 @@ public class XOresItems {
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, XOres.MOD_ID);
 	
 	public static final RegistryObject<ShieldItem> GOLDEN_SHIELD = ITEMS.register("golden_shield", () -> {
-		return new XOresShieldItem(new Item.Properties().tab(XOres.TAB).defaultDurability(180), new ResourceLocation(XOres.MOD_ID, "textures/entity/golden_shield.png"));
+		return new XOresShieldItem(new Item.Properties().tab(CreativeModeTab.TAB_COMBAT).defaultDurability(180), new ResourceLocation(XOres.MOD_ID, "textures/entity/golden_shield.png"));
 	});
 	public static final RegistryObject<ShieldItem> COPPER_SHIELD = ITEMS.register("copper_shield", () -> {
-		return new XOresShieldItem(new Item.Properties().tab(XOres.TAB).defaultDurability(648), new ResourceLocation(XOres.MOD_ID, "textures/entity/copper_shield.png"));
+		return new XOresShieldItem(new Item.Properties().tab(CreativeModeTab.TAB_COMBAT).defaultDurability(648), new ResourceLocation(XOres.MOD_ID, "textures/entity/copper_shield.png"));
 	});
 	public static final RegistryObject<ShieldItem> IRON_SHIELD = ITEMS.register("iron_shield", () -> {
-		return new XOresShieldItem(new Item.Properties().tab(XOres.TAB).defaultDurability(1298), new ResourceLocation(XOres.MOD_ID, "textures/entity/iron_shield.png"));
+		return new XOresShieldItem(new Item.Properties().tab(CreativeModeTab.TAB_COMBAT).defaultDurability(1298), new ResourceLocation(XOres.MOD_ID, "textures/entity/iron_shield.png"));
 	});
 	public static final RegistryObject<ShieldItem> DIAMOND_SHIELD = ITEMS.register("diamond_shield", () -> {
-		return new XOresShieldItem(new Item.Properties().tab(XOres.TAB).defaultDurability(2531), new ResourceLocation(XOres.MOD_ID, "textures/entity/diamond_shield.png"));
+		return new XOresShieldItem(new Item.Properties().tab(CreativeModeTab.TAB_COMBAT).defaultDurability(2531), new ResourceLocation(XOres.MOD_ID, "textures/entity/diamond_shield.png"));
 	});
 	public static final RegistryObject<ShieldItem> NETHERITE_SHIELD = ITEMS.register("netherite_shield", () -> {
-		return new XOresShieldItem(new Item.Properties().tab(XOres.TAB).defaultDurability(11465), new ResourceLocation(XOres.MOD_ID, "textures/entity/netherite_shield.png"));
+		return new XOresShieldItem(new Item.Properties().tab(CreativeModeTab.TAB_COMBAT).defaultDurability(11465), new ResourceLocation(XOres.MOD_ID, "textures/entity/netherite_shield.png"));
 	});
 	public static final RegistryObject<ElytraChestplateItem> DIAMOND_ELYTRA_CHESTPLATE = ITEMS.register("diamond_elytra_chestplate", () -> {
-		return new ElytraChestplateItem(ArmorMaterials.DIAMOND, new Item.Properties().tab(XOres.TAB));
+		return new ElytraChestplateItem(ArmorMaterials.DIAMOND, new Item.Properties().tab(CreativeModeTab.TAB_COMBAT));
 	});
 	public static final RegistryObject<ElytraChestplateItem> NETHERITE_ELYTRA_CHESTPLATE = ITEMS.register("netherite_elytra_chestplate", () -> {
-		return new ElytraChestplateItem(ArmorMaterials.NETHERITE, new Item.Properties().tab(XOres.TAB));
+		return new ElytraChestplateItem(ArmorMaterials.NETHERITE, new Item.Properties().tab(CreativeModeTab.TAB_COMBAT));
 	});
 	public static final RegistryObject<BowItem> NETHERITE_BOW = ITEMS.register("netherite_bow", () -> {
-		return new BowItem(new Item.Properties().tab(XOres.TAB).defaultDurability(765));
+		return new BowItem(new Item.Properties().tab(CreativeModeTab.TAB_COMBAT).defaultDurability(765));
 	});
 	public static final RegistryObject<CrossbowItem> NETHERITE_CROSSBOW = ITEMS.register("netherite_crossbow", () -> {
-		return new CrossbowItem(new Item.Properties().tab(XOres.TAB).defaultDurability(714));
+		return new CrossbowItem(new Item.Properties().tab(CreativeModeTab.TAB_COMBAT).defaultDurability(714));
 	});
 	
 	public static final RegistryObject<Item> JADE_INGOT = ITEMS.register("jade_ingot", () -> {
