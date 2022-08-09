@@ -1,6 +1,18 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
+    "has_deepslate_limonite_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "xores:deepslate_limonite_ore"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_limonite_ingot": {
       "conditions": {
         "items": [
@@ -22,6 +34,7 @@
   },
   "requirements": [
     [
+      "has_deepslate_limonite_ore",
       "has_limonite_ingot",
       "has_the_recipe"
     ]

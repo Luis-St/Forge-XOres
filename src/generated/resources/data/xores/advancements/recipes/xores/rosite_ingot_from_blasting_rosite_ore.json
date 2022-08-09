@@ -13,6 +13,18 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
+    "has_rosite_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "xores:rosite_ore"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_the_recipe": {
       "conditions": {
         "recipe": "xores:rosite_ingot_from_blasting_rosite_ore"
@@ -22,6 +34,7 @@
   },
   "requirements": [
     [
+      "has_rosite_ore",
       "has_rosite_ingot",
       "has_the_recipe"
     ]

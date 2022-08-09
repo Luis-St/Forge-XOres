@@ -13,6 +13,30 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
+    "has_night_crossbow": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "xores:night_crossbow"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_night_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "xores:night_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_the_recipe": {
       "conditions": {
         "recipe": "xores:night_crossbow_smithing"
@@ -23,6 +47,8 @@
   "requirements": [
     [
       "has_enderite_crossbow",
+      "has_night_ingot",
+      "has_night_crossbow",
       "has_the_recipe"
     ]
   ],

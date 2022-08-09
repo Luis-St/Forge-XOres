@@ -1,12 +1,36 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
+    "has_elytra": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:elytra"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_night_chestplate": {
       "conditions": {
         "items": [
           {
             "items": [
               "xores:night_chestplate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_night_elytra_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "xores:night_elytra_chestplate"
             ]
           }
         ]
@@ -23,6 +47,8 @@
   "requirements": [
     [
       "has_night_chestplate",
+      "has_elytra",
+      "has_night_elytra_chestplate",
       "has_the_recipe"
     ]
   ],

@@ -13,6 +13,18 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
+    "has_rosite_sword": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "xores:rosite_sword"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_the_recipe": {
       "conditions": {
         "recipe": "xores:rosite_sword"
@@ -23,6 +35,7 @@
   "requirements": [
     [
       "has_rosite_ingot",
+      "has_rosite_sword",
       "has_the_recipe"
     ]
   ],

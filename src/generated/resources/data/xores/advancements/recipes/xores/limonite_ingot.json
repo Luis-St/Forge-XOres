@@ -13,6 +13,18 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
+    "has_limonite_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "xores:limonite_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_the_recipe": {
       "conditions": {
         "recipe": "xores:limonite_ingot"
@@ -22,6 +34,7 @@
   },
   "requirements": [
     [
+      "has_limonite_ingot",
       "has_limonite_block",
       "has_the_recipe"
     ]

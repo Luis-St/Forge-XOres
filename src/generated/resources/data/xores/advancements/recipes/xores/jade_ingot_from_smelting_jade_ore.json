@@ -13,6 +13,18 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
+    "has_jade_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "xores:jade_ore"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_the_recipe": {
       "conditions": {
         "recipe": "xores:jade_ingot_from_smelting_jade_ore"
@@ -22,6 +34,7 @@
   },
   "requirements": [
     [
+      "has_jade_ore",
       "has_jade_ingot",
       "has_the_recipe"
     ]

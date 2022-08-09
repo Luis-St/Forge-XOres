@@ -13,6 +13,30 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
+    "has_netherite_bow": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "xores:netherite_bow"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_netherite_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:netherite_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_the_recipe": {
       "conditions": {
         "recipe": "xores:netherite_bow_smithing"
@@ -23,6 +47,8 @@
   "requirements": [
     [
       "has_bow",
+      "has_netherite_ingot",
+      "has_netherite_bow",
       "has_the_recipe"
     ]
   ],

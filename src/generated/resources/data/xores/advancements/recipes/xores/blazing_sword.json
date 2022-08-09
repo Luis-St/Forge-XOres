@@ -13,6 +13,18 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
+    "has_blazing_sword": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "xores:blazing_sword"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_the_recipe": {
       "conditions": {
         "recipe": "xores:blazing_sword"
@@ -23,6 +35,7 @@
   "requirements": [
     [
       "has_blazing_ingot",
+      "has_blazing_sword",
       "has_the_recipe"
     ]
   ],

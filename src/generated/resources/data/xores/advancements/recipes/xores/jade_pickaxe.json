@@ -13,6 +13,18 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
+    "has_jade_pickaxe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "xores:jade_pickaxe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_the_recipe": {
       "conditions": {
         "recipe": "xores:jade_pickaxe"
@@ -23,6 +35,7 @@
   "requirements": [
     [
       "has_jade_ingot",
+      "has_jade_pickaxe",
       "has_the_recipe"
     ]
   ],
