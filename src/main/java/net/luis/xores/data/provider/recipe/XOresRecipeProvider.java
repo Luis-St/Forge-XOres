@@ -72,8 +72,8 @@ public class XOresRecipeProvider extends RecipeProvider {
 		this.leggingsRecipe(consumer, JADE_INGOT.get(), JADE_LEGGINGS.get());
 		this.bootsRecipe(consumer, JADE_INGOT.get(), JADE_BOOTS.get());
 		// blazing recipes
-		ShapedRecipeBuilder.shaped(BLAZING_INGOT.get()).group(getGroup(BLAZING_INGOT.get())).define('#', Items.BLAZE_ROD).define('I', Items.GOLD_BLOCK).pattern("###").pattern("#I#").pattern("###")
-			.unlockedBy("has_" + getId(Items.BLAZE_ROD), has(Items.BLAZE_ROD)).unlockedBy("has_" + getId(Items.GOLD_BLOCK), has(Items.GOLD_BLOCK)).save(consumer);
+		this.groupAndUnlock(ShapedRecipeBuilder.shaped(BLAZING_INGOT.get()).define('#', Items.BLAZE_ROD).define('I', Items.GOLD_BLOCK).pattern("###").pattern("#I#").pattern("###"), getGroup(BLAZING_INGOT.get()), Items.BLAZE_ROD, Items.GOLD_BLOCK,
+			BLAZING_INGOT.get()).save(consumer);		
 		this.swordRecipe(consumer, BLAZING_INGOT.get(), BLAZING_SWORD.get());
 		this.pickaxeRecipe(consumer, BLAZING_INGOT.get(), BLAZING_PICKAXE.get());
 		this.axeRecipe(consumer, BLAZING_INGOT.get(), BLAZING_AXE.get());
@@ -120,9 +120,8 @@ public class XOresRecipeProvider extends RecipeProvider {
 		this.shovelRecipe(consumer, ROSITE_INGOT.get(), ROSITE_SHOVEL.get());
 		this.hoeRecipe(consumer, ROSITE_INGOT.get(), ROSITE_HOE.get());
 		// rose quartz recipes
-		ShapelessRecipeBuilder.shapeless(ROSE_QUARTZ.get()).group(getGroup(ROSE_QUARTZ.get())).requires(Items.QUARTZ, 2).requires(ROSITE_INGOT.get(), 2).unlockedBy("has_" + getId(Items.QUARTZ), has(Items.QUARTZ))
-			.unlockedBy("has_" + getId(ROSITE_INGOT.get()), has(ROSITE_INGOT.get())).save(consumer);
-		ShapelessRecipeBuilder.shapeless(POLISHED_ROSE_QUARTZ.get()).group(getGroup(POLISHED_ROSE_QUARTZ.get())).requires(ROSE_QUARTZ.get(), 4).unlockedBy("has_" + getId(ROSE_QUARTZ.get()), has(ROSE_QUARTZ.get())).save(consumer);
+		this.groupAndUnlock(ShapelessRecipeBuilder.shapeless(ROSE_QUARTZ.get()).requires(Items.QUARTZ, 2).requires(ROSITE_INGOT.get(), 2), getGroup(POLISHED_ROSE_QUARTZ.get()), Items.QUARTZ, ROSITE_INGOT.get(), ROSE_QUARTZ.get()).save(consumer);
+		this.groupAndUnlock(ShapelessRecipeBuilder.shapeless(POLISHED_ROSE_QUARTZ.get()).requires(ROSE_QUARTZ.get(), 4), getGroup(POLISHED_ROSE_QUARTZ.get()), ROSE_QUARTZ.get(), POLISHED_ROSE_QUARTZ.get()).save(consumer);
 		this.swordRecipe(consumer, POLISHED_ROSE_QUARTZ.get(), ROSE_QUARTZ_SWORD.get());
 		this.pickaxeRecipe(consumer, POLISHED_ROSE_QUARTZ.get(), ROSE_QUARTZ_PICKAXE.get());
 		this.axeRecipe(consumer, POLISHED_ROSE_QUARTZ.get(), ROSE_QUARTZ_AXE.get());
@@ -130,8 +129,8 @@ public class XOresRecipeProvider extends RecipeProvider {
 		this.hoeRecipe(consumer, POLISHED_ROSE_QUARTZ.get(), ROSE_QUARTZ_HOE.get());
 		// enderite recipes
 		this.oreRecipes(consumer, ENDERITE_ORE.get().asItem(), ENDERITE_SCRAP.get(), 400);
-		ShapelessRecipeBuilder.shapeless(ENDERITE_INGOT.get()).group(getGroup(ENDERITE_INGOT.get())).requires(ENDERITE_SCRAP.get(), 9).unlockedBy("has_" + getId(ENDERITE_SCRAP.get()), has(ENDERITE_SCRAP.get())).save(consumer,
-			new ResourceLocation(XOres.MOD_ID, getId(ENDERITE_INGOT.get()) + "_from_scrap"));
+		this.groupAndUnlock(ShapelessRecipeBuilder.shapeless(ENDERITE_INGOT.get()).requires(ENDERITE_SCRAP.get(), 9), getGroup(ENDERITE_INGOT.get()), ENDERITE_SCRAP.get(), ENDERITE_INGOT.get())
+			.save(consumer, new ResourceLocation(XOres.MOD_ID, getId(ENDERITE_INGOT.get()) + "_from_scrap"));
 		this.blockRecipes(consumer, ENDERITE_INGOT.get(), ENDERITE_BLOCK.get().asItem());
 		this.smithingRecipe(consumer, Items.NETHERITE_SWORD, ENDERITE_INGOT.get(), ENDERITE_SWORD.get());
 		this.smithingRecipe(consumer, NETHERITE_SHIELD.get(), ENDERITE_INGOT.get(), ENDERITE_SHIELD.get());
@@ -147,16 +146,15 @@ public class XOresRecipeProvider extends RecipeProvider {
 		this.smithingRecipe(consumer, Items.NETHERITE_LEGGINGS, ENDERITE_INGOT.get(), ENDERITE_LEGGINGS.get());
 		this.smithingRecipe(consumer, Items.NETHERITE_BOOTS, ENDERITE_INGOT.get(), ENDERITE_BOOTS.get());
 		// steel recipes
-		ShapelessRecipeBuilder.shapeless(STEEL_INGOT.get()).group(getGroup(STEEL_INGOT.get())).requires(Items.IRON_BLOCK, 9).unlockedBy("has_" + getId(Items.IRON_BLOCK), has(Items.IRON_BLOCK)).save(consumer);
+		this.groupAndUnlock(ShapelessRecipeBuilder.shapeless(STEEL_INGOT.get()).requires(Items.IRON_BLOCK, 9), getGroup(STEEL_INGOT.get()), Items.IRON_BLOCK, STEEL_INGOT.get()).save(consumer);
 		this.swordRecipe(consumer, STEEL_INGOT.get(), STEEL_SWORD.get());
 		this.pickaxeRecipe(consumer, STEEL_INGOT.get(), STEEL_PICKAXE.get());
 		this.axeRecipe(consumer, STEEL_INGOT.get(), STEEL_AXE.get());
 		this.shovelRecipe(consumer, STEEL_INGOT.get(), STEEL_SHOVEL.get());
 		this.hoeRecipe(consumer, STEEL_INGOT.get(), STEEL_HOE.get());
 		// night recipes
-		ShapelessRecipeBuilder.shapeless(NIGHT_SCRAP.get()).group(getGroup(NIGHT_INGOT.get())).requires(STEEL_INGOT.get(), 2).requires(Items.NETHERITE_INGOT, 2).unlockedBy("has_" + getId(STEEL_INGOT.get()), has(STEEL_INGOT.get()))
-			.unlockedBy("has_" + getId(Items.NETHERITE_INGOT), has(Items.NETHERITE_INGOT)).save(consumer);
-		ShapelessRecipeBuilder.shapeless(NIGHT_INGOT.get()).group(getGroup(NIGHT_INGOT.get())).requires(NIGHT_SCRAP.get(), 4).unlockedBy("has_" + getId(NIGHT_SCRAP.get()), has(NIGHT_SCRAP.get())).save(consumer);
+		this.groupAndUnlock(ShapelessRecipeBuilder.shapeless(NIGHT_SCRAP.get()).requires(STEEL_INGOT.get(), 2).requires(Items.NETHERITE_INGOT, 2), getGroup(NIGHT_INGOT.get()), STEEL_INGOT.get(), Items.NETHERITE_INGOT, NIGHT_INGOT.get()).save(consumer);
+		this.groupAndUnlock(ShapelessRecipeBuilder.shapeless(NIGHT_INGOT.get()).requires(NIGHT_SCRAP.get(), 4), getGroup(NIGHT_INGOT.get()), NIGHT_SCRAP.get(), NIGHT_INGOT.get()).save(consumer);
 		this.smithingRecipe(consumer, ENDERITE_SWORD.get(), NIGHT_INGOT.get(), NIGHT_SWORD.get());
 		this.smithingRecipe(consumer, ENDERITE_SHIELD.get(), NIGHT_INGOT.get(), NIGHT_SHIELD.get());
 		this.smithingRecipe(consumer, ENDERITE_BOW.get(), NIGHT_INGOT.get(), NIGHT_BOW.get());
