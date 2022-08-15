@@ -16,7 +16,7 @@ import net.minecraft.world.item.ShieldItem;
  *
  */
 
-public class XOresItemProperties {
+public class XOItemProperties {
 	
 	public static void registerBow(BowItem bow) {
 		ItemProperties.register(bow, new ResourceLocation(XOres.MOD_ID, "pull"), (stack, level, livingEntity, seed) -> {

@@ -11,8 +11,8 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.mojang.datafixers.util.Either;
 
-import net.luis.xores.tags.XOresBlockTags;
-import net.luis.xores.tags.XOresItemTags;
+import net.luis.xores.tags.XOBlockTags;
+import net.luis.xores.tags.XOItemTags;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.AxeItem;
@@ -64,19 +64,19 @@ public class ToolFixer implements VanillaFixer {
 	}
 	
 	private void register() {
-		this.registerBlockTag(1, XOresBlockTags.NEEDS_TOOL_LEVEL_1);
-		this.registerBlockTag(2, XOresBlockTags.NEEDS_TOOL_LEVEL_2);
-		this.registerBlockTag(3, XOresBlockTags.NEEDS_TOOL_LEVEL_3);
-		this.registerBlockTag(4, XOresBlockTags.NEEDS_TOOL_LEVEL_4);
-		this.registerBlockTag(5, XOresBlockTags.NEEDS_TOOL_LEVEL_5);
-		this.registerBlockTag(6, XOresBlockTags.NEEDS_TOOL_LEVEL_6);
-		this.registerToolTag(0, XOresItemTags.TOOL_LEVEL_0);
-		this.registerToolTag(1, XOresItemTags.TOOL_LEVEL_1);
-		this.registerToolTag(2, XOresItemTags.TOOL_LEVEL_2);
-		this.registerToolTag(3, XOresItemTags.TOOL_LEVEL_3);
-		this.registerToolTag(4, XOresItemTags.TOOL_LEVEL_4);
-		this.registerToolTag(5, XOresItemTags.TOOL_LEVEL_5);
-		this.registerToolTag(6, XOresItemTags.TOOL_LEVEL_6);
+		this.registerBlockTag(1, XOBlockTags.NEEDS_TOOL_LEVEL_1);
+		this.registerBlockTag(2, XOBlockTags.NEEDS_TOOL_LEVEL_2);
+		this.registerBlockTag(3, XOBlockTags.NEEDS_TOOL_LEVEL_3);
+		this.registerBlockTag(4, XOBlockTags.NEEDS_TOOL_LEVEL_4);
+		this.registerBlockTag(5, XOBlockTags.NEEDS_TOOL_LEVEL_5);
+		this.registerBlockTag(6, XOBlockTags.NEEDS_TOOL_LEVEL_6);
+		this.registerToolTag(0, XOItemTags.TOOL_LEVEL_0);
+		this.registerToolTag(1, XOItemTags.TOOL_LEVEL_1);
+		this.registerToolTag(2, XOItemTags.TOOL_LEVEL_2);
+		this.registerToolTag(3, XOItemTags.TOOL_LEVEL_3);
+		this.registerToolTag(4, XOItemTags.TOOL_LEVEL_4);
+		this.registerToolTag(5, XOItemTags.TOOL_LEVEL_5);
+		this.registerToolTag(6, XOItemTags.TOOL_LEVEL_6);
 	}
 	
 	private <T> List<T> getTagValues(IForgeRegistry<T> registry, TagKey<T> tag) {

@@ -2,7 +2,7 @@ package net.luis.xores.world.item;
 
 import java.util.function.Consumer;
 
-import net.luis.xores.client.renderer.item.XOresShieldRenderer;
+import net.luis.xores.client.renderer.item.XOShieldRenderer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.resources.ResourceLocation;
@@ -15,11 +15,11 @@ import net.minecraftforge.client.extensions.common.IClientItemExtensions;
  *
  */
 
-public class XOresShieldItem extends ShieldItem {
+public class XOShieldItem extends ShieldItem {
 	
 	private final ResourceLocation shieldTexture;
 	
-	public XOresShieldItem(Properties properties, ResourceLocation shieldTexture) {
+	public XOShieldItem(Properties properties, ResourceLocation shieldTexture) {
 		super(properties);
 		this.shieldTexture = shieldTexture;
 	}
@@ -30,7 +30,7 @@ public class XOresShieldItem extends ShieldItem {
 			@Override
 			public BlockEntityWithoutLevelRenderer getCustomRenderer() {
 				Minecraft minecraft = Minecraft.getInstance();
-				return new XOresShieldRenderer(minecraft.getBlockEntityRenderDispatcher(), minecraft.getEntityModels(), XOresShieldItem.this.shieldTexture);
+				return new XOShieldRenderer(minecraft.getBlockEntityRenderDispatcher(), minecraft.getEntityModels(), XOShieldItem.this.shieldTexture);
 			}
 		});
 	}

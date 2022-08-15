@@ -17,28 +17,28 @@ import net.minecraft.world.item.crafting.Ingredient;
 public enum XOresTiers implements Tier {
 	
 	JADE("jade", 190, 5.0F, 5.0F, 2, 28, () -> {
-		return Ingredient.of(XOresItems.JADE_INGOT.get());
+		return Ingredient.of(XOItems.JADE_INGOT.get());
 	}),
 	BLAZING("blazing", 905, 7.0F, 6.0F, 2, 12, () -> {
-		return Ingredient.of(XOresItems.BLAZING_INGOT.get());
+		return Ingredient.of(XOItems.BLAZING_INGOT.get());
 	}),
 	SAPHIRE("saphire", 1718, 8.0F, 8.0F, 3, 42, () -> {
-		return Ingredient.of(XOresItems.SAPHIRE_INGOT.get());
+		return Ingredient.of(XOItems.SAPHIRE_INGOT.get());
 	}),
 	LIMONITE("limonite", 3178, 10.0F, 10.0F, 5, 26, () -> {
-		return Ingredient.of(XOresItems.LIMONITE_INGOT.get());
+		return Ingredient.of(XOItems.LIMONITE_INGOT.get());
 	}),
 	ROSITE("rosite", 4916, 10.0F, 11.0F, 4, 12, () -> {
-		return Ingredient.of(XOresItems.ROSITE_INGOT.get());
+		return Ingredient.of(XOItems.ROSITE_INGOT.get());
 	}),
 	ROSE_QUARTZ("rose_quartz", 7693, 11.0F, 12.0F, 4, 17, () -> {
-		return Ingredient.of(XOresItems.POLISHED_ROSE_QUARTZ.get());
+		return Ingredient.of(XOItems.POLISHED_ROSE_QUARTZ.get());
 	}),
 	ENDERITE("enderite", 10770, 14.0F, 16.0F, 5, 18, () -> {
 		return Ingredient.of(Items.BARRIER);
 	}),
 	STEEL("steel", 12924, 18.0F, 5.0F, 6, 9, () -> {
-		return Ingredient.of(XOresItems.STEEL_INGOT.get());
+		return Ingredient.of(XOItems.STEEL_INGOT.get());
 	}),
 	NIGHT("night", 16801, 15.0F, 19.0F, 5, 56, () -> {
 		return Ingredient.of(Items.BARRIER);

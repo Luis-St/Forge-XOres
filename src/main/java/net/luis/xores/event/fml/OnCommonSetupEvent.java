@@ -2,7 +2,7 @@ package net.luis.xores.event.fml;
 
 import net.luis.xores.XOres;
 import net.luis.xores.world.item.ElytraChestplateItem;
-import net.luis.xores.world.item.XOresItems;
+import net.luis.xores.world.item.XOItems;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.attributes.RangedAttribute;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -21,10 +21,10 @@ public class OnCommonSetupEvent {
 	
 	@SubscribeEvent
 	public static void commonSetup(FMLCommonSetupEvent event) {
-		ElytraChestplateItem.register(XOresItems.DIAMOND_ELYTRA_CHESTPLATE.get(), 40);
-		ElytraChestplateItem.register(XOresItems.NETHERITE_ELYTRA_CHESTPLATE.get(), 60);
-		ElytraChestplateItem.register(XOresItems.ENDERITE_ELYTRA_CHESTPLATE.get(), 80);
-		ElytraChestplateItem.register(XOresItems.NIGHT_ELYTRA_CHESTPLATE.get(), 100);
+		ElytraChestplateItem.register(XOItems.DIAMOND_ELYTRA_CHESTPLATE.get(), 40);
+		ElytraChestplateItem.register(XOItems.NETHERITE_ELYTRA_CHESTPLATE.get(), 60);
+		ElytraChestplateItem.register(XOItems.ENDERITE_ELYTRA_CHESTPLATE.get(), 80);
+		ElytraChestplateItem.register(XOItems.NIGHT_ELYTRA_CHESTPLATE.get(), 100);
 		event.enqueueWork(() -> {
 			replaceAttributeValue((RangedAttribute) Attributes.ARMOR, 512.0);
 			replaceAttributeValue((RangedAttribute) Attributes.KNOCKBACK_RESISTANCE, 64.0);

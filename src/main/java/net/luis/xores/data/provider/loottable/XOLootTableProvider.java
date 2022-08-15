@@ -24,15 +24,15 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
  *
  */
 
-public class XOresLootTableProvider extends LootTableProvider {
+public class XOLootTableProvider extends LootTableProvider {
 	
-	public XOresLootTableProvider(DataGenerator generator) {
+	public XOLootTableProvider(DataGenerator generator) {
 		super(generator);
 	}
 	
 	@Override
 	protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, Builder>>>, LootContextParamSet>> getTables() {
-		return Lists.newArrayList(Pair.of(XOresBlockLoot::new, LootContextParamSets.BLOCK));
+		return Lists.newArrayList(Pair.of(XOBlockLoot::new, LootContextParamSets.BLOCK));
 	}
 	
 	@Override

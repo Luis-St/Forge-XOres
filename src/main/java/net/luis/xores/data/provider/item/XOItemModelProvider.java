@@ -4,7 +4,7 @@ import java.util.stream.Collectors;
 
 import net.luis.xores.XOres;
 import net.luis.xores.world.item.ElytraChestplateItem;
-import net.luis.xores.world.item.XOresItems;
+import net.luis.xores.world.item.XOItems;
 import net.minecraft.client.renderer.block.model.BlockModel.GuiLight;
 import net.minecraft.client.renderer.block.model.ItemTransforms.TransformType;
 import net.minecraft.data.DataGenerator;
@@ -28,15 +28,15 @@ import net.minecraftforge.registries.RegistryObject;
  *
  */
 
-public class XOresItemModelProvider extends ItemModelProvider {
+public class XOItemModelProvider extends ItemModelProvider {
 	
-	public XOresItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
+	public XOItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
 		super(generator, XOres.MOD_ID, existingFileHelper);
 	}
 	
 	@Override
 	protected void registerModels() {
-		for (Item item : XOresItems.ITEMS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
+		for (Item item : XOItems.ITEMS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
 			if (item instanceof TieredItem tieredItem) {
 				this.handheldItem(tieredItem);
 			} else if (item instanceof BowItem bowItem) {

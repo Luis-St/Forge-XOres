@@ -5,7 +5,7 @@ import java.util.List;
 import com.google.common.collect.Lists;
 
 import net.luis.xores.XOres;
-import net.luis.xores.world.level.levelgen.feature.XOresOreFeatures;
+import net.luis.xores.world.level.levelgen.feature.XOOreFeatures;
 import net.minecraft.core.Registry;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.placement.BiomeFilter;
@@ -23,42 +23,42 @@ import net.minecraftforge.registries.RegistryObject;
  *
  */
 
-public class XOresOrePlacements {
+public class XOOrePlacements {
 	
 	public static final DeferredRegister<PlacedFeature> PLACED_FEATURES = DeferredRegister.create(Registry.PLACED_FEATURE_REGISTRY, XOres.MOD_ID);
 	
 	public static final RegistryObject<PlacedFeature> JADE_ORE_UPPER = PLACED_FEATURES.register("jade_ore_upper", () -> {
-		return new PlacedFeature(XOresOreFeatures.JADE_ORE_UPPER.getHolder().orElseThrow(NullPointerException::new), upperOrePlacement(20, 128));
+		return new PlacedFeature(XOOreFeatures.JADE_ORE_UPPER.getHolder().orElseThrow(NullPointerException::new), upperOrePlacement(20, 128));
 	});
 	public static final RegistryObject<PlacedFeature> JADE_ORE_MIDDLE = PLACED_FEATURES.register("jade_ore_middle", () -> {
-		return new PlacedFeature(XOresOreFeatures.JADE_ORE_MIDDLE.getHolder().orElseThrow(NullPointerException::new), uniformOrePlacement(14, -32, 96));
+		return new PlacedFeature(XOOreFeatures.JADE_ORE_MIDDLE.getHolder().orElseThrow(NullPointerException::new), uniformOrePlacement(14, -32, 96));
 	});
 	public static final RegistryObject<PlacedFeature> SAPHIRE_ORE_RARE_UPPER = PLACED_FEATURES.register("saphire_ore_rare_upper", () -> {
-		return new PlacedFeature(XOresOreFeatures.SAPHIRE_ORE_RARE_UPPER.getHolder().orElseThrow(NullPointerException::new), upperOrePlacement(7, 256));
+		return new PlacedFeature(XOOreFeatures.SAPHIRE_ORE_RARE_UPPER.getHolder().orElseThrow(NullPointerException::new), upperOrePlacement(7, 256));
 	});
 	public static final RegistryObject<PlacedFeature> SAPHIRE_ORE = PLACED_FEATURES.register("saphire_ore", () -> {
-		return new PlacedFeature(XOresOreFeatures.SAPHIRE_ORE.getHolder().orElseThrow(NullPointerException::new), uniformOrePlacement(18, -64, 256));
+		return new PlacedFeature(XOOreFeatures.SAPHIRE_ORE.getHolder().orElseThrow(NullPointerException::new), uniformOrePlacement(18, -64, 256));
 	});
 	public static final RegistryObject<PlacedFeature> SAPHIRE_ORE_BURIED = PLACED_FEATURES.register("saphire_ore_buried", () -> {
-		return new PlacedFeature(XOresOreFeatures.SAPHIRE_ORE_BURIED.getHolder().orElseThrow(NullPointerException::new), buriedOrePlacement(5, -32));
+		return new PlacedFeature(XOOreFeatures.SAPHIRE_ORE_BURIED.getHolder().orElseThrow(NullPointerException::new), buriedOrePlacement(5, -32));
 	});
 	public static final RegistryObject<PlacedFeature> LIMONITE_ORE_BURIED = PLACED_FEATURES.register("limonite_ore_buried", () -> {
-		return new PlacedFeature(XOresOreFeatures.LIMONITE_ORE_BURIED.getHolder().orElseThrow(NullPointerException::new), uniformOrePlacement(5, -48, 0));
+		return new PlacedFeature(XOOreFeatures.LIMONITE_ORE_BURIED.getHolder().orElseThrow(NullPointerException::new), uniformOrePlacement(5, -48, 0));
 	});
 	public static final RegistryObject<PlacedFeature> LIMONITE_ORE_DEEP_BURIED = PLACED_FEATURES.register("limonite_ore_deep_buried", () -> {
-		return new PlacedFeature(XOresOreFeatures.LIMONITE_ORE_DEEP_BURIED.getHolder().orElseThrow(NullPointerException::new), buriedOrePlacement(2, -48));
+		return new PlacedFeature(XOOreFeatures.LIMONITE_ORE_DEEP_BURIED.getHolder().orElseThrow(NullPointerException::new), buriedOrePlacement(2, -48));
 	});
 	public static final RegistryObject<PlacedFeature> ROSITE_ORE_RARE = PLACED_FEATURES.register("rosite_ore_rare", () -> {
-		return new PlacedFeature(XOresOreFeatures.ROSITE_ORE_RARE.getHolder().orElseThrow(NullPointerException::new), triangleOrePlacement(5, -16, 128));
+		return new PlacedFeature(XOOreFeatures.ROSITE_ORE_RARE.getHolder().orElseThrow(NullPointerException::new), triangleOrePlacement(5, -16, 128));
 	});
 	public static final RegistryObject<PlacedFeature> ROSITE_ORE_BURIED = PLACED_FEATURES.register("rosite_ore_buried", () -> {
-		return new PlacedFeature(XOresOreFeatures.ROSITE_ORE_BURIED.getHolder().orElseThrow(NullPointerException::new), buriedOrePlacement(7, -32));
+		return new PlacedFeature(XOOreFeatures.ROSITE_ORE_BURIED.getHolder().orElseThrow(NullPointerException::new), buriedOrePlacement(7, -32));
 	});
 	public static final RegistryObject<PlacedFeature> ENDERITE_ORE_RARE = PLACED_FEATURES.register("enderite_ore_rare", () -> {
-		return new PlacedFeature(XOresOreFeatures.ENDERITE_ORE_RARE.getHolder().orElseThrow(NullPointerException::new), uniformOrePlacement(2, 0, 128));
+		return new PlacedFeature(XOOreFeatures.ENDERITE_ORE_RARE.getHolder().orElseThrow(NullPointerException::new), uniformOrePlacement(2, 0, 128));
 	});
 	public static final RegistryObject<PlacedFeature> ENDERITE_ORE_BURIED = PLACED_FEATURES.register("enderite_ore_buried", () -> {
-		return new PlacedFeature(XOresOreFeatures.ENDERITE_ORE_BURIED.getHolder().orElseThrow(NullPointerException::new), buriedEndOrePlacement(3));
+		return new PlacedFeature(XOOreFeatures.ENDERITE_ORE_BURIED.getHolder().orElseThrow(NullPointerException::new), buriedEndOrePlacement(3));
 	});
 	
 	private static List<PlacementModifier> orePlacement(PlacementModifier countPlacement, PlacementModifier heightPlacement) {

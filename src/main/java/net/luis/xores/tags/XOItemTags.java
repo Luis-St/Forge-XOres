@@ -12,7 +12,7 @@ import net.minecraft.world.item.Item;
  *
  */
 
-public class XOresItemTags {
+public class XOItemTags {
 	
 	public static final TagKey<Item> WOOD = bind(new ResourceLocation(XOres.MOD_ID, "wood"));
 	public static final TagKey<Item> LEATHER = bind(new ResourceLocation(XOres.MOD_ID, "leather"));

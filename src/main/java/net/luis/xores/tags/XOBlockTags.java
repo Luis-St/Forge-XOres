@@ -12,7 +12,7 @@ import net.minecraft.world.level.block.Block;
  *
  */
 
-public class XOresBlockTags {
+public class XOBlockTags {
 	
 	public static final TagKey<Block> NEEDS_TOOL_LEVEL_1 = bind(new ResourceLocation(XOres.MOD_ID, "needs_tool_level_1"));
 	public static final TagKey<Block> NEEDS_TOOL_LEVEL_2 = bind(new ResourceLocation(XOres.MOD_ID, "needs_tool_level_2"));

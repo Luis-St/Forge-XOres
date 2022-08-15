@@ -1,14 +1,14 @@
 package net.luis.xores.data;
 
 import net.luis.xores.XOres;
-import net.luis.xores.data.provider.block.XOresBlockStateProvider;
-import net.luis.xores.data.provider.item.XOresItemModelProvider;
-import net.luis.xores.data.provider.language.XOresLanguageProvider;
-import net.luis.xores.data.provider.loot.XOresGlobalLootModifierProvider;
-import net.luis.xores.data.provider.loottable.XOresLootTableProvider;
-import net.luis.xores.data.provider.recipe.XOresRecipeProvider;
-import net.luis.xores.data.provider.tag.XOresBlockTagsProvider;
-import net.luis.xores.data.provider.tag.XOresItemTagsProvider;
+import net.luis.xores.data.provider.block.XOBlockStateProvider;
+import net.luis.xores.data.provider.item.XOItemModelProvider;
+import net.luis.xores.data.provider.language.XOLanguageProvider;
+import net.luis.xores.data.provider.loot.XOGlobalLootModifierProvider;
+import net.luis.xores.data.provider.loottable.XOLootTableProvider;
+import net.luis.xores.data.provider.recipe.XORecipeProvider;
+import net.luis.xores.data.provider.tag.XOBlockTagsProvider;
+import net.luis.xores.data.provider.tag.XOItemTagsProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
@@ -30,15 +30,15 @@ public class OnGatherDataEvent {
 		DataGenerator generator = event.getGenerator();
 		ExistingFileHelper fileHelper = event.getExistingFileHelper();
 		if (event.includeDev()) {
-			generator.addProvider(event.includeClient(), new XOresBlockStateProvider(generator, fileHelper));
-			generator.addProvider(event.includeClient(), new XOresItemModelProvider(generator, fileHelper));
-			generator.addProvider(event.includeClient(), new XOresLanguageProvider(generator));
-			generator.addProvider(event.includeServer(), new XOresLootTableProvider(generator));
-			generator.addProvider(event.includeServer(), new XOresRecipeProvider(generator));
-			XOresBlockTagsProvider blockTagsProvider = new XOresBlockTagsProvider(generator, fileHelper);
+			generator.addProvider(event.includeClient(), new XOBlockStateProvider(generator, fileHelper));
+			generator.addProvider(event.includeClient(), new XOItemModelProvider(generator, fileHelper));
+			generator.addProvider(event.includeClient(), new XOLanguageProvider(generator));
+			generator.addProvider(event.includeServer(), new XOLootTableProvider(generator));
+			generator.addProvider(event.includeServer(), new XORecipeProvider(generator));
+			XOBlockTagsProvider blockTagsProvider = new XOBlockTagsProvider(generator, fileHelper);
 			generator.addProvider(event.includeServer(), blockTagsProvider);
-			generator.addProvider(event.includeServer(), new XOresItemTagsProvider(generator, blockTagsProvider, fileHelper));
-			generator.addProvider(event.includeServer(), new XOresGlobalLootModifierProvider(generator));
+			generator.addProvider(event.includeServer(), new XOItemTagsProvider(generator, blockTagsProvider, fileHelper));
+			generator.addProvider(event.includeServer(), new XOGlobalLootModifierProvider(generator));
 		}
 	}
 	

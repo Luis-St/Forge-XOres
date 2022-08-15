@@ -1,7 +1,7 @@
 package net.luis.xores.data.provider.loot;
 
 import net.luis.xores.XOres;
-import net.luis.xores.tags.XOresItemTags;
+import net.luis.xores.tags.XOItemTags;
 import net.luis.xores.world.level.storage.loot.SmeltingModifier;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.data.DataGenerator;
@@ -15,16 +15,16 @@ import net.minecraftforge.common.data.GlobalLootModifierProvider;
  *
  */
 
-public class XOresGlobalLootModifierProvider extends GlobalLootModifierProvider {
+public class XOGlobalLootModifierProvider extends GlobalLootModifierProvider {
 	
-	public XOresGlobalLootModifierProvider(DataGenerator generator) {
+	public XOGlobalLootModifierProvider(DataGenerator generator) {
 		super(generator, XOres.MOD_ID);
 	}
 	
 	@Override
 	protected void start() {
 		this.add("smelting_modifier", new SmeltingModifier(new LootItemCondition[] {
-				MatchTool.toolMatches(ItemPredicate.Builder.item().of(XOresItemTags.BLAZING)).build()
+				MatchTool.toolMatches(ItemPredicate.Builder.item().of(XOItemTags.BLAZING)).build()
 		}));
 	}
 	

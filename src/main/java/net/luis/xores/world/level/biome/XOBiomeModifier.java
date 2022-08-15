@@ -18,10 +18,10 @@ import net.minecraftforge.common.world.ModifiableBiomeInfo.BiomeInfo.Builder;
  *
  */
 
-public record XOresBiomeModifier(HolderSet<Biome> overworldBiomes, HolderSet<PlacedFeature> overworldFeatures, HolderSet<Biome> mountainPeakBiomes, HolderSet<PlacedFeature> mountainPeakFeatures, HolderSet<Biome> endBiomes, 
+public record XOBiomeModifier(HolderSet<Biome> overworldBiomes, HolderSet<PlacedFeature> overworldFeatures, HolderSet<Biome> mountainPeakBiomes, HolderSet<PlacedFeature> mountainPeakFeatures, HolderSet<Biome> endBiomes, 
 	HolderSet<PlacedFeature> endFeatures) implements BiomeModifier {
 	
-	public static final Codec<XOresBiomeModifier> CODEC = RecordCodecBuilder.create((instance) -> {
+	public static final Codec<XOBiomeModifier> CODEC = RecordCodecBuilder.create((instance) -> {
 		return instance.group(Biome.LIST_CODEC.fieldOf("overworld_biomes").forGetter((biomeModifier) -> {
 			return biomeModifier.overworldBiomes();
 		}), PlacedFeature.LIST_CODEC.fieldOf("overworld_features").forGetter((biomeModifier) -> {
@@ -34,7 +34,7 @@ public record XOresBiomeModifier(HolderSet<Biome> overworldBiomes, HolderSet<Pla
 			return biomeModifier.endBiomes();
 		}), PlacedFeature.LIST_CODEC.fieldOf("end_features").forGetter((biomeModifier) -> {
 			return biomeModifier.endFeatures();
-		})).apply(instance, XOresBiomeModifier::new);
+		})).apply(instance, XOBiomeModifier::new);
 	});
 	
 	@Override
@@ -59,8 +59,8 @@ public record XOresBiomeModifier(HolderSet<Biome> overworldBiomes, HolderSet<Pla
 	}
 	
 	@Override
-	public Codec<XOresBiomeModifier> codec() {
-		return XOresBiomeModifiers.ORE_BIOME_MODIFIER.get();
+	public Codec<XOBiomeModifier> codec() {
+		return XOBiomeModifiers.ORE_BIOME_MODIFIER.get();
 	}
 
 }

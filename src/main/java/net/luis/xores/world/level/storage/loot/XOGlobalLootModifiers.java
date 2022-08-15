@@ -14,7 +14,7 @@ import net.minecraftforge.registries.RegistryObject;
  *
  */
 
-public class XOresGlobalLootModifiers {
+public class XOGlobalLootModifiers {
 	
 	public static final DeferredRegister<Codec<? extends IGlobalLootModifier>> LOOT_MODIFIERS = DeferredRegister.create(ForgeRegistries.Keys.GLOBAL_LOOT_MODIFIER_SERIALIZERS, XOres.MOD_ID);
 	

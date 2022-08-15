@@ -15,12 +15,12 @@ import net.minecraft.world.item.ItemStack;
  * 
  */
 
-public class XOresElytraLayer<T extends LivingEntity, M extends EntityModel<T>> extends ElytraLayer<T, M> {
+public class XOElytraLayer<T extends LivingEntity, M extends EntityModel<T>> extends ElytraLayer<T, M> {
 	
 	private final Item elytraItem;
 	private final ResourceLocation elytraTexture;
 	
-	public XOresElytraLayer(RenderLayerParent<T, M> renderParent, EntityModelSet modelSet, Item elytraItem, ResourceLocation elytraTexture) {
+	public XOElytraLayer(RenderLayerParent<T, M> renderParent, EntityModelSet modelSet, Item elytraItem, ResourceLocation elytraTexture) {
 		super(renderParent, modelSet);
 		this.elytraItem = elytraItem;
 		this.elytraTexture = elytraTexture;

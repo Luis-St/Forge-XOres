@@ -17,19 +17,19 @@ import net.minecraft.world.item.crafting.Ingredient;
  *
  */
 
-public enum XOresArmorMaterials implements ArmorMaterial {
+public enum XOArmorMaterials implements ArmorMaterial {
 	
 	JADE("jade", 15, new int[] {2, 5, 6, 2}, 10, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0.0F, () -> {
-		return Ingredient.of(XOresItems.JADE_INGOT.get());
+		return Ingredient.of(XOItems.JADE_INGOT.get());
 	}),
 	BLAZING("blazing", 29, new int[] {3, 6, 7, 3}, 9, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0.0F, () -> {
-		return Ingredient.of(XOresItems.BLAZING_INGOT.get());
+		return Ingredient.of(XOItems.BLAZING_INGOT.get());
 	}),
 	SAPHIRE("saphire", 35, new int[] {3, 6, 8, 3}, 12, SoundEvents.ARMOR_EQUIP_DIAMOND, 2.0F, 0.1F, () -> {
-		return Ingredient.of(XOresItems.SAPHIRE_INGOT.get());
+		return Ingredient.of(XOItems.SAPHIRE_INGOT.get());
 	}),
 	LIMONITE("limonite", 44, new int[] {4, 5, 9, 4}, 15, SoundEvents.ARMOR_EQUIP_IRON, 3.0F, 0.2F, () -> {
-		return Ingredient.of(XOresItems.LIMONITE_INGOT.get());
+		return Ingredient.of(XOItems.LIMONITE_INGOT.get());
 	}),
 	ENDERITE("enderite", 51, new int[] {6, 8, 12, 6}, 26, SoundEvents.ARMOR_EQUIP_NETHERITE, 5.0F, 0.3F, () -> {
 		return Ingredient.of(Items.BARRIER);
@@ -49,7 +49,7 @@ public enum XOresArmorMaterials implements ArmorMaterial {
 	private final float knockbackResistance;
 	private final Supplier<Ingredient> repairIngredient;
 	
-	private XOresArmorMaterials(String name, int durabilityMultiplier, int[] slotDefenses, int enchantmentValue, SoundEvent sound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredient) {
+	private XOArmorMaterials(String name, int durabilityMultiplier, int[] slotDefenses, int enchantmentValue, SoundEvent sound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredient) {
 		this.name = new ResourceLocation(XOres.MOD_ID, name);
 		this.durabilityMultiplier = durabilityMultiplier;
 		this.slotDefenses = slotDefenses;

@@ -3,9 +3,9 @@ package net.luis.xores.event.fml;
 import java.util.stream.Collectors;
 
 import net.luis.xores.XOres;
-import net.luis.xores.client.renderer.item.XOresItemProperties;
+import net.luis.xores.client.renderer.item.XOItemProperties;
 import net.luis.xores.world.item.ElytraChestplateItem;
-import net.luis.xores.world.item.XOresItems;
+import net.luis.xores.world.item.XOItems;
 import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.CrossbowItem;
 import net.minecraft.world.item.Item;
@@ -29,15 +29,15 @@ public class OnClientSetupEvent {
 	@SubscribeEvent
 	public static void clientSetup(FMLClientSetupEvent event) {
 		event.enqueueWork(() -> {
-			for (Item item : XOresItems.ITEMS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
+			for (Item item : XOItems.ITEMS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
 				if (item instanceof BowItem bow) {
-					XOresItemProperties.registerBow(bow);
+					XOItemProperties.registerBow(bow);
 				} else if (item instanceof CrossbowItem crossbow) {
-					XOresItemProperties.registerCrossbow(crossbow);
+					XOItemProperties.registerCrossbow(crossbow);
 				} else if (item instanceof ShieldItem shield) {
-					XOresItemProperties.registerShield(shield);	
+					XOItemProperties.registerShield(shield);	
 				} else if (item instanceof ElytraChestplateItem elytraChestplate) {
-					XOresItemProperties.registerElytraChestplate(elytraChestplate);
+					XOItemProperties.registerElytraChestplate(elytraChestplate);
 				}
 			}
 		});

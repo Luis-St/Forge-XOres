@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.function.Supplier;
 
 import net.luis.xores.XOres;
-import net.luis.xores.world.level.block.XOresBlocks;
+import net.luis.xores.world.level.block.XOBlocks;
 import net.minecraft.core.Registry;
 import net.minecraft.data.worldgen.features.OreFeatures;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -23,7 +23,7 @@ import net.minecraftforge.registries.RegistryObject;
  *
  */
 
-public class XOresOreFeatures {
+public class XOOreFeatures {
 	
 	public static final DeferredRegister<ConfiguredFeature<?, ?>> CONFIGURED_FEATURES = DeferredRegister.create(Registry.CONFIGURED_FEATURE_REGISTRY, XOres.MOD_ID);
 	
@@ -32,19 +32,19 @@ public class XOresOreFeatures {
 	private static final RuleTest END_STONE_REPLACEABLES = new TagMatchTest(Tags.Blocks.END_STONES);
 	
 	private static final Supplier<List<TargetBlockState>> JADE_ORE_TARGETS = () -> {
-		return List.of(OreConfiguration.target(STONE_REPLACEABLES, XOresBlocks.JADE_ORE.get().defaultBlockState()), OreConfiguration.target(DEEPSLATE_REPLACEABLES, XOresBlocks.DEEPSLATE_JADE_ORE.get().defaultBlockState()));
+		return List.of(OreConfiguration.target(STONE_REPLACEABLES, XOBlocks.JADE_ORE.get().defaultBlockState()), OreConfiguration.target(DEEPSLATE_REPLACEABLES, XOBlocks.DEEPSLATE_JADE_ORE.get().defaultBlockState()));
 	};              
 	private static final Supplier<List<TargetBlockState>> LIMONITE_ORE_TARGETS = () -> {
-		return List.of(OreConfiguration.target(STONE_REPLACEABLES, XOresBlocks.LIMONITE_ORE.get().defaultBlockState()), OreConfiguration.target(DEEPSLATE_REPLACEABLES, XOresBlocks.DEEPSLATE_LIMONITE_ORE.get().defaultBlockState()));
+		return List.of(OreConfiguration.target(STONE_REPLACEABLES, XOBlocks.LIMONITE_ORE.get().defaultBlockState()), OreConfiguration.target(DEEPSLATE_REPLACEABLES, XOBlocks.DEEPSLATE_LIMONITE_ORE.get().defaultBlockState()));
 	};
 	private static final Supplier<List<TargetBlockState>> SAPHIRE_ORE_TARGETS = () -> {
-		return List.of(OreConfiguration.target(STONE_REPLACEABLES, XOresBlocks.SAPHIRE_ORE.get().defaultBlockState()), OreConfiguration.target(DEEPSLATE_REPLACEABLES, XOresBlocks.DEEPSLATE_SAPHIRE_ORE.get().defaultBlockState()));
+		return List.of(OreConfiguration.target(STONE_REPLACEABLES, XOBlocks.SAPHIRE_ORE.get().defaultBlockState()), OreConfiguration.target(DEEPSLATE_REPLACEABLES, XOBlocks.DEEPSLATE_SAPHIRE_ORE.get().defaultBlockState()));
 	};
 	private static final Supplier<List<TargetBlockState>> ROSITE_ORE_TARGETS = () -> {
-		return List.of(OreConfiguration.target(STONE_REPLACEABLES, XOresBlocks.ROSITE_ORE.get().defaultBlockState()), OreConfiguration.target(DEEPSLATE_REPLACEABLES, XOresBlocks.DEEPSLATE_ROSITE_ORE.get().defaultBlockState()));
+		return List.of(OreConfiguration.target(STONE_REPLACEABLES, XOBlocks.ROSITE_ORE.get().defaultBlockState()), OreConfiguration.target(DEEPSLATE_REPLACEABLES, XOBlocks.DEEPSLATE_ROSITE_ORE.get().defaultBlockState()));
 	};
 	private static final Supplier<List<TargetBlockState>> ENDERITE_ORE_TARGETS = () -> {
-		return List.of(OreConfiguration.target(END_STONE_REPLACEABLES, XOresBlocks.ENDERITE_ORE.get().defaultBlockState()));
+		return List.of(OreConfiguration.target(END_STONE_REPLACEABLES, XOBlocks.ENDERITE_ORE.get().defaultBlockState()));
 	}; 
 	
 	public static final RegistryObject<ConfiguredFeature<?, ?>> JADE_ORE_UPPER = CONFIGURED_FEATURES.register("jade_ore_upper", () -> {

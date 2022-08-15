@@ -13,11 +13,11 @@ import net.minecraftforge.client.gui.overlay.IGuiOverlay;
  *
  */
 
-public class XOresArmorOverlay implements IGuiOverlay {
+public class XOArmorOverlay implements IGuiOverlay {
 	
 	private final Minecraft minecraft;
 	
-	public XOresArmorOverlay(Minecraft minecraft) {
+	public XOArmorOverlay(Minecraft minecraft) {
 		this.minecraft = minecraft;
 	}
 	

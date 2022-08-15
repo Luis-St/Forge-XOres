@@ -3,7 +3,7 @@ package net.luis.xores.data.provider.block;
 import java.util.stream.Collectors;
 
 import net.luis.xores.XOres;
-import net.luis.xores.world.level.block.XOresBlocks;
+import net.luis.xores.world.level.block.XOBlocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
@@ -21,19 +21,19 @@ import net.minecraftforge.registries.RegistryObject;
  *
  */
 
-public class XOresBlockStateProvider extends BlockStateProvider {
+public class XOBlockStateProvider extends BlockStateProvider {
 	
 	private final ExistingFileHelper existingFileHelper;
 	
-	public XOresBlockStateProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
+	public XOBlockStateProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
 		super(generator, XOres.MOD_ID, existingFileHelper);
 		this.existingFileHelper = existingFileHelper;
 	}
 	
 	@Override
 	protected void registerStatesAndModels() {
-		for (Block block : XOresBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
-			if (block == XOresBlocks.ENDERITE_ORE.get()) {
+		for (Block block : XOBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
+			if (block == XOBlocks.ENDERITE_ORE.get()) {
 				this.columnBlock(block);
 			} else {
 				this.simpleBlock(block);

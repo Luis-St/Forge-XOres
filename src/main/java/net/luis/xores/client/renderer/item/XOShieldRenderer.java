@@ -20,12 +20,12 @@ import net.minecraft.world.item.ItemStack;
  *
  */
 
-public class XOresShieldRenderer extends BlockEntityWithoutLevelRenderer {
+public class XOShieldRenderer extends BlockEntityWithoutLevelRenderer {
 	
 	private final ResourceLocation shieldTexture;
 	private final ShieldModel shieldModel;
 	
-	public XOresShieldRenderer(BlockEntityRenderDispatcher renderDispatcher, EntityModelSet modelSet, ResourceLocation shieldTexture) {
+	public XOShieldRenderer(BlockEntityRenderDispatcher renderDispatcher, EntityModelSet modelSet, ResourceLocation shieldTexture) {
 		super(renderDispatcher, modelSet);
 		this.shieldTexture = shieldTexture;
 		this.shieldModel = new ShieldModel(modelSet.bakeLayer(ModelLayers.SHIELD));

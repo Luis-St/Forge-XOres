@@ -12,11 +12,11 @@ import net.minecraft.world.item.ItemStack;
  *
  */
 
-public class XOresCreativeModeTab extends CreativeModeTab {
+public class XOCreativeModeTab extends CreativeModeTab {
 	
 	private final Supplier<? extends Item> icon;
 	
-	public XOresCreativeModeTab(String name, Supplier<? extends Item> icon) {
+	public XOCreativeModeTab(String name, Supplier<? extends Item> icon) {
 		super(name);
 		this.icon = icon;
 	}

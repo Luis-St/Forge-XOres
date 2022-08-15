@@ -31,7 +31,7 @@ public class SmeltingModifier extends LootModifier {
 	
 	@Override
 	public Codec<SmeltingModifier> codec() {
-		return XOresGlobalLootModifiers.SMELTING_MODIFIER.get();
+		return XOGlobalLootModifiers.SMELTING_MODIFIER.get();
 	}
 	
 	@Override

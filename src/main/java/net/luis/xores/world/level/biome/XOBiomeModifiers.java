@@ -14,12 +14,12 @@ import net.minecraftforge.registries.RegistryObject;
  *
  */
 
-public class XOresBiomeModifiers {
+public class XOBiomeModifiers {
 	
 	public static final DeferredRegister<Codec<? extends BiomeModifier>> BIOME_MODIFIERS = DeferredRegister.create(ForgeRegistries.Keys.BIOME_MODIFIER_SERIALIZERS, XOres.MOD_ID);
 	
-	public static final RegistryObject<Codec<XOresBiomeModifier>> ORE_BIOME_MODIFIER = BIOME_MODIFIERS.register("ore_biome_modifier", () -> {
-		return XOresBiomeModifier.CODEC;
+	public static final RegistryObject<Codec<XOBiomeModifier>> ORE_BIOME_MODIFIER = BIOME_MODIFIERS.register("ore_biome_modifier", () -> {
+		return XOBiomeModifier.CODEC;
 	});
 	
 }

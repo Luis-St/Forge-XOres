@@ -1,20 +1,20 @@
 package net.luis.xores.data.provider.recipe;
 
-import static net.luis.xores.world.item.XOresItems.*;
-import static net.luis.xores.world.level.block.XOresBlocks.DEEPSLATE_JADE_ORE;
-import static net.luis.xores.world.level.block.XOresBlocks.DEEPSLATE_LIMONITE_ORE;
-import static net.luis.xores.world.level.block.XOresBlocks.DEEPSLATE_ROSITE_ORE;
-import static net.luis.xores.world.level.block.XOresBlocks.DEEPSLATE_SAPHIRE_ORE;
-import static net.luis.xores.world.level.block.XOresBlocks.ENDERITE_BLOCK;
-import static net.luis.xores.world.level.block.XOresBlocks.ENDERITE_ORE;
-import static net.luis.xores.world.level.block.XOresBlocks.JADE_BLOCK;
-import static net.luis.xores.world.level.block.XOresBlocks.JADE_ORE;
-import static net.luis.xores.world.level.block.XOresBlocks.LIMONITE_BLOCK;
-import static net.luis.xores.world.level.block.XOresBlocks.LIMONITE_ORE;
-import static net.luis.xores.world.level.block.XOresBlocks.ROSITE_BLOCK;
-import static net.luis.xores.world.level.block.XOresBlocks.ROSITE_ORE;
-import static net.luis.xores.world.level.block.XOresBlocks.SAPHIRE_BLOCK;
-import static net.luis.xores.world.level.block.XOresBlocks.SAPHIRE_ORE;
+import static net.luis.xores.world.item.XOItems.*;
+import static net.luis.xores.world.level.block.XOBlocks.DEEPSLATE_JADE_ORE;
+import static net.luis.xores.world.level.block.XOBlocks.DEEPSLATE_LIMONITE_ORE;
+import static net.luis.xores.world.level.block.XOBlocks.DEEPSLATE_ROSITE_ORE;
+import static net.luis.xores.world.level.block.XOBlocks.DEEPSLATE_SAPHIRE_ORE;
+import static net.luis.xores.world.level.block.XOBlocks.ENDERITE_BLOCK;
+import static net.luis.xores.world.level.block.XOBlocks.ENDERITE_ORE;
+import static net.luis.xores.world.level.block.XOBlocks.JADE_BLOCK;
+import static net.luis.xores.world.level.block.XOBlocks.JADE_ORE;
+import static net.luis.xores.world.level.block.XOBlocks.LIMONITE_BLOCK;
+import static net.luis.xores.world.level.block.XOBlocks.LIMONITE_ORE;
+import static net.luis.xores.world.level.block.XOBlocks.ROSITE_BLOCK;
+import static net.luis.xores.world.level.block.XOBlocks.ROSITE_ORE;
+import static net.luis.xores.world.level.block.XOBlocks.SAPHIRE_BLOCK;
+import static net.luis.xores.world.level.block.XOBlocks.SAPHIRE_ORE;
 
 import java.util.function.Consumer;
 
@@ -40,9 +40,9 @@ import net.minecraftforge.registries.ForgeRegistries;
  *
  */
 
-public class XOresRecipeProvider extends RecipeProvider {
+public class XORecipeProvider extends RecipeProvider {
 	
-	public XOresRecipeProvider(DataGenerator generator) {
+	public XORecipeProvider(DataGenerator generator) {
 		super(generator);
 	}
 	
