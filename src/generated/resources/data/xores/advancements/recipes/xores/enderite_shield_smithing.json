@@ -1,31 +1,13 @@
 {
   "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "xores:enderite_shield_smithing"
+    ]
+  },
   "criteria": {
-    "has_enderite_ingot": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "xores:enderite_ingot"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_enderite_shield": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "xores:enderite_shield"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "has_netherite_shield": {
+      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -34,14 +16,37 @@
             ]
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
+      }
+    },
+    "has_enderite_ingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "xores:enderite_ingot"
+            ]
+          }
+        ]
+      }
+    },
+    "has_enderite_shield": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "xores:enderite_shield"
+            ]
+          }
+        ]
+      }
     },
     "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
       "conditions": {
         "recipe": "xores:enderite_shield_smithing"
-      },
-      "trigger": "minecraft:recipe_unlocked"
+      }
     }
   },
   "requirements": [
@@ -51,10 +56,5 @@
       "has_enderite_shield",
       "has_the_recipe"
     ]
-  ],
-  "rewards": {
-    "recipes": [
-      "xores:enderite_shield_smithing"
-    ]
-  }
+  ]
 }

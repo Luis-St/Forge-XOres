@@ -1,19 +1,13 @@
 {
   "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "xores:rosite_ingot_from_smelting_rosite_ore"
+    ]
+  },
   "criteria": {
-    "has_rosite_ingot": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "xores:rosite_ingot"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "has_rosite_ore": {
+      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -22,14 +16,25 @@
             ]
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
+      }
+    },
+    "has_rosite_ingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "xores:rosite_ingot"
+            ]
+          }
+        ]
+      }
     },
     "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
       "conditions": {
         "recipe": "xores:rosite_ingot_from_smelting_rosite_ore"
-      },
-      "trigger": "minecraft:recipe_unlocked"
+      }
     }
   },
   "requirements": [
@@ -38,10 +43,5 @@
       "has_rosite_ingot",
       "has_the_recipe"
     ]
-  ],
-  "rewards": {
-    "recipes": [
-      "xores:rosite_ingot_from_smelting_rosite_ore"
-    ]
-  }
+  ]
 }

@@ -1,19 +1,13 @@
 {
   "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "xores:saphire_hoe"
+    ]
+  },
   "criteria": {
-    "has_saphire_hoe": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "xores:saphire_hoe"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "has_saphire_ingot": {
+      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -22,14 +16,25 @@
             ]
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
+      }
+    },
+    "has_saphire_hoe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "xores:saphire_hoe"
+            ]
+          }
+        ]
+      }
     },
     "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
       "conditions": {
         "recipe": "xores:saphire_hoe"
-      },
-      "trigger": "minecraft:recipe_unlocked"
+      }
     }
   },
   "requirements": [
@@ -38,10 +43,5 @@
       "has_saphire_hoe",
       "has_the_recipe"
     ]
-  ],
-  "rewards": {
-    "recipes": [
-      "xores:saphire_hoe"
-    ]
-  }
+  ]
 }

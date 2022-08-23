@@ -1,19 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "rose_quartz",
-  "key": {
-    "#": {
-      "item": "xores:polished_rose_quartz"
-    },
-    "I": {
-      "item": "minecraft:stick"
-    }
-  },
   "pattern": [
     "###",
     " I ",
     " I "
   ],
+  "key": {
+    "I": {
+      "item": "minecraft:stick"
+    },
+    "#": {
+      "item": "xores:polished_rose_quartz"
+    }
+  },
   "result": {
     "item": "xores:rose_quartz_pickaxe"
   }

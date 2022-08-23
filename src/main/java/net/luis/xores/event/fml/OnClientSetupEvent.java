@@ -3,14 +3,18 @@ package net.luis.xores.event.fml;
 import java.util.stream.Collectors;
 
 import net.luis.xores.XOres;
+import net.luis.xores.client.gui.overlay.XOArmorOverlay;
 import net.luis.xores.client.renderer.item.XOItemProperties;
 import net.luis.xores.world.item.ElytraChestplateItem;
 import net.luis.xores.world.item.XOItems;
+import net.minecraft.client.Minecraft;
 import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.CrossbowItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ShieldItem;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.gui.ForgeIngameGui;
+import net.minecraftforge.client.gui.OverlayRegistry;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
@@ -28,6 +32,7 @@ public class OnClientSetupEvent {
 	
 	@SubscribeEvent
 	public static void clientSetup(FMLClientSetupEvent event) {
+		OverlayRegistry.registerOverlayAbove(ForgeIngameGui.ARMOR_LEVEL_ELEMENT, "Armor Bar", new XOArmorOverlay(Minecraft.getInstance()));
 		event.enqueueWork(() -> {
 			for (Item item : XOItems.ITEMS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
 				if (item instanceof BowItem bow) {

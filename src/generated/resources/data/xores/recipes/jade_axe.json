@@ -1,19 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "jade",
-  "key": {
-    "#": {
-      "item": "xores:jade_ingot"
-    },
-    "I": {
-      "item": "minecraft:stick"
-    }
-  },
   "pattern": [
     "## ",
     "#I ",
     " I "
   ],
+  "key": {
+    "I": {
+      "item": "minecraft:stick"
+    },
+    "#": {
+      "item": "xores:jade_ingot"
+    }
+  },
   "result": {
     "item": "xores:jade_axe"
   }

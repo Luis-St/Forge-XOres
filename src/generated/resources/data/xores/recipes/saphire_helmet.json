@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "saphire",
-  "key": {
-    "#": {
-      "item": "xores:saphire_ingot"
-    }
-  },
   "pattern": [
     "###",
     "# #",
     "   "
   ],
+  "key": {
+    "#": {
+      "item": "xores:saphire_ingot"
+    }
+  },
   "result": {
     "item": "xores:saphire_helmet"
   }

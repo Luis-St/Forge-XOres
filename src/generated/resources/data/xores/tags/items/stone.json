@@ -1,4 +1,5 @@
 {
+  "replace": false,
   "values": [
     "#minecraft:stone_crafting_materials",
     "minecraft:stone_sword",

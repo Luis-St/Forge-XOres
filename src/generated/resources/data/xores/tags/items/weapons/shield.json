@@ -1,4 +1,5 @@
 {
+  "replace": false,
   "values": [
     "xores:golden_shield",
     "xores:copper_shield",

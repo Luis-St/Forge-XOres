@@ -4,8 +4,8 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 
 import net.minecraft.client.Minecraft;
-import net.minecraftforge.client.gui.overlay.ForgeGui;
-import net.minecraftforge.client.gui.overlay.IGuiOverlay;
+import net.minecraftforge.client.gui.ForgeIngameGui;
+import net.minecraftforge.client.gui.IIngameOverlay;
 
 /**
  * 
@@ -13,7 +13,7 @@ import net.minecraftforge.client.gui.overlay.IGuiOverlay;
  *
  */
 
-public class XOArmorOverlay implements IGuiOverlay {
+public class XOArmorOverlay implements IIngameOverlay {
 	
 	private final Minecraft minecraft;
 	
@@ -22,17 +22,17 @@ public class XOArmorOverlay implements IGuiOverlay {
 	}
 	
 	@Override
-	public void render(ForgeGui gui, PoseStack poseStack, float partialTicks, int width, int height) {
+	public void render(ForgeIngameGui gui, PoseStack poseStack, float partialTicks, int width, int height) {
 		if (!this.minecraft.options.hideGui && gui.shouldDrawSurvivalElements()) {
 			gui.setupOverlayRenderState(true, false);
 			this.renderArmor(gui, poseStack, partialTicks, width, height);
 		}
 	}
 	
-	private void renderArmor(ForgeGui gui, PoseStack poseStack, float partialTicks, int width, int height) { 
+	private void renderArmor(ForgeIngameGui gui, PoseStack poseStack, float partialTicks, int width, int height) { 
 		RenderSystem.enableBlend();
 		int left = width / 2 - 91;
-		int top = height - gui.leftHeight;
+		int top = height - gui.left_height;
 		int level = this.minecraft.player.getArmorValue();
 		for (int i = 21; level > 20 && i < 40; i += 2) {
 			if (i < level) {
@@ -44,7 +44,7 @@ public class XOArmorOverlay implements IGuiOverlay {
 			}
 			left += 8;
 		}
-		gui.leftHeight += 10;
+		gui.left_height += 10;
 		RenderSystem.disableBlend();
 	}
 	

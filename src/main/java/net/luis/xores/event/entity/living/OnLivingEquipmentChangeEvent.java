@@ -24,11 +24,11 @@ public class OnLivingEquipmentChangeEvent {
 			ItemStack toStack = event.getTo();
 			ItemStack fromStack = event.getFrom();
 			if (toStack.getItem() instanceof AbilityArmor toItem && fromStack.getItem() instanceof AbilityArmor fromItem && toItem == fromItem) {
-				toItem.onItemChanged(event.getEntity(), slot, toStack, fromStack);
+				toItem.onItemChanged(event.getEntityLiving(), slot, toStack, fromStack);
 			} else if (toStack.getItem() instanceof AbilityArmor toItem) {
-				toItem.onItemApplied(event.getEntity(), slot, toStack);
+				toItem.onItemApplied(event.getEntityLiving(), slot, toStack);
 			} else if (fromStack.getItem() instanceof AbilityArmor fromItem) {
-				fromItem.onItemRemoved(event.getEntity(), slot, fromStack);
+				fromItem.onItemRemoved(event.getEntityLiving(), slot, fromStack);
 			}
 		}
 	}

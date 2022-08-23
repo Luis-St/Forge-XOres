@@ -1,4 +1,5 @@
 {
+  "replace": false,
   "values": [
     "minecraft:bow",
     "xores:netherite_bow",

@@ -1,5 +1,4 @@
 {
-  "type": "xores:smelting_modifier",
   "conditions": [
     {
       "condition": "minecraft:match_tool",
@@ -7,5 +6,6 @@
         "tag": "xores:blazing"
       }
     }
-  ]
+  ],
+  "type": "xores:smelting_modifier"
 }

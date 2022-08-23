@@ -5,7 +5,6 @@ import org.apache.logging.log4j.Logger;
 
 import net.luis.xores.world.item.XOCreativeModeTab;
 import net.luis.xores.world.item.XOItems;
-import net.luis.xores.world.level.biome.XOBiomeModifiers;
 import net.luis.xores.world.level.block.XOBlocks;
 import net.luis.xores.world.level.levelgen.feature.XOOreFeatures;
 import net.luis.xores.world.level.levelgen.placement.XOOrePlacements;
@@ -36,7 +35,6 @@ public class XOres {
 		XOGlobalLootModifiers.LOOT_MODIFIERS.register(modEventBus);
 		XOOreFeatures.CONFIGURED_FEATURES.register(modEventBus);
 		XOOrePlacements.PLACED_FEATURES.register(modEventBus);
-		XOBiomeModifiers.BIOME_MODIFIERS.register(modEventBus);
 	}
 	
 }

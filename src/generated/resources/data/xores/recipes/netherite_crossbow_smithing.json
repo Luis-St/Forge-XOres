@@ -1,10 +1,10 @@
 {
   "type": "minecraft:smithing",
-  "addition": {
-    "item": "minecraft:netherite_ingot"
-  },
   "base": {
     "item": "minecraft:crossbow"
+  },
+  "addition": {
+    "item": "minecraft:netherite_ingot"
   },
   "result": {
     "item": "xores:netherite_crossbow"

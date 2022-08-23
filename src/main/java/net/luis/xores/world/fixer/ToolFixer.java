@@ -26,6 +26,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistry;
+import net.minecraftforge.registries.IForgeRegistryEntry;
 
 /**
  * 
@@ -79,7 +80,7 @@ public class ToolFixer implements VanillaFixer {
 		this.registerToolTag(6, XOItemTags.TOOL_LEVEL_6);
 	}
 	
-	private <T> List<T> getTagValues(IForgeRegistry<T> registry, TagKey<T> tag) {
+	private <T extends IForgeRegistryEntry<T>> List<T> getTagValues(IForgeRegistry<T> registry, TagKey<T> tag) {
 		return registry.tags().getTag(tag).stream().collect(Collectors.toList());
 	}
 	
@@ -214,7 +215,7 @@ public class ToolFixer implements VanillaFixer {
 		return Integer.MAX_VALUE;
 	}
 	
-	private <T> Map<Integer, List<T>> map(IForgeRegistry<T> registry, Map<Integer, List<Either<TagKey<T>, T>>> map) {
+	private <T extends IForgeRegistryEntry<T>> Map<Integer, List<T>> map(IForgeRegistry<T> registry, Map<Integer, List<Either<TagKey<T>, T>>> map) {
 		Map<Integer, List<T>> newMap = Maps.newHashMap();
 		for (Entry<Integer, List<Either<TagKey<T>, T>>> entry : map.entrySet()) {
 			int level = entry.getKey();

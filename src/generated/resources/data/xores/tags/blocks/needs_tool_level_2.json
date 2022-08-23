@@ -1,4 +1,5 @@
 {
+  "replace": false,
   "values": [
     "#minecraft:needs_iron_tool",
     "xores:saphire_ore",

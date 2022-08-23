@@ -1,10 +1,10 @@
 {
   "type": "minecraft:smithing",
-  "addition": {
-    "item": "xores:enderite_ingot"
-  },
   "base": {
     "item": "minecraft:netherite_chestplate"
+  },
+  "addition": {
+    "item": "xores:enderite_ingot"
   },
   "result": {
     "item": "xores:enderite_chestplate"

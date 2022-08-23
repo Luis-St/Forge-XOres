@@ -1,19 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "steel",
-  "key": {
-    "#": {
-      "item": "xores:steel_ingot"
-    },
-    "I": {
-      "item": "minecraft:stick"
-    }
-  },
   "pattern": [
     " # ",
     " I ",
     " I "
   ],
+  "key": {
+    "I": {
+      "item": "minecraft:stick"
+    },
+    "#": {
+      "item": "xores:steel_ingot"
+    }
+  },
   "result": {
     "item": "xores:steel_shovel"
   }

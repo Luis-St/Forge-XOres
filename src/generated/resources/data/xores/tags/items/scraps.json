@@ -1,4 +1,5 @@
 {
+  "replace": false,
   "values": [
     "minecraft:netherite_scrap",
     "xores:enderite_scrap",

@@ -1,19 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "iron",
-  "key": {
-    "#": {
-      "item": "minecraft:iron_ingot"
-    },
-    "I": {
-      "item": "minecraft:iron_ingot"
-    }
-  },
   "pattern": [
     "#I#",
     "###",
     " # "
   ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "#": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
   "result": {
     "item": "xores:iron_shield"
   }

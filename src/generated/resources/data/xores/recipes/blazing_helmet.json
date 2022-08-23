@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "blazing",
-  "key": {
-    "#": {
-      "item": "xores:blazing_ingot"
-    }
-  },
   "pattern": [
     "###",
     "# #",
     "   "
   ],
+  "key": {
+    "#": {
+      "item": "xores:blazing_ingot"
+    }
+  },
   "result": {
     "item": "xores:blazing_helmet"
   }
