@@ -48,12 +48,6 @@ public class XOOrePlacements {
 	public static final RegistryObject<PlacedFeature> LIMONITE_ORE_DEEP_BURIED = PLACED_FEATURES.register("limonite_ore_deep_buried", () -> {
 		return new PlacedFeature(XOOreFeatures.LIMONITE_ORE_DEEP_BURIED.getHolder().orElseThrow(NullPointerException::new), buriedOrePlacement(2, -48));
 	});
-	public static final RegistryObject<PlacedFeature> ROSITE_ORE_RARE = PLACED_FEATURES.register("rosite_ore_rare", () -> {
-		return new PlacedFeature(XOOreFeatures.ROSITE_ORE_RARE.getHolder().orElseThrow(NullPointerException::new), triangleOrePlacement(5, -16, 128));
-	});
-	public static final RegistryObject<PlacedFeature> ROSITE_ORE_BURIED = PLACED_FEATURES.register("rosite_ore_buried", () -> {
-		return new PlacedFeature(XOOreFeatures.ROSITE_ORE_BURIED.getHolder().orElseThrow(NullPointerException::new), buriedOrePlacement(7, -32));
-	});
 	public static final RegistryObject<PlacedFeature> ENDERITE_ORE_RARE = PLACED_FEATURES.register("enderite_ore_rare", () -> {
 		return new PlacedFeature(XOOreFeatures.ENDERITE_ORE_RARE.getHolder().orElseThrow(NullPointerException::new), uniformOrePlacement(2, 0, 128));
 	});
@@ -79,10 +73,6 @@ public class XOOrePlacements {
 	
 	private static List<PlacementModifier> uniformOrePlacement(int count, int minGeneration, int maxGeneration) {
 		return orePlacement(CountPlacement.of(count), HeightRangePlacement.uniform(VerticalAnchor.absolute(minGeneration), VerticalAnchor.absolute(maxGeneration)));
-	}
-	
-	private static List<PlacementModifier> triangleOrePlacement(int count, int minGeneration, int maxGeneration) {
-		return orePlacement(CountPlacement.of(count), HeightRangePlacement.triangle(VerticalAnchor.absolute(minGeneration), VerticalAnchor.absolute(maxGeneration)));
 	}
 	
 	private static VerticalAnchor triangleMaxGeneration(int minGeneration) {

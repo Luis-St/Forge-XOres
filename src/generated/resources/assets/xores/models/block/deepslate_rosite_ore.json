@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "xores:block/deepslate_rosite_ore"
-  }
-}

@@ -116,7 +116,6 @@ public class XOItemTagsProvider extends ItemTagsProvider {
 		this.copy(XOBlockTags.JADE_ORES, XOItemTags.JADE_ORES);
 		this.copy(XOBlockTags.SAPHIRE_ORES, XOItemTags.SAPHIRE_ORES);
 		this.copy(XOBlockTags.LIMONITE_ORES, XOItemTags.LIMONITE_ORES);
-		this.copy(XOBlockTags.ROSITE_ORES, XOItemTags.ROSITE_ORES);
 		this.copy(XOBlockTags.ENDERITE_ORES, XOItemTags.ENDERITE_ORES);
 		this.copy(XOBlockTags.ORE_BLOCKS, XOItemTags.ORE_BLOCKS);
 		this.copy(Tags.Blocks.ORES, Tags.Items.ORES);

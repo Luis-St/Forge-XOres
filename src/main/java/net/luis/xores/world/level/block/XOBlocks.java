@@ -50,15 +50,6 @@ public class XOBlocks {
 	public static final RegistryObject<Block> LIMONITE_BLOCK = register("limonite_block", () -> {
 		return new Block(BlockBehaviour.Properties.copy(Blocks.DIAMOND_BLOCK));
 	});
-	public static final RegistryObject<Block> ROSITE_ORE = register("rosite_ore", () -> {
-		return new Block(BlockBehaviour.Properties.copy(Blocks.STONE));
-	});
-	public static final RegistryObject<Block> DEEPSLATE_ROSITE_ORE = register("deepslate_rosite_ore", () -> {
-		return new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE));
-	});
-	public static final RegistryObject<Block> ROSITE_BLOCK = register("rosite_block", () -> {
-		return new Block(BlockBehaviour.Properties.copy(Blocks.DIAMOND_BLOCK));
-	});
 	public static final RegistryObject<Block> ENDERITE_ORE = register("enderite_ore", () -> {
 		return new Block(BlockBehaviour.Properties.copy(Blocks.ANCIENT_DEBRIS));
 	});

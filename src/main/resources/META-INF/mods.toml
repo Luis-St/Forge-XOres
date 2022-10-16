@@ -4,7 +4,7 @@ license="All rights reserved"
 
 [[mods]]
 modId="xores"
-version="1.19.2-2.2"
+version="1.19.2-2.3"
 displayName="XOres"
 credits="Thanks for downloading my Mod"
 authors="Luis"
@@ -15,14 +15,12 @@ Ores:
  - Jade
  - Saphire
  - Limonite
- - Rosite
  - Enderite
  
 Tools:
  - Jade
  - Saphire
  - Limonite
- - Rosite
  - Enderite
  - Blazing
  - Rose Quartz
