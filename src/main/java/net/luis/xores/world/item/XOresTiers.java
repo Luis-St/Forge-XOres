@@ -28,9 +28,6 @@ public enum XOresTiers implements Tier {
 	LIMONITE("limonite", 3178, 10.0F, 10.0F, 5, 26, () -> {
 		return Ingredient.of(XOItems.LIMONITE_INGOT.get());
 	}),
-	ROSITE("rosite", 4916, 10.0F, 11.0F, 4, 12, () -> {
-		return Ingredient.of(XOItems.ROSITE_INGOT.get());
-	}),
 	ROSE_QUARTZ("rose_quartz", 7693, 11.0F, 12.0F, 4, 17, () -> {
 		return Ingredient.of(XOItems.POLISHED_ROSE_QUARTZ.get());
 	}),

@@ -9,10 +9,22 @@
       "item": "minecraft:quartz"
     },
     {
-      "item": "xores:rosite_ingot"
+      "item": "minecraft:quartz"
     },
     {
-      "item": "xores:rosite_ingot"
+      "item": "minecraft:quartz"
+    },
+    {
+      "item": "minecraft:redstone"
+    },
+    {
+      "item": "minecraft:redstone"
+    },
+    {
+      "item": "minecraft:redstone"
+    },
+    {
+      "item": "minecraft:redstone"
     }
   ],
   "result": {

@@ -47,7 +47,6 @@ public class ToolFixer implements VanillaFixer {
 	public static final int DIAMOND_LEVEL = 3;
 	public static final int SAPHIRE_LEVEL = 3;
 	public static final int NETHERITE_LEVEL = 4;
-	public static final int ROSITE_LEVEL = 4;
 	public static final int ROSE_QUARTZ_LEVEL = 4;
 	public static final int LIMONITE_LEVEL = 5;
 	public static final int ENDERITE_LEVEL = 5;

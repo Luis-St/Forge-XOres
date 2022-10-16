@@ -27,7 +27,6 @@ public class XOItemTags {
 	public static final TagKey<Item> BLAZING = bind(new ResourceLocation(XOres.MOD_ID, "blazing"));
 	public static final TagKey<Item> SAPHIRE = bind(new ResourceLocation(XOres.MOD_ID, "saphire"));
 	public static final TagKey<Item> LIMONITE = bind(new ResourceLocation(XOres.MOD_ID, "limonite"));
-	public static final TagKey<Item> ROSITE = bind(new ResourceLocation(XOres.MOD_ID, "rosite"));
 	public static final TagKey<Item> ROSE_QUARTZ = bind(new ResourceLocation(XOres.MOD_ID, "rose_quartz"));
 	public static final TagKey<Item> ENDERITE = bind(new ResourceLocation(XOres.MOD_ID, "enderite"));
 	public static final TagKey<Item> STEEL = bind(new ResourceLocation(XOres.MOD_ID, "steel"));

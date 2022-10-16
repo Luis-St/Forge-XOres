@@ -184,25 +184,6 @@ public class XOItems {
 		return new LimoniteArmorItem(XOArmorMaterials.LIMONITE, EquipmentSlot.FEET, new Item.Properties().tab(XOres.TAB));
 	});
 	
-	public static final RegistryObject<Item> ROSITE_INGOT = ITEMS.register("rosite_ingot", () -> {
-		return new Item(new Item.Properties().tab(XOres.TAB));
-	});
-	public static final RegistryObject<SwordItem> ROSITE_SWORD = ITEMS.register("rosite_sword", () -> {
-		return new SwordItem(XOresTiers.ROSITE, -2, -2.4F, new Item.Properties().tab(XOres.TAB));
-	});
-	public static final RegistryObject<PickaxeItem> ROSITE_PICKAXE = ITEMS.register("rosite_pickaxe", () -> {
-		return new PickaxeItem(XOresTiers.ROSITE, -4, -2.8F, new Item.Properties().tab(XOres.TAB));
-	});
-	public static final RegistryObject<AxeItem> ROSITE_AXE = ITEMS.register("rosite_axe", () -> {
-		return new AxeItem(XOresTiers.ROSITE, 0.0F, -2.8F, new Item.Properties().tab(XOres.TAB));
-	});
-	public static final RegistryObject<ShovelItem> ROSITE_SHOVEL = ITEMS.register("rosite_shovel", () -> {
-		return new ShovelItem(XOresTiers.ROSITE, -3.5F, -3.0F, new Item.Properties().tab(XOres.TAB));
-	});
-	public static final RegistryObject<HoeItem> ROSITE_HOE = ITEMS.register("rosite_hoe", () -> {
-		return new HoeItem(XOresTiers.ROSITE, -11, 0.0F, new Item.Properties().tab(XOres.TAB));
-	});
-	
 	public static final RegistryObject<Item> ROSE_QUARTZ = ITEMS.register("rose_quartz", () -> {
 		return new Item(new Item.Properties().tab(XOres.TAB));
 	});
