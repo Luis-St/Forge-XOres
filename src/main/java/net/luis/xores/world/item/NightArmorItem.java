@@ -9,17 +9,17 @@ import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 
 /**
- * 
+ *
  * @author Luis-st
  *
  */
 
-public class NightArmorItem extends ArmorItem implements AbilityArmor  {
-
+public class NightArmorItem extends ArmorItem implements AbilityArmor {
+	
 	public NightArmorItem(ArmorMaterial material, EquipmentSlot slot, Properties properties) {
 		super(material, slot, properties);
 	}
-
+	
 	@Override
 	public void onItemApplied(LivingEntity entity, EquipmentSlot slot, ItemStack stack) {
 		if (this.isWearingFullArmor(entity)) {
@@ -27,7 +27,7 @@ public class NightArmorItem extends ArmorItem implements AbilityArmor  {
 			entity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 9999999, 0, false, false, false));
 		}
 	}
-
+	
 	@Override
 	public void onItemRemoved(LivingEntity entity, EquipmentSlot slot, ItemStack stack) {
 		if (!this.isWearingFullArmor(entity)) {
@@ -35,5 +35,5 @@ public class NightArmorItem extends ArmorItem implements AbilityArmor  {
 			entity.removeEffect(MobEffects.DAMAGE_RESISTANCE);
 		}
 	}
-
+	
 }

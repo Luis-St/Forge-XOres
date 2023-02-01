@@ -1,7 +1,5 @@
 package net.luis.xores.world.level.block;
 
-import java.util.function.Supplier;
-
 import net.luis.xores.XOres;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -12,8 +10,10 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+import java.util.function.Supplier;
+
 /**
- * 
+ *
  * @author Luis-st
  *
  */
