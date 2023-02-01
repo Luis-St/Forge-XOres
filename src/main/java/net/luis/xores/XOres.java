@@ -13,7 +13,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * 
+ *
  * @author Luis-st
  *
  */
@@ -28,7 +28,7 @@ public class XOres {
 		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 		XOBlocks.BLOCKS.register(modEventBus);
 		XOBlocks.ITEMS.register(modEventBus);
-		XOItems.ITEMS.register(modEventBus);	
+		XOItems.ITEMS.register(modEventBus);
 		XOGlobalLootModifiers.LOOT_MODIFIERS.register(modEventBus);
 		XOOreFeatures.register();
 		XOOrePlacements.register();

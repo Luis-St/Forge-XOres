@@ -9,29 +9,29 @@ import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 
 /**
- * 
+ *
  * @author Luis-st
  *
  */
 
-public class EnderiteArmorItem extends ArmorItem implements AbilityArmor  {
-
+public class EnderiteArmorItem extends ArmorItem implements AbilityArmor {
+	
 	public EnderiteArmorItem(ArmorMaterial material, EquipmentSlot slot, Properties properties) {
 		super(material, slot, properties);
 	}
-
+	
 	@Override
 	public void onItemApplied(LivingEntity entity, EquipmentSlot slot, ItemStack stack) {
 		if (this.isWearingFullArmor(entity)) {
 			entity.addEffect(new MobEffectInstance(MobEffects.HERO_OF_THE_VILLAGE, 9999999, 0, false, false, false));
 		}
 	}
-
+	
 	@Override
 	public void onItemRemoved(LivingEntity entity, EquipmentSlot slot, ItemStack stack) {
 		if (!this.isWearingFullArmor(entity)) {
 			entity.removeEffect(MobEffects.HERO_OF_THE_VILLAGE);
 		}
 	}
-
+	
 }

@@ -7,7 +7,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 
 /**
- * 
+ *
  * @author Luis-st
  *
  */

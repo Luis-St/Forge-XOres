@@ -1,22 +1,5 @@
 package net.luis.xores.data.provider.tag;
 
-import static net.luis.xores.world.level.block.XOBlocks.BLOCKS;
-import static net.luis.xores.world.level.block.XOBlocks.DEEPSLATE_JADE_ORE;
-import static net.luis.xores.world.level.block.XOBlocks.DEEPSLATE_LIMONITE_ORE;
-import static net.luis.xores.world.level.block.XOBlocks.DEEPSLATE_SAPHIRE_ORE;
-import static net.luis.xores.world.level.block.XOBlocks.ENDERITE_BLOCK;
-import static net.luis.xores.world.level.block.XOBlocks.ENDERITE_ORE;
-import static net.luis.xores.world.level.block.XOBlocks.JADE_BLOCK;
-import static net.luis.xores.world.level.block.XOBlocks.JADE_ORE;
-import static net.luis.xores.world.level.block.XOBlocks.LIMONITE_BLOCK;
-import static net.luis.xores.world.level.block.XOBlocks.LIMONITE_ORE;
-import static net.luis.xores.world.level.block.XOBlocks.SAPHIRE_BLOCK;
-import static net.luis.xores.world.level.block.XOBlocks.SAPHIRE_ORE;
-import static net.minecraft.tags.BlockTags.MINEABLE_WITH_PICKAXE;
-
-import java.util.concurrent.CompletableFuture;
-import java.util.stream.Collectors;
-
 import net.luis.xores.XOres;
 import net.luis.xores.tags.XOBlockTags;
 import net.minecraft.core.HolderLookup;
@@ -29,8 +12,13 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.concurrent.CompletableFuture;
+
+import static net.luis.xores.world.level.block.XOBlocks.*;
+import static net.minecraft.tags.BlockTags.MINEABLE_WITH_PICKAXE;
+
 /**
- * 
+ *
  * @author Luis-st
  *
  */

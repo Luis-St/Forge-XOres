@@ -7,7 +7,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 
 /**
- * 
+ *
  * @author Luis-st
  *
  */

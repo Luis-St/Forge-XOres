@@ -2,7 +2,6 @@ package net.luis.xores.client.gui.overlay;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
-
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.gui.overlay.ForgeGui;
 import net.minecraftforge.client.gui.overlay.IGuiOverlay;
@@ -10,7 +9,7 @@ import net.minecraftforge.client.gui.overlay.IGuiOverlay;
 import java.util.Objects;
 
 /**
- * 
+ *
  * @author Luis-st
  *
  */
@@ -31,7 +30,7 @@ public class XOArmorOverlay implements IGuiOverlay {
 		}
 	}
 	
-	private void renderArmor(ForgeGui gui, PoseStack poseStack, float partialTicks, int width, int height) { 
+	private void renderArmor(ForgeGui gui, PoseStack poseStack, float partialTicks, int width, int height) {
 		RenderSystem.enableBlend();
 		int left = width / 2 - 91;
 		int top = height - gui.leftHeight;

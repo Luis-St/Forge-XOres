@@ -3,12 +3,9 @@ package net.luis.xores.data.provider.level;
 import com.google.common.collect.Lists;
 import net.luis.xores.world.level.levelgen.feature.XOOreFeatures;
 import net.luis.xores.world.level.levelgen.placement.XOOrePlacements;
-import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.*;
@@ -28,7 +25,7 @@ public class XOPlacedFeatureProvider {
 		context.register(XOOrePlacements.JADE_ORE_UPPER, new PlacedFeature(registry.getOrThrow(XOOreFeatures.JADE_ORE_UPPER), upperOrePlacement(20, 128)));
 		context.register(XOOrePlacements.JADE_ORE_MIDDLE, new PlacedFeature(registry.getOrThrow(XOOreFeatures.JADE_ORE_MIDDLE), uniformOrePlacement(14, -32, 96)));
 		context.register(XOOrePlacements.SAPHIRE_ORE_RARE_UPPER, new PlacedFeature(registry.getOrThrow(XOOreFeatures.SAPHIRE_ORE_RARE_UPPER), upperOrePlacement(7, 256)));
-		context.register(XOOrePlacements.SAPHIRE_ORE, new PlacedFeature(registry.getOrThrow( XOOreFeatures.SAPHIRE_ORE), uniformOrePlacement(18, -64, 256)));
+		context.register(XOOrePlacements.SAPHIRE_ORE, new PlacedFeature(registry.getOrThrow(XOOreFeatures.SAPHIRE_ORE), uniformOrePlacement(18, -64, 256)));
 		context.register(XOOrePlacements.SAPHIRE_ORE_BURIED, new PlacedFeature(registry.getOrThrow(XOOreFeatures.SAPHIRE_ORE_BURIED), buriedOrePlacement(5, -32)));
 		context.register(XOOrePlacements.LIMONITE_ORE_BURIED, new PlacedFeature(registry.getOrThrow(XOOreFeatures.LIMONITE_ORE_BURIED), uniformOrePlacement(5, -48, 0)));
 		context.register(XOOrePlacements.LIMONITE_ORE_DEEP_BURIED, new PlacedFeature(registry.getOrThrow(XOOreFeatures.LIMONITE_ORE_DEEP_BURIED), buriedOrePlacement(2, -48)));
@@ -63,5 +60,5 @@ public class XOPlacedFeatureProvider {
 	private static VerticalAnchor triangleMinGeneration(int maxGeneration) {
 		return VerticalAnchor.absolute((64 + maxGeneration) * -1 - 64);
 	}
-
+	
 }

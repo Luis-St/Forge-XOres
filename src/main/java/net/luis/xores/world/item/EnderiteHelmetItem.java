@@ -7,7 +7,7 @@ import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 
 /**
- * 
+ *
  * @author Luis-st
  *
  */

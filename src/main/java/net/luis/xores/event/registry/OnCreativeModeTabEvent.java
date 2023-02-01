@@ -7,7 +7,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -22,23 +21,8 @@ import net.minecraftforge.fml.common.Mod;
 public class OnCreativeModeTabEvent {
 	
 	@SubscribeEvent
-	public void buildContents(CreativeModeTabEvent.BuildContents event) {
-		if (event.getTab() == CreativeModeTabs.COMBAT) {
-			event.accept(XOItems.GOLDEN_SHIELD.get());
-			event.accept(XOItems.COPPER_SHIELD.get());
-			event.accept(XOItems.IRON_SHIELD.get());
-			event.accept(XOItems.DIAMOND_SHIELD.get());
-			event.accept(XOItems.NETHERITE_SHIELD.get());
-			event.accept(XOItems.DIAMOND_ELYTRA_CHESTPLATE.get());
-			event.accept(XOItems.NETHERITE_ELYTRA_CHESTPLATE.get());
-			event.accept(XOItems.NETHERITE_BOW.get());
-			event.accept(XOItems.NETHERITE_CROSSBOW.get());
-		}
-	}
-	
-	@SubscribeEvent
 	public static void register(CreativeModeTabEvent.Register event) {
-	    event.registerCreativeModeTab(new ResourceLocation(XOres.MOD_ID, XOres.MOD_ID), builder -> {
+		event.registerCreativeModeTab(new ResourceLocation(XOres.MOD_ID, XOres.MOD_ID), builder -> {
 			builder.title(Component.translatable("item_tab.xores"));
 			builder.icon(() -> new ItemStack(XOItems.LIMONITE_PICKAXE.get()));
 			builder.displayItems((enabledFlags, populator, hasPermissions) -> {
@@ -146,6 +130,21 @@ public class OnCreativeModeTabEvent {
 				populator.accept(XOItems.NIGHT_BOOTS.get());
 			});
 		});
+	}
+	
+	@SubscribeEvent
+	public void buildContents(CreativeModeTabEvent.BuildContents event) {
+		if (event.getTab() == CreativeModeTabs.COMBAT) {
+			event.accept(XOItems.GOLDEN_SHIELD.get());
+			event.accept(XOItems.COPPER_SHIELD.get());
+			event.accept(XOItems.IRON_SHIELD.get());
+			event.accept(XOItems.DIAMOND_SHIELD.get());
+			event.accept(XOItems.NETHERITE_SHIELD.get());
+			event.accept(XOItems.DIAMOND_ELYTRA_CHESTPLATE.get());
+			event.accept(XOItems.NETHERITE_ELYTRA_CHESTPLATE.get());
+			event.accept(XOItems.NETHERITE_BOW.get());
+			event.accept(XOItems.NETHERITE_CROSSBOW.get());
+		}
 	}
 	
 }

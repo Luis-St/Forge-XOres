@@ -2,7 +2,6 @@ package net.luis.xores.world.level.biome;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-
 import net.luis.xores.XOres;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
@@ -17,13 +16,13 @@ import net.minecraftforge.common.world.ModifiableBiomeInfo.BiomeInfo.Builder;
 import net.minecraftforge.registries.ForgeRegistries;
 
 /**
- * 
+ *
  * @author Luis-st
  *
  */
 
-public record XOBiomeModifier(HolderSet<Biome> overworldBiomes, HolderSet<PlacedFeature> overworldFeatures, HolderSet<Biome> mountainPeakBiomes, HolderSet<PlacedFeature> mountainPeakFeatures, HolderSet<Biome> endBiomes, 
-	HolderSet<PlacedFeature> endFeatures) implements BiomeModifier {
+public record XOBiomeModifier(HolderSet<Biome> overworldBiomes, HolderSet<PlacedFeature> overworldFeatures, HolderSet<Biome> mountainPeakBiomes, HolderSet<PlacedFeature> mountainPeakFeatures, HolderSet<Biome> endBiomes,
+							  HolderSet<PlacedFeature> endFeatures) implements BiomeModifier {
 	
 	public static final ResourceKey<BiomeModifier> KEY = ResourceKey.create(ForgeRegistries.Keys.BIOME_MODIFIERS, new ResourceLocation(XOres.MOD_ID, "ore_biome_modifier"));
 	
@@ -68,5 +67,5 @@ public record XOBiomeModifier(HolderSet<Biome> overworldBiomes, HolderSet<Placed
 	public Codec<XOBiomeModifier> codec() {
 		return XOBiomeModifiers.ORE_BIOME_MODIFIER.get();
 	}
-
+	
 }

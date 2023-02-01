@@ -1,10 +1,6 @@
 package net.luis.xores.world.item;
 
-import java.util.Map;
-import java.util.Random;
-
 import com.google.common.collect.Maps;
-
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -14,8 +10,11 @@ import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ElytraItem;
 import net.minecraft.world.item.ItemStack;
 
+import java.util.Map;
+import java.util.Random;
+
 /**
- * 
+ *
  * @author Luis-st
  *
  */
@@ -27,6 +26,10 @@ public class ElytraChestplateItem extends ArmorItem {
 	
 	public ElytraChestplateItem(ArmorMaterial armorMaterial, Properties properties) {
 		super(armorMaterial, EquipmentSlot.CHEST, properties);
+	}
+	
+	public static void register(ElytraChestplateItem elytraChestplate, int damageValue) {
+		ELYTRA_TIME_DAMAGE_VALUES.put(elytraChestplate, damageValue);
 	}
 	
 	@Override
@@ -45,10 +48,6 @@ public class ElytraChestplateItem extends ArmorItem {
 	@Override
 	public SoundEvent getEquipSound() {
 		return RNG.nextInt(2) == 0 ? SoundEvents.ARMOR_EQUIP_ELYTRA : super.getEquipSound();
-	}
-	
-	public static void register(ElytraChestplateItem elytraChestplate, int damageValue) {
-		ELYTRA_TIME_DAMAGE_VALUES.put(elytraChestplate, damageValue);
 	}
 	
 }

@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
 /**
- * 
+ *
  * @author Luis-st
  *
  */

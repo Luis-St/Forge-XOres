@@ -29,6 +29,22 @@ public class XORecipeProvider extends RecipeProvider {
 		super(generator.getPackOutput());
 	}
 	
+	private static String getId(ItemLike item) {
+		return Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item.asItem())).getPath();
+	}
+	
+	private static String getGroup(Item item) {
+		String path = getId(item);
+		if (!path.contains("_")) {
+			return path;
+		}
+		String[] pathParts = path.split("_");
+		if (pathParts[0].equals("polished") || pathParts[0].equals("rose")) {
+			return "rose_quartz";
+		}
+		return pathParts[0];
+	}
+	
 	@Override
 	protected void buildRecipes(@NotNull Consumer<FinishedRecipe> consumer) {
 		// vanilla additional recipes
@@ -237,22 +253,6 @@ public class XORecipeProvider extends RecipeProvider {
 			}
 		}
 		return this.groupAndUnlock(builder, group, itemCriterion);
-	}
-	
-	private static String getId(ItemLike item) {
-		return Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item.asItem())).getPath();
-	}
-	
-	private static String getGroup(Item item) {
-		String path = getId(item);
-		if (!path.contains("_")) {
-			return path;
-		}
-		String[] pathParts = path.split("_");
-		if (pathParts[0].equals("polished") || pathParts[0].equals("rose")) {
-			return "rose_quartz";
-		}
-		return pathParts[0];
 	}
 	
 }

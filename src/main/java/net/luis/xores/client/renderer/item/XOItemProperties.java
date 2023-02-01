@@ -4,14 +4,10 @@ import net.luis.xores.XOres;
 import net.luis.xores.world.item.ElytraChestplateItem;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.BowItem;
-import net.minecraft.world.item.CrossbowItem;
-import net.minecraft.world.item.ElytraItem;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.ShieldItem;
+import net.minecraft.world.item.*;
 
 /**
- * 
+ *
  * @author Luis-st
  *
  */

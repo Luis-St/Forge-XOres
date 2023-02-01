@@ -3,24 +3,13 @@ package net.luis.xores.world.item;
 import net.luis.xores.XOres;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.ArmorMaterials;
-import net.minecraft.world.item.AxeItem;
-import net.minecraft.world.item.BowItem;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CrossbowItem;
-import net.minecraft.world.item.HoeItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.PickaxeItem;
-import net.minecraft.world.item.ShieldItem;
-import net.minecraft.world.item.ShovelItem;
-import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.*;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 /**
- * 
+ *
  * @author Luis-st
  *
  */

@@ -1,17 +1,16 @@
 package net.luis.xores.world.item;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import com.google.common.collect.Lists;
-
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ItemStack;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 /**
- * 
+ *
  * @author Luis-st
  *
  */

@@ -8,13 +8,13 @@ import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 
 /**
- * 
+ *
  * @author Luis-st
  *
  */
 
 public class NightElytraChestplateItem extends ElytraChestplateItem implements AbilityArmor {
-
+	
 	public NightElytraChestplateItem(ArmorMaterial armorMaterial, Properties properties) {
 		super(armorMaterial, properties);
 	}
@@ -26,7 +26,7 @@ public class NightElytraChestplateItem extends ElytraChestplateItem implements A
 			entity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 9999999, 0, false, false, false));
 		}
 	}
-
+	
 	@Override
 	public void onItemRemoved(LivingEntity entity, EquipmentSlot slot, ItemStack stack) {
 		if (!this.isWearingFullArmor(entity)) {
@@ -34,5 +34,5 @@ public class NightElytraChestplateItem extends ElytraChestplateItem implements A
 			entity.removeEffect(MobEffects.DAMAGE_RESISTANCE);
 		}
 	}
-
+	
 }

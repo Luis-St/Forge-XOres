@@ -11,7 +11,7 @@ import net.minecraftforge.common.data.GlobalLootModifierProvider;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * 
+ *
  * @author Luis-st
  *
  */
@@ -33,5 +33,5 @@ public class XOGlobalLootModifierProvider extends GlobalLootModifierProvider {
 	public @NotNull String getName() {
 		return "XOres Global Loot Modifiers";
 	}
-
+	
 }

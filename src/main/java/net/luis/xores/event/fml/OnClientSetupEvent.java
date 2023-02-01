@@ -1,7 +1,5 @@
 package net.luis.xores.event.fml;
 
-import java.util.stream.Collectors;
-
 import net.luis.xores.XOres;
 import net.luis.xores.client.renderer.item.XOItemProperties;
 import net.luis.xores.world.item.ElytraChestplateItem;
@@ -18,7 +16,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.registries.RegistryObject;
 
 /**
- * 
+ *
  * @author Luis-st
  *
  */
@@ -35,7 +33,7 @@ public class OnClientSetupEvent {
 				} else if (item instanceof CrossbowItem crossbow) {
 					XOItemProperties.registerCrossbow(crossbow);
 				} else if (item instanceof ShieldItem shield) {
-					XOItemProperties.registerShield(shield);	
+					XOItemProperties.registerShield(shield);
 				} else if (item instanceof ElytraChestplateItem elytraChestplate) {
 					XOItemProperties.registerElytraChestplate(elytraChestplate);
 				}

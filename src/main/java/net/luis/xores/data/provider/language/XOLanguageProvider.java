@@ -1,8 +1,5 @@
 package net.luis.xores.data.provider.language;
 
-import java.util.Objects;
-import java.util.stream.Collectors;
-
 import net.luis.xores.XOres;
 import net.luis.xores.world.item.XOItems;
 import net.luis.xores.world.level.block.XOBlocks;
@@ -14,8 +11,10 @@ import net.minecraftforge.common.data.LanguageProvider;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+import java.util.Objects;
+
 /**
- * 
+ *
  * @author Luis-st
  *
  */
@@ -37,7 +36,7 @@ public class XOLanguageProvider extends LanguageProvider {
 		this.add("item_tab.xores", "XOres");
 	}
 	
-	private String getName(ResourceLocation location) { 
+	private String getName(ResourceLocation location) {
 		String[] nameParts = location.getPath().split("_");
 		StringBuilder name = new StringBuilder();
 		for (String namePart : nameParts) {
@@ -51,5 +50,5 @@ public class XOLanguageProvider extends LanguageProvider {
 	public String getName() {
 		return "XOres Languages";
 	}
-
+	
 }

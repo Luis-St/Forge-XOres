@@ -5,7 +5,7 @@ buildscript {
 		}
 		mavenCentral()
 	}
-		
+
 	dependencies {
 		classpath group: "net.minecraftforge.gradle", name: "ForgeGradle", version: "5.1.+", changing: true
 		classpath "org.spongepowered:mixingradle:0.7.+"
@@ -25,68 +25,68 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 println("Java: " + System.getProperty("java.version") + " JVM: " + System.getProperty("java.vm.version") + "(" + System.getProperty("java.vendor") + ") Arch: " + System.getProperty("os.arch"))
 minecraft {
 	mappings channel: "official", version: "1.19.3"
-	
+
 	accessTransformer = file("src/main/resources/META-INF/accesstransformer.cfg")
-	
+
 	runs {
 		client {
 			workingDirectory project.file("run")
-			
+
 			property "forge.logging.markers", "REGISTRIES"
 			property "forge.logging.console.level", "debug"
 			property "forge.enabledGameTestNamespaces", "xores"
 			property "mixin.env.remapRefMap", "true"
 			property "mixin.env.refMapRemappingFile", "${buildDir}/createSrgToMcp/output.srg"
-			
+
 			mods {
 				examplemod {
 					source sourceSets.main
 				}
 			}
 		}
-		
+
 		server {
 			workingDirectory project.file("run")
-			
+
 			property "forge.logging.markers", "REGISTRIES"
 			property "forge.logging.console.level", "debug"
 			property "forge.enabledGameTestNamespaces", "xores"
 			property "mixin.env.remapRefMap", "true"
 			property "mixin.env.refMapRemappingFile", "${buildDir}/createSrgToMcp/output.srg"
-			
+
 			mods {
 				examplemod {
 					source sourceSets.main
 				}
 			}
 		}
-		
+
 		gameTestServer {
 			workingDirectory project.file("run")
-			
+
 			property "forge.logging.markers", "REGISTRIES"
 			property "forge.logging.console.level", "debug"
 			property "forge.enabledGameTestNamespaces", "xores"
 			property "mixin.env.remapRefMap", "true"
 			property "mixin.env.refMapRemappingFile", "${buildDir}/createSrgToMcp/output.srg"
-			
+
 			mods {
 				examplemod {
 					source sourceSets.main
 				}
 			}
 		}
-		
+
 		data {
 			workingDirectory project.file("run")
-			
+
 			property "forge.logging.markers", "REGISTRIES"
 			property "forge.logging.console.level", "debug"
 			property "mixin.env.remapRefMap", "true"
 			property "mixin.env.refMapRemappingFile", "${buildDir}/createSrgToMcp/output.srg"
-			
+
 			args "--mod", "xores", "--all", "--output", file("src/generated/resources/"), "--existing", file("src/main/resources/")
-			
+
 			mods {
 				examplemod {
 					source sourceSets.main
@@ -106,17 +106,17 @@ sourceSets.main.resources { srcDir "src/generated/resources" }
 
 dependencies {
 	minecraft "net.minecraftforge:forge:1.19.3-44.1.8"
-	
+
 	annotationProcessor "org.spongepowered:mixin:0.8.5:processor"
 }
 
 jar {
 	manifest {
 		attributes([
-			"Specification-Title"     : "XOres",
-			"Specification-Version"   : "1.19.3-2.4",
-			"Implementation-Title"    : project.name,
-			"Implementation-Timestamp": new Date().format("yyyy-MM-dd HH:mm:ssZ")
+				"Specification-Title"     : "XOres",
+				"Specification-Version"   : "1.19.3-2.4",
+				"Implementation-Title"    : project.name,
+				"Implementation-Timestamp": new Date().format("yyyy-MM-dd HH:mm:ssZ")
 		])
 	}
 }
@@ -138,7 +138,7 @@ publishing {
 			artifact sourcesJar
 		}
 	}
-	
+
 	repositories {
 		maven {
 			url uri("C:/Users/luiss/.m2/repository")

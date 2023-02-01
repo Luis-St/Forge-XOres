@@ -1,12 +1,8 @@
 package net.luis.xores.data.provider.block;
 
-import java.util.Objects;
-import java.util.stream.Collectors;
-
 import net.luis.xores.XOres;
 import net.luis.xores.world.level.block.XOBlocks;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
@@ -18,8 +14,10 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Objects;
+
 /**
- * 
+ *
  * @author Luis-st
  *
  */

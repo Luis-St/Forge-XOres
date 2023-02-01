@@ -11,9 +11,9 @@ import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * 
+ *
  * @author Luis-st
- * 
+ *
  */
 
 public class XOElytraLayer<T extends LivingEntity, M extends EntityModel<T>> extends ElytraLayer<T, M> {

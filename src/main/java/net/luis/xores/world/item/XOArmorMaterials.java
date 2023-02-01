@@ -1,7 +1,5 @@
 package net.luis.xores.world.item;
 
-import java.util.function.Supplier;
-
 import net.luis.xores.XOres;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
@@ -12,8 +10,10 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.function.Supplier;
+
 /**
- * 
+ *
  * @author Luis-st
  *
  */
@@ -100,5 +100,5 @@ public enum XOArmorMaterials implements ArmorMaterial {
 	public @NotNull Ingredient getRepairIngredient() {
 		return this.repairIngredient.get();
 	}
-
+	
 }
