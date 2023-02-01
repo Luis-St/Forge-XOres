@@ -1,118 +1,43 @@
 package net.luis.xores.data.provider.tag;
 
-import static net.luis.xores.world.item.XOItems.*;
-import static net.minecraft.world.item.Items.CHAINMAIL_BOOTS;
-import static net.minecraft.world.item.Items.CHAINMAIL_CHESTPLATE;
-import static net.minecraft.world.item.Items.CHAINMAIL_HELMET;
-import static net.minecraft.world.item.Items.CHAINMAIL_LEGGINGS;
-import static net.minecraft.world.item.Items.COPPER_INGOT;
-import static net.minecraft.world.item.Items.DIAMOND;
-import static net.minecraft.world.item.Items.DIAMOND_AXE;
-import static net.minecraft.world.item.Items.DIAMOND_BOOTS;
-import static net.minecraft.world.item.Items.DIAMOND_CHESTPLATE;
-import static net.minecraft.world.item.Items.DIAMOND_HELMET;
-import static net.minecraft.world.item.Items.DIAMOND_HOE;
-import static net.minecraft.world.item.Items.DIAMOND_HORSE_ARMOR;
-import static net.minecraft.world.item.Items.DIAMOND_LEGGINGS;
-import static net.minecraft.world.item.Items.DIAMOND_PICKAXE;
-import static net.minecraft.world.item.Items.DIAMOND_SHOVEL;
-import static net.minecraft.world.item.Items.DIAMOND_SWORD;
-import static net.minecraft.world.item.Items.GOLDEN_AXE;
-import static net.minecraft.world.item.Items.GOLDEN_BOOTS;
-import static net.minecraft.world.item.Items.GOLDEN_CHESTPLATE;
-import static net.minecraft.world.item.Items.GOLDEN_HELMET;
-import static net.minecraft.world.item.Items.GOLDEN_HOE;
-import static net.minecraft.world.item.Items.GOLDEN_HORSE_ARMOR;
-import static net.minecraft.world.item.Items.GOLDEN_LEGGINGS;
-import static net.minecraft.world.item.Items.GOLDEN_PICKAXE;
-import static net.minecraft.world.item.Items.GOLDEN_SHOVEL;
-import static net.minecraft.world.item.Items.GOLDEN_SWORD;
-import static net.minecraft.world.item.Items.GOLD_INGOT;
-import static net.minecraft.world.item.Items.GOLD_NUGGET;
-import static net.minecraft.world.item.Items.IRON_AXE;
-import static net.minecraft.world.item.Items.IRON_BOOTS;
-import static net.minecraft.world.item.Items.IRON_CHESTPLATE;
-import static net.minecraft.world.item.Items.IRON_HELMET;
-import static net.minecraft.world.item.Items.IRON_HOE;
-import static net.minecraft.world.item.Items.IRON_HORSE_ARMOR;
-import static net.minecraft.world.item.Items.IRON_INGOT;
-import static net.minecraft.world.item.Items.IRON_LEGGINGS;
-import static net.minecraft.world.item.Items.IRON_NUGGET;
-import static net.minecraft.world.item.Items.IRON_PICKAXE;
-import static net.minecraft.world.item.Items.IRON_SHOVEL;
-import static net.minecraft.world.item.Items.IRON_SWORD;
-import static net.minecraft.world.item.Items.LEATHER;
-import static net.minecraft.world.item.Items.LEATHER_BOOTS;
-import static net.minecraft.world.item.Items.LEATHER_CHESTPLATE;
-import static net.minecraft.world.item.Items.LEATHER_HELMET;
-import static net.minecraft.world.item.Items.LEATHER_HORSE_ARMOR;
-import static net.minecraft.world.item.Items.LEATHER_LEGGINGS;
-import static net.minecraft.world.item.Items.NETHERITE_AXE;
-import static net.minecraft.world.item.Items.NETHERITE_BOOTS;
-import static net.minecraft.world.item.Items.NETHERITE_CHESTPLATE;
-import static net.minecraft.world.item.Items.NETHERITE_HELMET;
-import static net.minecraft.world.item.Items.NETHERITE_HOE;
-import static net.minecraft.world.item.Items.NETHERITE_INGOT;
-import static net.minecraft.world.item.Items.NETHERITE_LEGGINGS;
-import static net.minecraft.world.item.Items.NETHERITE_PICKAXE;
-import static net.minecraft.world.item.Items.NETHERITE_SCRAP;
-import static net.minecraft.world.item.Items.NETHERITE_SHOVEL;
-import static net.minecraft.world.item.Items.NETHERITE_SWORD;
-import static net.minecraft.world.item.Items.RAW_COPPER;
-import static net.minecraft.world.item.Items.RAW_GOLD;
-import static net.minecraft.world.item.Items.RAW_IRON;
-import static net.minecraft.world.item.Items.SHIELD;
-import static net.minecraft.world.item.Items.STONE_AXE;
-import static net.minecraft.world.item.Items.STONE_HOE;
-import static net.minecraft.world.item.Items.STONE_PICKAXE;
-import static net.minecraft.world.item.Items.STONE_SHOVEL;
-import static net.minecraft.world.item.Items.STONE_SWORD;
-import static net.minecraft.world.item.Items.WOODEN_AXE;
-import static net.minecraft.world.item.Items.WOODEN_HOE;
-import static net.minecraft.world.item.Items.WOODEN_PICKAXE;
-import static net.minecraft.world.item.Items.WOODEN_SHOVEL;
-import static net.minecraft.world.item.Items.WOODEN_SWORD;
-
-import java.util.stream.Collectors;
-
 import net.luis.xores.XOres;
 import net.luis.xores.tags.XOBlockTags;
 import net.luis.xores.tags.XOItemTags;
 import net.luis.xores.world.item.ElytraChestplateItem;
 import net.luis.xores.world.item.XOShieldItem;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.AxeItem;
-import net.minecraft.world.item.BowItem;
-import net.minecraft.world.item.CrossbowItem;
-import net.minecraft.world.item.HoeItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.PickaxeItem;
-import net.minecraft.world.item.ShovelItem;
-import net.minecraft.world.item.SwordItem;
-import net.minecraft.world.item.TieredItem;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.ForgeRegistries;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.concurrent.CompletableFuture;
+
+import static net.luis.xores.world.item.XOItems.*;
+import static net.minecraft.world.item.Items.*;
 
 /**
- * 
+ *
  * @author Luis-st
  *
  */
 
 public class XOItemTagsProvider extends ItemTagsProvider {
 	
-	public XOItemTagsProvider(DataGenerator generator, BlockTagsProvider blockTagsProvider, ExistingFileHelper existingFileHelper) {
-		super(generator, blockTagsProvider, XOres.MOD_ID, existingFileHelper);
+	public XOItemTagsProvider(DataGenerator generator, CompletableFuture<HolderLookup.Provider> lookupProvider, TagsProvider<Block> blockTagsProvider, @Nullable ExistingFileHelper existingFileHelper) {
+		super(generator.getPackOutput(), lookupProvider, blockTagsProvider, XOres.MOD_ID, existingFileHelper);
 	}
 	
 	@Override
 	@SuppressWarnings("deprecation")
-	protected void addTags() {
+	protected void addTags(@NotNull HolderLookup.Provider provider) {
 		this.copy(XOBlockTags.JADE_ORES, XOItemTags.JADE_ORES);
 		this.copy(XOBlockTags.SAPHIRE_ORES, XOItemTags.SAPHIRE_ORES);
 		this.copy(XOBlockTags.LIMONITE_ORES, XOItemTags.LIMONITE_ORES);
@@ -138,14 +63,14 @@ public class XOItemTagsProvider extends ItemTagsProvider {
 		this.tag(XOItemTags.NETHERITE).add(NETHERITE_SCRAP, NETHERITE_INGOT, NETHERITE_SWORD, NETHERITE_PICKAXE, NETHERITE_AXE, NETHERITE_SHOVEL, NETHERITE_HOE)
 				.add(NETHERITE_BOW.get(), NETHERITE_CROSSBOW.get(), NETHERITE_SHIELD.get()).add(NETHERITE_HELMET, NETHERITE_CHESTPLATE, NETHERITE_ELYTRA_CHESTPLATE.get(), NETHERITE_LEGGINGS, NETHERITE_BOOTS);
 		this.tag(XOItemTags.JADE).add(JADE_INGOT.get(), JADE_SWORD.get(), JADE_PICKAXE.get(), JADE_AXE.get(), JADE_SHOVEL.get(), JADE_HOE.get())
-					.add(JADE_HELMET.get(), JADE_CHESTPLATE.get(), JADE_LEGGINGS.get(), JADE_BOOTS.get());
+				.add(JADE_HELMET.get(), JADE_CHESTPLATE.get(), JADE_LEGGINGS.get(), JADE_BOOTS.get());
 		this.tag(XOItemTags.BLAZING).add(BLAZING_INGOT.get(), BLAZING_SWORD.get(), BLAZING_PICKAXE.get(), BLAZING_AXE.get(), BLAZING_SHOVEL.get(), BLAZING_HOE.get())
 				.add(BLAZING_HELMET.get(), BLAZING_CHESTPLATE.get(), BLAZING_LEGGINGS.get(), BLAZING_BOOTS.get());
 		this.tag(XOItemTags.SAPHIRE).add(SAPHIRE_INGOT.get(), SAPHIRE_SWORD.get(), SAPHIRE_SHIELD.get(), SAPHIRE_PICKAXE.get(), SAPHIRE_AXE.get(), SAPHIRE_SHOVEL.get(), SAPHIRE_HOE.get())
 				.add(SAPHIRE_HELMET.get(), SAPHIRE_CHESTPLATE.get(), SAPHIRE_LEGGINGS.get(), SAPHIRE_BOOTS.get());
 		this.tag(XOItemTags.LIMONITE).add(LIMONITE_INGOT.get(), LIMONITE_SWORD.get(), LIMONITE_PICKAXE.get(), LIMONITE_AXE.get(), LIMONITE_SHOVEL.get(), LIMONITE_HOE.get())
 				.add(LIMONITE_HELMET.get(), LIMONITE_CHESTPLATE.get(), LIMONITE_LEGGINGS.get(), LIMONITE_BOOTS.get());
-		this.tag(XOItemTags.ROSE_QUARTZ).add(ROSE_QUARTZ.get(), POLISHED_ROSE_QUARTZ.get(), ROSE_QUARTZ_SWORD.get(), ROSE_QUARTZ_PICKAXE.get(), ROSE_QUARTZ_AXE.get(), 
+		this.tag(XOItemTags.ROSE_QUARTZ).add(ROSE_QUARTZ.get(), POLISHED_ROSE_QUARTZ.get(), ROSE_QUARTZ_SWORD.get(), ROSE_QUARTZ_PICKAXE.get(), ROSE_QUARTZ_AXE.get(),
 				ROSE_QUARTZ_SHOVEL.get(), ROSE_QUARTZ_HOE.get());
 		this.tag(XOItemTags.ENDERITE).add(ENDERITE_SCRAP.get(), ENDERITE_INGOT.get(), ENDERITE_SWORD.get(), ENDERITE_PICKAXE.get(), ENDERITE_AXE.get(), ENDERITE_SHOVEL.get(), ENDERITE_HOE.get())
 				.add(ENDERITE_SHIELD.get(), ENDERITE_BOW.get(), ENDERITE_CROSSBOW.get())
@@ -155,24 +80,24 @@ public class XOItemTagsProvider extends ItemTagsProvider {
 				.add(NIGHT_SHIELD.get(), NIGHT_BOW.get(), NIGHT_CROSSBOW.get())
 				.add(NIGHT_HELMET.get(), NIGHT_CHESTPLATE.get(), NIGHT_ELYTRA_CHESTPLATE.get(), NIGHT_LEGGINGS.get(), NIGHT_BOOTS.get());
 		
-		TagAppender<Item> pickaxes = this.tag(XOItemTags.PICKAXES);
-		TagAppender<Item> axes = this.tag(XOItemTags.AXES);
-		TagAppender<Item> shovels = this.tag(XOItemTags.SHOVELS);
-		TagAppender<Item> hoes = this.tag(XOItemTags.HOES);
-
-		TagAppender<Item> swords = this.tag(XOItemTags.SWORDS);
-		TagAppender<Item> shields = this.tag(XOItemTags.SHIELDS);
-		TagAppender<Item> bows = this.tag(XOItemTags.BOWS);
-		TagAppender<Item> crossbows = this.tag(XOItemTags.CROSSBOWS);
+		IntrinsicTagAppender<Item> pickaxes = this.tag(XOItemTags.PICKAXES);
+		IntrinsicTagAppender<Item> axes = this.tag(XOItemTags.AXES);
+		IntrinsicTagAppender<Item> shovels = this.tag(XOItemTags.SHOVELS);
+		IntrinsicTagAppender<Item> hoes = this.tag(XOItemTags.HOES);
 		
-		TagAppender<Item> armor = this.tag(XOItemTags.ARMOR);
-		TagAppender<Item> helmets = this.tag(XOItemTags.HELMETS);
-		TagAppender<Item> chestplates = this.tag(XOItemTags.CHESTPLATES);
-		TagAppender<Item> elytraChestplates = this.tag(XOItemTags.ELYTRA_CHESTPLATES);
-		TagAppender<Item> leggings = this.tag(XOItemTags.LEGGINGS);
-		TagAppender<Item> boots = this.tag(XOItemTags.BOOTS);
+		IntrinsicTagAppender<Item> swords = this.tag(XOItemTags.SWORDS);
+		IntrinsicTagAppender<Item> shields = this.tag(XOItemTags.SHIELDS);
+		IntrinsicTagAppender<Item> bows = this.tag(XOItemTags.BOWS);
+		IntrinsicTagAppender<Item> crossbows = this.tag(XOItemTags.CROSSBOWS);
 		
-		for (Item item : this.registry) {
+		IntrinsicTagAppender<Item> armor = this.tag(XOItemTags.ARMOR);
+		IntrinsicTagAppender<Item> helmets = this.tag(XOItemTags.HELMETS);
+		IntrinsicTagAppender<Item> chestplates = this.tag(XOItemTags.CHESTPLATES);
+		IntrinsicTagAppender<Item> elytraChestplates = this.tag(XOItemTags.ELYTRA_CHESTPLATES);
+		IntrinsicTagAppender<Item> leggings = this.tag(XOItemTags.LEGGINGS);
+		IntrinsicTagAppender<Item> boots = this.tag(XOItemTags.BOOTS);
+		
+		for (Item item : ForgeRegistries.ITEMS) {
 			if (item instanceof PickaxeItem) {
 				pickaxes.add(item);
 			} else if (item instanceof AxeItem) {
@@ -192,47 +117,47 @@ public class XOItemTagsProvider extends ItemTagsProvider {
 			} else if (item instanceof ArmorItem armorItem) {
 				armor.add(armorItem);
 				switch (armorItem.getSlot()) {
-				case HEAD: helmets.add(armorItem); break;
-				case CHEST: {
-					chestplates.add(armorItem);
-					if (armorItem instanceof ElytraChestplateItem) {
-						elytraChestplates.add(armorItem);
+					case HEAD -> helmets.add(armorItem);
+					case CHEST -> {
+						chestplates.add(armorItem);
+						if (armorItem instanceof ElytraChestplateItem) {
+							elytraChestplates.add(armorItem);
+						}
 					}
-				} break;
-				case LEGS: leggings.add(armorItem); break;
-				case FEET: boots.add(armorItem); break;
-				default:
-					throw new IllegalArgumentException(armorItem.getSlot() + " is not a valid EquipmentSlot for a ArmorItem");
+					case LEGS -> leggings.add(armorItem);
+					case FEET -> boots.add(armorItem);
+					default -> throw new IllegalArgumentException(armorItem.getSlot() + " is not a valid EquipmentSlot for a ArmorItem");
 				}
 			}
 		}
 		
 		this.tag(XOItemTags.SCRAPS).add(Items.NETHERITE_SCRAP).add(ENDERITE_SCRAP.get()).add(NIGHT_SCRAP.get());
 		
-		TagAppender<Item> toolLevel0 = this.tag(XOItemTags.TOOL_LEVEL_0);
-		TagAppender<Item> toolLevel1 = this.tag(XOItemTags.TOOL_LEVEL_1);
-		TagAppender<Item> toolLevel2 = this.tag(XOItemTags.TOOL_LEVEL_2);
-		TagAppender<Item> toolLevel3 = this.tag(XOItemTags.TOOL_LEVEL_3);
-		TagAppender<Item> toolLevel4 = this.tag(XOItemTags.TOOL_LEVEL_4);
-		TagAppender<Item> toolLevel5 = this.tag(XOItemTags.TOOL_LEVEL_5);
-		TagAppender<Item> toolLevel6 = this.tag(XOItemTags.TOOL_LEVEL_6);
+		IntrinsicTagAppender<Item> toolLevel0 = this.tag(XOItemTags.TOOL_LEVEL_0);
+		IntrinsicTagAppender<Item> toolLevel1 = this.tag(XOItemTags.TOOL_LEVEL_1);
+		IntrinsicTagAppender<Item> toolLevel2 = this.tag(XOItemTags.TOOL_LEVEL_2);
+		IntrinsicTagAppender<Item> toolLevel3 = this.tag(XOItemTags.TOOL_LEVEL_3);
+		IntrinsicTagAppender<Item> toolLevel4 = this.tag(XOItemTags.TOOL_LEVEL_4);
+		IntrinsicTagAppender<Item> toolLevel5 = this.tag(XOItemTags.TOOL_LEVEL_5);
+		IntrinsicTagAppender<Item> toolLevel6 = this.tag(XOItemTags.TOOL_LEVEL_6);
 		
-		for (TieredItem item : this.registry.stream().filter(item -> item instanceof TieredItem).map(item -> (TieredItem) item).collect(Collectors.toList())) {
+		ForgeRegistries.ITEMS.getValues().stream().filter(item -> item instanceof TieredItem).map(item -> (TieredItem) item).forEach(item -> {
 			switch (item.getTier().getLevel()) {
-			case 0: toolLevel0.add(item); break;
-			case 1: toolLevel1.add(item); break;
-			case 2: toolLevel2.add(item); break;
-			case 3: toolLevel3.add(item); break;
-			case 4: toolLevel4.add(item); break;
-			case 5: toolLevel5.add(item); break;
-			case 6: toolLevel6.add(item); break;
-			default: break;
+				case 0 -> toolLevel0.add(item);
+				case 1 -> toolLevel1.add(item);
+				case 2 -> toolLevel2.add(item);
+				case 3 -> toolLevel3.add(item);
+				case 4 -> toolLevel4.add(item);
+				case 5 -> toolLevel5.add(item);
+				case 6 -> toolLevel6.add(item);
+				default -> {
+				}
 			}
-		}
+		});
 	}
 	
 	@Override
-	public String getName() {
+	public @NotNull String getName() {
 		return "XOres Item Tags";
 	}
 	

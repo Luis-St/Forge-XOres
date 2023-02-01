@@ -8,6 +8,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * 
@@ -27,12 +28,12 @@ public class XOElytraLayer<T extends LivingEntity, M extends EntityModel<T>> ext
 	}
 	
 	@Override
-	public boolean shouldRender(ItemStack stack, T entity) {
+	public boolean shouldRender(ItemStack stack, @NotNull T entity) {
 		return this.elytraItem == stack.getItem();
 	}
 	
 	@Override
-	public ResourceLocation getElytraTexture(ItemStack stack, T entity) {
+	public @NotNull ResourceLocation getElytraTexture(@NotNull ItemStack stack, @NotNull T entity) {
 		return this.elytraTexture;
 	}
 	

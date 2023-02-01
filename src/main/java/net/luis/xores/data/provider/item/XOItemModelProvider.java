@@ -1,5 +1,6 @@
 package net.luis.xores.data.provider.item;
 
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import net.luis.xores.XOres;
@@ -21,6 +22,7 @@ import net.minecraftforge.client.model.generators.ModelFile.UncheckedModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * 
@@ -31,12 +33,12 @@ import net.minecraftforge.registries.RegistryObject;
 public class XOItemModelProvider extends ItemModelProvider {
 	
 	public XOItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
-		super(generator, XOres.MOD_ID, existingFileHelper);
+		super(generator.getPackOutput(), XOres.MOD_ID, existingFileHelper);
 	}
 	
 	@Override
 	protected void registerModels() {
-		for (Item item : XOItems.ITEMS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
+		for (Item item : XOItems.ITEMS.getEntries().stream().map(RegistryObject::get).toList()) {
 			if (item instanceof TieredItem tieredItem) {
 				this.handheldItem(tieredItem);
 			} else if (item instanceof BowItem bowItem) {
@@ -54,19 +56,19 @@ public class XOItemModelProvider extends ItemModelProvider {
 	}
 	
 	private void generatedItem(Item item) {
-		ResourceLocation location = ForgeRegistries.ITEMS.getKey(item);
+		ResourceLocation location = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item));
 		ModelFile model = new ExistingModelFile(new ResourceLocation("item/generated"), this.existingFileHelper);
 		this.getBuilder(location.getPath()).parent(model).texture("layer0", new ResourceLocation(XOres.MOD_ID, "item/" + location.getPath()));
 	}
 	
 	private void handheldItem(TieredItem tool) {
-		ResourceLocation location = ForgeRegistries.ITEMS.getKey(tool);
+		ResourceLocation location = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(tool));
 		ModelFile model = new ExistingModelFile(new ResourceLocation("item/handheld"), this.existingFileHelper);
 		this.getBuilder(location.getPath()).parent(model).texture("layer0", new ResourceLocation(XOres.MOD_ID, "item/" + location.getPath()));
 	}
 	
 	private void elytraChestplateItem(ElytraChestplateItem elytraChestplate) {
-		ResourceLocation location = ForgeRegistries.ITEMS.getKey(elytraChestplate);
+		ResourceLocation location = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(elytraChestplate));
 		ModelFile model = new ExistingModelFile(new ResourceLocation("item/generated"), this.existingFileHelper);
 		this.getBuilder(location.getPath()).parent(model).texture("layer0", new ResourceLocation(XOres.MOD_ID, "item/" + location.getPath()))
 			.override()
@@ -76,7 +78,7 @@ public class XOItemModelProvider extends ItemModelProvider {
 	}
 	
 	private void bowItem(BowItem bow) {
-		ResourceLocation location = ForgeRegistries.ITEMS.getKey(bow);
+		ResourceLocation location = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(bow));
 		ModelFile model = new ExistingModelFile(new ResourceLocation("item/generated"), this.existingFileHelper);
 		this.getBuilder(location.getPath()).parent(model).texture("layer0", new ResourceLocation(XOres.MOD_ID, "item/" + location.getPath()))
 			.transforms()
@@ -97,7 +99,7 @@ public class XOItemModelProvider extends ItemModelProvider {
 	}
 	
 	private void crossbowItem(CrossbowItem crossbow) {
-		ResourceLocation location = ForgeRegistries.ITEMS.getKey(crossbow);
+		ResourceLocation location = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(crossbow));
 		ModelFile model = new ExistingModelFile(new ResourceLocation("item/generated"), this.existingFileHelper);
 		this.getBuilder(location.getPath()).parent(model).texture("layer0", new ResourceLocation(XOres.MOD_ID, "item/" + location.getPath() + "_standby"))
 			.transforms()
@@ -124,7 +126,7 @@ public class XOItemModelProvider extends ItemModelProvider {
 	}
 	
 	private void shieldItem(ShieldItem shield) {
-		ResourceLocation location = ForgeRegistries.ITEMS.getKey(shield);
+		ResourceLocation location = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(shield));
 		ModelFile model = new UncheckedModelFile(new ResourceLocation("builtin/entity"));
 		this.getBuilder(location.getPath()).parent(model).guiLight(GuiLight.FRONT).texture("particle", new ResourceLocation("block/dark_oak_planks"))
 			.transforms()
@@ -152,7 +154,7 @@ public class XOItemModelProvider extends ItemModelProvider {
 	}
 	
 	@Override
-	public String getName() {
+	public @NotNull String getName() {
 		return "XOres Item Models";
 	}
 

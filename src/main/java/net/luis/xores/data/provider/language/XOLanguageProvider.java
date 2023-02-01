@@ -1,5 +1,6 @@
 package net.luis.xores.data.provider.language;
 
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import net.luis.xores.XOres;
@@ -22,28 +23,28 @@ import net.minecraftforge.registries.RegistryObject;
 public class XOLanguageProvider extends LanguageProvider {
 	
 	public XOLanguageProvider(DataGenerator generator) {
-		super(generator, XOres.MOD_ID, "en_us");
+		super(generator.getPackOutput(), XOres.MOD_ID, "en_us");
 	}
 	
 	@Override
 	protected void addTranslations() {
-		for (Block block : XOBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
-			this.add(block, getName(ForgeRegistries.BLOCKS.getKey(block)));
+		for (Block block : XOBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).toList()) {
+			this.add(block, getName(Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block))));
 		}
-		for (Item item : XOItems.ITEMS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
-			this.add(item, getName(ForgeRegistries.ITEMS.getKey(item)));
+		for (Item item : XOItems.ITEMS.getEntries().stream().map(RegistryObject::get).toList()) {
+			this.add(item, getName(Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item))));
 		}
-		this.add(XOres.TAB.getDisplayName().getString(), "XOres");
+		this.add("item_tab.xores", "XOres");
 	}
 	
 	private String getName(ResourceLocation location) { 
 		String[] nameParts = location.getPath().split("_");
-		String name = "";
+		StringBuilder name = new StringBuilder();
 		for (String namePart : nameParts) {
 			String startChar = namePart.substring(0, 1).toUpperCase();
-			name += startChar + namePart.substring(1, namePart.length()) + " ";
+			name.append(startChar).append(namePart.substring(1)).append(" ");
 		}
-		return name.trim();
+		return name.toString().trim();
 	}
 	
 	@Override

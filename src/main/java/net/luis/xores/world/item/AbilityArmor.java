@@ -49,9 +49,7 @@ public interface AbilityArmor {
 				stacks.add(entity.getItemBySlot(slot));
 			}
 		}
-		return stacks.stream().filter((stack) -> {
-			return !stack.isEmpty();
-		}).collect(Collectors.toList());
+		return stacks.stream().filter((stack) -> !stack.isEmpty()).collect(Collectors.toList());
 	}
 	
 }

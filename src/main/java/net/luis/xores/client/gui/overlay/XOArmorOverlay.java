@@ -7,6 +7,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.gui.overlay.ForgeGui;
 import net.minecraftforge.client.gui.overlay.IGuiOverlay;
 
+import java.util.Objects;
+
 /**
  * 
  * @author Luis-st
@@ -33,13 +35,13 @@ public class XOArmorOverlay implements IGuiOverlay {
 		RenderSystem.enableBlend();
 		int left = width / 2 - 91;
 		int top = height - gui.leftHeight;
-		int level = this.minecraft.player.getArmorValue();
+		int level = Objects.requireNonNull(this.minecraft.player).getArmorValue();
 		for (int i = 21; level > 20 && i < 40; i += 2) {
 			if (i < level) {
 				gui.blit(poseStack, left, top, 34, 9, 9, 9); // full armor icon
 			} else if (i == level) {
 				gui.blit(poseStack, left, top, 25, 9, 9, 9); // half armor icon
-			} else if (i > level) {
+			} else {
 				gui.blit(poseStack, left, top, 16, 9, 9, 9); // empty (no) armor icon
 			}
 			left += 8;

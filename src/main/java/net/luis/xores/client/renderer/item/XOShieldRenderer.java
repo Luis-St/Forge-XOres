@@ -13,6 +13,7 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher;
 import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * 
@@ -32,7 +33,7 @@ public class XOShieldRenderer extends BlockEntityWithoutLevelRenderer {
 	}
 	
 	@Override
-	public void renderByItem(ItemStack stack, TransformType transformType, PoseStack poseStack, MultiBufferSource bufferSource, int light, int overlay) {
+	public void renderByItem(ItemStack stack, @NotNull TransformType transformType, PoseStack poseStack, @NotNull MultiBufferSource bufferSource, int light, int overlay) {
 		poseStack.pushPose();
 		poseStack.scale(1.0F, -1.0F, -1.0F);
         VertexConsumer vertexconsumer = ItemRenderer.getFoilBufferDirect(bufferSource, this.shieldModel.renderType(this.shieldTexture), true, stack.hasFoil());

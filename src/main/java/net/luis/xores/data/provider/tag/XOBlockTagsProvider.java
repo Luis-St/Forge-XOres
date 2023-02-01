@@ -14,17 +14,20 @@ import static net.luis.xores.world.level.block.XOBlocks.SAPHIRE_BLOCK;
 import static net.luis.xores.world.level.block.XOBlocks.SAPHIRE_ORE;
 import static net.minecraft.tags.BlockTags.MINEABLE_WITH_PICKAXE;
 
+import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 
 import net.luis.xores.XOres;
 import net.luis.xores.tags.XOBlockTags;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
+import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * 
@@ -34,13 +37,13 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class XOBlockTagsProvider extends BlockTagsProvider {
 	
-	public XOBlockTagsProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
-		super(generator, XOres.MOD_ID, existingFileHelper);
+	public XOBlockTagsProvider(DataGenerator generator, CompletableFuture<HolderLookup.Provider> lookupProvider, ExistingFileHelper existingFileHelper) {
+		super(generator.getPackOutput(), lookupProvider, XOres.MOD_ID, existingFileHelper);
 	}
 	
 	@Override
 	@SuppressWarnings("unchecked")
-	protected void addTags() {
+	protected void addTags(@NotNull HolderLookup.Provider provider) {
 		this.tag(XOBlockTags.NEEDS_TOOL_LEVEL_1).addTag(BlockTags.NEEDS_STONE_TOOL).add(JADE_ORE.get(), DEEPSLATE_JADE_ORE.get(), JADE_BLOCK.get());
 		this.tag(XOBlockTags.NEEDS_TOOL_LEVEL_2).addTag(BlockTags.NEEDS_IRON_TOOL).add(SAPHIRE_ORE.get(), DEEPSLATE_SAPHIRE_ORE.get(), SAPHIRE_BLOCK.get(), LIMONITE_BLOCK.get());
 		this.tag(XOBlockTags.NEEDS_TOOL_LEVEL_3).addTag(BlockTags.NEEDS_DIAMOND_TOOL).add(LIMONITE_ORE.get(), DEEPSLATE_LIMONITE_ORE.get(), ENDERITE_BLOCK.get());
@@ -48,8 +51,8 @@ public class XOBlockTagsProvider extends BlockTagsProvider {
 		this.tag(XOBlockTags.NEEDS_TOOL_LEVEL_5);
 		this.tag(XOBlockTags.NEEDS_TOOL_LEVEL_6).add(ENDERITE_ORE.get());
 		
-		TagAppender<Block> pickaxeMinable = this.tag(MINEABLE_WITH_PICKAXE);
-		for (Block block : BLOCKS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
+		IntrinsicTagAppender<Block> pickaxeMinable = this.tag(MINEABLE_WITH_PICKAXE);
+		for (Block block : BLOCKS.getEntries().stream().map(RegistryObject::get).toList()) {
 			pickaxeMinable.add(block);
 		}
 		
@@ -65,8 +68,8 @@ public class XOBlockTagsProvider extends BlockTagsProvider {
 	}
 	
 	@Override
-	public String getName() {
+	public @NotNull String getName() {
 		return "XOres Block Tags";
 	}
-
+	
 }

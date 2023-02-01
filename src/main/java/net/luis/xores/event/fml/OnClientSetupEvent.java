@@ -29,7 +29,7 @@ public class OnClientSetupEvent {
 	@SubscribeEvent
 	public static void clientSetup(FMLClientSetupEvent event) {
 		event.enqueueWork(() -> {
-			for (Item item : XOItems.ITEMS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toList())) {
+			for (Item item : XOItems.ITEMS.getEntries().stream().map(RegistryObject::get).toList()) {
 				if (item instanceof BowItem bow) {
 					XOItemProperties.registerBow(bow);
 				} else if (item instanceof CrossbowItem crossbow) {

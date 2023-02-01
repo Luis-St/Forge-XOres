@@ -7,6 +7,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * 
@@ -49,7 +50,7 @@ public enum XOresTiers implements Tier {
 	private final int enchantmentValue;
 	private final Supplier<Ingredient> repairIngredient;
 	
-	private XOresTiers(String name, int uses, float speed, float attackDamageBonus, int level, int enchantmentValue, Supplier<Ingredient> repairIngredient) {
+	XOresTiers(String name, int uses, float speed, float attackDamageBonus, int level, int enchantmentValue, Supplier<Ingredient> repairIngredient) {
 		this.name = new ResourceLocation(XOres.MOD_ID, name);
 		this.uses = uses;
 		this.speed = speed;
@@ -89,7 +90,7 @@ public enum XOresTiers implements Tier {
 	}
 	
 	@Override
-	public Ingredient getRepairIngredient() {
+	public @NotNull Ingredient getRepairIngredient() {
 		return this.repairIngredient.get();
 	}
 

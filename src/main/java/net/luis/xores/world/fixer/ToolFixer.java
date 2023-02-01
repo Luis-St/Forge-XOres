@@ -3,6 +3,7 @@ package net.luis.xores.world.fixer;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import javax.annotation.Nullable;
@@ -79,13 +80,11 @@ public class ToolFixer implements VanillaFixer {
 	}
 	
 	private <T> List<T> getTagValues(IForgeRegistry<T> registry, TagKey<T> tag) {
-		return registry.tags().getTag(tag).stream().collect(Collectors.toList());
+		return Objects.requireNonNull(registry.tags()).getTag(tag).stream().collect(Collectors.toList());
 	}
 	
 	public void registerBlocks(int level, Block... blocks) {
-		this.registerBlocks(level, Lists.newArrayList(blocks).stream().map((block) -> {
-			return Either.<TagKey<Block>, Block>right(block);
-		}).collect(Collectors.toList()));
+		this.registerBlocks(level, Lists.newArrayList(blocks).stream().map(Either::<TagKey<Block>, Block>right).collect(Collectors.toList()));
 	}
 	
 	public void registerBlockTag(int level, TagKey<Block> tagKey) {
@@ -100,9 +99,7 @@ public class ToolFixer implements VanillaFixer {
 	}
 	
 	public void registerTools(int level, Item... tools) {
-		this.registerTools(level, Lists.newArrayList(tools).stream().map((tool) -> {
-			return Either.<TagKey<Item>, Item>right(tool);
-		}).collect(Collectors.toList()));
+		this.registerTools(level, Lists.newArrayList(tools).stream().map(Either::<TagKey<Item>, Item>right).collect(Collectors.toList()));
 	}
 	
 	public void registerToolTag(int level, TagKey<Item> tagKey) {
@@ -123,9 +120,7 @@ public class ToolFixer implements VanillaFixer {
 				either.ifLeft((tag) -> {
 					registeredBlocks.addAll(ToolFixer.this.getTagValues(ForgeRegistries.BLOCKS, tag));
 				});
-				either.ifRight((block) -> {
-					registeredBlocks.add(block);
-				});
+				either.ifRight(registeredBlocks::add);
 			}
 		}
 		return registeredBlocks;
@@ -142,9 +137,7 @@ public class ToolFixer implements VanillaFixer {
 				either.ifLeft((tag) -> {
 					registeredTools.addAll(ToolFixer.this.getTagValues(ForgeRegistries.ITEMS, tag));
 				});
-				either.ifRight((tool) -> {
-					registeredTools.add(tool);
-				});
+				either.ifRight(registeredTools::add);
 			}
 		}
 		return registeredTools;
@@ -221,12 +214,8 @@ public class ToolFixer implements VanillaFixer {
 				newMap.put(level, Lists.newArrayList());
 			}
 			for (Either<TagKey<T>, T> either : entry.getValue()) {
-				either.ifLeft((tagValue) -> {
-					newMap.get(level).addAll(ToolFixer.this.getTagValues(registry, tagValue));
-				});
-				either.ifRight((value) -> {
-					newMap.get(level).add(value);
-				});
+				either.ifLeft((tagValue) -> newMap.get(level).addAll(ToolFixer.this.getTagValues(registry, tagValue)));
+				either.ifRight((value) -> newMap.get(level).add(value));
 			}
 		}
 		return newMap;

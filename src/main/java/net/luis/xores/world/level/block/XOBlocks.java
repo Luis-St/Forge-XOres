@@ -59,9 +59,7 @@ public class XOBlocks {
 	
 	private static <T extends Block> RegistryObject<T> register(String name, Supplier<T> blockSupplier) {
 		RegistryObject<T> blockObject = BLOCKS.register(name, blockSupplier);
-		ITEMS.register(name, () -> {
-			return new BlockItem(blockObject.get(), new Item.Properties().tab(XOres.TAB));
-		});
+		ITEMS.register(name, () -> new BlockItem(blockObject.get(), new Item.Properties()));
 		return blockObject;
 	}
 	

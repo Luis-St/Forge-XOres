@@ -6,6 +6,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * 
@@ -22,7 +23,7 @@ public class BlazingSwordItem extends SwordItem {
 	}
 	
 	@Override
-	public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+	public boolean hurtEnemy(@NotNull ItemStack stack, LivingEntity target, @NotNull LivingEntity attacker) {
 		if (!target.fireImmune()) {
 			target.setSecondsOnFire(RNG.nextInt(5) + 2);
 		}

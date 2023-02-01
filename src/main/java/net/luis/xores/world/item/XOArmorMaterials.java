@@ -10,6 +10,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * 
@@ -49,7 +50,7 @@ public enum XOArmorMaterials implements ArmorMaterial {
 	private final float knockbackResistance;
 	private final Supplier<Ingredient> repairIngredient;
 	
-	private XOArmorMaterials(String name, int durabilityMultiplier, int[] slotDefenses, int enchantmentValue, SoundEvent sound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredient) {
+	XOArmorMaterials(String name, int durabilityMultiplier, int[] slotDefenses, int enchantmentValue, SoundEvent sound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredient) {
 		this.name = new ResourceLocation(XOres.MOD_ID, name);
 		this.durabilityMultiplier = durabilityMultiplier;
 		this.slotDefenses = slotDefenses;
@@ -61,7 +62,7 @@ public enum XOArmorMaterials implements ArmorMaterial {
 	}
 	
 	@Override
-	public String getName() {
+	public @NotNull String getName() {
 		return this.name.toString();
 	}
 	
@@ -81,7 +82,7 @@ public enum XOArmorMaterials implements ArmorMaterial {
 	}
 	
 	@Override
-	public SoundEvent getEquipSound() {
+	public @NotNull SoundEvent getEquipSound() {
 		return this.sound;
 	}
 	
@@ -96,7 +97,7 @@ public enum XOArmorMaterials implements ArmorMaterial {
 	}
 	
 	@Override
-	public Ingredient getRepairIngredient() {
+	public @NotNull Ingredient getRepairIngredient() {
 		return this.repairIngredient.get();
 	}
 

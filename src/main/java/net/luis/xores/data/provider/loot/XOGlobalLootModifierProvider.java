@@ -8,6 +8,7 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraftforge.common.data.GlobalLootModifierProvider;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * 
@@ -18,7 +19,7 @@ import net.minecraftforge.common.data.GlobalLootModifierProvider;
 public class XOGlobalLootModifierProvider extends GlobalLootModifierProvider {
 	
 	public XOGlobalLootModifierProvider(DataGenerator generator) {
-		super(generator, XOres.MOD_ID);
+		super(generator.getPackOutput(), XOres.MOD_ID);
 	}
 	
 	@Override
@@ -29,7 +30,7 @@ public class XOGlobalLootModifierProvider extends GlobalLootModifierProvider {
 	}
 	
 	@Override
-	public String getName() {
+	public @NotNull String getName() {
 		return "XOres Global Loot Modifiers";
 	}
 
