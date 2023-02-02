@@ -16,7 +16,7 @@ apply plugin: "net.minecraftforge.gradle"
 apply plugin: "eclipse"
 apply plugin: "maven-publish"
 apply plugin: "org.spongepowered.mixin"
-version = "1.19.2-2.4"
+version = "1.19.3-2.4"
 group = "net.luis.xores"
 archivesBaseName = "XOres"
 
