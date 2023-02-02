@@ -62,8 +62,8 @@ public class XOItemTags {
 	public static final TagKey<Item> TOOL_LEVEL_2 = bind(new ResourceLocation(XOres.MOD_ID, "tool_level_2"));
 	public static final TagKey<Item> TOOL_LEVEL_3 = bind(new ResourceLocation(XOres.MOD_ID, "tool_level_3"));
 	public static final TagKey<Item> TOOL_LEVEL_4 = bind(new ResourceLocation(XOres.MOD_ID, "tool_level_4"));
-	public static final TagKey<Item> TOOL_LEVEL_5 = bind(new ResourceLocation(XOres.MOD_ID, "needs_tool_level_5"));
-	public static final TagKey<Item> TOOL_LEVEL_6 = bind(new ResourceLocation(XOres.MOD_ID, "needs_tool_level_6"));
+	public static final TagKey<Item> TOOL_LEVEL_5 = bind(new ResourceLocation(XOres.MOD_ID, "tool_level_5"));
+	public static final TagKey<Item> TOOL_LEVEL_6 = bind(new ResourceLocation(XOres.MOD_ID, "tool_level_6"));
 	
 	private static TagKey<Item> bind(ResourceLocation location) {
 		return ItemTags.create(location);
