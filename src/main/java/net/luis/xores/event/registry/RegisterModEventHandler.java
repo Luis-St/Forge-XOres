@@ -18,7 +18,7 @@ import net.minecraftforge.fml.common.Mod;
  */
 
 @Mod.EventBusSubscriber(modid = XOres.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
-public class OnCreativeModeTabEvent {
+public class RegisterModEventHandler {
 	
 	@SubscribeEvent
 	public static void register(CreativeModeTabEvent.Register event) {

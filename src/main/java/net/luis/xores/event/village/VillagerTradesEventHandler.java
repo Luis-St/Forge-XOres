@@ -16,7 +16,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
  */
 
 @EventBusSubscriber(modid = XOres.MOD_ID)
-public class OnVillagerTradesEvent {
+public class VillagerTradesEventHandler {
 	
 	@SubscribeEvent
 	public static void villagerTrades(VillagerTradesEvent event) {

@@ -15,7 +15,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
  */
 
 @EventBusSubscriber(modid = XOres.MOD_ID)
-public class OnLivingEquipmentChangeEvent {
+public class LivingEventHandler {
 	
 	@SubscribeEvent
 	public static void livingEquipmentChange(LivingEquipmentChangeEvent event) {
