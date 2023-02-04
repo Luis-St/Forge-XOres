@@ -133,7 +133,7 @@ public class RegisterModEventHandler {
 	}
 	
 	@SubscribeEvent
-	public void buildContents(CreativeModeTabEvent.BuildContents event) {
+	public static void buildContents(CreativeModeTabEvent.BuildContents event) {
 		if (event.getTab() == CreativeModeTabs.COMBAT) {
 			event.accept(XOItems.GOLDEN_SHIELD.get());
 			event.accept(XOItems.COPPER_SHIELD.get());
