@@ -17,5 +17,6 @@
   ],
   "result": {
     "item": "xores:saphire_shield"
-  }
+  },
+  "show_notification": true
 }

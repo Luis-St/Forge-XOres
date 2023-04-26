@@ -31,7 +31,7 @@ import static net.minecraft.world.item.Items.*;
 
 public class XOItemTagsProvider extends ItemTagsProvider {
 	
-	public XOItemTagsProvider(DataGenerator generator, CompletableFuture<HolderLookup.Provider> lookupProvider, TagsProvider<Block> blockTagsProvider, @Nullable ExistingFileHelper existingFileHelper) {
+	public XOItemTagsProvider(DataGenerator generator, CompletableFuture<HolderLookup.Provider> lookupProvider, CompletableFuture<TagsProvider.TagLookup<Block>> blockTagsProvider, @Nullable ExistingFileHelper existingFileHelper) {
 		super(generator.getPackOutput(), lookupProvider, blockTagsProvider, XOres.MOD_ID, existingFileHelper);
 	}
 	
@@ -116,17 +116,17 @@ public class XOItemTagsProvider extends ItemTagsProvider {
 				crossbows.add(item);
 			} else if (item instanceof ArmorItem armorItem) {
 				armor.add(armorItem);
-				switch (armorItem.getSlot()) {
-					case HEAD -> helmets.add(armorItem);
-					case CHEST -> {
+				switch (armorItem.getType()) {
+					case HELMET -> helmets.add(armorItem);
+					case CHESTPLATE -> {
 						chestplates.add(armorItem);
 						if (armorItem instanceof ElytraChestplateItem) {
 							elytraChestplates.add(armorItem);
 						}
 					}
-					case LEGS -> leggings.add(armorItem);
-					case FEET -> boots.add(armorItem);
-					default -> throw new IllegalArgumentException(armorItem.getSlot() + " is not a valid EquipmentSlot for a ArmorItem");
+					case LEGGINGS -> leggings.add(armorItem);
+					case BOOTS -> boots.add(armorItem);
+					default -> throw new IllegalArgumentException(armorItem.getType() + " is not a valid EquipmentSlot for a ArmorItem");
 				}
 			}
 		}

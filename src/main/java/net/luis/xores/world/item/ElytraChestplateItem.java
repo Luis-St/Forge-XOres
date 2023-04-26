@@ -9,6 +9,7 @@ import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ElytraItem;
 import net.minecraft.world.item.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
 import java.util.Random;
@@ -25,7 +26,7 @@ public class ElytraChestplateItem extends ArmorItem {
 	private static final Random RNG = new Random(System.currentTimeMillis());
 	
 	public ElytraChestplateItem(ArmorMaterial armorMaterial, Properties properties) {
-		super(armorMaterial, EquipmentSlot.CHEST, properties);
+		super(armorMaterial, Type.CHESTPLATE, properties);
 	}
 	
 	public static void register(ElytraChestplateItem elytraChestplate, int damageValue) {
@@ -46,7 +47,7 @@ public class ElytraChestplateItem extends ArmorItem {
 	}
 	
 	@Override
-	public SoundEvent getEquipSound() {
+	public @NotNull SoundEvent getEquipSound() {
 		return RNG.nextInt(2) == 0 ? SoundEvents.ARMOR_EQUIP_ELYTRA : super.getEquipSound();
 	}
 	

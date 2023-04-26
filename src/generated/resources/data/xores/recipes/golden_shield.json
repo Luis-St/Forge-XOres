@@ -17,5 +17,6 @@
   ],
   "result": {
     "item": "xores:golden_shield"
-  }
+  },
+  "show_notification": true
 }

@@ -25,7 +25,7 @@ public class RegisterModEventHandler {
 		event.registerCreativeModeTab(new ResourceLocation(XOres.MOD_ID, XOres.MOD_ID), builder -> {
 			builder.title(Component.translatable("item_tab.xores"));
 			builder.icon(() -> new ItemStack(XOItems.LIMONITE_PICKAXE.get()));
-			builder.displayItems((enabledFlags, populator, hasPermissions) -> {
+			builder.displayItems((parameters, populator) -> {
 				populator.accept(XOBlocks.JADE_ORE.get());
 				populator.accept(XOBlocks.DEEPSLATE_JADE_ORE.get());
 				populator.accept(XOBlocks.JADE_BLOCK.get());

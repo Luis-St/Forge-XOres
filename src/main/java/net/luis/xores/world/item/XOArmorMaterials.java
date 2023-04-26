@@ -4,7 +4,7 @@ import net.luis.xores.XOres;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -67,13 +67,13 @@ public enum XOArmorMaterials implements ArmorMaterial {
 	}
 	
 	@Override
-	public int getDurabilityForSlot(EquipmentSlot equipmentSlot) {
-		return DURABILITY_PER_SLOT[equipmentSlot.getIndex()] * this.durabilityMultiplier;
+	public int getDurabilityForType(@NotNull ArmorItem.Type type) {
+		return DURABILITY_PER_SLOT[3 - type.ordinal()] * this.durabilityMultiplier;
 	}
 	
 	@Override
-	public int getDefenseForSlot(EquipmentSlot equipmentSlot) {
-		return this.slotDefenses[equipmentSlot.getIndex()];
+	public int getDefenseForType(@NotNull ArmorItem.Type type) {
+		return this.slotDefenses[3 - type.ordinal()];
 	}
 	
 	@Override

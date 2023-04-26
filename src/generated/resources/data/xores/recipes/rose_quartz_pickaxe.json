@@ -17,5 +17,6 @@
   ],
   "result": {
     "item": "xores:rose_quartz_pickaxe"
-  }
+  },
+  "show_notification": true
 }

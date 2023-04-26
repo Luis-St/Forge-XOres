@@ -17,5 +17,6 @@
   ],
   "result": {
     "item": "xores:limonite_axe"
-  }
+  },
+  "show_notification": true
 }

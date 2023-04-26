@@ -14,5 +14,6 @@
   ],
   "result": {
     "item": "xores:saphire_helmet"
-  }
+  },
+  "show_notification": true
 }

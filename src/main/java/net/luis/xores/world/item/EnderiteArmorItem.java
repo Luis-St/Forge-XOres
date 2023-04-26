@@ -16,8 +16,8 @@ import net.minecraft.world.item.ItemStack;
 
 public class EnderiteArmorItem extends ArmorItem implements AbilityArmor {
 	
-	public EnderiteArmorItem(ArmorMaterial material, EquipmentSlot slot, Properties properties) {
-		super(material, slot, properties);
+	public EnderiteArmorItem(ArmorMaterial material, Type type, Properties properties) {
+		super(material, type, properties);
 	}
 	
 	@Override

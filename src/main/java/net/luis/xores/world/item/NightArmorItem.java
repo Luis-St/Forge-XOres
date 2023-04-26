@@ -16,8 +16,8 @@ import net.minecraft.world.item.ItemStack;
 
 public class NightArmorItem extends ArmorItem implements AbilityArmor {
 	
-	public NightArmorItem(ArmorMaterial material, EquipmentSlot slot, Properties properties) {
-		super(material, slot, properties);
+	public NightArmorItem(ArmorMaterial material, Type type, Properties properties) {
+		super(material, type, properties);
 	}
 	
 	@Override

@@ -16,8 +16,8 @@ import net.minecraft.world.item.ItemStack;
 
 public class BlazingArmorItem extends ArmorItem implements AbilityArmor {
 	
-	public BlazingArmorItem(ArmorMaterial material, EquipmentSlot slot, Properties properties) {
-		super(material, slot, properties);
+	public BlazingArmorItem(ArmorMaterial material, Type type, Properties properties) {
+		super(material, type, properties);
 	}
 	
 	@Override

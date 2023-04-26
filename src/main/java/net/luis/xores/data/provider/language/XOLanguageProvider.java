@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.LanguageProvider;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
@@ -47,7 +48,7 @@ public class XOLanguageProvider extends LanguageProvider {
 	}
 	
 	@Override
-	public String getName() {
+	public @NotNull String getName() {
 		return "XOres Languages";
 	}
 	

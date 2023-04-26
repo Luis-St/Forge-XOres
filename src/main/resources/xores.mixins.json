@@ -1,18 +1,18 @@
 {
-  "required": true,
-  "package": "net.luis.xores.mixin",
-  "compatibilityLevel": "JAVA_17",
-  "refmap": "mixins.xores.refmap.json",
-  "mixins": [
-    "ItemStackMixin",
-    "SwordItemMixin",
-    "DiggerItemMixin"
-  ],
-  "client": [
-  ],
-  "server": [
-  ],
-  "injectors": {
-    "defaultRequire": 1
-  }
+	"required": true,
+	"package": "net.luis.xores.mixin",
+	"compatibilityLevel": "JAVA_17",
+	"refmap": "mixins.xores.refmap.json",
+	"mixins": [
+		"ItemStackMixin",
+		"SwordItemMixin",
+		"DiggerItemMixin"
+	],
+	"client": [
+	],
+	"server": [
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
 }

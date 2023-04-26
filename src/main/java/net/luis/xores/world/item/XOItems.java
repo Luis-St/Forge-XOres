@@ -2,7 +2,6 @@ package net.luis.xores.world.item;
 
 import net.luis.xores.XOres;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -65,16 +64,16 @@ public class XOItems {
 		return new HoeItem(XOresTiers.JADE, -5, -0.2F, new Item.Properties());
 	});
 	public static final RegistryObject<ArmorItem> JADE_HELMET = ITEMS.register("jade_helmet", () -> {
-		return new ArmorItem(XOArmorMaterials.JADE, EquipmentSlot.HEAD, new Item.Properties());
+		return new ArmorItem(XOArmorMaterials.JADE, ArmorItem.Type.HELMET, new Item.Properties());
 	});
 	public static final RegistryObject<ArmorItem> JADE_CHESTPLATE = ITEMS.register("jade_chestplate", () -> {
-		return new ArmorItem(XOArmorMaterials.JADE, EquipmentSlot.CHEST, new Item.Properties());
+		return new ArmorItem(XOArmorMaterials.JADE, ArmorItem.Type.CHESTPLATE, new Item.Properties());
 	});
 	public static final RegistryObject<ArmorItem> JADE_LEGGINGS = ITEMS.register("jade_leggings", () -> {
-		return new ArmorItem(XOArmorMaterials.JADE, EquipmentSlot.LEGS, new Item.Properties());
+		return new ArmorItem(XOArmorMaterials.JADE, ArmorItem.Type.LEGGINGS, new Item.Properties());
 	});
 	public static final RegistryObject<ArmorItem> JADE_BOOTS = ITEMS.register("jade_boots", () -> {
-		return new ArmorItem(XOArmorMaterials.JADE, EquipmentSlot.FEET, new Item.Properties());
+		return new ArmorItem(XOArmorMaterials.JADE, ArmorItem.Type.BOOTS, new Item.Properties());
 	});
 	
 	public static final RegistryObject<Item> BLAZING_INGOT = ITEMS.register("blazing_ingot", () -> {
@@ -96,16 +95,16 @@ public class XOItems {
 		return new HoeItem(XOresTiers.BLAZING, -6, 0.0F, new Item.Properties());
 	});
 	public static final RegistryObject<BlazingArmorItem> BLAZING_HELMET = ITEMS.register("blazing_helmet", () -> {
-		return new BlazingArmorItem(XOArmorMaterials.BLAZING, EquipmentSlot.HEAD, new Item.Properties());
+		return new BlazingArmorItem(XOArmorMaterials.BLAZING, ArmorItem.Type.HELMET, new Item.Properties());
 	});
 	public static final RegistryObject<BlazingArmorItem> BLAZING_CHESTPLATE = ITEMS.register("blazing_chestplate", () -> {
-		return new BlazingArmorItem(XOArmorMaterials.BLAZING, EquipmentSlot.CHEST, new Item.Properties());
+		return new BlazingArmorItem(XOArmorMaterials.BLAZING, ArmorItem.Type.CHESTPLATE, new Item.Properties());
 	});
 	public static final RegistryObject<BlazingArmorItem> BLAZING_LEGGINGS = ITEMS.register("blazing_leggings", () -> {
-		return new BlazingArmorItem(XOArmorMaterials.BLAZING, EquipmentSlot.LEGS, new Item.Properties());
+		return new BlazingArmorItem(XOArmorMaterials.BLAZING, ArmorItem.Type.LEGGINGS, new Item.Properties());
 	});
 	public static final RegistryObject<BlazingArmorItem> BLAZING_BOOTS = ITEMS.register("blazing_boots", () -> {
-		return new BlazingArmorItem(XOArmorMaterials.BLAZING, EquipmentSlot.FEET, new Item.Properties());
+		return new BlazingArmorItem(XOArmorMaterials.BLAZING, ArmorItem.Type.BOOTS, new Item.Properties());
 	});
 	
 	public static final RegistryObject<Item> SAPHIRE_INGOT = ITEMS.register("saphire_ingot", () -> {
@@ -130,16 +129,16 @@ public class XOItems {
 		return new HoeItem(XOresTiers.SAPHIRE, -8, 0.0F, new Item.Properties());
 	});
 	public static final RegistryObject<SaphireArmorItem> SAPHIRE_HELMET = ITEMS.register("saphire_helmet", () -> {
-		return new SaphireArmorItem(XOArmorMaterials.SAPHIRE, EquipmentSlot.HEAD, new Item.Properties());
+		return new SaphireArmorItem(XOArmorMaterials.SAPHIRE, ArmorItem.Type.HELMET, new Item.Properties());
 	});
 	public static final RegistryObject<SaphireArmorItem> SAPHIRE_CHESTPLATE = ITEMS.register("saphire_chestplate", () -> {
-		return new SaphireArmorItem(XOArmorMaterials.SAPHIRE, EquipmentSlot.CHEST, new Item.Properties());
+		return new SaphireArmorItem(XOArmorMaterials.SAPHIRE, ArmorItem.Type.CHESTPLATE, new Item.Properties());
 	});
 	public static final RegistryObject<SaphireArmorItem> SAPHIRE_LEGGINGS = ITEMS.register("saphire_leggings", () -> {
-		return new SaphireArmorItem(XOArmorMaterials.SAPHIRE, EquipmentSlot.LEGS, new Item.Properties());
+		return new SaphireArmorItem(XOArmorMaterials.SAPHIRE, ArmorItem.Type.LEGGINGS, new Item.Properties());
 	});
 	public static final RegistryObject<SaphireArmorItem> SAPHIRE_BOOTS = ITEMS.register("saphire_boots", () -> {
-		return new SaphireArmorItem(XOArmorMaterials.SAPHIRE, EquipmentSlot.FEET, new Item.Properties());
+		return new SaphireArmorItem(XOArmorMaterials.SAPHIRE, ArmorItem.Type.BOOTS, new Item.Properties());
 	});
 	
 	public static final RegistryObject<Item> LIMONITE_INGOT = ITEMS.register("limonite_ingot", () -> {
@@ -161,16 +160,16 @@ public class XOItems {
 		return new HoeItem(XOresTiers.LIMONITE, -10, 0.0F, new Item.Properties());
 	});
 	public static final RegistryObject<LimoniteArmorItem> LIMONITE_HELMET = ITEMS.register("limonite_helmet", () -> {
-		return new LimoniteArmorItem(XOArmorMaterials.LIMONITE, EquipmentSlot.HEAD, new Item.Properties());
+		return new LimoniteArmorItem(XOArmorMaterials.LIMONITE, ArmorItem.Type.HELMET, new Item.Properties());
 	});
 	public static final RegistryObject<LimoniteArmorItem> LIMONITE_CHESTPLATE = ITEMS.register("limonite_chestplate", () -> {
-		return new LimoniteArmorItem(XOArmorMaterials.LIMONITE, EquipmentSlot.CHEST, new Item.Properties());
+		return new LimoniteArmorItem(XOArmorMaterials.LIMONITE, ArmorItem.Type.CHESTPLATE, new Item.Properties());
 	});
 	public static final RegistryObject<LimoniteArmorItem> LIMONITE_LEGGINGS = ITEMS.register("limonite_leggings", () -> {
-		return new LimoniteArmorItem(XOArmorMaterials.LIMONITE, EquipmentSlot.LEGS, new Item.Properties());
+		return new LimoniteArmorItem(XOArmorMaterials.LIMONITE, ArmorItem.Type.LEGGINGS, new Item.Properties());
 	});
 	public static final RegistryObject<LimoniteArmorItem> LIMONITE_BOOTS = ITEMS.register("limonite_boots", () -> {
-		return new LimoniteArmorItem(XOArmorMaterials.LIMONITE, EquipmentSlot.FEET, new Item.Properties());
+		return new LimoniteArmorItem(XOArmorMaterials.LIMONITE, ArmorItem.Type.BOOTS, new Item.Properties());
 	});
 	
 	public static final RegistryObject<Item> ROSE_QUARTZ = ITEMS.register("rose_quartz", () -> {
@@ -229,16 +228,16 @@ public class XOItems {
 		return new EnderiteHelmetItem(XOArmorMaterials.ENDERITE, new Item.Properties());
 	});
 	public static final RegistryObject<EnderiteArmorItem> ENDERITE_CHESTPLATE = ITEMS.register("enderite_chestplate", () -> {
-		return new EnderiteArmorItem(XOArmorMaterials.ENDERITE, EquipmentSlot.CHEST, new Item.Properties());
+		return new EnderiteArmorItem(XOArmorMaterials.ENDERITE, ArmorItem.Type.CHESTPLATE, new Item.Properties());
 	});
 	public static final RegistryObject<EnderiteElytraChestplateItem> ENDERITE_ELYTRA_CHESTPLATE = ITEMS.register("enderite_elytra_chestplate", () -> {
 		return new EnderiteElytraChestplateItem(XOArmorMaterials.ENDERITE, new Item.Properties());
 	});
 	public static final RegistryObject<EnderiteArmorItem> ENDERITE_LEGGINGS = ITEMS.register("enderite_leggings", () -> {
-		return new EnderiteArmorItem(XOArmorMaterials.ENDERITE, EquipmentSlot.LEGS, new Item.Properties());
+		return new EnderiteArmorItem(XOArmorMaterials.ENDERITE, ArmorItem.Type.LEGGINGS, new Item.Properties());
 	});
 	public static final RegistryObject<EnderiteArmorItem> ENDERITE_BOOTS = ITEMS.register("enderite_boots", () -> {
-		return new EnderiteArmorItem(XOArmorMaterials.ENDERITE, EquipmentSlot.FEET, new Item.Properties());
+		return new EnderiteArmorItem(XOArmorMaterials.ENDERITE, ArmorItem.Type.BOOTS, new Item.Properties());
 	});
 	
 	public static final RegistryObject<Item> STEEL_INGOT = ITEMS.register("steel_ingot", () -> {
@@ -291,19 +290,19 @@ public class XOItems {
 		return new HoeItem(XOresTiers.NIGHT, -19, 0.0F, new Item.Properties());
 	});
 	public static final RegistryObject<NightArmorItem> NIGHT_HELMET = ITEMS.register("night_helmet", () -> {
-		return new NightArmorItem(XOArmorMaterials.NIGHT, EquipmentSlot.HEAD, new Item.Properties());
+		return new NightArmorItem(XOArmorMaterials.NIGHT, ArmorItem.Type.HELMET, new Item.Properties());
 	});
 	public static final RegistryObject<NightArmorItem> NIGHT_CHESTPLATE = ITEMS.register("night_chestplate", () -> {
-		return new NightArmorItem(XOArmorMaterials.NIGHT, EquipmentSlot.CHEST, new Item.Properties());
+		return new NightArmorItem(XOArmorMaterials.NIGHT, ArmorItem.Type.CHESTPLATE, new Item.Properties());
 	});
 	public static final RegistryObject<NightElytraChestplateItem> NIGHT_ELYTRA_CHESTPLATE = ITEMS.register("night_elytra_chestplate", () -> {
 		return new NightElytraChestplateItem(XOArmorMaterials.NIGHT, new Item.Properties());
 	});
 	public static final RegistryObject<NightArmorItem> NIGHT_LEGGINGS = ITEMS.register("night_leggings", () -> {
-		return new NightArmorItem(XOArmorMaterials.NIGHT, EquipmentSlot.LEGS, new Item.Properties());
+		return new NightArmorItem(XOArmorMaterials.NIGHT, ArmorItem.Type.LEGGINGS, new Item.Properties());
 	});
 	public static final RegistryObject<NightArmorItem> NIGHT_BOOTS = ITEMS.register("night_boots", () -> {
-		return new NightArmorItem(XOArmorMaterials.NIGHT, EquipmentSlot.FEET, new Item.Properties());
+		return new NightArmorItem(XOArmorMaterials.NIGHT, ArmorItem.Type.BOOTS, new Item.Properties());
 	});
 	
 }

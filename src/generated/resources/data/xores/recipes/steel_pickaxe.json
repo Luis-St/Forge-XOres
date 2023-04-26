@@ -17,5 +17,6 @@
   ],
   "result": {
     "item": "xores:steel_pickaxe"
-  }
+  },
+  "show_notification": true
 }

@@ -17,5 +17,6 @@
   ],
   "result": {
     "item": "xores:blazing_ingot"
-  }
+  },
+  "show_notification": true
 }

@@ -15,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.concurrent.CompletableFuture;
 
 import static net.luis.xores.world.level.block.XOBlocks.*;
-import static net.minecraft.tags.BlockTags.MINEABLE_WITH_PICKAXE;
+import static net.minecraft.tags.BlockTags.*;
 
 /**
  *

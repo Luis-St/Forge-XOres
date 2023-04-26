@@ -17,5 +17,6 @@
   ],
   "result": {
     "item": "xores:copper_shield"
-  }
+  },
+  "show_notification": true
 }

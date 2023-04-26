@@ -23,7 +23,7 @@ public class XOOreFeatures {
 	public static final ResourceKey<ConfiguredFeature<?, ?>> LIMONITE_ORE_DEEP_BURIED = createKey("limonite_ore_deep_buried");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> ENDERITE_ORE_RARE = createKey("enderite_ore_rare");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> ENDERITE_ORE_BURIED = createKey("enderite_ore_buried");
-
+	
 	public static void register() {
 	
 	}

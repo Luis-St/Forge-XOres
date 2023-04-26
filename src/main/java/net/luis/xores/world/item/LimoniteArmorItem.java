@@ -16,8 +16,8 @@ import net.minecraft.world.item.ItemStack;
 
 public class LimoniteArmorItem extends ArmorItem implements AbilityArmor {
 	
-	public LimoniteArmorItem(ArmorMaterial material, EquipmentSlot slot, Properties properties) {
-		super(material, slot, properties);
+	public LimoniteArmorItem(ArmorMaterial material, Type type, Properties properties) {
+		super(material, type, properties);
 	}
 	
 	@Override

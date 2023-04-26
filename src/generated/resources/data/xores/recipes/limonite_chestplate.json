@@ -14,5 +14,6 @@
   ],
   "result": {
     "item": "xores:limonite_chestplate"
-  }
+  },
+  "show_notification": true
 }

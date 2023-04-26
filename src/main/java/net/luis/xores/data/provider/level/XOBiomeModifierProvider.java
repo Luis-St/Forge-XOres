@@ -27,7 +27,8 @@ public class XOBiomeModifierProvider {
 		HolderSet<PlacedFeature> overworldFeatures = HolderSet.direct(featureRegistry.getOrThrow(XOOrePlacements.JADE_ORE_MIDDLE), featureRegistry.getOrThrow(XOOrePlacements.SAPHIRE_ORE),
 				featureRegistry.getOrThrow(XOOrePlacements.SAPHIRE_ORE_BURIED), featureRegistry.getOrThrow(XOOrePlacements.LIMONITE_ORE_BURIED), featureRegistry.getOrThrow(XOOrePlacements.LIMONITE_ORE_DEEP_BURIED));
 		HolderSet<PlacedFeature> peakFeatures = HolderSet.direct(featureRegistry.getOrThrow(XOOrePlacements.JADE_ORE_UPPER), featureRegistry.getOrThrow(XOOrePlacements.SAPHIRE_ORE_RARE_UPPER));
-		HolderSet<Biome> endBiomes = HolderSet.direct(biomeRegistry.getOrThrow(Biomes.END_HIGHLANDS), biomeRegistry.getOrThrow(Biomes.END_MIDLANDS), biomeRegistry.getOrThrow(Biomes.SMALL_END_ISLANDS), biomeRegistry.getOrThrow(Biomes.END_BARRENS));
+		HolderSet<Biome> endBiomes = HolderSet.direct(biomeRegistry.getOrThrow(Biomes.END_HIGHLANDS), biomeRegistry.getOrThrow(Biomes.END_MIDLANDS), biomeRegistry.getOrThrow(Biomes.SMALL_END_ISLANDS),
+				biomeRegistry.getOrThrow(Biomes.END_BARRENS));
 		HolderSet<PlacedFeature> endFeatures = HolderSet.direct(featureRegistry.getOrThrow(XOOrePlacements.ENDERITE_ORE_RARE), featureRegistry.getOrThrow(XOOrePlacements.ENDERITE_ORE_BURIED));
 		context.register(XOBiomeModifier.KEY, new XOBiomeModifier(biomeRegistry.getOrThrow(BiomeTags.IS_OVERWORLD), overworldFeatures, biomeRegistry.getOrThrow(Tags.Biomes.IS_PEAK), peakFeatures, endBiomes, endFeatures));
 	}

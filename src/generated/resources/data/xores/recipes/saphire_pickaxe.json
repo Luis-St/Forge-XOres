@@ -17,5 +17,6 @@
   ],
   "result": {
     "item": "xores:saphire_pickaxe"
-  }
+  },
+  "show_notification": true
 }

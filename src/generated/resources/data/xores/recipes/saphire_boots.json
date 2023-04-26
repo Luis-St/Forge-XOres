@@ -14,5 +14,6 @@
   ],
   "result": {
     "item": "xores:saphire_boots"
-  }
+  },
+  "show_notification": true
 }

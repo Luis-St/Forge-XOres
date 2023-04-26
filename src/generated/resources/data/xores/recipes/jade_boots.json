@@ -14,5 +14,6 @@
   ],
   "result": {
     "item": "xores:jade_boots"
-  }
+  },
+  "show_notification": true
 }

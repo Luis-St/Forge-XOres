@@ -41,7 +41,7 @@ public class OnGatherDataEvent {
 			generator.addProvider(event.includeServer(), new XORecipeProvider(generator));
 			XOBlockTagsProvider blockTagsProvider = new XOBlockTagsProvider(generator, event.getLookupProvider(), fileHelper);
 			generator.addProvider(event.includeServer(), blockTagsProvider);
-			generator.addProvider(event.includeServer(), new XOItemTagsProvider(generator, event.getLookupProvider(), blockTagsProvider, fileHelper));
+			generator.addProvider(event.includeServer(), new XOItemTagsProvider(generator, event.getLookupProvider(), blockTagsProvider.contentsGetter(), fileHelper));
 			generator.addProvider(event.includeServer(), new XOGlobalLootModifierProvider(generator));
 			
 			generator.addProvider(event.includeServer(), new DatapackBuiltinEntriesProvider(generator.getPackOutput(), event.getLookupProvider(), XOLevelProvider.createProvider(), Set.of(XOres.MOD_ID)));

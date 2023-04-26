@@ -17,5 +17,6 @@
   ],
   "result": {
     "item": "xores:rose_quartz_axe"
-  }
+  },
+  "show_notification": true
 }

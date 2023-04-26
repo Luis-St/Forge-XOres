@@ -14,5 +14,6 @@
   ],
   "result": {
     "item": "xores:jade_chestplate"
-  }
+  },
+  "show_notification": true
 }
