@@ -16,7 +16,7 @@ apply plugin: "net.minecraftforge.gradle"
 apply plugin: "eclipse"
 apply plugin: "maven-publish"
 apply plugin: "org.spongepowered.mixin"
-version = "1.19.4-2.5"
+version = "1.19.4-2.6"
 group = "net.luis.xores"
 archivesBaseName = "XOres"
 
@@ -116,7 +116,7 @@ jar {
 	manifest {
 		attributes([
 				"Specification-Title"     : "XOres",
-				"Specification-Version"   : "1.19.4-2.5",
+				"Specification-Version"   : "1.19.4-2.6",
 				"Implementation-Title"    : project.name,
 				"Implementation-Timestamp": new Date().format("yyyy-MM-dd HH:mm:ssZ")
 		])
