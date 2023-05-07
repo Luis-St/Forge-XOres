@@ -1,8 +1,8 @@
 {
-  "values": [
-    "xores:jade_block",
-    "xores:saphire_block",
-    "xores:limonite_block",
-    "xores:enderite_block"
-  ]
+	"values": [
+		"xores:jade_block",
+		"xores:saphire_block",
+		"xores:limonite_block",
+		"xores:enderite_block"
+	]
 }

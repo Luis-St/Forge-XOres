@@ -14,6 +14,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.registries.RegistryObject;
+import org.jetbrains.annotations.NotNull;
 
 /**
  *
@@ -25,7 +26,7 @@ import net.minecraftforge.registries.RegistryObject;
 public class ClientSetupEventHandler {
 	
 	@SubscribeEvent
-	public static void clientSetup(FMLClientSetupEvent event) {
+	public static void clientSetup(@NotNull FMLClientSetupEvent event) {
 		event.enqueueWork(() -> {
 			for (Item item : XOItems.ITEMS.getEntries().stream().map(RegistryObject::get).toList()) {
 				if (item instanceof BowItem bow) {
@@ -40,5 +41,4 @@ public class ClientSetupEventHandler {
 			}
 		});
 	}
-	
 }

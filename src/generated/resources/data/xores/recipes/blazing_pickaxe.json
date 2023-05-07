@@ -1,22 +1,22 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
-  "group": "blazing",
-  "key": {
-    "#": {
-      "item": "xores:blazing_ingot"
-    },
-    "I": {
-      "item": "minecraft:stick"
-    }
-  },
-  "pattern": [
-    "###",
-    " I ",
-    " I "
-  ],
-  "result": {
-    "item": "xores:blazing_pickaxe"
-  },
-  "show_notification": true
+	"type": "minecraft:crafting_shaped",
+	"category": "equipment",
+	"group": "blazing",
+	"key": {
+		"#": {
+			"item": "xores:blazing_ingot"
+		},
+		"I": {
+			"item": "minecraft:stick"
+		}
+	},
+	"pattern": [
+		"###",
+		" I ",
+		" I "
+	],
+	"result": {
+		"item": "xores:blazing_pickaxe"
+	},
+	"show_notification": true
 }

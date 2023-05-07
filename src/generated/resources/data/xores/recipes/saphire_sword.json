@@ -1,22 +1,22 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
-  "group": "saphire",
-  "key": {
-    "#": {
-      "item": "xores:saphire_ingot"
-    },
-    "I": {
-      "item": "minecraft:stick"
-    }
-  },
-  "pattern": [
-    " # ",
-    " # ",
-    " I "
-  ],
-  "result": {
-    "item": "xores:saphire_sword"
-  },
-  "show_notification": true
+	"type": "minecraft:crafting_shaped",
+	"category": "equipment",
+	"group": "saphire",
+	"key": {
+		"#": {
+			"item": "xores:saphire_ingot"
+		},
+		"I": {
+			"item": "minecraft:stick"
+		}
+	},
+	"pattern": [
+		" # ",
+		" # ",
+		" I "
+	],
+	"result": {
+		"item": "xores:saphire_sword"
+	},
+	"show_notification": true
 }

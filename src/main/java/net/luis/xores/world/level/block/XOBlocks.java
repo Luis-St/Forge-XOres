@@ -62,5 +62,4 @@ public class XOBlocks {
 		ITEMS.register(name, () -> new BlockItem(blockObject.get(), new Item.Properties()));
 		return blockObject;
 	}
-	
 }

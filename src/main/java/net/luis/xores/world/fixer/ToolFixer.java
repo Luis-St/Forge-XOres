@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistry;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -71,7 +72,7 @@ public class ToolFixer implements VanillaFixer {
 		this.registerToolTag(6, XOItemTags.TOOL_LEVEL_6);
 	}
 	
-	private <T> List<T> getTagValues(IForgeRegistry<T> registry, TagKey<T> tag) {
+	private <T> List<T> getTagValues(@NotNull IForgeRegistry<T> registry, TagKey<T> tag) {
 		return Objects.requireNonNull(registry.tags()).getTag(tag).stream().collect(Collectors.toList());
 	}
 	
@@ -105,7 +106,7 @@ public class ToolFixer implements VanillaFixer {
 		this.tools.get(level).addAll(values);
 	}
 	
-	public List<Block> getRegisteredBlocks() {
+	public @NotNull List<Block> getRegisteredBlocks() {
 		List<Block> registeredBlocks = Lists.newArrayList();
 		for (List<Either<TagKey<Block>, Block>> blocks : Lists.newArrayList(this.blocks.values().iterator())) {
 			for (Either<TagKey<Block>, Block> either : blocks) {
@@ -122,7 +123,7 @@ public class ToolFixer implements VanillaFixer {
 		return this.getRegisteredBlocks().contains(block);
 	}
 	
-	public List<Item> getRegisteredTools() {
+	public @NotNull List<Item> getRegisteredTools() {
 		List<Item> registeredTools = Lists.newArrayList();
 		for (List<Either<TagKey<Item>, Item>> tools : Lists.newArrayList(this.tools.values().iterator())) {
 			for (Either<TagKey<Item>, Item> either : tools) {
@@ -140,7 +141,7 @@ public class ToolFixer implements VanillaFixer {
 	}
 	
 	@SuppressWarnings("deprecation")
-	public boolean isCorrectToolForDrops(Item tool, ItemStack stack, BlockState state) {
+	public boolean isCorrectToolForDrops(Item tool, ItemStack stack, @NotNull BlockState state) {
 		Block block = state.getBlock();
 		int tierLevel = -1;
 		int toolLevel = this.getLevelForTool(tool);
@@ -162,8 +163,7 @@ public class ToolFixer implements VanillaFixer {
 		return false;
 	}
 	
-	@Nullable
-	private TagKey<Block> getTagForTool(Item tool) {
+	private @Nullable TagKey<Block> getTagForTool(Item tool) {
 		if (tool instanceof PickaxeItem) {
 			return BlockTags.MINEABLE_WITH_PICKAXE;
 		} else if (tool instanceof AxeItem) {
@@ -198,7 +198,7 @@ public class ToolFixer implements VanillaFixer {
 		return Integer.MAX_VALUE;
 	}
 	
-	private <T> Map<Integer, List<T>> map(IForgeRegistry<T> registry, Map<Integer, List<Either<TagKey<T>, T>>> map) {
+	private <T> @NotNull Map<Integer, List<T>> map(IForgeRegistry<T> registry, @NotNull Map<Integer, List<Either<TagKey<T>, T>>> map) {
 		Map<Integer, List<T>> newMap = Maps.newHashMap();
 		for (Entry<Integer, List<Either<TagKey<T>, T>>> entry : map.entrySet()) {
 			int level = entry.getKey();
@@ -212,5 +212,4 @@ public class ToolFixer implements VanillaFixer {
 		}
 		return newMap;
 	}
-	
 }

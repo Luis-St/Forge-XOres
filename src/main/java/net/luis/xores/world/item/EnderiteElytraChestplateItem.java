@@ -32,5 +32,4 @@ public class EnderiteElytraChestplateItem extends ElytraChestplateItem implement
 			entity.removeEffect(MobEffects.HERO_OF_THE_VILLAGE);
 		}
 	}
-	
 }

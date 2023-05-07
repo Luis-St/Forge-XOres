@@ -20,6 +20,7 @@ import net.minecraftforge.client.gui.overlay.VanillaGuiOverlay;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
@@ -33,23 +34,22 @@ import java.util.Objects;
 public class RegisterClientEventHandler {
 	
 	@SubscribeEvent
-	public static void registerGuiOverlays(RegisterGuiOverlaysEvent event) {
+	public static void registerGuiOverlays(@NotNull RegisterGuiOverlaysEvent event) {
 		event.registerAbove(VanillaGuiOverlay.ARMOR_LEVEL.id(), "armor_bar", new XOArmorOverlay(Minecraft.getInstance()));
 	}
 	
 	@SubscribeEvent
-	public static void addLayers(EntityRenderersEvent.AddLayers event) {
+	public static void addLayers(EntityRenderersEvent.@NotNull AddLayers event) {
 		for (String skin : event.getSkins()) {
 			addLayers((PlayerRenderer) Objects.requireNonNull(event.getSkin(skin)), event.getEntityModels());
 		}
 		addLayers((ArmorStandRenderer) Objects.requireNonNull(event.getRenderer(EntityType.ARMOR_STAND)), event.getEntityModels());
 	}
 	
-	private static <T extends LivingEntity, M extends EntityModel<T>> void addLayers(LivingEntityRenderer<T, M> renderer, EntityModelSet modelSet) {
+	private static <T extends LivingEntity, M extends EntityModel<T>> void addLayers(@NotNull LivingEntityRenderer<T, M> renderer, EntityModelSet modelSet) {
 		renderer.addLayer(new XOElytraLayer<>(renderer, modelSet, XOItems.DIAMOND_ELYTRA_CHESTPLATE.get(), new ResourceLocation(XOres.MOD_ID, "textures/entity/diamond_elytra.png")));
 		renderer.addLayer(new XOElytraLayer<>(renderer, modelSet, XOItems.NETHERITE_ELYTRA_CHESTPLATE.get(), new ResourceLocation(XOres.MOD_ID, "textures/entity/netherite_elytra.png")));
 		renderer.addLayer(new XOElytraLayer<>(renderer, modelSet, XOItems.ENDERITE_ELYTRA_CHESTPLATE.get(), new ResourceLocation(XOres.MOD_ID, "textures/entity/enderite_elytra.png")));
 		renderer.addLayer(new XOElytraLayer<>(renderer, modelSet, XOItems.NIGHT_ELYTRA_CHESTPLATE.get(), new ResourceLocation(XOres.MOD_ID, "textures/entity/night_elytra.png")));
 	}
-	
 }

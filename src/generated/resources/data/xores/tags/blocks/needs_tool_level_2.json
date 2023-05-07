@@ -1,9 +1,9 @@
 {
-  "values": [
-    "#minecraft:needs_iron_tool",
-    "xores:saphire_ore",
-    "xores:deepslate_saphire_ore",
-    "xores:saphire_block",
-    "xores:limonite_block"
-  ]
+	"values": [
+		"#minecraft:needs_iron_tool",
+		"xores:saphire_ore",
+		"xores:deepslate_saphire_ore",
+		"xores:saphire_block",
+		"xores:limonite_block"
+	]
 }

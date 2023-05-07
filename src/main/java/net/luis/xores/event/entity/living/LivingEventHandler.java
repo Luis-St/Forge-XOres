@@ -7,6 +7,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import org.jetbrains.annotations.NotNull;
 
 /**
  *
@@ -18,7 +19,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 public class LivingEventHandler {
 	
 	@SubscribeEvent
-	public static void livingEquipmentChange(LivingEquipmentChangeEvent event) {
+	public static void livingEquipmentChange(@NotNull LivingEquipmentChangeEvent event) {
 		EquipmentSlot slot = event.getSlot();
 		if (slot.getType() == EquipmentSlot.Type.ARMOR) {
 			ItemStack toStack = event.getTo();
@@ -32,6 +33,4 @@ public class LivingEventHandler {
 			}
 		}
 	}
-	
 }
-

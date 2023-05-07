@@ -14,6 +14,7 @@ import net.minecraftforge.common.world.BiomeGenerationSettingsBuilder;
 import net.minecraftforge.common.world.BiomeModifier;
 import net.minecraftforge.common.world.ModifiableBiomeInfo.BiomeInfo.Builder;
 import net.minecraftforge.registries.ForgeRegistries;
+import org.jetbrains.annotations.NotNull;
 
 /**
  *
@@ -64,8 +65,7 @@ public record XOBiomeModifier(HolderSet<Biome> overworldBiomes, HolderSet<Placed
 	}
 	
 	@Override
-	public Codec<XOBiomeModifier> codec() {
+	public @NotNull Codec<XOBiomeModifier> codec() {
 		return XOBiomeModifiers.ORE_BIOME_MODIFIER.get();
 	}
-	
 }

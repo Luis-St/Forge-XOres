@@ -21,5 +21,4 @@ public class EnderiteHelmetItem extends EnderiteArmorItem {
 	public boolean isEnderMask(ItemStack stack, Player player, EnderMan endermanEntity) {
 		return true;
 	}
-	
 }

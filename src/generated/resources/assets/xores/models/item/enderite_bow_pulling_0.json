@@ -1,6 +1,6 @@
 {
-  "parent": "xores:item/enderite_bow",
-  "textures": {
-    "layer0": "xores:item/enderite_bow_pulling_0"
-  }
+	"parent": "xores:item/enderite_bow",
+	"textures": {
+		"layer0": "xores:item/enderite_bow_pulling_0"
+	}
 }

@@ -35,5 +35,4 @@ public class SaphireArmorItem extends ArmorItem implements AbilityArmor {
 			entity.removeEffect(MobEffects.DOLPHINS_GRACE);
 		}
 	}
-	
 }

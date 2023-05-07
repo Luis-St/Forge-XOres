@@ -34,5 +34,4 @@ public class NightElytraChestplateItem extends ElytraChestplateItem implements A
 			entity.removeEffect(MobEffects.DAMAGE_RESISTANCE);
 		}
 	}
-	
 }

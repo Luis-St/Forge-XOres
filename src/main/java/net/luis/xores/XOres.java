@@ -17,6 +17,7 @@ import org.apache.logging.log4j.Logger;
  * @author Luis-st
  *
  */
+
 @Mod(XOres.MOD_ID)
 public class XOres {
 	
@@ -34,5 +35,4 @@ public class XOres {
 		XOOrePlacements.register();
 		XOBiomeModifiers.BIOME_MODIFIERS.register(modEventBus);
 	}
-	
 }

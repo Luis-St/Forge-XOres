@@ -33,5 +33,4 @@ public class EnderiteArmorItem extends ArmorItem implements AbilityArmor {
 			entity.removeEffect(MobEffects.HERO_OF_THE_VILLAGE);
 		}
 	}
-	
 }

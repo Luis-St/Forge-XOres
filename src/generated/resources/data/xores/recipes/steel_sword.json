@@ -1,22 +1,22 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
-  "group": "steel",
-  "key": {
-    "#": {
-      "item": "xores:steel_ingot"
-    },
-    "I": {
-      "item": "minecraft:stick"
-    }
-  },
-  "pattern": [
-    " # ",
-    " # ",
-    " I "
-  ],
-  "result": {
-    "item": "xores:steel_sword"
-  },
-  "show_notification": true
+	"type": "minecraft:crafting_shaped",
+	"category": "equipment",
+	"group": "steel",
+	"key": {
+		"#": {
+			"item": "xores:steel_ingot"
+		},
+		"I": {
+			"item": "minecraft:stick"
+		}
+	},
+	"pattern": [
+		" # ",
+		" # ",
+		" I "
+	],
+	"result": {
+		"item": "xores:steel_sword"
+	},
+	"show_notification": true
 }

@@ -11,5 +11,4 @@ public interface VanillaFixer {
 	default void init() {
 		
 	}
-	
 }

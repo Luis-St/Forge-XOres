@@ -17,6 +17,13 @@ public class XOItems {
 	
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, XOres.MOD_ID);
 	
+	public static final RegistryObject<SmithingTemplateItem> ENDERITE_UPGRADE_SMITHING_TEMPLATE = ITEMS.register("enderite_upgrade_smithing_template", () -> {
+		return new XSSmithingTemplateItem(XSSmithingTemplateItem.TemplateType.ENDERITE);
+	});
+	public static final RegistryObject<SmithingTemplateItem> NIGHT_UPGRADE_SMITHING_TEMPLATE = ITEMS.register("night_upgrade_smithing_template", () -> {
+		return new XSSmithingTemplateItem(XSSmithingTemplateItem.TemplateType.NIGHT);
+	});
+	
 	public static final RegistryObject<ShieldItem> GOLDEN_SHIELD = ITEMS.register("golden_shield", () -> {
 		return new XOShieldItem(new Item.Properties().defaultDurability(180), new ResourceLocation(XOres.MOD_ID, "textures/entity/golden_shield.png"));
 	});
@@ -304,5 +311,4 @@ public class XOItems {
 	public static final RegistryObject<NightArmorItem> NIGHT_BOOTS = ITEMS.register("night_boots", () -> {
 		return new NightArmorItem(XOArmorMaterials.NIGHT, ArmorItem.Type.BOOTS, new Item.Properties());
 	});
-	
 }

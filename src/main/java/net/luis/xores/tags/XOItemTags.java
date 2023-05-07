@@ -5,6 +5,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import org.jetbrains.annotations.NotNull;
 
 /**
  *
@@ -65,8 +66,7 @@ public class XOItemTags {
 	public static final TagKey<Item> TOOL_LEVEL_5 = bind(new ResourceLocation(XOres.MOD_ID, "tool_level_5"));
 	public static final TagKey<Item> TOOL_LEVEL_6 = bind(new ResourceLocation(XOres.MOD_ID, "tool_level_6"));
 	
-	private static TagKey<Item> bind(ResourceLocation location) {
+	private static @NotNull TagKey<Item> bind(ResourceLocation location) {
 		return ItemTags.create(location);
 	}
-	
 }

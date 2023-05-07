@@ -1,19 +1,19 @@
 {
-  "values": [
-    "xores:limonite_sword",
-    "xores:limonite_pickaxe",
-    "xores:limonite_axe",
-    "xores:limonite_shovel",
-    "xores:limonite_hoe",
-    "xores:enderite_sword",
-    "xores:enderite_pickaxe",
-    "xores:enderite_axe",
-    "xores:enderite_shovel",
-    "xores:enderite_hoe",
-    "xores:night_sword",
-    "xores:night_pickaxe",
-    "xores:night_axe",
-    "xores:night_shovel",
-    "xores:night_hoe"
-  ]
+	"values": [
+		"xores:limonite_sword",
+		"xores:limonite_pickaxe",
+		"xores:limonite_axe",
+		"xores:limonite_shovel",
+		"xores:limonite_hoe",
+		"xores:enderite_sword",
+		"xores:enderite_pickaxe",
+		"xores:enderite_axe",
+		"xores:enderite_shovel",
+		"xores:enderite_hoe",
+		"xores:night_sword",
+		"xores:night_pickaxe",
+		"xores:night_axe",
+		"xores:night_shovel",
+		"xores:night_hoe"
+	]
 }

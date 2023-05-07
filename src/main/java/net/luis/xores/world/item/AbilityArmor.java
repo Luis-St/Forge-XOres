@@ -50,5 +50,4 @@ public interface AbilityArmor {
 		}
 		return stacks.stream().filter((stack) -> !stack.isEmpty()).collect(Collectors.toList());
 	}
-	
 }

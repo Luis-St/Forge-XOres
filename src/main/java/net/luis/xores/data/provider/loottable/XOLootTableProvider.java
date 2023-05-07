@@ -28,5 +28,4 @@ public class XOLootTableProvider extends LootTableProvider {
 	protected void validate(@NotNull Map<ResourceLocation, LootTable> lootTables, @NotNull ValidationContext validationContext) {
 		
 	}
-	
 }

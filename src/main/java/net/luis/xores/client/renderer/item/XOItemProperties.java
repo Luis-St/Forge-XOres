@@ -57,5 +57,4 @@ public class XOItemProperties {
 			return ElytraItem.isFlyEnabled(stack) ? 0.0F : 1.0F;
 		});
 	}
-	
 }

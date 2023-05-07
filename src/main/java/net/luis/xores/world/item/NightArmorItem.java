@@ -35,5 +35,4 @@ public class NightArmorItem extends ArmorItem implements AbilityArmor {
 			entity.removeEffect(MobEffects.DAMAGE_RESISTANCE);
 		}
 	}
-	
 }

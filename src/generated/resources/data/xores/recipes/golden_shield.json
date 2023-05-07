@@ -1,22 +1,22 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
-  "group": "gold",
-  "key": {
-    "#": {
-      "item": "minecraft:gold_ingot"
-    },
-    "I": {
-      "item": "minecraft:iron_ingot"
-    }
-  },
-  "pattern": [
-    "#I#",
-    "###",
-    " # "
-  ],
-  "result": {
-    "item": "xores:golden_shield"
-  },
-  "show_notification": true
+	"type": "minecraft:crafting_shaped",
+	"category": "equipment",
+	"group": "gold",
+	"key": {
+		"#": {
+			"item": "minecraft:gold_ingot"
+		},
+		"I": {
+			"item": "minecraft:iron_ingot"
+		}
+	},
+	"pattern": [
+		"#I#",
+		"###",
+		" # "
+	],
+	"result": {
+		"item": "xores:golden_shield"
+	},
+	"show_notification": true
 }

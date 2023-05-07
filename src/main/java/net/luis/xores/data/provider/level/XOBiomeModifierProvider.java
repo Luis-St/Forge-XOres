@@ -12,6 +12,7 @@ import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.world.BiomeModifier;
+import org.jetbrains.annotations.NotNull;
 
 /**
  *
@@ -21,7 +22,7 @@ import net.minecraftforge.common.world.BiomeModifier;
 
 public class XOBiomeModifierProvider {
 	
-	public static void create(BootstapContext<BiomeModifier> context) {
+	public static void create(@NotNull BootstapContext<BiomeModifier> context) {
 		HolderGetter<PlacedFeature> featureRegistry = context.lookup(Registries.PLACED_FEATURE);
 		HolderGetter<Biome> biomeRegistry = context.lookup(Registries.BIOME);
 		HolderSet<PlacedFeature> overworldFeatures = HolderSet.direct(featureRegistry.getOrThrow(XOOrePlacements.JADE_ORE_MIDDLE), featureRegistry.getOrThrow(XOOrePlacements.SAPHIRE_ORE),
@@ -32,5 +33,4 @@ public class XOBiomeModifierProvider {
 		HolderSet<PlacedFeature> endFeatures = HolderSet.direct(featureRegistry.getOrThrow(XOOrePlacements.ENDERITE_ORE_RARE), featureRegistry.getOrThrow(XOOrePlacements.ENDERITE_ORE_BURIED));
 		context.register(XOBiomeModifier.KEY, new XOBiomeModifier(biomeRegistry.getOrThrow(BiomeTags.IS_OVERWORLD), overworldFeatures, biomeRegistry.getOrThrow(Tags.Biomes.IS_PEAK), peakFeatures, endBiomes, endFeatures));
 	}
-	
 }

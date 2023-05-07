@@ -8,6 +8,7 @@ import net.minecraftforge.common.BasicItemListing;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import org.jetbrains.annotations.NotNull;
 
 /**
  *
@@ -19,10 +20,9 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 public class VillagerTradesEventHandler {
 	
 	@SubscribeEvent
-	public static void villagerTrades(VillagerTradesEvent event) {
+	public static void villagerTrades(@NotNull VillagerTradesEvent event) {
 		if (event.getType() == VillagerProfession.ARMORER) {
 			event.getTrades().get(2).add(new BasicItemListing(9, new ItemStack(XOItems.IRON_SHIELD.get()), 12, 10, 0.2F));
 		}
 	}
-	
 }

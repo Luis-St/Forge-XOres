@@ -28,7 +28,7 @@ public class XOElytraLayer<T extends LivingEntity, M extends EntityModel<T>> ext
 	}
 	
 	@Override
-	public boolean shouldRender(ItemStack stack, @NotNull T entity) {
+	public boolean shouldRender(@NotNull ItemStack stack, @NotNull T entity) {
 		return this.elytraItem == stack.getItem();
 	}
 	
@@ -36,5 +36,4 @@ public class XOElytraLayer<T extends LivingEntity, M extends EntityModel<T>> ext
 	public @NotNull ResourceLocation getElytraTexture(@NotNull ItemStack stack, @NotNull T entity) {
 		return this.elytraTexture;
 	}
-	
 }

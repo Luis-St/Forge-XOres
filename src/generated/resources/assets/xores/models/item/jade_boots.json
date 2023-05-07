@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "xores:item/jade_boots"
-  }
+	"parent": "minecraft:item/generated",
+	"textures": {
+		"layer0": "xores:item/jade_boots"
+	}
 }

@@ -33,5 +33,4 @@ public class BlazingArmorItem extends ArmorItem implements AbilityArmor {
 			entity.removeEffect(MobEffects.FIRE_RESISTANCE);
 		}
 	}
-	
 }

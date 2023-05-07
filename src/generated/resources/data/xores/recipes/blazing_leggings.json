@@ -1,19 +1,19 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
-  "group": "blazing",
-  "key": {
-    "#": {
-      "item": "xores:blazing_ingot"
-    }
-  },
-  "pattern": [
-    "###",
-    "# #",
-    "# #"
-  ],
-  "result": {
-    "item": "xores:blazing_leggings"
-  },
-  "show_notification": true
+	"type": "minecraft:crafting_shaped",
+	"category": "equipment",
+	"group": "blazing",
+	"key": {
+		"#": {
+			"item": "xores:blazing_ingot"
+		}
+	},
+	"pattern": [
+		"###",
+		"# #",
+		"# #"
+	],
+	"result": {
+		"item": "xores:blazing_leggings"
+	},
+	"show_notification": true
 }

@@ -1,19 +1,19 @@
 {
-  "values": [
-    "minecraft:netherite_scrap",
-    "minecraft:netherite_ingot",
-    "minecraft:netherite_sword",
-    "minecraft:netherite_pickaxe",
-    "minecraft:netherite_axe",
-    "minecraft:netherite_shovel",
-    "minecraft:netherite_hoe",
-    "xores:netherite_bow",
-    "xores:netherite_crossbow",
-    "xores:netherite_shield",
-    "minecraft:netherite_helmet",
-    "minecraft:netherite_chestplate",
-    "xores:netherite_elytra_chestplate",
-    "minecraft:netherite_leggings",
-    "minecraft:netherite_boots"
-  ]
+	"values": [
+		"minecraft:netherite_scrap",
+		"minecraft:netherite_ingot",
+		"minecraft:netherite_sword",
+		"minecraft:netherite_pickaxe",
+		"minecraft:netherite_axe",
+		"minecraft:netherite_shovel",
+		"minecraft:netherite_hoe",
+		"xores:netherite_bow",
+		"xores:netherite_crossbow",
+		"xores:netherite_shield",
+		"minecraft:netherite_helmet",
+		"minecraft:netherite_chestplate",
+		"xores:netherite_elytra_chestplate",
+		"minecraft:netherite_leggings",
+		"minecraft:netherite_boots"
+	]
 }

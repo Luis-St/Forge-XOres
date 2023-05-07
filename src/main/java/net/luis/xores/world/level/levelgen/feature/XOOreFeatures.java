@@ -5,6 +5,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import org.jetbrains.annotations.NotNull;
 
 /**
  *
@@ -28,8 +29,7 @@ public class XOOreFeatures {
 	
 	}
 	
-	private static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
+	private static @NotNull ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
 		return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(XOres.MOD_ID, name));
 	}
-	
 }

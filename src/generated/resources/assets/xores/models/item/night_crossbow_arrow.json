@@ -1,6 +1,6 @@
 {
-  "parent": "xores:item/night_crossbow",
-  "textures": {
-    "layer0": "xores:item/night_crossbow_arrow"
-  }
+	"parent": "xores:item/night_crossbow",
+	"textures": {
+		"layer0": "xores:item/night_crossbow_arrow"
+	}
 }

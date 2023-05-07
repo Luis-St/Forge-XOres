@@ -30,5 +30,4 @@ public abstract class DiggerItemMixin extends TieredItem {
 			info.cancel();
 		}
 	}
-	
 }

@@ -1,5 +1,6 @@
 {
   "entries": [
+    "xores:template_modifier",
     "xores:smelting_modifier"
   ],
   "replace": false

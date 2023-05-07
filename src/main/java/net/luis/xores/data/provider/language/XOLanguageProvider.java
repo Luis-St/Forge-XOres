@@ -35,15 +35,30 @@ public class XOLanguageProvider extends LanguageProvider {
 			this.add(item, getName(Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item))));
 		}
 		this.add("item_tab.xores", "XOres");
+		String enderite = "item.xores.smithing_template.enderite_upgrade.";
+		this.add("upgrade.xores.enderite_upgrade", "Enderite Upgrade");
+		this.add(enderite + "applies_to", "Netherite Equipment");
+		this.add(enderite + "ingredients", "Enderite Ingot");
+		this.add(enderite + "base_slot_description", "Put a piece of Netherite armor, weapon or tool here");
+		this.add(enderite + "additions_slot_description", "Put a Enderite Ingot here");
+		String night = "item.xores.smithing_template.night_upgrade.";
+		this.add("upgrade.xores.night_upgrade", "Night Upgrade");
+		this.add(night + "applies_to", "Enderite Equipment");
+		this.add(night + "ingredients", "Night Ingot");
+		this.add(night + "base_slot_description", "Put a piece of Enderite armor, weapon or tool here");
+		this.add(night + "additions_slot_description", "Put a Night Ingot here");
 	}
 	
-	private String getName(ResourceLocation location) {
+	private @NotNull String getName(@NotNull ResourceLocation location) {
 		String[] nameParts = location.getPath().split("_");
 		StringBuilder name = new StringBuilder();
 		for (String namePart : nameParts) {
 			String startChar = namePart.substring(0, 1).toUpperCase();
-			name.append(startChar).append(namePart.substring(1)).append(" ");
+			if (!namePart.contains("upgrade")) {
+				name.append(startChar).append(namePart.substring(1)).append(" ");
+			}
 		}
+		
 		return name.toString().trim();
 	}
 	
@@ -51,5 +66,4 @@ public class XOLanguageProvider extends LanguageProvider {
 	public @NotNull String getName() {
 		return "XOres Languages";
 	}
-	
 }

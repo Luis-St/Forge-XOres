@@ -1,14 +1,14 @@
 {
-  "values": [
-    "xores:blazing_ingot",
-    "xores:blazing_sword",
-    "xores:blazing_pickaxe",
-    "xores:blazing_axe",
-    "xores:blazing_shovel",
-    "xores:blazing_hoe",
-    "xores:blazing_helmet",
-    "xores:blazing_chestplate",
-    "xores:blazing_leggings",
-    "xores:blazing_boots"
-  ]
+	"values": [
+		"xores:blazing_ingot",
+		"xores:blazing_sword",
+		"xores:blazing_pickaxe",
+		"xores:blazing_axe",
+		"xores:blazing_shovel",
+		"xores:blazing_hoe",
+		"xores:blazing_helmet",
+		"xores:blazing_chestplate",
+		"xores:blazing_leggings",
+		"xores:blazing_boots"
+	]
 }

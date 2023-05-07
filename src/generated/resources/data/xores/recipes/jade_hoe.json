@@ -1,22 +1,22 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
-  "group": "jade",
-  "key": {
-    "#": {
-      "item": "xores:jade_ingot"
-    },
-    "I": {
-      "item": "minecraft:stick"
-    }
-  },
-  "pattern": [
-    "## ",
-    "I  ",
-    "I  "
-  ],
-  "result": {
-    "item": "xores:jade_hoe"
-  },
-  "show_notification": true
+	"type": "minecraft:crafting_shaped",
+	"category": "equipment",
+	"group": "jade",
+	"key": {
+		"#": {
+			"item": "xores:jade_ingot"
+		},
+		"I": {
+			"item": "minecraft:stick"
+		}
+	},
+	"pattern": [
+		"## ",
+		"I  ",
+		"I  "
+	],
+	"result": {
+		"item": "xores:jade_hoe"
+	},
+	"show_notification": true
 }

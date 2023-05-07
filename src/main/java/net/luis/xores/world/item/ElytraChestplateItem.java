@@ -39,7 +39,7 @@ public class ElytraChestplateItem extends ArmorItem {
 	}
 	
 	@Override
-	public boolean elytraFlightTick(ItemStack stack, LivingEntity entity, int flightTicks) {
+	public boolean elytraFlightTick(ItemStack stack, @NotNull LivingEntity entity, int flightTicks) {
 		if (!entity.level.isClientSide && (flightTicks + 1) % ELYTRA_TIME_DAMAGE_VALUES.getOrDefault(stack.getItem(), 20) == 0) {
 			stack.hurtAndBreak(1, entity, e -> e.broadcastBreakEvent(EquipmentSlot.CHEST));
 		}
@@ -50,5 +50,4 @@ public class ElytraChestplateItem extends ArmorItem {
 	public @NotNull SoundEvent getEquipSound() {
 		return RNG.nextInt(2) == 0 ? SoundEvents.ARMOR_EQUIP_ELYTRA : super.getEquipSound();
 	}
-	
 }

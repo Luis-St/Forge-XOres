@@ -1,8 +1,8 @@
 {
-  "values": [
-    "#xores:ores/jade_ore",
-    "#xores:ores/saphire_ore",
-    "#xores:ores/limonite_ore",
-    "#xores:ores/enderite_ore"
-  ]
+	"values": [
+		"#xores:ores/jade_ore",
+		"#xores:ores/saphire_ore",
+		"#xores:ores/limonite_ore",
+		"#xores:ores/enderite_ore"
+	]
 }

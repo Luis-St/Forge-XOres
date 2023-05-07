@@ -1,6 +1,6 @@
 {
-  "parent": "xores:item/enderite_crossbow",
-  "textures": {
-    "layer0": "xores:item/enderite_crossbow_firework"
-  }
+	"parent": "xores:item/enderite_crossbow",
+	"textures": {
+		"layer0": "xores:item/enderite_crossbow_firework"
+	}
 }

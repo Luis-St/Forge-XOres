@@ -1,19 +1,19 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
-  "group": "limonite",
-  "key": {
-    "#": {
-      "item": "xores:limonite_ingot"
-    }
-  },
-  "pattern": [
-    "# #",
-    "###",
-    "###"
-  ],
-  "result": {
-    "item": "xores:limonite_chestplate"
-  },
-  "show_notification": true
+	"type": "minecraft:crafting_shaped",
+	"category": "equipment",
+	"group": "limonite",
+	"key": {
+		"#": {
+			"item": "xores:limonite_ingot"
+		}
+	},
+	"pattern": [
+		"# #",
+		"###",
+		"###"
+	],
+	"result": {
+		"item": "xores:limonite_chestplate"
+	},
+	"show_notification": true
 }

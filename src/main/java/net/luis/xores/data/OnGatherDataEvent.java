@@ -17,6 +17,7 @@ import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Set;
 
@@ -30,7 +31,7 @@ import java.util.Set;
 public class OnGatherDataEvent {
 	
 	@SubscribeEvent
-	public static void gatherData(GatherDataEvent event) {
+	public static void gatherData(@NotNull GatherDataEvent event) {
 		DataGenerator generator = event.getGenerator();
 		ExistingFileHelper fileHelper = event.getExistingFileHelper();
 		if (event.includeDev()) {
@@ -47,5 +48,4 @@ public class OnGatherDataEvent {
 			generator.addProvider(event.includeServer(), new DatapackBuiltinEntriesProvider(generator.getPackOutput(), event.getLookupProvider(), XOLevelProvider.createProvider(), Set.of(XOres.MOD_ID)));
 		}
 	}
-	
 }

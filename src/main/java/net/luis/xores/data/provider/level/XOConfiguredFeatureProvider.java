@@ -10,6 +10,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguratio
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 import net.minecraftforge.common.Tags;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import java.util.function.Supplier;
@@ -39,7 +40,7 @@ public class XOConfiguredFeatureProvider {
 		return List.of(OreConfiguration.target(END_STONE_REPLACEABLES, XOBlocks.ENDERITE_ORE.get().defaultBlockState()));
 	};
 	
-	public static void create(BootstapContext<ConfiguredFeature<?, ?>> context) {
+	public static void create(@NotNull BootstapContext<ConfiguredFeature<?, ?>> context) {
 		context.register(XOOreFeatures.JADE_ORE_UPPER, new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(JADE_ORE_TARGETS.get(), 5)));
 		context.register(XOOreFeatures.JADE_ORE_MIDDLE, new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(JADE_ORE_TARGETS.get(), 7)));
 		context.register(XOOreFeatures.SAPHIRE_ORE_RARE_UPPER, new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(SAPHIRE_ORE_TARGETS.get(), 2)));
@@ -50,5 +51,4 @@ public class XOConfiguredFeatureProvider {
 		context.register(XOOreFeatures.ENDERITE_ORE_RARE, new ConfiguredFeature<>(Feature.SCATTERED_ORE, new OreConfiguration(ENDERITE_ORE_TARGETS.get(), 1)));
 		context.register(XOOreFeatures.ENDERITE_ORE_BURIED, new ConfiguredFeature<>(Feature.SCATTERED_ORE, new OreConfiguration(ENDERITE_ORE_TARGETS.get(), 3, 1.0F)));
 	}
-	
 }

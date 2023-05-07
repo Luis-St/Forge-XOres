@@ -49,7 +49,6 @@ public class XOBlockTagsProvider extends BlockTagsProvider {
 		this.tag(XOBlockTags.LIMONITE_ORES).add(LIMONITE_ORE.get(), DEEPSLATE_LIMONITE_ORE.get());
 		this.tag(XOBlockTags.ENDERITE_ORES).add(ENDERITE_ORE.get());
 		this.tag(XOBlockTags.ORE_BLOCKS).add(JADE_BLOCK.get(), SAPHIRE_BLOCK.get(), LIMONITE_BLOCK.get(), ENDERITE_BLOCK.get());
-		
 		this.tag(Tags.Blocks.ORES).addTags(XOBlockTags.JADE_ORES, XOBlockTags.SAPHIRE_ORES, XOBlockTags.LIMONITE_ORES, XOBlockTags.ENDERITE_ORES);
 		this.tag(Tags.Blocks.ORES_IN_GROUND_STONE).add(JADE_ORE.get(), SAPHIRE_ORE.get(), LIMONITE_ORE.get());
 		this.tag(Tags.Blocks.ORES_IN_GROUND_DEEPSLATE).add(DEEPSLATE_JADE_ORE.get(), DEEPSLATE_SAPHIRE_ORE.get(), DEEPSLATE_LIMONITE_ORE.get());
@@ -59,5 +58,4 @@ public class XOBlockTagsProvider extends BlockTagsProvider {
 	public @NotNull String getName() {
 		return "XOres Block Tags";
 	}
-	
 }

@@ -1,6 +1,6 @@
 {
-  "parent": "xores:item/night_bow",
-  "textures": {
-    "layer0": "xores:item/night_bow_pulling_2"
-  }
+	"parent": "xores:item/night_bow",
+	"textures": {
+		"layer0": "xores:item/night_bow_pulling_2"
+	}
 }

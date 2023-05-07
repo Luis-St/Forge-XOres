@@ -20,5 +20,7 @@ public class XOGlobalLootModifiers {
 	public static final RegistryObject<Codec<SmeltingModifier>> SMELTING_MODIFIER = LOOT_MODIFIERS.register("smelting_modifier", () -> {
 		return SmeltingModifier.CODEC;
 	});
-	
+	public static final RegistryObject<Codec<TemplateModifier>> TEMPLATE_MODIFIER = LOOT_MODIFIERS.register("template_modifier", () -> {
+		return TemplateModifier.CODEC;
+	});
 }

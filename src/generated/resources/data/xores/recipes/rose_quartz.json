@@ -1,34 +1,34 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "category": "misc",
-  "group": "rose_quartz",
-  "ingredients": [
-    {
-      "item": "minecraft:quartz"
-    },
-    {
-      "item": "minecraft:quartz"
-    },
-    {
-      "item": "minecraft:quartz"
-    },
-    {
-      "item": "minecraft:quartz"
-    },
-    {
-      "item": "minecraft:redstone"
-    },
-    {
-      "item": "minecraft:redstone"
-    },
-    {
-      "item": "minecraft:redstone"
-    },
-    {
-      "item": "minecraft:redstone"
-    }
-  ],
-  "result": {
-    "item": "xores:rose_quartz"
-  }
+	"type": "minecraft:crafting_shapeless",
+	"category": "misc",
+	"group": "rose_quartz",
+	"ingredients": [
+		{
+			"item": "minecraft:quartz"
+		},
+		{
+			"item": "minecraft:quartz"
+		},
+		{
+			"item": "minecraft:quartz"
+		},
+		{
+			"item": "minecraft:quartz"
+		},
+		{
+			"item": "minecraft:redstone"
+		},
+		{
+			"item": "minecraft:redstone"
+		},
+		{
+			"item": "minecraft:redstone"
+		},
+		{
+			"item": "minecraft:redstone"
+		}
+	],
+	"result": {
+		"item": "xores:rose_quartz"
+	}
 }

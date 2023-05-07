@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-      "model": "xores:block/deepslate_saphire_ore"
-    }
-  }
+	"variants": {
+		"": {
+			"model": "xores:block/deepslate_saphire_ore"
+		}
+	}
 }

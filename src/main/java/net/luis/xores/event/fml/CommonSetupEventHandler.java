@@ -9,6 +9,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import org.jetbrains.annotations.NotNull;
 
 /**
  *
@@ -20,7 +21,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 public class CommonSetupEventHandler {
 	
 	@SubscribeEvent
-	public static void commonSetup(FMLCommonSetupEvent event) {
+	public static void commonSetup(@NotNull FMLCommonSetupEvent event) {
 		ElytraChestplateItem.register(XOItems.DIAMOND_ELYTRA_CHESTPLATE.get(), 40);
 		ElytraChestplateItem.register(XOItems.NETHERITE_ELYTRA_CHESTPLATE.get(), 60);
 		ElytraChestplateItem.register(XOItems.ENDERITE_ELYTRA_CHESTPLATE.get(), 80);
@@ -31,8 +32,7 @@ public class CommonSetupEventHandler {
 		});
 	}
 	
-	private static void replaceAttributeValue(RangedAttribute attribute, double maxValue) {
+	private static void replaceAttributeValue(@NotNull RangedAttribute attribute, double maxValue) {
 		attribute.maxValue = maxValue;
 	}
-	
 }

@@ -23,11 +23,10 @@ public class BlazingSwordItem extends SwordItem {
 	}
 	
 	@Override
-	public boolean hurtEnemy(@NotNull ItemStack stack, LivingEntity target, @NotNull LivingEntity attacker) {
+	public boolean hurtEnemy(@NotNull ItemStack stack, @NotNull LivingEntity target, @NotNull LivingEntity attacker) {
 		if (!target.fireImmune()) {
 			target.setSecondsOnFire(RNG.nextInt(5) + 2);
 		}
 		return super.hurtEnemy(stack, target, attacker);
 	}
-	
 }

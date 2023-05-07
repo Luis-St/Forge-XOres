@@ -1,22 +1,22 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
-  "group": "saphire",
-  "key": {
-    "#": {
-      "item": "xores:saphire_ingot"
-    },
-    "I": {
-      "item": "minecraft:iron_ingot"
-    }
-  },
-  "pattern": [
-    "#I#",
-    "###",
-    " # "
-  ],
-  "result": {
-    "item": "xores:saphire_shield"
-  },
-  "show_notification": true
+	"type": "minecraft:crafting_shaped",
+	"category": "equipment",
+	"group": "saphire",
+	"key": {
+		"#": {
+			"item": "xores:saphire_ingot"
+		},
+		"I": {
+			"item": "minecraft:iron_ingot"
+		}
+	},
+	"pattern": [
+		"#I#",
+		"###",
+		" # "
+	],
+	"result": {
+		"item": "xores:saphire_shield"
+	},
+	"show_notification": true
 }

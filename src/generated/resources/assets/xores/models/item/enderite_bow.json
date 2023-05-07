@@ -1,98 +1,98 @@
 {
-  "parent": "minecraft:item/generated",
-  "display": {
-    "firstperson_lefthand": {
-      "rotation": [
-        0,
-        90,
-        -25
-      ],
-      "scale": [
-        0.68,
-        0.68,
-        0.68
-      ],
-      "translation": [
-        1.13,
-        3.2,
-        1.13
-      ]
-    },
-    "firstperson_righthand": {
-      "rotation": [
-        0,
-        -90,
-        25
-      ],
-      "scale": [
-        0.68,
-        0.68,
-        0.68
-      ],
-      "translation": [
-        1.13,
-        3.2,
-        1.13
-      ]
-    },
-    "thirdperson_lefthand": {
-      "rotation": [
-        -80,
-        -280,
-        40
-      ],
-      "scale": [
-        0.9,
-        0.9,
-        0.9
-      ],
-      "translation": [
-        -1,
-        -2,
-        2.5
-      ]
-    },
-    "thirdperson_righthand": {
-      "rotation": [
-        -80,
-        260,
-        -40
-      ],
-      "scale": [
-        0.9,
-        0.9,
-        0.9
-      ],
-      "translation": [
-        -1,
-        -2,
-        2.5
-      ]
-    }
-  },
-  "overrides": [
-    {
-      "model": "xores:item/enderite_bow_pulling_0",
-      "predicate": {
-        "xores:pulling": 1.0
-      }
-    },
-    {
-      "model": "xores:item/enderite_bow_pulling_1",
-      "predicate": {
-        "xores:pull": 0.65,
-        "xores:pulling": 1.0
-      }
-    },
-    {
-      "model": "xores:item/enderite_bow_pulling_2",
-      "predicate": {
-        "xores:pull": 0.9,
-        "xores:pulling": 1.0
-      }
-    }
-  ],
-  "textures": {
-    "layer0": "xores:item/enderite_bow"
-  }
+	"parent": "minecraft:item/generated",
+	"display": {
+		"firstperson_lefthand": {
+			"rotation": [
+				0,
+				90,
+				-25
+			],
+			"scale": [
+				0.68,
+				0.68,
+				0.68
+			],
+			"translation": [
+				1.13,
+				3.2,
+				1.13
+			]
+		},
+		"firstperson_righthand": {
+			"rotation": [
+				0,
+				-90,
+				25
+			],
+			"scale": [
+				0.68,
+				0.68,
+				0.68
+			],
+			"translation": [
+				1.13,
+				3.2,
+				1.13
+			]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [
+				-80,
+				-280,
+				40
+			],
+			"scale": [
+				0.9,
+				0.9,
+				0.9
+			],
+			"translation": [
+				-1,
+				-2,
+				2.5
+			]
+		},
+		"thirdperson_righthand": {
+			"rotation": [
+				-80,
+				260,
+				-40
+			],
+			"scale": [
+				0.9,
+				0.9,
+				0.9
+			],
+			"translation": [
+				-1,
+				-2,
+				2.5
+			]
+		}
+	},
+	"overrides": [
+		{
+			"model": "xores:item/enderite_bow_pulling_0",
+			"predicate": {
+				"xores:pulling": 1.0
+			}
+		},
+		{
+			"model": "xores:item/enderite_bow_pulling_1",
+			"predicate": {
+				"xores:pull": 0.65,
+				"xores:pulling": 1.0
+			}
+		},
+		{
+			"model": "xores:item/enderite_bow_pulling_2",
+			"predicate": {
+				"xores:pull": 0.9,
+				"xores:pulling": 1.0
+			}
+		}
+	],
+	"textures": {
+		"layer0": "xores:item/enderite_bow"
+	}
 }

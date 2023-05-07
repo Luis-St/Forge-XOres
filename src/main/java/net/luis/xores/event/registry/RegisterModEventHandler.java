@@ -10,6 +10,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import org.jetbrains.annotations.NotNull;
 
 /**
  *
@@ -21,7 +22,7 @@ import net.minecraftforge.fml.common.Mod;
 public class RegisterModEventHandler {
 	
 	@SubscribeEvent
-	public static void register(CreativeModeTabEvent.Register event) {
+	public static void register(CreativeModeTabEvent.@NotNull Register event) {
 		event.registerCreativeModeTab(new ResourceLocation(XOres.MOD_ID, XOres.MOD_ID), builder -> {
 			builder.title(Component.translatable("item_tab.xores"));
 			builder.icon(() -> new ItemStack(XOItems.LIMONITE_PICKAXE.get()));
@@ -133,7 +134,7 @@ public class RegisterModEventHandler {
 	}
 	
 	@SubscribeEvent
-	public static void buildContents(CreativeModeTabEvent.BuildContents event) {
+	public static void buildContents(CreativeModeTabEvent.@NotNull BuildContents event) {
 		if (event.getTab() == CreativeModeTabs.COMBAT) {
 			event.accept(XOItems.GOLDEN_SHIELD.get());
 			event.accept(XOItems.COPPER_SHIELD.get());
@@ -144,7 +145,9 @@ public class RegisterModEventHandler {
 			event.accept(XOItems.NETHERITE_ELYTRA_CHESTPLATE.get());
 			event.accept(XOItems.NETHERITE_BOW.get());
 			event.accept(XOItems.NETHERITE_CROSSBOW.get());
+		} else if (event.getTab() == CreativeModeTabs.INGREDIENTS) {
+			event.accept(XOItems.ENDERITE_UPGRADE_SMITHING_TEMPLATE.get());
+			event.accept(XOItems.NIGHT_UPGRADE_SMITHING_TEMPLATE.get());
 		}
 	}
-	
 }

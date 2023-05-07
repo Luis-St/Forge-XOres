@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-      "model": "xores:block/saphire_block"
-    }
-  }
+	"variants": {
+		"": {
+			"model": "xores:block/saphire_block"
+		}
+	}
 }

@@ -33,5 +33,4 @@ public class LimoniteArmorItem extends ArmorItem implements AbilityArmor {
 			entity.removeEffect(MobEffects.DIG_SPEED);
 		}
 	}
-	
 }

@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "xores:item/limonite_chestplate"
-  }
+	"parent": "minecraft:item/generated",
+	"textures": {
+		"layer0": "xores:item/limonite_chestplate"
+	}
 }

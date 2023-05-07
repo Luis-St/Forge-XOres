@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-      "model": "xores:block/jade_block"
-    }
-  }
+	"variants": {
+		"": {
+			"model": "xores:block/jade_block"
+		}
+	}
 }

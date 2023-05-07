@@ -20,5 +20,4 @@ public class XOBiomeModifiers {
 	public static final RegistryObject<Codec<XOBiomeModifier>> ORE_BIOME_MODIFIER = BIOME_MODIFIERS.register("ore_biome_modifier", () -> {
 		return XOBiomeModifier.CODEC;
 	});
-	
 }

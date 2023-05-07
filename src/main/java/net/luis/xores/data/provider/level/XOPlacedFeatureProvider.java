@@ -9,6 +9,7 @@ import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.*;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -20,7 +21,7 @@ import java.util.List;
 
 public class XOPlacedFeatureProvider {
 	
-	public static void create(BootstapContext<PlacedFeature> context) {
+	public static void create(@NotNull BootstapContext<PlacedFeature> context) {
 		HolderGetter<ConfiguredFeature<?, ?>> registry = context.lookup(Registries.CONFIGURED_FEATURE);
 		context.register(XOOrePlacements.JADE_ORE_UPPER, new PlacedFeature(registry.getOrThrow(XOOreFeatures.JADE_ORE_UPPER), upperOrePlacement(20, 128)));
 		context.register(XOOrePlacements.JADE_ORE_MIDDLE, new PlacedFeature(registry.getOrThrow(XOOreFeatures.JADE_ORE_MIDDLE), uniformOrePlacement(14, -32, 96)));
@@ -33,32 +34,31 @@ public class XOPlacedFeatureProvider {
 		context.register(XOOrePlacements.ENDERITE_ORE_BURIED, new PlacedFeature(registry.getOrThrow(XOOreFeatures.ENDERITE_ORE_BURIED), buriedEndOrePlacement(3)));
 	}
 	
-	private static List<PlacementModifier> orePlacement(PlacementModifier countPlacement, PlacementModifier heightPlacement) {
+	private static @NotNull List<PlacementModifier> orePlacement(PlacementModifier countPlacement, PlacementModifier heightPlacement) {
 		return Lists.newArrayList(countPlacement, InSquarePlacement.spread(), heightPlacement, BiomeFilter.biome());
 	}
 	
-	private static List<PlacementModifier> upperOrePlacement(int count, int minGeneration) {
+	private static @NotNull List<PlacementModifier> upperOrePlacement(int count, int minGeneration) {
 		return orePlacement(CountPlacement.of(count), HeightRangePlacement.triangle(VerticalAnchor.absolute(minGeneration), triangleMaxGeneration(minGeneration)));
 	}
 	
-	private static List<PlacementModifier> buriedOrePlacement(int count, int maxGeneration) {
+	private static @NotNull List<PlacementModifier> buriedOrePlacement(int count, int maxGeneration) {
 		return orePlacement(CountPlacement.of(count), HeightRangePlacement.triangle(triangleMinGeneration(maxGeneration), VerticalAnchor.absolute(maxGeneration)));
 	}
 	
-	private static List<PlacementModifier> buriedEndOrePlacement(int count) {
+	private static @NotNull List<PlacementModifier> buriedEndOrePlacement(int count) {
 		return orePlacement(CountPlacement.of(count), HeightRangePlacement.triangle(VerticalAnchor.absolute(0), VerticalAnchor.absolute(128)));
 	}
 	
-	private static List<PlacementModifier> uniformOrePlacement(int count, int minGeneration, int maxGeneration) {
+	private static @NotNull List<PlacementModifier> uniformOrePlacement(int count, int minGeneration, int maxGeneration) {
 		return orePlacement(CountPlacement.of(count), HeightRangePlacement.uniform(VerticalAnchor.absolute(minGeneration), VerticalAnchor.absolute(maxGeneration)));
 	}
 	
-	private static VerticalAnchor triangleMaxGeneration(int minGeneration) {
+	private static @NotNull VerticalAnchor triangleMaxGeneration(int minGeneration) {
 		return VerticalAnchor.absolute(320 + (320 - minGeneration));
 	}
 	
-	private static VerticalAnchor triangleMinGeneration(int maxGeneration) {
+	private static @NotNull VerticalAnchor triangleMinGeneration(int maxGeneration) {
 		return VerticalAnchor.absolute((64 + maxGeneration) * -1 - 64);
 	}
-	
 }

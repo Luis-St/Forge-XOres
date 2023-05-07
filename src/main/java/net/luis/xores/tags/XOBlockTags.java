@@ -5,6 +5,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
+import org.jetbrains.annotations.NotNull;
 
 /**
  *
@@ -27,8 +28,7 @@ public class XOBlockTags {
 	public static final TagKey<Block> ENDERITE_ORES = bind(new ResourceLocation(XOres.MOD_ID, "ores/enderite_ore"));
 	public static final TagKey<Block> ORE_BLOCKS = bind(new ResourceLocation(XOres.MOD_ID, "ore_blocks"));
 	
-	private static TagKey<Block> bind(ResourceLocation location) {
+	private static @NotNull TagKey<Block> bind(ResourceLocation location) {
 		return BlockTags.create(location);
 	}
-	
 }
