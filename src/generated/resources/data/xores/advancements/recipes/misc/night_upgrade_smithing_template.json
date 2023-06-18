@@ -43,5 +43,6 @@
     "recipes": [
       "xores:night_upgrade_smithing_template"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

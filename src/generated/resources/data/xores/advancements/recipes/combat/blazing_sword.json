@@ -1,47 +1,48 @@
 {
-	"parent": "minecraft:recipes/root",
-	"criteria": {
-		"has_blazing_ingot": {
-			"conditions": {
-				"items": [
-					{
-						"items": [
-							"xores:blazing_ingot"
-						]
-					}
-				]
-			},
-			"trigger": "minecraft:inventory_changed"
-		},
-		"has_blazing_sword": {
-			"conditions": {
-				"items": [
-					{
-						"items": [
-							"xores:blazing_sword"
-						]
-					}
-				]
-			},
-			"trigger": "minecraft:inventory_changed"
-		},
-		"has_the_recipe": {
-			"conditions": {
-				"recipe": "xores:blazing_sword"
-			},
-			"trigger": "minecraft:recipe_unlocked"
-		}
-	},
-	"requirements": [
-		[
-			"has_blazing_ingot",
-			"has_blazing_sword",
-			"has_the_recipe"
-		]
-	],
-	"rewards": {
-		"recipes": [
-			"xores:blazing_sword"
-		]
-	}
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_blazing_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "xores:blazing_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_blazing_sword": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "xores:blazing_sword"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "xores:blazing_sword"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_blazing_ingot",
+      "has_blazing_sword",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "xores:blazing_sword"
+    ]
+  },
+  "sends_telemetry_event": false
 }

@@ -1,10 +1,10 @@
 modLoader = "javafml"
-loaderVersion = "[45,)"
+loaderVersion = "${ForgeLoaderRange}"
 license = "All rights reserved"
 
 [[mods]]
 modId = "xores"
-version = "1.19.4-2.6"
+version = "${ModVersion}"
 displayName = "XOres"
 credits = "Thanks for downloading my Mod"
 authors = "Luis"
@@ -34,13 +34,13 @@ XOres Development Team
 [[dependencies.xores]]
 modId = "forge"
 mandatory = true
-versionRange = "[45,)"
+versionRange = "${ForgeVersionRange}"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.xores]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.19.4,1.20)"
+versionRange = "${MinecraftVersionRange}"
 ordering = "NONE"
 side = "BOTH"

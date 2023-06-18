@@ -5,10 +5,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.ArmorMaterial;
-import net.minecraft.world.item.ElytraItem;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.*;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
@@ -40,7 +37,7 @@ public class ElytraChestplateItem extends ArmorItem {
 	
 	@Override
 	public boolean elytraFlightTick(ItemStack stack, @NotNull LivingEntity entity, int flightTicks) {
-		if (!entity.level.isClientSide && (flightTicks + 1) % ELYTRA_TIME_DAMAGE_VALUES.getOrDefault(stack.getItem(), 20) == 0) {
+		if (!entity.level().isClientSide && (flightTicks + 1) % ELYTRA_TIME_DAMAGE_VALUES.getOrDefault(stack.getItem(), 20) == 0) {
 			stack.hurtAndBreak(1, entity, e -> e.broadcastBreakEvent(EquipmentSlot.CHEST));
 		}
 		return true;

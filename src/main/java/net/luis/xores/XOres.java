@@ -1,5 +1,6 @@
 package net.luis.xores;
 
+import net.luis.xores.world.item.XOCreativeModeTabs;
 import net.luis.xores.world.item.XOItems;
 import net.luis.xores.world.level.biome.XOBiomeModifiers;
 import net.luis.xores.world.level.block.XOBlocks;
@@ -30,6 +31,7 @@ public class XOres {
 		XOBlocks.BLOCKS.register(modEventBus);
 		XOBlocks.ITEMS.register(modEventBus);
 		XOItems.ITEMS.register(modEventBus);
+		XOCreativeModeTabs.TABS.register(modEventBus);
 		XOGlobalLootModifiers.LOOT_MODIFIERS.register(modEventBus);
 		XOOreFeatures.register();
 		XOOrePlacements.register();

@@ -1,73 +1,74 @@
 {
-	"parent": "minecraft:recipes/root",
-	"criteria": {
-		"has_enderite_shovel": {
-			"conditions": {
-				"items": [
-					{
-						"items": [
-							"xores:enderite_shovel"
-						]
-					}
-				]
-			},
-			"trigger": "minecraft:inventory_changed"
-		},
-		"has_night_ingot": {
-			"conditions": {
-				"items": [
-					{
-						"items": [
-							"xores:night_ingot"
-						]
-					}
-				]
-			},
-			"trigger": "minecraft:inventory_changed"
-		},
-		"has_night_shovel": {
-			"conditions": {
-				"items": [
-					{
-						"items": [
-							"xores:night_shovel"
-						]
-					}
-				]
-			},
-			"trigger": "minecraft:inventory_changed"
-		},
-		"has_night_upgrade_smithing_template": {
-			"conditions": {
-				"items": [
-					{
-						"items": [
-							"xores:night_upgrade_smithing_template"
-						]
-					}
-				]
-			},
-			"trigger": "minecraft:inventory_changed"
-		},
-		"has_the_recipe": {
-			"conditions": {
-				"recipe": "xores:night_shovel_smithing"
-			},
-			"trigger": "minecraft:recipe_unlocked"
-		}
-	},
-	"requirements": [
-		[
-			"has_night_upgrade_smithing_template",
-			"has_enderite_shovel",
-			"has_night_ingot",
-			"has_night_shovel",
-			"has_the_recipe"
-		]
-	],
-	"rewards": {
-		"recipes": [
-			"xores:night_shovel_smithing"
-		]
-	}
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_enderite_shovel": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "xores:enderite_shovel"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_night_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "xores:night_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_night_shovel": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "xores:night_shovel"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_night_upgrade_smithing_template": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "xores:night_upgrade_smithing_template"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "xores:night_shovel_smithing"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_night_upgrade_smithing_template",
+      "has_enderite_shovel",
+      "has_night_ingot",
+      "has_night_shovel",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "xores:night_shovel_smithing"
+    ]
+  },
+  "sends_telemetry_event": false
 }

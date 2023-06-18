@@ -1,47 +1,48 @@
 {
-	"parent": "minecraft:recipes/root",
-	"criteria": {
-		"has_polished_rose_quartz": {
-			"conditions": {
-				"items": [
-					{
-						"items": [
-							"xores:polished_rose_quartz"
-						]
-					}
-				]
-			},
-			"trigger": "minecraft:inventory_changed"
-		},
-		"has_rose_quartz": {
-			"conditions": {
-				"items": [
-					{
-						"items": [
-							"xores:rose_quartz"
-						]
-					}
-				]
-			},
-			"trigger": "minecraft:inventory_changed"
-		},
-		"has_the_recipe": {
-			"conditions": {
-				"recipe": "xores:polished_rose_quartz"
-			},
-			"trigger": "minecraft:recipe_unlocked"
-		}
-	},
-	"requirements": [
-		[
-			"has_rose_quartz",
-			"has_polished_rose_quartz",
-			"has_the_recipe"
-		]
-	],
-	"rewards": {
-		"recipes": [
-			"xores:polished_rose_quartz"
-		]
-	}
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_polished_rose_quartz": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "xores:polished_rose_quartz"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_rose_quartz": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "xores:rose_quartz"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "xores:polished_rose_quartz"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_rose_quartz",
+      "has_polished_rose_quartz",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "xores:polished_rose_quartz"
+    ]
+  },
+  "sends_telemetry_event": false
 }

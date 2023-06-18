@@ -3,9 +3,7 @@ package net.luis.xores.world.level.storage.loot;
 import com.mojang.serialization.Codec;
 import net.luis.xores.XOres;
 import net.minecraftforge.common.loot.IGlobalLootModifier;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.minecraftforge.registries.*;
 
 /**
  *

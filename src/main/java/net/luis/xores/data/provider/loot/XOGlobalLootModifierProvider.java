@@ -29,10 +29,10 @@ public class XOGlobalLootModifierProvider extends GlobalLootModifierProvider {
 	@Override
 	protected void start() {
 		this.add("smelting_modifier", new SmeltingModifier(new LootItemCondition[] {
-				MatchTool.toolMatches(ItemPredicate.Builder.item().of(XOItemTags.BLAZING)).build()
+			MatchTool.toolMatches(ItemPredicate.Builder.item().of(XOItemTags.BLAZING)).build()
 		}));
 		this.add("template_modifier", new TemplateModifier(new LootItemCondition[] {
-				LootTableIdCondition.builder(new ResourceLocation("chests/end_city_treasure")).build()
+			LootTableIdCondition.builder(new ResourceLocation("chests/end_city_treasure")).build()
 		}, XOItems.ENDERITE_UPGRADE_SMITHING_TEMPLATE.get(), 0.2));
 	}
 	

@@ -41,11 +41,11 @@ public class XSSmithingTemplateItem extends SmithingTemplateItem {
 	public static enum TemplateType {
 		
 		ENDERITE(Component.translatable(ENDERITE_TEMPLATE + "applies_to").withStyle(ChatFormatting.BLUE), Component.translatable(ENDERITE_TEMPLATE + "ingredients").withStyle(ChatFormatting.BLUE),
-				Component.translatable("upgrade.xores.enderite_upgrade").withStyle(ChatFormatting.GRAY), Component.translatable(ENDERITE_TEMPLATE + "base_slot_description"),
-				Component.translatable(ENDERITE_TEMPLATE + "additions_slot_description"), TemplateType.createIcons(), List.of(EMPTY_SLOT)),
+			Component.translatable("upgrade.xores.enderite_upgrade").withStyle(ChatFormatting.GRAY), Component.translatable(ENDERITE_TEMPLATE + "base_slot_description"),
+			Component.translatable(ENDERITE_TEMPLATE + "additions_slot_description"), TemplateType.createIcons(), List.of(EMPTY_SLOT)),
 		NIGHT(Component.translatable(NIGHT_TEMPLATE + "applies_to").withStyle(ChatFormatting.BLUE), Component.translatable(NIGHT_TEMPLATE + "ingredients").withStyle(ChatFormatting.BLUE),
-				Component.translatable("upgrade.xores.night_upgrade").withStyle(ChatFormatting.GRAY), Component.translatable(NIGHT_TEMPLATE + "base_slot_description"), Component.translatable(NIGHT_TEMPLATE + "additions_slot_description"),
-				TemplateType.createIcons(), List.of(EMPTY_SLOT));
+			Component.translatable("upgrade.xores.night_upgrade").withStyle(ChatFormatting.GRAY), Component.translatable(NIGHT_TEMPLATE + "base_slot_description"), Component.translatable(NIGHT_TEMPLATE + "additions_slot_description"),
+			TemplateType.createIcons(), List.of(EMPTY_SLOT));
 		
 		private final Component appliesTo;
 		private final Component ingredients;

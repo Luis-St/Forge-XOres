@@ -58,7 +58,7 @@ public class XORecipeProvider extends RecipeProvider {
 		//endregion
 		//region Blazing recipes
 		this.groupAndUnlock(ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BLAZING_INGOT.get()).define('#', Items.BLAZE_ROD).define('I', Items.GOLD_BLOCK).pattern("###").pattern("#I#").pattern("###"), this.getGroup(BLAZING_INGOT.get()),
-				Items.BLAZE_ROD, Items.GOLD_BLOCK, BLAZING_INGOT.get()).save(consumer);
+			Items.BLAZE_ROD, Items.GOLD_BLOCK, BLAZING_INGOT.get()).save(consumer);
 		this.swordRecipe(consumer, BLAZING_INGOT.get(), BLAZING_SWORD.get());
 		this.pickaxeRecipe(consumer, BLAZING_INGOT.get(), BLAZING_PICKAXE.get());
 		this.axeRecipe(consumer, BLAZING_INGOT.get(), BLAZING_AXE.get());
@@ -100,9 +100,9 @@ public class XORecipeProvider extends RecipeProvider {
 		//endregion
 		//region Rose quartz recipes
 		this.groupAndUnlock(ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ROSE_QUARTZ.get()).requires(Items.QUARTZ, 4).requires(Items.REDSTONE, 4), this.getGroup(POLISHED_ROSE_QUARTZ.get()), Items.QUARTZ, Items.REDSTONE,
-				ROSE_QUARTZ.get()).save(consumer);
+			ROSE_QUARTZ.get()).save(consumer);
 		this.groupAndUnlock(ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, POLISHED_ROSE_QUARTZ.get()).requires(ROSE_QUARTZ.get(), 9), this.getGroup(POLISHED_ROSE_QUARTZ.get()), ROSE_QUARTZ.get(), POLISHED_ROSE_QUARTZ.get())
-				.save(consumer);
+			.save(consumer);
 		this.swordRecipe(consumer, POLISHED_ROSE_QUARTZ.get(), ROSE_QUARTZ_SWORD.get());
 		this.pickaxeRecipe(consumer, POLISHED_ROSE_QUARTZ.get(), ROSE_QUARTZ_PICKAXE.get());
 		this.axeRecipe(consumer, POLISHED_ROSE_QUARTZ.get(), ROSE_QUARTZ_AXE.get());
@@ -112,7 +112,7 @@ public class XORecipeProvider extends RecipeProvider {
 		//region Enderite recipes
 		this.oreRecipes(consumer, ENDERITE_ORE.get().asItem(), ENDERITE_SCRAP.get(), 400);
 		this.groupAndUnlock(ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ENDERITE_INGOT.get()).requires(ENDERITE_SCRAP.get(), 9), this.getGroup(ENDERITE_INGOT.get()), ENDERITE_SCRAP.get(), ENDERITE_INGOT.get())
-				.save(consumer, new ResourceLocation(XOres.MOD_ID, this.getId(ENDERITE_INGOT.get()) + "_from_scrap"));
+			.save(consumer, new ResourceLocation(XOres.MOD_ID, this.getId(ENDERITE_INGOT.get()) + "_from_scrap"));
 		this.blockRecipes(consumer, ENDERITE_INGOT.get(), ENDERITE_BLOCK.get().asItem());
 		this.smithingRecipe(consumer, ENDERITE_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_SWORD, ENDERITE_INGOT.get(), RecipeCategory.COMBAT, ENDERITE_SWORD.get());
 		this.smithingRecipe(consumer, ENDERITE_UPGRADE_SMITHING_TEMPLATE.get(), NETHERITE_SHIELD.get(), ENDERITE_INGOT.get(), RecipeCategory.COMBAT, ENDERITE_SHIELD.get());
@@ -138,7 +138,7 @@ public class XORecipeProvider extends RecipeProvider {
 		//endregion
 		//region Night recipes
 		this.groupAndUnlock(ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, NIGHT_SCRAP.get()).requires(STEEL_INGOT.get(), 4).requires(Items.NETHERITE_INGOT, 4), this.getGroup(NIGHT_INGOT.get()), STEEL_INGOT.get(),
-				Items.NETHERITE_INGOT, NIGHT_INGOT.get()).save(consumer);
+			Items.NETHERITE_INGOT, NIGHT_INGOT.get()).save(consumer);
 		this.groupAndUnlock(ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, NIGHT_INGOT.get()).requires(NIGHT_SCRAP.get(), 4), this.getGroup(NIGHT_INGOT.get()), NIGHT_SCRAP.get(), NIGHT_INGOT.get()).save(consumer);
 		this.smithingRecipe(consumer, NIGHT_UPGRADE_SMITHING_TEMPLATE.get(), ENDERITE_SWORD.get(), NIGHT_INGOT.get(), RecipeCategory.COMBAT, NIGHT_SWORD.get());
 		this.smithingRecipe(consumer, NIGHT_UPGRADE_SMITHING_TEMPLATE.get(), ENDERITE_SHIELD.get(), NIGHT_INGOT.get(), RecipeCategory.COMBAT, NIGHT_SHIELD.get());
@@ -155,7 +155,7 @@ public class XORecipeProvider extends RecipeProvider {
 		this.smithingRecipe(consumer, NIGHT_UPGRADE_SMITHING_TEMPLATE.get(), ENDERITE_BOOTS.get(), NIGHT_INGOT.get(), RecipeCategory.COMBAT, NIGHT_BOOTS.get());
 		//endregion
 		this.groupAndUnlock(ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, NIGHT_UPGRADE_SMITHING_TEMPLATE.get()).requires(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE).requires(ENDERITE_UPGRADE_SMITHING_TEMPLATE.get()),
-				this.getGroup(NIGHT_UPGRADE_SMITHING_TEMPLATE.get()), Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE, ENDERITE_UPGRADE_SMITHING_TEMPLATE.get()).save(consumer);
+			this.getGroup(NIGHT_UPGRADE_SMITHING_TEMPLATE.get()), Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE, ENDERITE_UPGRADE_SMITHING_TEMPLATE.get()).save(consumer);
 	}
 	
 	//region Recipe helpers
@@ -219,7 +219,7 @@ public class XORecipeProvider extends RecipeProvider {
 	
 	private void smithingRecipe(Consumer<FinishedRecipe> consumer, Item template, Item base, Item addition, RecipeCategory category, Item result) {
 		this.unlock(SmithingTransformRecipeBuilder.smithing(Ingredient.of(template), Ingredient.of(base), Ingredient.of(addition), category, result), template, base, addition, result)
-				.save(consumer, new ResourceLocation(XOres.MOD_ID, this.getId(result) + "_smithing"));
+			.save(consumer, new ResourceLocation(XOres.MOD_ID, this.getId(result) + "_smithing"));
 	}
 	
 	private void smeltingRecipe(Consumer<FinishedRecipe> consumer, Ingredient input, Item result, float experience, int time, String group, String prefix) {
