@@ -7,7 +7,7 @@ plugins {
 }
 
 version = ModVersion
-group = "net.luis.xbackpack"
+group = "net.luis.xores"
 
 base {
 	archivesName = "XOres"
