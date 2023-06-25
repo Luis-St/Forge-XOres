@@ -1,7 +1,7 @@
 {
-	"values": [
-		"minecraft:raw_copper",
-		"minecraft:copper_ingot",
-		"xores:copper_shield"
-	]
+  "values": [
+    "minecraft:raw_copper",
+    "minecraft:copper_ingot",
+    "xores:copper_shield"
+  ]
 }

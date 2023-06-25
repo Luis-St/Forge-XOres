@@ -1,18 +1,18 @@
 {
-	"values": [
-		"minecraft:wooden_axe",
-		"minecraft:stone_axe",
-		"minecraft:golden_axe",
-		"minecraft:iron_axe",
-		"minecraft:diamond_axe",
-		"minecraft:netherite_axe",
-		"xores:jade_axe",
-		"xores:blazing_axe",
-		"xores:saphire_axe",
-		"xores:limonite_axe",
-		"xores:rose_quartz_axe",
-		"xores:enderite_axe",
-		"xores:steel_axe",
-		"xores:night_axe"
-	]
+  "values": [
+    "minecraft:wooden_axe",
+    "minecraft:stone_axe",
+    "minecraft:golden_axe",
+    "minecraft:iron_axe",
+    "minecraft:diamond_axe",
+    "minecraft:netherite_axe",
+    "xores:jade_axe",
+    "xores:blazing_axe",
+    "xores:saphire_axe",
+    "xores:limonite_axe",
+    "xores:rose_quartz_axe",
+    "xores:enderite_axe",
+    "xores:steel_axe",
+    "xores:night_axe"
+  ]
 }

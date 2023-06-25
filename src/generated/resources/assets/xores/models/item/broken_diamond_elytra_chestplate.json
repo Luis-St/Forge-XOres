@@ -1,6 +1,6 @@
 {
-	"parent": "minecraft:item/generated",
-	"textures": {
-		"layer0": "xores:item/broken_diamond_elytra_chestplate"
-	}
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "xores:item/broken_diamond_elytra_chestplate"
+  }
 }

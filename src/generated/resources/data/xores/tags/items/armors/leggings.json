@@ -1,16 +1,16 @@
 {
-	"values": [
-		"minecraft:leather_leggings",
-		"minecraft:chainmail_leggings",
-		"minecraft:iron_leggings",
-		"minecraft:diamond_leggings",
-		"minecraft:golden_leggings",
-		"minecraft:netherite_leggings",
-		"xores:jade_leggings",
-		"xores:blazing_leggings",
-		"xores:saphire_leggings",
-		"xores:limonite_leggings",
-		"xores:enderite_leggings",
-		"xores:night_leggings"
-	]
+  "values": [
+    "minecraft:leather_leggings",
+    "minecraft:chainmail_leggings",
+    "minecraft:iron_leggings",
+    "minecraft:diamond_leggings",
+    "minecraft:golden_leggings",
+    "minecraft:netherite_leggings",
+    "xores:jade_leggings",
+    "xores:blazing_leggings",
+    "xores:saphire_leggings",
+    "xores:limonite_leggings",
+    "xores:enderite_leggings",
+    "xores:night_leggings"
+  ]
 }

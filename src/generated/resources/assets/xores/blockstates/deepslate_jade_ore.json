@@ -1,7 +1,7 @@
 {
-	"variants": {
-		"": {
-			"model": "xores:block/deepslate_jade_ore"
-		}
-	}
+  "variants": {
+    "": {
+      "model": "xores:block/deepslate_jade_ore"
+    }
+  }
 }

@@ -1,15 +1,15 @@
 {
-	"type": "minecraft:smithing_transform",
-	"addition": {
-		"item": "minecraft:netherite_ingot"
-	},
-	"base": {
-		"item": "xores:diamond_shield"
-	},
-	"result": {
-		"item": "xores:netherite_shield"
-	},
-	"template": {
-		"item": "minecraft:netherite_upgrade_smithing_template"
-	}
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:netherite_ingot"
+  },
+  "base": {
+    "item": "xores:diamond_shield"
+  },
+  "result": {
+    "item": "xores:netherite_shield"
+  },
+  "template": {
+    "item": "minecraft:netherite_upgrade_smithing_template"
+  }
 }

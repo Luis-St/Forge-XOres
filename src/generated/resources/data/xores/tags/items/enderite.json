@@ -1,19 +1,19 @@
 {
-	"values": [
-		"xores:enderite_scrap",
-		"xores:enderite_ingot",
-		"xores:enderite_sword",
-		"xores:enderite_pickaxe",
-		"xores:enderite_axe",
-		"xores:enderite_shovel",
-		"xores:enderite_hoe",
-		"xores:enderite_shield",
-		"xores:enderite_bow",
-		"xores:enderite_crossbow",
-		"xores:enderite_helmet",
-		"xores:enderite_chestplate",
-		"xores:enderite_elytra_chestplate",
-		"xores:enderite_leggings",
-		"xores:enderite_boots"
-	]
+  "values": [
+    "xores:enderite_scrap",
+    "xores:enderite_ingot",
+    "xores:enderite_sword",
+    "xores:enderite_pickaxe",
+    "xores:enderite_axe",
+    "xores:enderite_shovel",
+    "xores:enderite_hoe",
+    "xores:enderite_shield",
+    "xores:enderite_bow",
+    "xores:enderite_crossbow",
+    "xores:enderite_helmet",
+    "xores:enderite_chestplate",
+    "xores:enderite_elytra_chestplate",
+    "xores:enderite_leggings",
+    "xores:enderite_boots"
+  ]
 }

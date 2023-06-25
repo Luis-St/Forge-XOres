@@ -1,19 +1,19 @@
 {
-	"type": "minecraft:crafting_shaped",
-	"category": "equipment",
-	"group": "jade",
-	"key": {
-		"#": {
-			"item": "xores:jade_ingot"
-		}
-	},
-	"pattern": [
-		"# #",
-		"###",
-		"###"
-	],
-	"result": {
-		"item": "xores:jade_chestplate"
-	},
-	"show_notification": true
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "jade",
+  "key": {
+    "#": {
+      "item": "xores:jade_ingot"
+    }
+  },
+  "pattern": [
+    "# #",
+    "###",
+    "###"
+  ],
+  "result": {
+    "item": "xores:jade_chestplate"
+  },
+  "show_notification": true
 }

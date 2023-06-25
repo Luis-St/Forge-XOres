@@ -1,18 +1,18 @@
 {
-	"values": [
-		"minecraft:wooden_hoe",
-		"minecraft:stone_hoe",
-		"minecraft:golden_hoe",
-		"minecraft:iron_hoe",
-		"minecraft:diamond_hoe",
-		"minecraft:netherite_hoe",
-		"xores:jade_hoe",
-		"xores:blazing_hoe",
-		"xores:saphire_hoe",
-		"xores:limonite_hoe",
-		"xores:rose_quartz_hoe",
-		"xores:enderite_hoe",
-		"xores:steel_hoe",
-		"xores:night_hoe"
-	]
+  "values": [
+    "minecraft:wooden_hoe",
+    "minecraft:stone_hoe",
+    "minecraft:golden_hoe",
+    "minecraft:iron_hoe",
+    "minecraft:diamond_hoe",
+    "minecraft:netherite_hoe",
+    "xores:jade_hoe",
+    "xores:blazing_hoe",
+    "xores:saphire_hoe",
+    "xores:limonite_hoe",
+    "xores:rose_quartz_hoe",
+    "xores:enderite_hoe",
+    "xores:steel_hoe",
+    "xores:night_hoe"
+  ]
 }

@@ -1,22 +1,22 @@
 {
-	"type": "minecraft:crafting_shaped",
-	"category": "misc",
-	"group": "blazing",
-	"key": {
-		"#": {
-			"item": "minecraft:blaze_rod"
-		},
-		"I": {
-			"item": "minecraft:gold_block"
-		}
-	},
-	"pattern": [
-		"###",
-		"#I#",
-		"###"
-	],
-	"result": {
-		"item": "xores:blazing_ingot"
-	},
-	"show_notification": true
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "blazing",
+  "key": {
+    "#": {
+      "item": "minecraft:blaze_rod"
+    },
+    "I": {
+      "item": "minecraft:gold_block"
+    }
+  },
+  "pattern": [
+    "###",
+    "#I#",
+    "###"
+  ],
+  "result": {
+    "item": "xores:blazing_ingot"
+  },
+  "show_notification": true
 }

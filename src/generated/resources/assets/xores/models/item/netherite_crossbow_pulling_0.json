@@ -1,6 +1,6 @@
 {
-	"parent": "xores:item/netherite_crossbow",
-	"textures": {
-		"layer0": "xores:item/netherite_crossbow_pulling_0"
-	}
+  "parent": "xores:item/netherite_crossbow",
+  "textures": {
+    "layer0": "xores:item/netherite_crossbow_pulling_0"
+  }
 }

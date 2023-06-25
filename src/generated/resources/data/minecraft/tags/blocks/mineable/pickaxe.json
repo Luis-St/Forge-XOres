@@ -1,15 +1,15 @@
 {
-	"values": [
-		"xores:jade_ore",
-		"xores:deepslate_jade_ore",
-		"xores:jade_block",
-		"xores:saphire_ore",
-		"xores:deepslate_saphire_ore",
-		"xores:saphire_block",
-		"xores:limonite_ore",
-		"xores:deepslate_limonite_ore",
-		"xores:limonite_block",
-		"xores:enderite_ore",
-		"xores:enderite_block"
-	]
+  "values": [
+    "xores:jade_ore",
+    "xores:deepslate_jade_ore",
+    "xores:jade_block",
+    "xores:saphire_ore",
+    "xores:deepslate_saphire_ore",
+    "xores:saphire_block",
+    "xores:limonite_ore",
+    "xores:deepslate_limonite_ore",
+    "xores:limonite_block",
+    "xores:enderite_ore",
+    "xores:enderite_block"
+  ]
 }

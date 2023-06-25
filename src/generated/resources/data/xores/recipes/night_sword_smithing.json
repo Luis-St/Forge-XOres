@@ -1,15 +1,15 @@
 {
-	"type": "minecraft:smithing_transform",
-	"addition": {
-		"item": "xores:night_ingot"
-	},
-	"base": {
-		"item": "xores:enderite_sword"
-	},
-	"result": {
-		"item": "xores:night_sword"
-	},
-	"template": {
-		"item": "xores:night_upgrade_smithing_template"
-	}
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "xores:night_ingot"
+  },
+  "base": {
+    "item": "xores:enderite_sword"
+  },
+  "result": {
+    "item": "xores:night_sword"
+  },
+  "template": {
+    "item": "xores:night_upgrade_smithing_template"
+  }
 }

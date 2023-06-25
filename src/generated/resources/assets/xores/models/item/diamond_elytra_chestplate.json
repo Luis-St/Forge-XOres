@@ -1,14 +1,14 @@
 {
-	"parent": "minecraft:item/generated",
-	"overrides": [
-		{
-			"model": "xores:item/broken_diamond_elytra_chestplate",
-			"predicate": {
-				"xores:broken": 1.0
-			}
-		}
-	],
-	"textures": {
-		"layer0": "xores:item/diamond_elytra_chestplate"
-	}
+  "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "model": "xores:item/broken_diamond_elytra_chestplate",
+      "predicate": {
+        "xores:broken": 1.0
+      }
+    }
+  ],
+  "textures": {
+    "layer0": "xores:item/diamond_elytra_chestplate"
+  }
 }

@@ -1,7 +1,7 @@
 {
-	"variants": {
-		"": {
-			"model": "xores:block/limonite_ore"
-		}
-	}
+  "variants": {
+    "": {
+      "model": "xores:block/limonite_ore"
+    }
+  }
 }

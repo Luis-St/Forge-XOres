@@ -1,6 +1,6 @@
 {
-	"parent": "minecraft:item/generated",
-	"textures": {
-		"layer0": "xores:item/polished_rose_quartz"
-	}
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "xores:item/polished_rose_quartz"
+  }
 }

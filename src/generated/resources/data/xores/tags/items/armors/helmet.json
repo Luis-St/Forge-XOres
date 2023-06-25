@@ -1,17 +1,17 @@
 {
-	"values": [
-		"minecraft:turtle_helmet",
-		"minecraft:leather_helmet",
-		"minecraft:chainmail_helmet",
-		"minecraft:iron_helmet",
-		"minecraft:diamond_helmet",
-		"minecraft:golden_helmet",
-		"minecraft:netherite_helmet",
-		"xores:jade_helmet",
-		"xores:blazing_helmet",
-		"xores:saphire_helmet",
-		"xores:limonite_helmet",
-		"xores:enderite_helmet",
-		"xores:night_helmet"
-	]
+  "values": [
+    "minecraft:turtle_helmet",
+    "minecraft:leather_helmet",
+    "minecraft:chainmail_helmet",
+    "minecraft:iron_helmet",
+    "minecraft:diamond_helmet",
+    "minecraft:golden_helmet",
+    "minecraft:netherite_helmet",
+    "xores:jade_helmet",
+    "xores:blazing_helmet",
+    "xores:saphire_helmet",
+    "xores:limonite_helmet",
+    "xores:enderite_helmet",
+    "xores:night_helmet"
+  ]
 }

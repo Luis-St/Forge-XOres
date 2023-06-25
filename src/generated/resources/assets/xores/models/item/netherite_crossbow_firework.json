@@ -1,6 +1,6 @@
 {
-	"parent": "xores:item/netherite_crossbow",
-	"textures": {
-		"layer0": "xores:item/netherite_crossbow_firework"
-	}
+  "parent": "xores:item/netherite_crossbow",
+  "textures": {
+    "layer0": "xores:item/netherite_crossbow_firework"
+  }
 }

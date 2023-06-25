@@ -1,12 +1,12 @@
 {
-	"values": [
-		"xores:golden_shield",
-		"xores:copper_shield",
-		"xores:iron_shield",
-		"xores:diamond_shield",
-		"xores:netherite_shield",
-		"xores:saphire_shield",
-		"xores:enderite_shield",
-		"xores:night_shield"
-	]
+  "values": [
+    "xores:golden_shield",
+    "xores:copper_shield",
+    "xores:iron_shield",
+    "xores:diamond_shield",
+    "xores:netherite_shield",
+    "xores:saphire_shield",
+    "xores:enderite_shield",
+    "xores:night_shield"
+  ]
 }

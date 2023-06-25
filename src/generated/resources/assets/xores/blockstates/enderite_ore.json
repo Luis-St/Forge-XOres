@@ -1,7 +1,7 @@
 {
-	"variants": {
-		"": {
-			"model": "xores:block/enderite_ore"
-		}
-	}
+  "variants": {
+    "": {
+      "model": "xores:block/enderite_ore"
+    }
+  }
 }

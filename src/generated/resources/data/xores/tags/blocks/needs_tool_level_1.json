@@ -1,8 +1,8 @@
 {
-	"values": [
-		"#minecraft:needs_stone_tool",
-		"xores:jade_ore",
-		"xores:deepslate_jade_ore",
-		"xores:jade_block"
-	]
+  "values": [
+    "#minecraft:needs_stone_tool",
+    "xores:jade_ore",
+    "xores:deepslate_jade_ore",
+    "xores:jade_block"
+  ]
 }

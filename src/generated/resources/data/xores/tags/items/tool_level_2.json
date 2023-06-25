@@ -1,19 +1,19 @@
 {
-	"values": [
-		"minecraft:iron_sword",
-		"minecraft:iron_shovel",
-		"minecraft:iron_pickaxe",
-		"minecraft:iron_axe",
-		"minecraft:iron_hoe",
-		"xores:jade_sword",
-		"xores:jade_pickaxe",
-		"xores:jade_axe",
-		"xores:jade_shovel",
-		"xores:jade_hoe",
-		"xores:blazing_sword",
-		"xores:blazing_pickaxe",
-		"xores:blazing_axe",
-		"xores:blazing_shovel",
-		"xores:blazing_hoe"
-	]
+  "values": [
+    "minecraft:iron_sword",
+    "minecraft:iron_shovel",
+    "minecraft:iron_pickaxe",
+    "minecraft:iron_axe",
+    "minecraft:iron_hoe",
+    "xores:jade_sword",
+    "xores:jade_pickaxe",
+    "xores:jade_axe",
+    "xores:jade_shovel",
+    "xores:jade_hoe",
+    "xores:blazing_sword",
+    "xores:blazing_pickaxe",
+    "xores:blazing_axe",
+    "xores:blazing_shovel",
+    "xores:blazing_hoe"
+  ]
 }

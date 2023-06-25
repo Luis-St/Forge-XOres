@@ -1,22 +1,22 @@
 {
-	"type": "minecraft:crafting_shaped",
-	"category": "equipment",
-	"group": "iron",
-	"key": {
-		"#": {
-			"item": "minecraft:iron_ingot"
-		},
-		"I": {
-			"item": "minecraft:iron_ingot"
-		}
-	},
-	"pattern": [
-		"#I#",
-		"###",
-		" # "
-	],
-	"result": {
-		"item": "xores:iron_shield"
-	},
-	"show_notification": true
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "iron",
+  "key": {
+    "#": {
+      "item": "minecraft:iron_ingot"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    "#I#",
+    "###",
+    " # "
+  ],
+  "result": {
+    "item": "xores:iron_shield"
+  },
+  "show_notification": true
 }

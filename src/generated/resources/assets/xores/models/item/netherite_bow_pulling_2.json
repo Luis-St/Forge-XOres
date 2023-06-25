@@ -1,6 +1,6 @@
 {
-	"parent": "xores:item/netherite_bow",
-	"textures": {
-		"layer0": "xores:item/netherite_bow_pulling_2"
-	}
+  "parent": "xores:item/netherite_bow",
+  "textures": {
+    "layer0": "xores:item/netherite_bow_pulling_2"
+  }
 }

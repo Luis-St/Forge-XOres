@@ -1,11 +1,11 @@
 {
-	"type": "minecraft:blasting",
-	"category": "misc",
-	"cookingtime": 100,
-	"experience": 0.75,
-	"group": "saphire",
-	"ingredient": {
-		"item": "xores:saphire_ore"
-	},
-	"result": "xores:saphire_ingot"
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.75,
+  "group": "saphire",
+  "ingredient": {
+    "item": "xores:saphire_ore"
+  },
+  "result": "xores:saphire_ingot"
 }
