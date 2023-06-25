@@ -6,9 +6,9 @@ import net.luis.xores.world.item.XOItems;
 import net.minecraft.client.renderer.block.model.BlockModel.GuiLight;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.PackType;
 import net.minecraft.world.item.*;
-import net.minecraftforge.client.model.generators.ItemModelProvider;
-import net.minecraftforge.client.model.generators.ModelFile;
+import net.minecraftforge.client.model.generators.*;
 import net.minecraftforge.client.model.generators.ModelFile.ExistingModelFile;
 import net.minecraftforge.client.model.generators.ModelFile.UncheckedModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -26,12 +26,19 @@ import java.util.Objects;
 
 public class XOItemModelProvider extends ItemModelProvider {
 	
+	private static final String[] TRIMS = new String[] {"quartz", "iron", "netherite", "redstone", "copper", "gold", "emerald", "diamond", "lapis", "amethyst"};
+	
 	public XOItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
 		super(generator.getPackOutput(), XOres.MOD_ID, existingFileHelper);
 	}
 	
 	@Override
 	protected void registerModels() {
+		for (String trim : TRIMS) {
+			for (ArmorItem.Type type : ArmorItem.Type.values()) {
+				this.existingFileHelper.trackGenerated(new ResourceLocation("trims/items/" + type.getName() + "_trim_" + trim), PackType.CLIENT_RESOURCES, ".png", "textures");
+			}
+		}
 		for (Item item : XOItems.ITEMS.getEntries().stream().map(RegistryObject::get).toList()) {
 			if (item instanceof TieredItem tieredItem) {
 				this.handheldItem(tieredItem);
@@ -43,6 +50,8 @@ public class XOItemModelProvider extends ItemModelProvider {
 				this.shieldItem(shieldItem);
 			} else if (item instanceof ElytraChestplateItem elytraChestplateItem) {
 				this.elytraChestplateItem(elytraChestplateItem);
+			} else if (item instanceof ArmorItem armorItem) {
+				this.armorItem(armorItem);
 			} else {
 				this.generatedItem(item);
 			}
@@ -115,6 +124,18 @@ public class XOItemModelProvider extends ItemModelProvider {
 			.rotation(45.0F, 135.0F, 0.0F).translation(3.51F, 11.0F, -2.0F).scale(1.0F).end().transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND).rotation(45.0F, 135.0F, 0.0F).translation(13.51F, 3.0F, 5.0F).scale(1.0F).end()
 			.transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND).rotation(0.0F, 180.0F, -5.0F).translation(-15.0F, 5.0F, -11.0F).scale(1.25F).end().transform(ItemDisplayContext.FIRST_PERSON_LEFT_HAND).rotation(0.0F, 180.0F, -5.0F)
 			.translation(5.0F, 5.0F, -11.0F).scale(1.25F).end().transform(ItemDisplayContext.GUI).rotation(15.0F, -25.0F, -5.0F).translation(2.0F, 3.0F, 0.0F).scale(0.65F).end().end();
+	}
+	
+	private void armorItem(ArmorItem item) {
+		ResourceLocation location = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item));
+		ModelFile model = new ExistingModelFile(new ResourceLocation("item/generated"), this.existingFileHelper);
+		ItemModelBuilder builder = this.getBuilder(location.getPath()).parent(model).texture("layer0", new ResourceLocation(XOres.MOD_ID, "item/" + location.getPath()));
+		for (int i = 0; i < TRIMS.length; i++) {
+			builder.override().predicate(this.mcLoc("trim_type"), (i + 1.0F) / 10.0F).model(this.uncheckedModel(location.getPath() + "_" + TRIMS[i] + "_trim")).end();
+			this.getBuilder(location.getPath() + "_" + TRIMS[i] + "_trim").parent(model)
+				.texture("layer0", new ResourceLocation(XOres.MOD_ID, "item/" + location.getPath()))
+				.texture("layer1", new ResourceLocation("trims/items/" + item.getType().getName() + "_trim_" + TRIMS[i]));
+		}
 	}
 	//endregion
 	

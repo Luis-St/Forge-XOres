@@ -3,8 +3,7 @@ package net.luis.xores.data.provider.tag;
 import net.luis.xores.XOres;
 import net.luis.xores.tags.XOBlockTags;
 import net.luis.xores.tags.XOItemTags;
-import net.luis.xores.world.item.ElytraChestplateItem;
-import net.luis.xores.world.item.XOShieldItem;
+import net.luis.xores.world.item.*;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -15,6 +14,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -149,6 +149,9 @@ public class XOItemTagsProvider extends ItemTagsProvider {
 				}
 			}
 		});
+		
+		IntrinsicTagAppender<Item> trimmable = this.tag(ItemTags.TRIMMABLE_ARMOR);
+		ITEMS.getEntries().stream().map(RegistryObject::get).filter(item -> item instanceof ArmorItem && !(item instanceof ElytraChestplateItem)).forEach(trimmable::add);
 	}
 	
 	@Override
