@@ -33,7 +33,7 @@ public class XOGlobalLootModifierProvider extends GlobalLootModifierProvider {
 		}));
 		this.add("template_modifier", new TemplateModifier(new LootItemCondition[] {
 			LootTableIdCondition.builder(new ResourceLocation("chests/end_city_treasure")).build()
-		}, XOItems.ENDERITE_UPGRADE_SMITHING_TEMPLATE.get(), 0.2));
+		}, XOItems.ENDERITE_UPGRADE_SMITHING_TEMPLATE.get(), 0.1));
 	}
 	
 	@Override
