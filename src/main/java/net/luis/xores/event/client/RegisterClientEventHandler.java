@@ -22,8 +22,6 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Objects;
-
 /**
  *
  * @author Luis-st

@@ -96,15 +96,15 @@ sourceSets.main.resources {srcDir "src/generated/resources"}
 
 dependencies {
 	minecraft "net.minecraftforge:forge:${MinecraftVersion}-${ForgeVersion}"
-
+	
 	annotationProcessor "org.spongepowered:mixin:0.8.5:processor"
 }
 
 def resourceTargets = ["META-INF/mods.toml", "pack.mcmeta"]
 def replaceProperties = [
-		MinecraftVersion: MinecraftVersion, MinecraftVersionRange: MinecraftVersionRange,
-		ForgeVersion    : ForgeVersion, ForgeVersionRange: ForgeVersionRange,
-		ForgeLoaderRange: ForgeLoaderRange, ModVersion: ModVersion
+	MinecraftVersion: MinecraftVersion, MinecraftVersionRange: MinecraftVersionRange,
+	ForgeVersion    : ForgeVersion, ForgeVersionRange: ForgeVersionRange,
+	ForgeLoaderRange: ForgeLoaderRange, ModVersion: ModVersion
 ]
 processResources {
 	inputs.properties replaceProperties
@@ -118,10 +118,10 @@ processResources {
 jar {
 	manifest {
 		attributes([
-				"Specification-Title"     : "XOres",
-				"Specification-Version"   : "${ModVersion}",
-				"Implementation-Title"    : project.name,
-				"Implementation-Timestamp": new Date().format("yyyy-MM-dd HH:mm:ssZ")
+			"Specification-Title"     : "XOres",
+			"Specification-Version"   : "${ModVersion}",
+			"Implementation-Title"    : project.name,
+			"Implementation-Timestamp": new Date().format("yyyy-MM-dd HH:mm:ssZ")
 		])
 	}
 }

@@ -8,8 +8,6 @@ import net.minecraftforge.client.gui.overlay.ForgeGui;
 import net.minecraftforge.client.gui.overlay.IGuiOverlay;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Objects;
-
 /**
  *
  * @author Luis-st

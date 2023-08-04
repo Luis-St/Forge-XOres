@@ -1,6 +1,8 @@
 package net.luis.xores.world.item;
 
+import com.google.common.collect.Maps;
 import net.luis.xores.XOres;
+import net.minecraft.Util;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -8,6 +10,7 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.Ingredient;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Map;
 import java.util.function.Supplier;
 
 /**
@@ -18,32 +21,60 @@ import java.util.function.Supplier;
 
 public enum XOArmorMaterials implements ArmorMaterial {
 	
-	JADE("jade", 15, new int[] {2, 5, 6, 2}, 10, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0.0F, () -> {
-		return Ingredient.of(XOItems.JADE_INGOT.get());
-	}), BLAZING("blazing", 29, new int[] {3, 6, 7, 3}, 9, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0.0F, () -> {
-		return Ingredient.of(XOItems.BLAZING_INGOT.get());
-	}), SAPHIRE("saphire", 35, new int[] {3, 6, 8, 3}, 12, SoundEvents.ARMOR_EQUIP_DIAMOND, 2.0F, 0.1F, () -> {
-		return Ingredient.of(XOItems.SAPHIRE_INGOT.get());
-	}), LIMONITE("limonite", 44, new int[] {4, 5, 9, 4}, 15, SoundEvents.ARMOR_EQUIP_IRON, 3.0F, 0.2F, () -> {
-		return Ingredient.of(XOItems.LIMONITE_INGOT.get());
-	}), ENDERITE("enderite", 51, new int[] {6, 8, 12, 6}, 26, SoundEvents.ARMOR_EQUIP_NETHERITE, 5.0F, 0.3F, () -> {
-		return Ingredient.of(Items.BARRIER);
-	}), NIGHT("night", 59, new int[] {7, 11, 15, 7}, 35, SoundEvents.ARMOR_EQUIP_NETHERITE, 8.0F, 0.4F, () -> {
-		return Ingredient.of(Items.BARRIER);
-	});
+	JADE("jade", 15, Util.make(Maps.newEnumMap(ArmorItem.Type.class), map -> {
+		map.put(ArmorItem.Type.HELMET, 2);
+		map.put(ArmorItem.Type.CHESTPLATE, 6);
+		map.put(ArmorItem.Type.LEGGINGS, 5);
+		map.put(ArmorItem.Type.BOOTS, 2);
+	}), 10, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0.0F, () -> Ingredient.of(XOItems.JADE_INGOT.get())),
+	BLAZING("blazing", 29, Util.make(Maps.newEnumMap(ArmorItem.Type.class), map -> {
+		map.put(ArmorItem.Type.HELMET, 3);
+		map.put(ArmorItem.Type.CHESTPLATE, 7);
+		map.put(ArmorItem.Type.LEGGINGS, 6);
+		map.put(ArmorItem.Type.BOOTS, 3);
+	}), 9, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0.0F, () -> Ingredient.of(XOItems.BLAZING_INGOT.get())),
+	SAPHIRE("saphire", 35, Util.make(Maps.newEnumMap(ArmorItem.Type.class), map -> {
+		map.put(ArmorItem.Type.HELMET, 3);
+		map.put(ArmorItem.Type.CHESTPLATE, 8);
+		map.put(ArmorItem.Type.LEGGINGS, 6);
+		map.put(ArmorItem.Type.BOOTS, 3);
+	}), 12, SoundEvents.ARMOR_EQUIP_DIAMOND, 2.0F, 0.1F, () -> Ingredient.of(XOItems.SAPHIRE_INGOT.get())),
+	LIMONITE("limonite", 44, Util.make(Maps.newEnumMap(ArmorItem.Type.class), map -> {
+		map.put(ArmorItem.Type.HELMET, 4);
+		map.put(ArmorItem.Type.CHESTPLATE, 9);
+		map.put(ArmorItem.Type.LEGGINGS, 5);
+		map.put(ArmorItem.Type.BOOTS, 4);
+	}), 15, SoundEvents.ARMOR_EQUIP_IRON, 3.0F, 0.2F, () -> Ingredient.of(XOItems.LIMONITE_INGOT.get())),
+	ENDERITE("enderite", 51, Util.make(Maps.newEnumMap(ArmorItem.Type.class), map -> {
+		map.put(ArmorItem.Type.HELMET, 6);
+		map.put(ArmorItem.Type.CHESTPLATE, 12);
+		map.put(ArmorItem.Type.LEGGINGS, 8);
+		map.put(ArmorItem.Type.BOOTS, 3);
+	}), 26, SoundEvents.ARMOR_EQUIP_NETHERITE, 5.0F, 0.3F, () -> Ingredient.of(Items.BARRIER)),
+	NIGHT("night", 59, Util.make(Maps.newEnumMap(ArmorItem.Type.class), map -> {
+		map.put(ArmorItem.Type.HELMET, 7);
+		map.put(ArmorItem.Type.CHESTPLATE, 15);
+		map.put(ArmorItem.Type.LEGGINGS, 11);
+		map.put(ArmorItem.Type.BOOTS, 7);
+	}), 35, SoundEvents.ARMOR_EQUIP_NETHERITE, 8.0F, 0.4F, () -> Ingredient.of(Items.BARRIER));
 	
-	private static final int[] DURABILITY_PER_SLOT = new int[] {13, 15, 16, 11};
+	private static final Map<ArmorItem.Type, Integer> DURABILITY_PER_TYPE = Util.make(Maps.newEnumMap(ArmorItem.Type.class), map -> {
+		map.put(ArmorItem.Type.HELMET, 11);
+		map.put(ArmorItem.Type.CHESTPLATE, 16);
+		map.put(ArmorItem.Type.LEGGINGS, 15);
+		map.put(ArmorItem.Type.BOOTS, 13);
+	});
 	
 	private final ResourceLocation name;
 	private final int durabilityMultiplier;
-	private final int[] slotDefenses;
+	private final Map<ArmorItem.Type, Integer> slotDefenses;
 	private final int enchantmentValue;
 	private final SoundEvent sound;
 	private final float toughness;
 	private final float knockbackResistance;
 	private final Supplier<Ingredient> repairIngredient;
 	
-	XOArmorMaterials(String name, int durabilityMultiplier, int[] slotDefenses, int enchantmentValue, SoundEvent sound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredient) {
+	XOArmorMaterials(String name, int durabilityMultiplier, Map<ArmorItem.Type, Integer> slotDefenses, int enchantmentValue, SoundEvent sound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredient) {
 		this.name = new ResourceLocation(XOres.MOD_ID, name);
 		this.durabilityMultiplier = durabilityMultiplier;
 		this.slotDefenses = slotDefenses;
@@ -61,12 +92,12 @@ public enum XOArmorMaterials implements ArmorMaterial {
 	
 	@Override
 	public int getDurabilityForType(@NotNull ArmorItem.Type type) {
-		return DURABILITY_PER_SLOT[3 - type.ordinal()] * this.durabilityMultiplier;
+		return DURABILITY_PER_TYPE.get(type) * this.durabilityMultiplier;
 	}
 	
 	@Override
 	public int getDefenseForType(@NotNull ArmorItem.Type type) {
-		return this.slotDefenses[3 - type.ordinal()];
+		return this.slotDefenses.get(type);
 	}
 	
 	@Override
