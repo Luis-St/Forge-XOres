@@ -41,9 +41,14 @@ public class RegisterClientEventHandler {
 	@SubscribeEvent
 	public static void addLayers(EntityRenderersEvent.@NotNull AddLayers event) {
 		for (String skin : event.getSkins()) {
-			addLayers((PlayerRenderer) Objects.requireNonNull(event.getSkin(skin)), event.getEntityModels());
+			if (event.getSkin(skin) instanceof PlayerRenderer renderer) {
+				addLayers(renderer, event.getEntityModels());
+			}
+			
 		}
-		addLayers((ArmorStandRenderer) Objects.requireNonNull(event.getRenderer(EntityType.ARMOR_STAND)), event.getEntityModels());
+		if (event.getRenderer(EntityType.ARMOR_STAND) instanceof ArmorStandRenderer renderer) {
+			addLayers(renderer, event.getEntityModels());
+		}
 	}
 	
 	private static <T extends LivingEntity, M extends EntityModel<T>> void addLayers(@NotNull LivingEntityRenderer<T, M> renderer, EntityModelSet modelSet) {

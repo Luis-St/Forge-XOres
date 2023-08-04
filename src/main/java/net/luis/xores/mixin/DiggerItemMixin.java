@@ -19,7 +19,6 @@ public abstract class DiggerItemMixin extends TieredItem {
 	
 	private DiggerItemMixin(Tier tier, Properties properties) {
 		super(tier, properties);
-		throw new UnsupportedOperationException();
 	}
 	
 	@Inject(method = "hurtEnemy", at = @At("HEAD"), cancellable = true)

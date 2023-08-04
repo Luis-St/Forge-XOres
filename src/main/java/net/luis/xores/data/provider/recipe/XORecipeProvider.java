@@ -25,7 +25,7 @@ import static net.luis.xores.world.level.block.XOBlocks.*;
 
 public class XORecipeProvider extends RecipeProvider {
 	
-	public XORecipeProvider(DataGenerator generator) {
+	public XORecipeProvider(@NotNull DataGenerator generator) {
 		super(generator.getPackOutput());
 	}
 	
@@ -232,7 +232,7 @@ public class XORecipeProvider extends RecipeProvider {
 	//endregion
 	
 	//region Group and unlock helpers
-	private String getId(ItemLike item) {
+	private @NotNull String getId(@NotNull ItemLike item) {
 		return Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item.asItem())).getPath();
 	}
 	
@@ -248,21 +248,21 @@ public class XORecipeProvider extends RecipeProvider {
 		return pathParts[0];
 	}
 	
-	private RecipeBuilder groupAndUnlock(RecipeBuilder builder, String group, ItemLike... unlockCriterions) {
+	private @NotNull RecipeBuilder groupAndUnlock(RecipeBuilder builder, String group, ItemLike @NotNull ... unlockCriterions) {
 		for (ItemLike unlockCriterion : unlockCriterions) {
 			builder.unlockedBy("has_" + this.getId(unlockCriterion), has(unlockCriterion));
 		}
 		return builder.group(group);
 	}
 	
-	private SmithingTransformRecipeBuilder unlock(SmithingTransformRecipeBuilder builder, ItemLike... unlockCriterions) {
+	private @NotNull SmithingTransformRecipeBuilder unlock(SmithingTransformRecipeBuilder builder, ItemLike @NotNull ... unlockCriterions) {
 		for (ItemLike unlockCriterion : unlockCriterions) {
 			builder.unlocks("has_" + this.getId(unlockCriterion), has(unlockCriterion));
 		}
 		return builder;
 	}
 	
-	private RecipeBuilder groupAndUnlock(RecipeBuilder builder, String group, Ingredient ingredientCriterion, Item itemCriterion) {
+	private @NotNull RecipeBuilder groupAndUnlock(RecipeBuilder builder, String group, @NotNull Ingredient ingredientCriterion, Item itemCriterion) {
 		for (Ingredient.Value value : ingredientCriterion.values) {
 			if (value instanceof Ingredient.ItemValue itemValue) {
 				builder.unlockedBy("has_" + this.getId(itemValue.item.getItem()), has(itemValue.item.getItem()));

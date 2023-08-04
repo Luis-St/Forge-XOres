@@ -26,8 +26,8 @@ public abstract class SwordItemMixin {
 	public void mineBlock(ItemStack stack, Level level, @NotNull BlockState state, BlockPos pos, LivingEntity entity, CallbackInfoReturnable<Boolean> info) {
 		if (state.getDestroySpeed(level, pos) != 0.0F) {
 			stack.hurtAndBreak(1, entity, e -> e.broadcastBreakEvent(EquipmentSlot.MAINHAND));
+			info.setReturnValue(true);
+			info.cancel();
 		}
-		info.setReturnValue(true);
-		info.cancel();
 	}
 }

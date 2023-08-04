@@ -24,7 +24,7 @@ public class XOBlockStateProvider extends BlockStateProvider {
 	
 	private final ExistingFileHelper existingFileHelper;
 	
-	public XOBlockStateProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
+	public XOBlockStateProvider(@NotNull DataGenerator generator, ExistingFileHelper existingFileHelper) {
 		super(generator.getPackOutput(), XOres.MOD_ID, existingFileHelper);
 		this.existingFileHelper = existingFileHelper;
 	}

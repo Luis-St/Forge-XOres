@@ -22,7 +22,7 @@ import java.util.Objects;
 
 public class XOLanguageProvider extends LanguageProvider {
 	
-	public XOLanguageProvider(DataGenerator generator) {
+	public XOLanguageProvider(@NotNull DataGenerator generator) {
 		super(generator.getPackOutput(), XOres.MOD_ID, "en_us");
 	}
 	

@@ -38,7 +38,7 @@ public class XOArmorOverlay implements IGuiOverlay {
 		RenderSystem.enableBlend();
 		int left = width / 2 - 91;
 		int top = height - gui.leftHeight;
-		int level = Objects.requireNonNull(this.minecraft.player).getArmorValue();
+		int level = this.minecraft.player != null ? this.minecraft.player.getArmorValue() : 0;
 		for (int i = 21; level > 20 && i < 40; i += 2) {
 			if (i < level) {
 				graphics.blit(GUI_ICONS, left, top, 34, 9, 9, 9); // full armor icon

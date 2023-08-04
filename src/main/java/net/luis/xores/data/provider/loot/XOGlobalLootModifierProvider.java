@@ -22,7 +22,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class XOGlobalLootModifierProvider extends GlobalLootModifierProvider {
 	
-	public XOGlobalLootModifierProvider(DataGenerator generator) {
+	public XOGlobalLootModifierProvider(@NotNull DataGenerator generator) {
 		super(generator.getPackOutput(), XOres.MOD_ID);
 	}
 	

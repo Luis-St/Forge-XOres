@@ -25,7 +25,7 @@ import static net.minecraft.tags.BlockTags.*;
 
 public class XOBlockTagsProvider extends BlockTagsProvider {
 	
-	public XOBlockTagsProvider(DataGenerator generator, CompletableFuture<HolderLookup.Provider> lookupProvider, ExistingFileHelper existingFileHelper) {
+	public XOBlockTagsProvider(@NotNull DataGenerator generator, CompletableFuture<HolderLookup.Provider> lookupProvider, ExistingFileHelper existingFileHelper) {
 		super(generator.getPackOutput(), lookupProvider, XOres.MOD_ID, existingFileHelper);
 	}
 	

@@ -5,6 +5,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.SmithingTemplateItem;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Unmodifiable;
 
 import java.util.List;
 
@@ -29,7 +30,7 @@ public class XSSmithingTemplateItem extends SmithingTemplateItem {
 	private static final ResourceLocation EMPTY_SHOVEL = new ResourceLocation("item/empty_slot_shovel");
 	private static final ResourceLocation EMPTY_PICKAXE = new ResourceLocation("item/empty_slot_pickaxe");
 	
-	public XSSmithingTemplateItem(TemplateType templateType) {
+	public XSSmithingTemplateItem(@NotNull TemplateType templateType) {
 		super(templateType.appliesTo, templateType.ingredients, templateType.upgrade, templateType.baseSlot, templateType.additionsSlot, templateType.baseSlotIcons, templateType.additionalSlotIcons);
 	}
 	
@@ -65,7 +66,7 @@ public class XSSmithingTemplateItem extends SmithingTemplateItem {
 			this.additionalSlotIcons = additionalSlotIcons;
 		}
 		
-		private static @NotNull List<ResourceLocation> createIcons() {
+		private static @Unmodifiable @NotNull List<ResourceLocation> createIcons() {
 			return List.of(EMPTY_HELMET, EMPTY_SWORD, EMPTY_CHESTPLATE, EMPTY_PICKAXE, EMPTY_LEGGINGS, EMPTY_AXE, EMPTY_BOOTS, EMPTY_HOE, EMPTY_SHOVEL);
 		}
 	}
