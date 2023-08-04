@@ -154,8 +154,8 @@ public class XORecipeProvider extends RecipeProvider {
 		this.smithingRecipe(consumer, NIGHT_UPGRADE_SMITHING_TEMPLATE.get(), ENDERITE_LEGGINGS.get(), NIGHT_INGOT.get(), RecipeCategory.COMBAT, NIGHT_LEGGINGS.get());
 		this.smithingRecipe(consumer, NIGHT_UPGRADE_SMITHING_TEMPLATE.get(), ENDERITE_BOOTS.get(), NIGHT_INGOT.get(), RecipeCategory.COMBAT, NIGHT_BOOTS.get());
 		//endregion
-		this.groupAndUnlock(ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, NIGHT_UPGRADE_SMITHING_TEMPLATE.get()).requires(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE).requires(ENDERITE_UPGRADE_SMITHING_TEMPLATE.get()),
-			this.getGroup(NIGHT_UPGRADE_SMITHING_TEMPLATE.get()), Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE, ENDERITE_UPGRADE_SMITHING_TEMPLATE.get()).save(consumer);
+		this.groupAndUnlock(ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, NIGHT_UPGRADE_SMITHING_TEMPLATE.get()).requires(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE).requires(ENDERITE_UPGRADE_SMITHING_TEMPLATE.get()).requires(NIGHT_INGOT.get()),
+			this.getGroup(NIGHT_UPGRADE_SMITHING_TEMPLATE.get()), Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE, ENDERITE_UPGRADE_SMITHING_TEMPLATE.get(), NIGHT_INGOT.get()).save(consumer);
 	}
 	
 	//region Recipe helpers
