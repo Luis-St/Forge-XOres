@@ -16,6 +16,7 @@ import java.util.function.Supplier;
  *
  */
 
+@SuppressWarnings("CodeBlock2Expr")
 public class XOBlocks {
 	
 	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, XOres.MOD_ID);
