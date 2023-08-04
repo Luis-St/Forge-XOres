@@ -21,8 +21,8 @@ public class SaphireArmorItem extends ArmorItem implements AbilityArmor {
 	@Override
 	public void onItemApplied(LivingEntity entity, EquipmentSlot slot, ItemStack stack) {
 		if (this.isWearingFullArmor(entity)) {
-			entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 9999999, 1, false, false, false));
-			entity.addEffect(new MobEffectInstance(MobEffects.DOLPHINS_GRACE, 9999999, 0, false, false, false));
+			entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, -1, 1, false, false, false));
+			entity.addEffect(new MobEffectInstance(MobEffects.DOLPHINS_GRACE, -1, 0, false, false, false));
 		}
 	}
 	

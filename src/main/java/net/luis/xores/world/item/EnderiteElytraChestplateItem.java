@@ -22,7 +22,7 @@ public class EnderiteElytraChestplateItem extends ElytraChestplateItem implement
 	@Override
 	public void onItemApplied(LivingEntity entity, EquipmentSlot slot, ItemStack stack) {
 		if (this.isWearingFullArmor(entity)) {
-			entity.addEffect(new MobEffectInstance(MobEffects.HERO_OF_THE_VILLAGE, 9999999, 0, false, false, false));
+			entity.addEffect(new MobEffectInstance(MobEffects.HERO_OF_THE_VILLAGE, -1, 0, false, false, false));
 		}
 	}
 	

@@ -21,8 +21,8 @@ public class NightArmorItem extends ArmorItem implements AbilityArmor {
 	@Override
 	public void onItemApplied(LivingEntity entity, EquipmentSlot slot, ItemStack stack) {
 		if (this.isWearingFullArmor(entity)) {
-			entity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 9999999, 1, false, false, false));
-			entity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 9999999, 0, false, false, false));
+			entity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, -1, 1, false, false, false));
+			entity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, -1, 0, false, false, false));
 		}
 	}
 	

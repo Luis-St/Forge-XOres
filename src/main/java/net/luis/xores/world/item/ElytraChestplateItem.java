@@ -37,7 +37,7 @@ public class ElytraChestplateItem extends ArmorItem {
 	
 	@Override
 	public boolean elytraFlightTick(ItemStack stack, @NotNull LivingEntity entity, int flightTicks) {
-		if (!entity.level().isClientSide && (flightTicks + 1) % ELYTRA_TIME_DAMAGE_VALUES.getOrDefault(stack.getItem(), 20) == 0) {
+		if (!entity.level().isClientSide && (flightTicks + 1) % ELYTRA_TIME_DAMAGE_VALUES.getOrDefault(this, 20) == 0) {
 			stack.hurtAndBreak(1, entity, e -> e.broadcastBreakEvent(EquipmentSlot.CHEST));
 		}
 		return true;
