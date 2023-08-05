@@ -8,7 +8,7 @@ version = "${ModVersion}"
 displayName = "XOres"
 credits = "Thanks for downloading my Mod"
 authors = "Luis"
-displayURL = "https://github.com/Luis-st/Forge-XOres/issues"
+displayURL = "https://github.com/Luis-St/Forge-XOres/issues"
 description = '''
 XOres adds a few new Ores and Tools
 Ores:

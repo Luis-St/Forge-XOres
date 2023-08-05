@@ -19,7 +19,7 @@ import static net.luis.xores.world.level.block.XOBlocks.*;
 
 /**
  *
- * @author Luis-st
+ * @author Luis-St
  *
  */
 

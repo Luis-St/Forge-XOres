@@ -26,7 +26,7 @@ import static net.minecraft.world.item.Items.*;
 
 /**
  *
- * @author Luis-st
+ * @author Luis-St
  *
  */
 

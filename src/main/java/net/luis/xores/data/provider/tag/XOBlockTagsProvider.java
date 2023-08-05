@@ -19,7 +19,7 @@ import static net.minecraft.tags.BlockTags.*;
 
 /**
  *
- * @author Luis-st
+ * @author Luis-St
  *
  */
 

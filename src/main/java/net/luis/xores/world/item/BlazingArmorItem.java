@@ -8,7 +8,7 @@ import net.minecraft.world.item.*;
 
 /**
  *
- * @author Luis-st
+ * @author Luis-St
  *
  */
 
