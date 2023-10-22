@@ -41,7 +41,7 @@ public class SmeltingModifier extends LootModifier {
 	}
 	
 	private @NotNull ItemStack smelt(ItemStack stack, @NotNull LootContext context) {
-		return context.getLevel().getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer(stack), context.getLevel()).map(recipe -> recipe.getResultItem(context.getLevel().registryAccess()))
+		return context.getLevel().getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer(stack), context.getLevel()).map(recipe -> recipe.value().getResultItem(context.getLevel().registryAccess()))
 			.filter(itemStack -> !itemStack.isEmpty()).map(itemStack -> ItemHandlerHelper.copyStackWithSize(itemStack, stack.getCount() * itemStack.getCount())).orElse(stack);
 	}
 }

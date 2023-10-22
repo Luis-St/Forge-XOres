@@ -10,6 +10,7 @@ import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.renderer.entity.ArmorStandRenderer;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.entity.player.PlayerRenderer;
+import net.minecraft.client.resources.PlayerSkin;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -38,7 +39,7 @@ public class RegisterClientEventHandler {
 	
 	@SubscribeEvent
 	public static void addLayers(EntityRenderersEvent.@NotNull AddLayers event) {
-		for (String skin : event.getSkins()) {
+		for (PlayerSkin.Model skin : event.getSkins()) {
 			if (event.getSkin(skin) instanceof PlayerRenderer renderer) {
 				addLayers(renderer, event.getEntityModels());
 			}
