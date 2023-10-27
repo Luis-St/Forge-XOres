@@ -26,6 +26,7 @@ public class AddPackFindersEventHandler {
 	public static void addPackFinders(@NotNull AddPackFindersEvent event) {
 		if (event.getPackType() == PackType.SERVER_DATA) {
 			addServerPack(event, "xores_rarer_ores", "XOres Rarer Ores");
+			addServerPack(event, "xores_very_rare_ores", "XOres Very Rare Ores");
 		}
 	}
 	
