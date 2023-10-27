@@ -58,11 +58,11 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_netherite_upgrade_smithing_template",
       "has_crossbow",
       "has_netherite_ingot",
-      "has_netherite_crossbow",
-      "has_the_recipe"
+      "has_netherite_crossbow"
     ]
   ],
   "rewards": {

@@ -58,11 +58,11 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_night_upgrade_smithing_template",
       "has_enderite_pickaxe",
       "has_night_ingot",
-      "has_night_pickaxe",
-      "has_the_recipe"
+      "has_night_pickaxe"
     ]
   ],
   "rewards": {

@@ -34,9 +34,9 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_deepslate_jade_ore",
-      "has_jade_ingot",
-      "has_the_recipe"
+      "has_jade_ingot"
     ]
   ],
   "rewards": {

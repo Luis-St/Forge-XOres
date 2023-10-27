@@ -58,11 +58,11 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_enderite_upgrade_smithing_template",
       "has_netherite_leggings",
       "has_enderite_ingot",
-      "has_enderite_leggings",
-      "has_the_recipe"
+      "has_enderite_leggings"
     ]
   ],
   "rewards": {

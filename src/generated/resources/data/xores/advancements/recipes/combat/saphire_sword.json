@@ -34,9 +34,9 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_saphire_ingot",
-      "has_saphire_sword",
-      "has_the_recipe"
+      "has_saphire_sword"
     ]
   ],
   "rewards": {

@@ -46,10 +46,10 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_quartz",
       "has_redstone",
-      "has_rose_quartz",
-      "has_the_recipe"
+      "has_rose_quartz"
     ]
   ],
   "rewards": {

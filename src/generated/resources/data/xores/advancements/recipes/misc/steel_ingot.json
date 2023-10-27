@@ -34,9 +34,9 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_iron_block",
-      "has_steel_ingot",
-      "has_the_recipe"
+      "has_steel_ingot"
     ]
   ],
   "rewards": {

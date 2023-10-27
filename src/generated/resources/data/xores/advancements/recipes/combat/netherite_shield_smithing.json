@@ -58,11 +58,11 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_netherite_upgrade_smithing_template",
       "has_diamond_shield",
       "has_netherite_ingot",
-      "has_netherite_shield",
-      "has_the_recipe"
+      "has_netherite_shield"
     ]
   ],
   "rewards": {

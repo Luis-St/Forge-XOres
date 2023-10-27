@@ -46,10 +46,10 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_netherite_upgrade_smithing_template",
       "has_enderite_upgrade_smithing_template",
-      "has_night_ingot",
-      "has_the_recipe"
+      "has_night_ingot"
     ]
   ],
   "rewards": {

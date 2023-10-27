@@ -34,9 +34,9 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_blazing_ingot",
-      "has_blazing_boots",
-      "has_the_recipe"
+      "has_blazing_boots"
     ]
   ],
   "rewards": {

@@ -34,9 +34,9 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_enderite_scrap",
-      "has_enderite_ingot",
-      "has_the_recipe"
+      "has_enderite_ingot"
     ]
   ],
   "rewards": {

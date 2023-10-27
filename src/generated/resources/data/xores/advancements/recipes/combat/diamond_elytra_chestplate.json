@@ -46,10 +46,10 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_diamond_chestplate",
       "has_elytra",
-      "has_diamond_elytra_chestplate",
-      "has_the_recipe"
+      "has_diamond_elytra_chestplate"
     ]
   ],
   "rewards": {

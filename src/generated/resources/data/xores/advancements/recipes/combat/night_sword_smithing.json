@@ -58,11 +58,11 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_night_upgrade_smithing_template",
       "has_enderite_sword",
       "has_night_ingot",
-      "has_night_sword",
-      "has_the_recipe"
+      "has_night_sword"
     ]
   ],
   "rewards": {

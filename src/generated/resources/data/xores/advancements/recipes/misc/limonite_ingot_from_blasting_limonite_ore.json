@@ -34,9 +34,9 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_limonite_ore",
-      "has_limonite_ingot",
-      "has_the_recipe"
+      "has_limonite_ingot"
     ]
   ],
   "rewards": {

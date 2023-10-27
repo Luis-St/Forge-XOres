@@ -46,10 +46,10 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_blaze_rod",
       "has_gold_block",
-      "has_blazing_ingot",
-      "has_the_recipe"
+      "has_blazing_ingot"
     ]
   ],
   "rewards": {
