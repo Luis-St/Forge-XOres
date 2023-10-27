@@ -1,10 +1,10 @@
 package net.luis.xores.data;
 
 import net.luis.xores.XOres;
+import net.luis.xores.data.provider.XOBuiltinProvider;
 import net.luis.xores.data.provider.block.XOBlockStateProvider;
 import net.luis.xores.data.provider.item.XOItemModelProvider;
 import net.luis.xores.data.provider.language.XOLanguageProvider;
-import net.luis.xores.data.provider.level.XOLevelProvider;
 import net.luis.xores.data.provider.loot.XOGlobalLootModifierProvider;
 import net.luis.xores.data.provider.loottable.XOLootTableProvider;
 import net.luis.xores.data.provider.recipe.XORecipeProvider;
@@ -44,8 +44,13 @@ public class OnGatherDataEvent {
 			generator.addProvider(event.includeServer(), blockTagsProvider);
 			generator.addProvider(event.includeServer(), new XOItemTagsProvider(generator, event.getLookupProvider(), blockTagsProvider.contentsGetter(), fileHelper));
 			generator.addProvider(event.includeServer(), new XOGlobalLootModifierProvider(generator));
+			generator.addProvider(event.includeServer(), new DatapackBuiltinEntriesProvider(generator.getPackOutput(), event.getLookupProvider(), XOBuiltinProvider.createProvider(), Set.of(XOres.MOD_ID)));
 			
-			generator.addProvider(event.includeServer(), new DatapackBuiltinEntriesProvider(generator.getPackOutput(), event.getLookupProvider(), XOLevelProvider.createProvider(), Set.of(XOres.MOD_ID)));
+			//generator.addProvider(event.includeServer(), new DatapackBuiltinEntriesProvider(generator.getPackOutput(), event.getLookupProvider(), XOBuiltinProvider.createRarerXOresPackProvider(), Set.of(XOres.MOD_ID)));
+			//generator.addProvider(event.includeServer(), new DatapackBuiltinEntriesProvider(generator.getPackOutput(), event.getLookupProvider(), XOBuiltinProvider.createRarerVanillaPackProvider(), Set.of()));
+			
+			//generator.addProvider(event.includeServer(), new DatapackBuiltinEntriesProvider(generator.getPackOutput(), event.getLookupProvider(), XOBuiltinProvider.createVeryRareXOresPackProvider(), Set.of(XOres.MOD_ID)));
+			//generator.addProvider(event.includeServer(), new DatapackBuiltinEntriesProvider(generator.getPackOutput(), event.getLookupProvider(), XOBuiltinProvider.createVeryRareVanillaPackProvider(), Set.of("minecraft")));
 		}
 	}
 }
