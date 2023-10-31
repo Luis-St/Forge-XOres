@@ -6,7 +6,7 @@ plugins {
 	id "org.spongepowered.mixin" version "0.7.+"
 }
 
-version = ModVersion
+version = "${MinecraftVersion}-${ModVersion}"
 group = "net.luis.xores"
 
 base {
@@ -100,11 +100,11 @@ dependencies {
 	annotationProcessor "org.spongepowered:mixin:0.8.5:processor"
 }
 
-def resourceTargets = ["META-INF/mods.toml", "pack.mcmeta"]
+def resourceTargets = ["META-INF/mods.toml", "pack.mcmeta", "xores_rarer_ores/pack.mcmeta", "xores_very_rare_ores/pack.mcmeta"]
 def replaceProperties = [
 	MinecraftVersion: MinecraftVersion, MinecraftVersionRange: MinecraftVersionRange,
 	ForgeVersion    : ForgeVersion, ForgeVersionRange: ForgeVersionRange,
-	ForgeLoaderRange: ForgeLoaderRange, ModVersion: ModVersion
+	ForgeLoaderRange: ForgeLoaderRange, ModVersion: ModVersion, MinecraftPackFormat: MinecraftPackFormat
 ]
 processResources {
 	inputs.properties replaceProperties

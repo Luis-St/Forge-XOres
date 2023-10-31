@@ -3,6 +3,6 @@
     "description": {
       "text": "XOres data pack with rarer ore configuration"
     },
-    "pack_format": 18
+    "pack_format": ${MinecraftPackFormat}
   }
 }
