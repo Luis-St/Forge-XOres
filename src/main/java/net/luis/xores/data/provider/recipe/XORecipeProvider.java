@@ -264,9 +264,9 @@ public class XORecipeProvider extends RecipeProvider {
 	private @NotNull RecipeBuilder groupAndUnlock(RecipeBuilder builder, String group, @NotNull Ingredient ingredientCriterion, Item itemCriterion) {
 		for (Ingredient.Value value : ingredientCriterion.values) {
 			if (value instanceof Ingredient.ItemValue itemValue) {
-				builder.unlockedBy("has_" + this.getId(itemValue.item.getItem()), has(itemValue.item.getItem()));
+				builder.unlockedBy("has_" + this.getId(itemValue.item().getItem()), has(itemValue.item().getItem()));
 			} else if (value instanceof Ingredient.TagValue tagValue) {
-				builder.unlockedBy("has_" + tagValue.tag.location().getPath(), has(tagValue.tag));
+				builder.unlockedBy("has_" + tagValue.tag().location().getPath(), has(tagValue.tag()));
 			}
 		}
 		return this.groupAndUnlock(builder, group, itemCriterion);
