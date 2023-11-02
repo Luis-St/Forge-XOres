@@ -74,6 +74,7 @@ minecraft {
 			property "forge.logging.console.level", "debug"
 			property "mixin.env.remapRefMap", "true"
 			property "mixin.env.refMapRemappingFile", "${buildDir}/createSrgToMcp/output.srg"
+			property "xores.data.include", "mod"
 			
 			args "--mod", "xores", "--all", "--output", file("src/generated/resources/"), "--existing", file("src/main/resources/")
 			
@@ -82,6 +83,18 @@ minecraft {
 					source sourceSets.main
 				}
 			}
+		}
+		
+		dataPackRarer {
+			parent runs.data
+			
+			property "xores.data.include", "rarer"
+		}
+		
+		dataPackVeryRare {
+			parent runs.data
+			
+			property "xores.data.include", "very_rare"
 		}
 	}
 }
