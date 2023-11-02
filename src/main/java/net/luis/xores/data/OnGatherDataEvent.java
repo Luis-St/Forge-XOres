@@ -66,7 +66,7 @@ public class OnGatherDataEvent {
 	}
 	
 	private static void setupDatapackGeneration(@NotNull String packName) throws IOException {
-		Path temp = Files.createTempDirectory("xores");
+		Path temp = Files.createTempDirectory(XOres.MOD_ID);
 		move(ROOT.resolve("src/generated/resources"), temp);
 		addCopyHook(packName, temp);
 	}

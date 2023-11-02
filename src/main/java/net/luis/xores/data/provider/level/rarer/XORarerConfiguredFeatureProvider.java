@@ -1,21 +1,13 @@
 package net.luis.xores.data.provider.level.rarer;
 
-import net.luis.xores.world.level.block.XOBlocks;
 import net.luis.xores.world.level.levelgen.feature.XOOreFeatures;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.features.OreFeatures;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
-import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.minecraft.world.level.levelgen.structure.templatesystem.*;
-import net.minecraftforge.common.Tags;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.List;
-import java.util.function.Supplier;
 
 import static net.luis.xores.data.provider.level.XOConfiguredFeatureProvider.*;
 

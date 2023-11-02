@@ -19,7 +19,7 @@ public class XOItemProperties {
 			if (livingEntity == null) {
 				return 0.0F;
 			} else {
-				return livingEntity.getUseItem() != stack ? 0.0F : (float) (stack.getUseDuration() - livingEntity.getUseItemRemainingTicks()) / 20.0F;
+				return livingEntity.getUseItem() != stack ? 0.0F : (stack.getUseDuration() - livingEntity.getUseItemRemainingTicks()) / 20.0F;
 			}
 		});
 		ItemProperties.register(bow, new ResourceLocation(XOres.MOD_ID, "pulling"), (stack, level, livingEntity, seed) -> {
@@ -32,7 +32,7 @@ public class XOItemProperties {
 			if (livingEntity == null) {
 				return 0.0F;
 			} else {
-				return CrossbowItem.isCharged(stack) ? 0.0F : (float) (stack.getUseDuration() - livingEntity.getUseItemRemainingTicks()) / (float) CrossbowItem.getChargeDuration(stack);
+				return CrossbowItem.isCharged(stack) ? 0.0F : (float) (stack.getUseDuration() - livingEntity.getUseItemRemainingTicks()) / CrossbowItem.getChargeDuration(stack);
 			}
 		});
 		ItemProperties.register(crossbow, new ResourceLocation(XOres.MOD_ID, "pulling"), (stack, level, livingEntity, seed) -> {

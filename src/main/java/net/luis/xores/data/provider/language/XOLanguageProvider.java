@@ -29,10 +29,10 @@ public class XOLanguageProvider extends LanguageProvider {
 	@Override
 	protected void addTranslations() {
 		for (Block block : XOBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).toList()) {
-			this.add(block, getName(Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block))));
+			this.add(block, this.getName(Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block))));
 		}
 		for (Item item : XOItems.ITEMS.getEntries().stream().map(RegistryObject::get).toList()) {
-			this.add(item, getName(Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item))));
+			this.add(item, this.getName(Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item))));
 		}
 		this.add("item_tab.xores", "XOres");
 		String enderite = "item.xores.smithing_template.enderite_upgrade.";

@@ -109,7 +109,7 @@ public class ToolFixer implements VanillaFixer {
 		for (List<Either<TagKey<Block>, Block>> blocks : Lists.newArrayList(this.blocks.values().iterator())) {
 			for (Either<TagKey<Block>, Block> either : blocks) {
 				either.ifLeft((tag) -> {
-					registeredBlocks.addAll(ToolFixer.this.getTagValues(ForgeRegistries.BLOCKS, tag));
+					registeredBlocks.addAll(this.getTagValues(ForgeRegistries.BLOCKS, tag));
 				});
 				either.ifRight(registeredBlocks::add);
 			}
@@ -126,7 +126,7 @@ public class ToolFixer implements VanillaFixer {
 		for (List<Either<TagKey<Item>, Item>> tools : Lists.newArrayList(this.tools.values().iterator())) {
 			for (Either<TagKey<Item>, Item> either : tools) {
 				either.ifLeft((tag) -> {
-					registeredTools.addAll(ToolFixer.this.getTagValues(ForgeRegistries.ITEMS, tag));
+					registeredTools.addAll(this.getTagValues(ForgeRegistries.ITEMS, tag));
 				});
 				either.ifRight(registeredTools::add);
 			}
@@ -161,7 +161,8 @@ public class ToolFixer implements VanillaFixer {
 		return false;
 	}
 	
-	private @Nullable TagKey<Block> getTagForTool(Item tool) {
+	@Nullable
+	private TagKey<Block> getTagForTool(Item tool) {
 		if (tool instanceof PickaxeItem) {
 			return BlockTags.MINEABLE_WITH_PICKAXE;
 		} else if (tool instanceof AxeItem) {
@@ -204,7 +205,7 @@ public class ToolFixer implements VanillaFixer {
 				newMap.put(level, Lists.newArrayList());
 			}
 			for (Either<TagKey<T>, T> either : entry.getValue()) {
-				either.ifLeft((tagValue) -> newMap.get(level).addAll(ToolFixer.this.getTagValues(registry, tagValue)));
+				either.ifLeft((tagValue) -> newMap.get(level).addAll(this.getTagValues(registry, tagValue)));
 				either.ifRight((value) -> newMap.get(level).add(value));
 			}
 		}

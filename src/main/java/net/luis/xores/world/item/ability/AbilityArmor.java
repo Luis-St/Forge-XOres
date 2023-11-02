@@ -1,6 +1,5 @@
 package net.luis.xores.world.item.ability;
 
-import com.google.common.collect.Sets;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;

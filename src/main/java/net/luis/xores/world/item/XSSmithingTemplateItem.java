@@ -39,7 +39,7 @@ public class XSSmithingTemplateItem extends SmithingTemplateItem {
 		return this.getOrCreateDescriptionId();
 	}
 	
-	public static enum TemplateType {
+	public enum TemplateType {
 		
 		ENDERITE(Component.translatable(ENDERITE_TEMPLATE + "applies_to").withStyle(ChatFormatting.BLUE), Component.translatable(ENDERITE_TEMPLATE + "ingredients").withStyle(ChatFormatting.BLUE),
 			Component.translatable("upgrade.xores.enderite_upgrade").withStyle(ChatFormatting.GRAY), Component.translatable(ENDERITE_TEMPLATE + "base_slot_description"),
@@ -56,7 +56,7 @@ public class XSSmithingTemplateItem extends SmithingTemplateItem {
 		private final List<ResourceLocation> baseSlotIcons;
 		private final List<ResourceLocation> additionalSlotIcons;
 		
-		private TemplateType(Component appliesTo, Component ingredients, Component upgrade, Component baseSlot, Component additionsSlot, List<ResourceLocation> baseSlotIcons, List<ResourceLocation> additionalSlotIcons) {
+		TemplateType(Component appliesTo, Component ingredients, Component upgrade, Component baseSlot, Component additionsSlot, List<ResourceLocation> baseSlotIcons, List<ResourceLocation> additionalSlotIcons) {
 			this.appliesTo = appliesTo;
 			this.ingredients = ingredients;
 			this.upgrade = upgrade;

@@ -127,7 +127,7 @@ public class XOItemTagsProvider extends ItemTagsProvider {
 			}
 		}
 		
-		this.tag(XOItemTags.SCRAPS).add(Items.NETHERITE_SCRAP).add(ENDERITE_SCRAP.get()).add(NIGHT_SCRAP.get());
+		this.tag(XOItemTags.SCRAPS).add(NETHERITE_SCRAP).add(ENDERITE_SCRAP.get()).add(NIGHT_SCRAP.get());
 		
 		IntrinsicTagAppender<Item> toolLevel0 = this.tag(XOItemTags.TOOL_LEVEL_0);
 		IntrinsicTagAppender<Item> toolLevel1 = this.tag(XOItemTags.TOOL_LEVEL_1);

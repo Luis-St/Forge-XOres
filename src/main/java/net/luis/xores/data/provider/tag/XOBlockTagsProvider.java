@@ -32,9 +32,9 @@ public class XOBlockTagsProvider extends BlockTagsProvider {
 	@Override
 	@SuppressWarnings("unchecked")
 	protected void addTags(@NotNull HolderLookup.Provider provider) {
-		this.tag(XOBlockTags.NEEDS_TOOL_LEVEL_1).addTag(BlockTags.NEEDS_STONE_TOOL).add(JADE_ORE.get(), DEEPSLATE_JADE_ORE.get(), JADE_BLOCK.get());
-		this.tag(XOBlockTags.NEEDS_TOOL_LEVEL_2).addTag(BlockTags.NEEDS_IRON_TOOL).add(SAPHIRE_ORE.get(), DEEPSLATE_SAPHIRE_ORE.get(), SAPHIRE_BLOCK.get(), LIMONITE_BLOCK.get());
-		this.tag(XOBlockTags.NEEDS_TOOL_LEVEL_3).addTag(BlockTags.NEEDS_DIAMOND_TOOL).add(LIMONITE_ORE.get(), DEEPSLATE_LIMONITE_ORE.get(), ENDERITE_BLOCK.get());
+		this.tag(XOBlockTags.NEEDS_TOOL_LEVEL_1).addTag(NEEDS_STONE_TOOL).add(JADE_ORE.get(), DEEPSLATE_JADE_ORE.get(), JADE_BLOCK.get());
+		this.tag(XOBlockTags.NEEDS_TOOL_LEVEL_2).addTag(NEEDS_IRON_TOOL).add(SAPHIRE_ORE.get(), DEEPSLATE_SAPHIRE_ORE.get(), SAPHIRE_BLOCK.get(), LIMONITE_BLOCK.get());
+		this.tag(XOBlockTags.NEEDS_TOOL_LEVEL_3).addTag(NEEDS_DIAMOND_TOOL).add(LIMONITE_ORE.get(), DEEPSLATE_LIMONITE_ORE.get(), ENDERITE_BLOCK.get());
 		this.tag(XOBlockTags.NEEDS_TOOL_LEVEL_4);
 		this.tag(XOBlockTags.NEEDS_TOOL_LEVEL_5);
 		this.tag(XOBlockTags.NEEDS_TOOL_LEVEL_6).add(ENDERITE_ORE.get());

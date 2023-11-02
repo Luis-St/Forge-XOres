@@ -36,7 +36,7 @@ public class SmeltingModifier extends LootModifier {
 	@Override
 	protected @NotNull ObjectArrayList<ItemStack> doApply(@NotNull ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
 		ObjectArrayList<ItemStack> loot = new ObjectArrayList<>();
-		generatedLoot.forEach(stack -> loot.add(SmeltingModifier.this.smelt(stack, context)));
+		generatedLoot.forEach(stack -> loot.add(this.smelt(stack, context)));
 		return loot;
 	}
 	

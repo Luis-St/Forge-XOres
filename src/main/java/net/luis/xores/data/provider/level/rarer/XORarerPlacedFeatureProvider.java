@@ -26,7 +26,7 @@ import static net.luis.xores.data.provider.level.XOPlacedFeatureProvider.*;
 public class XORarerPlacedFeatureProvider {
 	
 	public static void create(@NotNull BootstapContext<PlacedFeature> context) {
-	    createVanilla(context);
+		createVanilla(context);
 		createXOres(context);
 	}
 	

@@ -26,7 +26,7 @@ import java.util.Objects;
 
 public class XOItemModelProvider extends ItemModelProvider {
 	
-	private static final String[] TRIMS = new String[] {"quartz", "iron", "netherite", "redstone", "copper", "gold", "emerald", "diamond", "lapis", "amethyst"};
+	private static final String[] TRIMS = {"quartz", "iron", "netherite", "redstone", "copper", "gold", "emerald", "diamond", "lapis", "amethyst"};
 	
 	public XOItemModelProvider(@NotNull DataGenerator generator, ExistingFileHelper existingFileHelper) {
 		super(generator.getPackOutput(), XOres.MOD_ID, existingFileHelper);

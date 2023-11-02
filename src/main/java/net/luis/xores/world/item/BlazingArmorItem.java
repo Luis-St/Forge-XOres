@@ -7,7 +7,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.*;
 import org.jetbrains.annotations.NotNull;
 
-import static net.luis.xores.world.item.ability.AbilityArmor.isWearingFullArmor;
+import static net.luis.xores.world.item.ability.AbilityArmor.*;
 
 /**
  *
@@ -34,7 +34,6 @@ public class BlazingArmorItem extends ArmorItem implements AbilityArmor {
 			entity.removeEffect(MobEffects.FIRE_RESISTANCE);
 		}
 	}
-	
 	
 	@Override
 	public boolean isAbilityEffect(@NotNull LivingEntity entity, @NotNull MobEffect effect) {
