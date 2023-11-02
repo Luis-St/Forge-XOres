@@ -55,18 +55,20 @@ public class OnGatherDataEvent {
 				generator.addProvider(event.includeServer(), new DatapackBuiltinEntriesProvider(generator.getPackOutput(), event.getLookupProvider(), XOBuiltinProvider.createProvider(), Set.of(XOres.MOD_ID)));
 			}
 			if ("rarer".equalsIgnoreCase(type)) {
-				Path temp = Files.createTempDirectory("xores");
-				move(ROOT.resolve("src/generated/resources"), temp);
+				setupDatapackGeneration("xores_rarer_ores");
 				generator.addProvider(event.includeServer(), new DatapackBuiltinEntriesProvider(generator.getPackOutput(), event.getLookupProvider(), XOBuiltinProvider.createRarerPackProvider(), Set.of(XOres.MOD_ID, "minecraft")));
-				addCopyHook("xores_rarer_ores", temp);
 			}
 			if ("very_rare".equalsIgnoreCase(type)) {
-				Path temp = Files.createTempDirectory("xores");
-				move(ROOT.resolve("src/generated/resources"), temp);
+				setupDatapackGeneration("xores_very_rare_ores");
 				generator.addProvider(event.includeServer(), new DatapackBuiltinEntriesProvider(generator.getPackOutput(), event.getLookupProvider(), XOBuiltinProvider.createVeryRarePackProvider(), Set.of(XOres.MOD_ID, "minecraft")));
-				addCopyHook("xores_very_rare_ores", temp);
 			}
 		}
+	}
+	
+	private static void setupDatapackGeneration(@NotNull String packName) throws IOException {
+		Path temp = Files.createTempDirectory("xores");
+		move(ROOT.resolve("src/generated/resources"), temp);
+		addCopyHook(packName, temp);
 	}
 	
 	private static void move(@NotNull Path from, @NotNull Path to) throws IOException {
