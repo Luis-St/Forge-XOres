@@ -25,7 +25,12 @@ import static net.luis.xores.data.provider.level.XOPlacedFeatureProvider.*;
 
 public class XOVeryRarePlacedFeatureProvider {
 	
-	public static void createVanilla(@NotNull BootstapContext<PlacedFeature> context) {
+	public static void create(@NotNull BootstapContext<PlacedFeature> context) {
+		createVanilla(context);
+		createXOres(context);
+	}
+	
+	private static void createVanilla(@NotNull BootstapContext<PlacedFeature> context) {
 		HolderGetter<ConfiguredFeature<?, ?>> registry = context.lookup(Registries.CONFIGURED_FEATURE);
 		context.register(OrePlacements.ORE_COAL_UPPER, new PlacedFeature(registry.getOrThrow(OreFeatures.ORE_COAL), uniformOrePlacement(20, 136, 320))); // 30, 136, 320
 		context.register(OrePlacements.ORE_COAL_LOWER, new PlacedFeature(registry.getOrThrow(OreFeatures.ORE_COAL_BURIED), triangleOrePlacement(13, 0, 192))); // 20, 0, 192
@@ -54,7 +59,7 @@ public class XOVeryRarePlacedFeatureProvider {
 		context.register(OrePlacements.ORE_ANCIENT_DEBRIS_LARGE, new PlacedFeature(registry.getOrThrow(OreFeatures.ORE_ANCIENT_DEBRIS_LARGE), List.of(InSquarePlacement.spread(), RANGE_8_24, BiomeFilter.biome())));
 	}
 	
-	public static void createXOres(@NotNull BootstapContext<PlacedFeature> context) {
+	private static void createXOres(@NotNull BootstapContext<PlacedFeature> context) {
 		HolderGetter<ConfiguredFeature<?, ?>> registry = context.lookup(Registries.CONFIGURED_FEATURE);
 		context.register(XOOrePlacements.JADE_ORE_UPPER, new PlacedFeature(registry.getOrThrow(XOOreFeatures.JADE_ORE_UPPER), upperOrePlacement(10, 128))); // 20, 128
 		context.register(XOOrePlacements.JADE_ORE_MIDDLE, new PlacedFeature(registry.getOrThrow(XOOreFeatures.JADE_ORE_MIDDLE), uniformOrePlacement(6, -32, 96))); // 14, -32, 96

@@ -26,31 +26,17 @@ public class XOBuiltinProvider {
 		return builder;
 	}
 	
-	public static @NotNull RegistrySetBuilder createRarerVanillaPackProvider() {
+	public static @NotNull RegistrySetBuilder createRarerPackProvider() {
 		RegistrySetBuilder builder = new RegistrySetBuilder();
-		builder.add(Registries.CONFIGURED_FEATURE, XORarerConfiguredFeatureProvider::createVanilla);
-		builder.add(Registries.PLACED_FEATURE, XORarerPlacedFeatureProvider::createVanilla);
+		builder.add(Registries.CONFIGURED_FEATURE, XORarerConfiguredFeatureProvider::create);
+		builder.add(Registries.PLACED_FEATURE, XORarerPlacedFeatureProvider::create);
 		return builder;
 	}
 	
-	public static @NotNull RegistrySetBuilder createRarerXOresPackProvider() {
+	public static @NotNull RegistrySetBuilder createVeryRarePackProvider() {
 		RegistrySetBuilder builder = new RegistrySetBuilder();
-		builder.add(Registries.CONFIGURED_FEATURE, XORarerConfiguredFeatureProvider::createXOres);
-		builder.add(Registries.PLACED_FEATURE, XORarerPlacedFeatureProvider::createXOres);
-		return builder;
-	}
-	
-	public static @NotNull RegistrySetBuilder createVeryRareVanillaPackProvider() {
-		RegistrySetBuilder builder = new RegistrySetBuilder();
-		builder.add(Registries.CONFIGURED_FEATURE, XOVeryRareConfiguredFeatureProvider::createVanilla);
-		builder.add(Registries.PLACED_FEATURE, XOVeryRarePlacedFeatureProvider::createVanilla);
-		return builder;
-	}
-	
-	public static @NotNull RegistrySetBuilder createVeryRareXOresPackProvider() {
-		RegistrySetBuilder builder = new RegistrySetBuilder();
-		builder.add(Registries.CONFIGURED_FEATURE, XOVeryRareConfiguredFeatureProvider::createXOres);
-		builder.add(Registries.PLACED_FEATURE, XOVeryRarePlacedFeatureProvider::createXOres);
+		builder.add(Registries.CONFIGURED_FEATURE, XOVeryRareConfiguredFeatureProvider::create);
+		builder.add(Registries.PLACED_FEATURE, XOVeryRarePlacedFeatureProvider::create);
 		return builder;
 	}
 }
