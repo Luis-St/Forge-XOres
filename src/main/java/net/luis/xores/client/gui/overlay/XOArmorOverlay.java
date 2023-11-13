@@ -16,7 +16,9 @@ import org.jetbrains.annotations.NotNull;
 
 public class XOArmorOverlay implements IGuiOverlay {
 	
-	private static final ResourceLocation GUI_ICONS = new ResourceLocation("textures/gui/icons.png");
+	private static final ResourceLocation ARMOR_EMPTY = new ResourceLocation("hud/armor_empty");
+	private static final ResourceLocation ARMOR_HALF = new ResourceLocation("hud/armor_half");
+	private static final ResourceLocation ARMOR_FULL = new ResourceLocation("hud/armor_full");
 	
 	private final Minecraft minecraft;
 	
@@ -39,11 +41,11 @@ public class XOArmorOverlay implements IGuiOverlay {
 		int level = this.minecraft.player != null ? this.minecraft.player.getArmorValue() : 0;
 		for (int i = 21; level > 20 && i < 40; i += 2) {
 			if (i < level) {
-				graphics.blit(GUI_ICONS, left, top, 34, 9, 9, 9); // full armor icon
+				graphics.blitSprite(ARMOR_FULL, left, top, 9, 9); // full armor icon
 			} else if (i == level) {
-				graphics.blit(GUI_ICONS, left, top, 25, 9, 9, 9); // half armor icon
+				graphics.blitSprite(ARMOR_HALF, left, top, 9, 9); // half armor icon
 			} else {
-				graphics.blit(GUI_ICONS, left, top, 16, 9, 9, 9); // empty (no) armor icon
+				graphics.blitSprite(ARMOR_EMPTY, left, top, 9, 9); // empty (no) armor icon
 			}
 			left += 8;
 		}
