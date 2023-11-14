@@ -109,23 +109,26 @@ public class XORecipeProvider extends RecipeProvider {
 		this.hoeRecipe(output, POLISHED_ROSE_QUARTZ.get(), ROSE_QUARTZ_HOE.get());
 		//endregion
 		//region Enderite recipes
+		Item enderiteTemplate = ENDERITE_UPGRADE_SMITHING_TEMPLATE.get();
 		this.oreRecipes(output, ENDERITE_ORE.get().asItem(), ENDERITE_SCRAP.get(), 400);
 		this.groupAndUnlock(ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ENDERITE_INGOT.get()).requires(ENDERITE_SCRAP.get(), 9), this.getGroup(ENDERITE_INGOT.get()), ENDERITE_SCRAP.get(), ENDERITE_INGOT.get())
 			.save(output, new ResourceLocation(XOres.MOD_ID, this.getId(ENDERITE_INGOT.get()) + "_from_scrap"));
 		this.blockRecipes(output, ENDERITE_INGOT.get(), ENDERITE_BLOCK.get().asItem());
-		this.smithingRecipe(output, ENDERITE_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_SWORD, ENDERITE_INGOT.get(), RecipeCategory.COMBAT, ENDERITE_SWORD.get());
-		this.smithingRecipe(output, ENDERITE_UPGRADE_SMITHING_TEMPLATE.get(), NETHERITE_SHIELD.get(), ENDERITE_INGOT.get(), RecipeCategory.COMBAT, ENDERITE_SHIELD.get());
-		this.smithingRecipe(output, ENDERITE_UPGRADE_SMITHING_TEMPLATE.get(), NETHERITE_BOW.get(), ENDERITE_INGOT.get(), RecipeCategory.COMBAT, ENDERITE_BOW.get());
-		this.smithingRecipe(output, ENDERITE_UPGRADE_SMITHING_TEMPLATE.get(), NETHERITE_CROSSBOW.get(), ENDERITE_INGOT.get(), RecipeCategory.COMBAT, ENDERITE_CROSSBOW.get());
-		this.smithingRecipe(output, ENDERITE_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_PICKAXE, ENDERITE_INGOT.get(), RecipeCategory.TOOLS, ENDERITE_PICKAXE.get());
-		this.smithingRecipe(output, ENDERITE_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_AXE, ENDERITE_INGOT.get(), RecipeCategory.TOOLS, ENDERITE_AXE.get());
-		this.smithingRecipe(output, ENDERITE_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_SHOVEL, ENDERITE_INGOT.get(), RecipeCategory.TOOLS, ENDERITE_SHOVEL.get());
-		this.smithingRecipe(output, ENDERITE_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_HOE, ENDERITE_INGOT.get(), RecipeCategory.TOOLS, ENDERITE_HOE.get());
-		this.smithingRecipe(output, ENDERITE_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_HELMET, ENDERITE_INGOT.get(), RecipeCategory.COMBAT, ENDERITE_HELMET.get());
-		this.smithingRecipe(output, ENDERITE_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_CHESTPLATE, ENDERITE_INGOT.get(), RecipeCategory.COMBAT, ENDERITE_CHESTPLATE.get());
-		this.smithingRecipe(output, ENDERITE_UPGRADE_SMITHING_TEMPLATE.get(), ENDERITE_CHESTPLATE.get(), Items.ELYTRA, RecipeCategory.COMBAT, ENDERITE_ELYTRA_CHESTPLATE.get());
-		this.smithingRecipe(output, ENDERITE_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_LEGGINGS, ENDERITE_INGOT.get(), RecipeCategory.COMBAT, ENDERITE_LEGGINGS.get());
-		this.smithingRecipe(output, ENDERITE_UPGRADE_SMITHING_TEMPLATE.get(), Items.NETHERITE_BOOTS, ENDERITE_INGOT.get(), RecipeCategory.COMBAT, ENDERITE_BOOTS.get());
+		this.smithingRecipe(output, enderiteTemplate, Items.NETHERITE_SWORD, ENDERITE_INGOT.get(), RecipeCategory.COMBAT, ENDERITE_SWORD.get());
+		this.smithingRecipe(output, enderiteTemplate, NETHERITE_SHIELD.get(), ENDERITE_INGOT.get(), RecipeCategory.COMBAT, ENDERITE_SHIELD.get());
+		this.smithingRecipe(output, enderiteTemplate, NETHERITE_BOW.get(), ENDERITE_INGOT.get(), RecipeCategory.COMBAT, ENDERITE_BOW.get());
+		this.smithingRecipe(output, enderiteTemplate, NETHERITE_CROSSBOW.get(), ENDERITE_INGOT.get(), RecipeCategory.COMBAT, ENDERITE_CROSSBOW.get());
+		this.smithingRecipe(output, enderiteTemplate, Items.NETHERITE_PICKAXE, ENDERITE_INGOT.get(), RecipeCategory.TOOLS, ENDERITE_PICKAXE.get());
+		this.smithingRecipe(output, enderiteTemplate, Items.NETHERITE_AXE, ENDERITE_INGOT.get(), RecipeCategory.TOOLS, ENDERITE_AXE.get());
+		this.smithingRecipe(output, enderiteTemplate, Items.NETHERITE_SHOVEL, ENDERITE_INGOT.get(), RecipeCategory.TOOLS, ENDERITE_SHOVEL.get());
+		this.smithingRecipe(output, enderiteTemplate, Items.NETHERITE_HOE, ENDERITE_INGOT.get(), RecipeCategory.TOOLS, ENDERITE_HOE.get());
+		this.smithingRecipe(output, enderiteTemplate, Items.NETHERITE_HELMET, ENDERITE_INGOT.get(), RecipeCategory.COMBAT, ENDERITE_HELMET.get());
+		this.smithingRecipe(output, enderiteTemplate, Items.NETHERITE_CHESTPLATE, ENDERITE_INGOT.get(), RecipeCategory.COMBAT, ENDERITE_CHESTPLATE.get());
+		this.smithingRecipe(output, enderiteTemplate, ENDERITE_CHESTPLATE.get(), Items.ELYTRA, RecipeCategory.COMBAT, ENDERITE_ELYTRA_CHESTPLATE.get());
+		this.smithingRecipe(output, enderiteTemplate, Items.NETHERITE_LEGGINGS, ENDERITE_INGOT.get(), RecipeCategory.COMBAT, ENDERITE_LEGGINGS.get());
+		this.smithingRecipe(output, enderiteTemplate, Items.NETHERITE_BOOTS, ENDERITE_INGOT.get(), RecipeCategory.COMBAT, ENDERITE_BOOTS.get());
+		this.groupAndUnlock(ShapedRecipeBuilder.shaped(RecipeCategory.MISC, enderiteTemplate, 2).define('D', Items.DIAMOND).define('T', enderiteTemplate).define('B', Items.END_STONE).pattern("DTD").pattern("DBD")
+			.pattern("DDD"), this.getGroup(enderiteTemplate), enderiteTemplate, Items.DIAMOND, Items.END_STONE).save(output, this.getId(enderiteTemplate) + "_for_duplication");
 		//endregion
 		//region Steel recipes
 		this.groupAndUnlock(ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, STEEL_INGOT.get()).requires(Items.IRON_BLOCK, 9), this.getGroup(STEEL_INGOT.get()), Items.IRON_BLOCK, STEEL_INGOT.get()).save(output);
@@ -136,25 +139,28 @@ public class XORecipeProvider extends RecipeProvider {
 		this.hoeRecipe(output, STEEL_INGOT.get(), STEEL_HOE.get());
 		//endregion
 		//region Night recipes
+		Item nightTemplate = NIGHT_UPGRADE_SMITHING_TEMPLATE.get();
 		this.groupAndUnlock(ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, NIGHT_SCRAP.get()).requires(STEEL_INGOT.get(), 4).requires(Items.NETHERITE_INGOT, 4), this.getGroup(NIGHT_INGOT.get()), STEEL_INGOT.get(),
 			Items.NETHERITE_INGOT, NIGHT_INGOT.get()).save(output);
 		this.groupAndUnlock(ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, NIGHT_INGOT.get()).requires(NIGHT_SCRAP.get(), 4), this.getGroup(NIGHT_INGOT.get()), NIGHT_SCRAP.get(), NIGHT_INGOT.get()).save(output);
-		this.smithingRecipe(output, NIGHT_UPGRADE_SMITHING_TEMPLATE.get(), ENDERITE_SWORD.get(), NIGHT_INGOT.get(), RecipeCategory.COMBAT, NIGHT_SWORD.get());
-		this.smithingRecipe(output, NIGHT_UPGRADE_SMITHING_TEMPLATE.get(), ENDERITE_SHIELD.get(), NIGHT_INGOT.get(), RecipeCategory.COMBAT, NIGHT_SHIELD.get());
-		this.smithingRecipe(output, NIGHT_UPGRADE_SMITHING_TEMPLATE.get(), ENDERITE_BOW.get(), NIGHT_INGOT.get(), RecipeCategory.COMBAT, NIGHT_BOW.get());
-		this.smithingRecipe(output, NIGHT_UPGRADE_SMITHING_TEMPLATE.get(), ENDERITE_CROSSBOW.get(), NIGHT_INGOT.get(), RecipeCategory.COMBAT, NIGHT_CROSSBOW.get());
-		this.smithingRecipe(output, NIGHT_UPGRADE_SMITHING_TEMPLATE.get(), ENDERITE_PICKAXE.get(), NIGHT_INGOT.get(), RecipeCategory.COMBAT, NIGHT_PICKAXE.get());
-		this.smithingRecipe(output, NIGHT_UPGRADE_SMITHING_TEMPLATE.get(), ENDERITE_AXE.get(), NIGHT_INGOT.get(), RecipeCategory.TOOLS, NIGHT_AXE.get());
-		this.smithingRecipe(output, NIGHT_UPGRADE_SMITHING_TEMPLATE.get(), ENDERITE_SHOVEL.get(), NIGHT_INGOT.get(), RecipeCategory.TOOLS, NIGHT_SHOVEL.get());
-		this.smithingRecipe(output, NIGHT_UPGRADE_SMITHING_TEMPLATE.get(), ENDERITE_HOE.get(), NIGHT_INGOT.get(), RecipeCategory.TOOLS, NIGHT_HOE.get());
-		this.smithingRecipe(output, NIGHT_UPGRADE_SMITHING_TEMPLATE.get(), ENDERITE_HELMET.get(), NIGHT_INGOT.get(), RecipeCategory.COMBAT, NIGHT_HELMET.get());
-		this.smithingRecipe(output, NIGHT_UPGRADE_SMITHING_TEMPLATE.get(), ENDERITE_CHESTPLATE.get(), NIGHT_INGOT.get(), RecipeCategory.COMBAT, NIGHT_CHESTPLATE.get());
-		this.smithingRecipe(output, NIGHT_UPGRADE_SMITHING_TEMPLATE.get(), NIGHT_CHESTPLATE.get(), Items.ELYTRA, RecipeCategory.COMBAT, NIGHT_ELYTRA_CHESTPLATE.get());
-		this.smithingRecipe(output, NIGHT_UPGRADE_SMITHING_TEMPLATE.get(), ENDERITE_LEGGINGS.get(), NIGHT_INGOT.get(), RecipeCategory.COMBAT, NIGHT_LEGGINGS.get());
-		this.smithingRecipe(output, NIGHT_UPGRADE_SMITHING_TEMPLATE.get(), ENDERITE_BOOTS.get(), NIGHT_INGOT.get(), RecipeCategory.COMBAT, NIGHT_BOOTS.get());
+		this.smithingRecipe(output, nightTemplate, ENDERITE_SWORD.get(), NIGHT_INGOT.get(), RecipeCategory.COMBAT, NIGHT_SWORD.get());
+		this.smithingRecipe(output, nightTemplate, ENDERITE_SHIELD.get(), NIGHT_INGOT.get(), RecipeCategory.COMBAT, NIGHT_SHIELD.get());
+		this.smithingRecipe(output, nightTemplate, ENDERITE_BOW.get(), NIGHT_INGOT.get(), RecipeCategory.COMBAT, NIGHT_BOW.get());
+		this.smithingRecipe(output, nightTemplate, ENDERITE_CROSSBOW.get(), NIGHT_INGOT.get(), RecipeCategory.COMBAT, NIGHT_CROSSBOW.get());
+		this.smithingRecipe(output, nightTemplate, ENDERITE_PICKAXE.get(), NIGHT_INGOT.get(), RecipeCategory.COMBAT, NIGHT_PICKAXE.get());
+		this.smithingRecipe(output, nightTemplate, ENDERITE_AXE.get(), NIGHT_INGOT.get(), RecipeCategory.TOOLS, NIGHT_AXE.get());
+		this.smithingRecipe(output, nightTemplate, ENDERITE_SHOVEL.get(), NIGHT_INGOT.get(), RecipeCategory.TOOLS, NIGHT_SHOVEL.get());
+		this.smithingRecipe(output, nightTemplate, ENDERITE_HOE.get(), NIGHT_INGOT.get(), RecipeCategory.TOOLS, NIGHT_HOE.get());
+		this.smithingRecipe(output, nightTemplate, ENDERITE_HELMET.get(), NIGHT_INGOT.get(), RecipeCategory.COMBAT, NIGHT_HELMET.get());
+		this.smithingRecipe(output, nightTemplate, ENDERITE_CHESTPLATE.get(), NIGHT_INGOT.get(), RecipeCategory.COMBAT, NIGHT_CHESTPLATE.get());
+		this.smithingRecipe(output, nightTemplate, NIGHT_CHESTPLATE.get(), Items.ELYTRA, RecipeCategory.COMBAT, NIGHT_ELYTRA_CHESTPLATE.get());
+		this.smithingRecipe(output, nightTemplate, ENDERITE_LEGGINGS.get(), NIGHT_INGOT.get(), RecipeCategory.COMBAT, NIGHT_LEGGINGS.get());
+		this.smithingRecipe(output, nightTemplate, ENDERITE_BOOTS.get(), NIGHT_INGOT.get(), RecipeCategory.COMBAT, NIGHT_BOOTS.get());
+		this.groupAndUnlock(ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, nightTemplate).requires(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE).requires(enderiteTemplate).requires(NIGHT_INGOT.get()),
+			this.getGroup(nightTemplate), Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE, enderiteTemplate, NIGHT_INGOT.get()).save(output);
+		this.groupAndUnlock(ShapedRecipeBuilder.shaped(RecipeCategory.MISC, nightTemplate, 2).define('D', Items.DIAMOND).define('T', nightTemplate).define('B', Items.WITHER_ROSE).pattern("DTD").pattern("DBD")
+			.pattern("DDD"), this.getGroup(nightTemplate), nightTemplate, Items.DIAMOND, Items.WITHER_ROSE).save(output, this.getId(nightTemplate) + "_for_duplication");
 		//endregion
-		this.groupAndUnlock(ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, NIGHT_UPGRADE_SMITHING_TEMPLATE.get()).requires(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE).requires(ENDERITE_UPGRADE_SMITHING_TEMPLATE.get()).requires(NIGHT_INGOT.get()),
-			this.getGroup(NIGHT_UPGRADE_SMITHING_TEMPLATE.get()), Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE, ENDERITE_UPGRADE_SMITHING_TEMPLATE.get(), NIGHT_INGOT.get()).save(output);
 	}
 	
 	//region Recipe helpers

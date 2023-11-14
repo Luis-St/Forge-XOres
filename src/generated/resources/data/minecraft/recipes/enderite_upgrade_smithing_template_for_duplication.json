@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "enderite",
+  "key": {
+    "B": {
+      "item": "minecraft:end_stone"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "T": {
+      "item": "xores:enderite_upgrade_smithing_template"
+    }
+  },
+  "pattern": [
+    "DTD",
+    "DBD",
+    "DDD"
+  ],
+  "result": {
+    "count": 2,
+    "item": "xores:enderite_upgrade_smithing_template"
+  },
+  "show_notification": true
+}
