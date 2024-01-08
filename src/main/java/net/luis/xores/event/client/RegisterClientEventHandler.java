@@ -40,12 +40,12 @@ public class RegisterClientEventHandler {
 	@SubscribeEvent
 	public static void addLayers(EntityRenderersEvent.@NotNull AddLayers event) {
 		for (PlayerSkin.Model skin : event.getSkins()) {
-			if (event.getSkin(skin) instanceof PlayerRenderer renderer) {
+			if (event.getPlayerSkin(skin) instanceof PlayerRenderer renderer) {
 				addLayers(renderer, event.getEntityModels());
 			}
 			
 		}
-		if (event.getRenderer(EntityType.ARMOR_STAND) instanceof ArmorStandRenderer renderer) {
+		if (event.getEntityRenderer(EntityType.ARMOR_STAND) instanceof ArmorStandRenderer renderer) {
 			addLayers(renderer, event.getEntityModels());
 		}
 	}
