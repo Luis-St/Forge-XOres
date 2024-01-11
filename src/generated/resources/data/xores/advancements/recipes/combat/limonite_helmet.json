@@ -43,6 +43,5 @@
     "recipes": [
       "xores:limonite_helmet"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

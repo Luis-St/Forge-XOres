@@ -43,6 +43,5 @@
     "recipes": [
       "xores:jade_boots"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -43,6 +43,5 @@
     "recipes": [
       "xores:jade_ingot_from_blasting_jade_ore"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

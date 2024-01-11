@@ -43,6 +43,5 @@
     "recipes": [
       "xores:jade_ingot"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

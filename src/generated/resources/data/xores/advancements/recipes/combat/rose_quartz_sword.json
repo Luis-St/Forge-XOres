@@ -43,6 +43,5 @@
     "recipes": [
       "xores:rose_quartz_sword"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

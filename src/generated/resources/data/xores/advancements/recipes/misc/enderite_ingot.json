@@ -43,6 +43,5 @@
     "recipes": [
       "xores:enderite_ingot"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -43,6 +43,5 @@
     "recipes": [
       "xores:limonite_ingot_from_blasting_limonite_ore"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

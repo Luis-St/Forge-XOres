@@ -56,6 +56,5 @@
     "recipes": [
       "minecraft:enderite_upgrade_smithing_template_for_duplication"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

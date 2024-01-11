@@ -43,6 +43,5 @@
     "recipes": [
       "xores:blazing_hoe"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

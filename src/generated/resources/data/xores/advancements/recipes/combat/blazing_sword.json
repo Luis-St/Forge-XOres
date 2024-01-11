@@ -43,6 +43,5 @@
     "recipes": [
       "xores:blazing_sword"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

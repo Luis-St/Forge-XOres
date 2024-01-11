@@ -43,6 +43,5 @@
     "recipes": [
       "xores:golden_shield"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

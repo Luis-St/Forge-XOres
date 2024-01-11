@@ -43,6 +43,5 @@
     "recipes": [
       "xores:jade_shovel"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

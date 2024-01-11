@@ -43,6 +43,5 @@
     "recipes": [
       "xores:saphire_helmet"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

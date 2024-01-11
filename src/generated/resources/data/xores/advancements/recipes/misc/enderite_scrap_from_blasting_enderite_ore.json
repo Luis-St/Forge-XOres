@@ -43,6 +43,5 @@
     "recipes": [
       "xores:enderite_scrap_from_blasting_enderite_ore"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

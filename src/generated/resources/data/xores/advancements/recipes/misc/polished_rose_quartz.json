@@ -43,6 +43,5 @@
     "recipes": [
       "xores:polished_rose_quartz"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

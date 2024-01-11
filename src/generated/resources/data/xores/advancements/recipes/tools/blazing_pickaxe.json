@@ -43,6 +43,5 @@
     "recipes": [
       "xores:blazing_pickaxe"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

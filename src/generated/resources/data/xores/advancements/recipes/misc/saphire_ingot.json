@@ -43,6 +43,5 @@
     "recipes": [
       "xores:saphire_ingot"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

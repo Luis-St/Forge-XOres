@@ -43,6 +43,5 @@
     "recipes": [
       "xores:limonite_hoe"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

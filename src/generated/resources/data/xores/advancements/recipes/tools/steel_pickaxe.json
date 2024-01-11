@@ -43,6 +43,5 @@
     "recipes": [
       "xores:steel_pickaxe"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

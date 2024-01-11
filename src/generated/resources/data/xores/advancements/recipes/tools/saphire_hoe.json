@@ -43,6 +43,5 @@
     "recipes": [
       "xores:saphire_hoe"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

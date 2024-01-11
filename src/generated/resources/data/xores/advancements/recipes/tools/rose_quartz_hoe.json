@@ -43,6 +43,5 @@
     "recipes": [
       "xores:rose_quartz_hoe"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

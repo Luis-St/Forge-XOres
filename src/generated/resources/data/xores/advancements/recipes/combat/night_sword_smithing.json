@@ -69,6 +69,5 @@
     "recipes": [
       "xores:night_sword_smithing"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -43,6 +43,5 @@
     "recipes": [
       "xores:limonite_axe"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

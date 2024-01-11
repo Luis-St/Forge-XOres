@@ -69,6 +69,5 @@
     "recipes": [
       "xores:netherite_bow_smithing"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

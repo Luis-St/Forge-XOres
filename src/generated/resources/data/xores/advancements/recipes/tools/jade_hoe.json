@@ -43,6 +43,5 @@
     "recipes": [
       "xores:jade_hoe"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

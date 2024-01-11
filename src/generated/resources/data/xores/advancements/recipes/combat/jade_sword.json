@@ -43,6 +43,5 @@
     "recipes": [
       "xores:jade_sword"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

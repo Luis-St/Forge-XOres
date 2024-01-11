@@ -43,6 +43,5 @@
     "recipes": [
       "xores:diamond_shield"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -43,6 +43,5 @@
     "recipes": [
       "xores:blazing_helmet"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

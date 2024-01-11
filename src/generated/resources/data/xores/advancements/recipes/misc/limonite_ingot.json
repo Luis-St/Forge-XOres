@@ -43,6 +43,5 @@
     "recipes": [
       "xores:limonite_ingot"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

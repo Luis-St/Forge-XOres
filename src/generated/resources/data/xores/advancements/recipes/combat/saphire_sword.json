@@ -43,6 +43,5 @@
     "recipes": [
       "xores:saphire_sword"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -43,6 +43,5 @@
     "recipes": [
       "xores:saphire_ingot_from_blasting_deepslate_saphire_ore"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }
