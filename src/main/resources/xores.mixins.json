@@ -4,9 +4,10 @@
 	"compatibilityLevel": "JAVA_17",
 	"refmap": "mixins.xores.refmap.json",
 	"mixins": [
+		"DiggerItemMixin",
 		"ItemStackMixin",
-		"SwordItemMixin",
-		"DiggerItemMixin"
+		"RegistrySetBuilderMixin",
+		"SwordItemMixin"
 	],
 	"client": [
 	],
