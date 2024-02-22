@@ -1,7 +1,6 @@
 package net.luis.xores.data;
 
 import net.luis.xores.XOres;
-import net.luis.xores.data.provider.DatapackBuiltinEntriesProvider;
 import net.luis.xores.data.provider.XOBuiltinProvider;
 import net.luis.xores.data.provider.block.XOBlockStateProvider;
 import net.luis.xores.data.provider.item.XOItemModelProvider;
@@ -12,6 +11,7 @@ import net.luis.xores.data.provider.recipe.XORecipeProvider;
 import net.luis.xores.data.provider.tag.XOBlockTagsProvider;
 import net.luis.xores.data.provider.tag.XOItemTagsProvider;
 import net.minecraft.data.DataGenerator;
+import net.minecraftforge.common.data.DatapackBuiltinEntriesProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;

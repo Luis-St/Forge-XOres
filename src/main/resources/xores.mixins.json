@@ -6,7 +6,6 @@
 	"mixins": [
 		"DiggerItemMixin",
 		"ItemStackMixin",
-		"RegistrySetBuilderMixin",
 		"SwordItemMixin"
 	],
 	"client": [
