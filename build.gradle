@@ -1,16 +1,11 @@
+import java.nio.file.Files
+
 plugins {
 	id "eclipse"
 	id "idea"
 	id "maven-publish"
 	id "net.minecraftforge.gradle" version "[6.0,6.2)"
 	id "org.spongepowered.mixin" version "0.7.+"
-}
-
-version = "${MinecraftVersion}-${ModVersion}"
-group = "net.luis.xores"
-
-base {
-	archivesName = "XOres"
 }
 
 minecraft {
@@ -113,34 +108,6 @@ dependencies {
 	annotationProcessor "org.spongepowered:mixin:0.8.5:processor"
 }
 
-def resourceTargets = ["META-INF/mods.toml"]
-def replaceProperties = [
-	MinecraftVersion: MinecraftVersion, MinecraftVersionRange: MinecraftVersionRange,
-	ForgeVersion: ForgeVersion, ForgeVersionRange: ForgeVersionRange,
-	ForgeLoaderRange: ForgeLoaderRange, ModVersion: ModVersion
-]
-processResources {
-	inputs.properties replaceProperties
-	replaceProperties.put "project", project
-	
-	filesMatching(resourceTargets) {
-		expand replaceProperties
-	}
-}
-
-jar {
-	manifest {
-		attributes([
-			"Specification-Title": "XOres",
-			"Specification-Version": "${ModVersion}",
-			"Implementation-Title": project.name,
-			"Implementation-Timestamp": new Date().format("yyyy-MM-dd HH:mm:ssZ")
-		])
-	}
-}
-
-jar.finalizedBy("reobfJar")
-
 java {
 	withSourcesJar()
 }
@@ -151,17 +118,44 @@ artifacts {
 
 def username = ""
 def password = ""
-def file = file("./../../credentials.properties")
-if (file.exists()) {
+def creds = file("./../../credentials.properties")
+if (creds.exists()) {
 	def properties = new Properties()
-	file.withInputStream {properties.load(it)}
+	creds.withInputStream {properties.load(it)}
 	username = properties.getProperty("username")
 	password = properties.getProperty("password")
+}
+
+def ver = "${MinecraftVersion}-${ModVersion}"
+tasks.register("renameArtifacts") {
+	doLast {
+		def jar = file("build/libs/${project.name}.jar")
+		def sourcesJar = file("build/libs/${project.name}-sources.jar")
+		if (Files.exists(jar.toPath())) {
+			def folder = file("D:/Games/Forge/Uploaded/XOres/${MinecraftVersion}")
+			if (!Files.exists(folder.toPath())) {
+				Files.createDirectory(folder.toPath())
+			}
+			if (!Files.exists(folder.toPath().resolve("XOres-${ver}.jar"))) {
+				Files.move(jar.toPath(), folder.toPath().resolve("XOres-${ver}.jar"))
+				println "Moved '${jar}' to '${folder.toPath().resolve("XOres-${ver}.jar")}'"
+			} else {
+				Files.delete(jar.toPath())
+				println "Deleted '${jar}'"
+			}
+		}
+		if (Files.deleteIfExists(sourcesJar.toPath())) {
+			println "Deleted '${sourcesJar}'"
+		}
+	}
 }
 
 publishing {
 	publications {
 		mavenJava(MavenPublication) {
+			groupId = "net.luis"
+			artifactId = "XOres"
+			version = ver
 			artifact jar
 			artifact sourcesJar
 		}
@@ -178,6 +172,41 @@ publishing {
 		}
 	}
 }
+
+def resourceTargets = ["META-INF/mods.toml"]
+def replaceProperties = [
+	MinecraftVersion: MinecraftVersion, MinecraftVersionRange: MinecraftVersionRange,
+	ForgeVersion: ForgeVersion, ForgeVersionRange: ForgeVersionRange,
+	ForgeLoaderRange: ForgeLoaderRange, ModVersion: ModVersion
+]
+processResources {
+	inputs.properties replaceProperties
+	replaceProperties.put "project", project
+	
+	filesMatching(resourceTargets) {
+		expand replaceProperties
+	}
+}
+
+jar {
+	outputs.upToDateWhen {false}
+	manifest {
+		attributes([
+			"Specification-Title": "XOres",
+			"Specification-Version": "${ModVersion}",
+			"Implementation-Title": project.name,
+			"Implementation-Timestamp": new Date().format("yyyy-MM-dd HH:mm:ssZ")
+		])
+	}
+	finalizedBy("reobfJar")
+}
+
+sourcesJar {
+	outputs.upToDateWhen {false}
+}
+
+build.finalizedBy("renameArtifacts")
+publish.finalizedBy("renameArtifacts")
 
 tasks.withType(JavaCompile).configureEach {
 	options.encoding = "UTF-8"
