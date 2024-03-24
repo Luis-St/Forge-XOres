@@ -59,13 +59,9 @@ public interface AbilityArmor {
 		}).findAny();
 	}
 	
-	@NotNull ArmorMaterial getMaterial();
-	
 	void onItemApplied(@NotNull LivingEntity entity, @NotNull EquipmentSlot slot, @NotNull ItemStack stack);
 	
-	default void onItemChanged(@NotNull LivingEntity entity, @NotNull EquipmentSlot slot, @NotNull ItemStack oldStack, @NotNull ItemStack newStack) {
-		
-	}
+	default void onItemChanged(@NotNull LivingEntity entity, @NotNull EquipmentSlot slot, @NotNull ItemStack oldStack, @NotNull ItemStack newStack) {}
 	
 	void onItemRemoved(@NotNull LivingEntity entity, @NotNull EquipmentSlot slot, @NotNull ItemStack stack);
 	
