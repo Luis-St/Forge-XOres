@@ -22,8 +22,8 @@ public class ElytraChestplateItem extends ArmorItem {
 	private static final Map<ElytraChestplateItem, Integer> ELYTRA_TIME_DAMAGE_VALUES = Maps.newHashMap();
 	private static final Random RNG = new Random(System.currentTimeMillis());
 	
-	public ElytraChestplateItem(ArmorMaterial armorMaterial, Properties properties) {
-		super(armorMaterial, Type.CHESTPLATE, properties);
+	public ElytraChestplateItem(ArmorMaterial material, Properties properties) {
+		super(material, Type.CHESTPLATE, properties);
 	}
 	
 	public static void register(ElytraChestplateItem elytraChestplate, int damageValue) {

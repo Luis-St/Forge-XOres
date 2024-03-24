@@ -13,12 +13,12 @@ import net.minecraft.world.item.ItemStack;
 
 public class EnderiteHelmetItem extends EnderiteArmorItem {
 	
-	public EnderiteHelmetItem(ArmorMaterial armorMaterial, Properties properties) {
-		super(armorMaterial, Type.HELMET, properties);
+	public EnderiteHelmetItem(ArmorMaterial material, Properties properties) {
+		super(material, Type.HELMET, properties);
 	}
 	
 	@Override
-	public boolean isEnderMask(ItemStack stack, Player player, EnderMan endermanEntity) {
+	public boolean isEnderMask(ItemStack stack, Player player, EnderMan enderman) {
 		return true;
 	}
 }
