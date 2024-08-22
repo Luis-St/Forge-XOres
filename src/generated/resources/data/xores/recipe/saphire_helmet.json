@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "saphire",
+  "key": {
+    "#": {
+      "item": "xores:saphire_ingot"
+    }
+  },
+  "pattern": [
+    "###",
+    "# #",
+    "   "
+  ],
+  "result": {
+    "count": 1,
+    "id": "xores:saphire_helmet"
+  }
+}

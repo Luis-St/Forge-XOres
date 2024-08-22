@@ -1,8 +1,6 @@
 {
   "pack": {
-    "description": {
-      "text": "XOres resources"
-    },
-    "pack_format": 18
+    "description": "XOres resources",
+    "pack_format": 48
   }
 }

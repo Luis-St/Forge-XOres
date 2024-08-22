@@ -50,13 +50,12 @@ import static net.minecraft.world.item.Items.*;
 
 public class XOItemTagsProvider extends ItemTagsProvider {
 	
-	public XOItemTagsProvider(@NotNull DataGenerator generator, CompletableFuture<HolderLookup.Provider> lookupProvider, CompletableFuture<TagsProvider.TagLookup<Block>> blockTagsProvider, @Nullable ExistingFileHelper existingFileHelper) {
+	public XOItemTagsProvider(@NotNull DataGenerator generator, @NotNull CompletableFuture<HolderLookup.Provider> lookupProvider, @NotNull CompletableFuture<TagsProvider.TagLookup<Block>> blockTagsProvider, @Nullable ExistingFileHelper existingFileHelper) {
 		super(generator.getPackOutput(), lookupProvider, blockTagsProvider, XOres.MOD_ID, existingFileHelper);
 	}
 	
 	@Override
-	@SuppressWarnings("deprecation")
-	protected void addTags(@NotNull HolderLookup.Provider provider) {
+	protected void addTags(HolderLookup. @NotNull Provider provider) {
 		this.copy(XOBlockTags.JADE_ORES, XOItemTags.JADE_ORES);
 		this.copy(XOBlockTags.SAPHIRE_ORES, XOItemTags.SAPHIRE_ORES);
 		this.copy(XOBlockTags.LIMONITE_ORES, XOItemTags.LIMONITE_ORES);
@@ -94,22 +93,22 @@ public class XOItemTagsProvider extends ItemTagsProvider {
 		this.tag(XOItemTags.NIGHT).add(NIGHT_SCRAP.get(), NIGHT_INGOT.get(), NIGHT_SWORD.get(), NIGHT_PICKAXE.get(), NIGHT_AXE.get(), NIGHT_SHOVEL.get(), NIGHT_HOE.get()).add(NIGHT_SHIELD.get(), NIGHT_BOW.get(), NIGHT_CROSSBOW.get())
 			.add(NIGHT_HELMET.get(), NIGHT_CHESTPLATE.get(), NIGHT_ELYTRA_CHESTPLATE.get(), NIGHT_LEGGINGS.get(), NIGHT_BOOTS.get());
 		
-		IntrinsicTagAppender<Item> pickaxes = this.tag(XOItemTags.PICKAXES);
-		IntrinsicTagAppender<Item> axes = this.tag(XOItemTags.AXES);
-		IntrinsicTagAppender<Item> shovels = this.tag(XOItemTags.SHOVELS);
-		IntrinsicTagAppender<Item> hoes = this.tag(XOItemTags.HOES);
+		IntrinsicTagAppender<Item> pickaxes = this.tag(ItemTags.PICKAXES);
+		IntrinsicTagAppender<Item> axes = this.tag(ItemTags.AXES);
+		IntrinsicTagAppender<Item> shovels = this.tag(ItemTags.SHOVELS);
+		IntrinsicTagAppender<Item> hoes = this.tag(ItemTags.HOES);
 		
-		IntrinsicTagAppender<Item> swords = this.tag(XOItemTags.SWORDS);
+		IntrinsicTagAppender<Item> swords = this.tag(ItemTags.SWORDS);
 		IntrinsicTagAppender<Item> shields = this.tag(XOItemTags.SHIELDS);
 		IntrinsicTagAppender<Item> bows = this.tag(XOItemTags.BOWS);
 		IntrinsicTagAppender<Item> crossbows = this.tag(XOItemTags.CROSSBOWS);
 		
 		IntrinsicTagAppender<Item> armor = this.tag(XOItemTags.ARMOR);
-		IntrinsicTagAppender<Item> helmets = this.tag(XOItemTags.HELMETS);
-		IntrinsicTagAppender<Item> chestplates = this.tag(XOItemTags.CHESTPLATES);
+		IntrinsicTagAppender<Item> helmets = this.tag(ItemTags.HEAD_ARMOR);
+		IntrinsicTagAppender<Item> chestplates = this.tag(ItemTags.CHEST_ARMOR);
 		IntrinsicTagAppender<Item> elytraChestplates = this.tag(XOItemTags.ELYTRA_CHESTPLATES);
-		IntrinsicTagAppender<Item> leggings = this.tag(XOItemTags.LEGGINGS);
-		IntrinsicTagAppender<Item> boots = this.tag(XOItemTags.BOOTS);
+		IntrinsicTagAppender<Item> leggings = this.tag(ItemTags.LEG_ARMOR);
+		IntrinsicTagAppender<Item> boots = this.tag(ItemTags.FOOT_ARMOR);
 		
 		for (Item item : ForgeRegistries.ITEMS) {
 			if (item instanceof PickaxeItem) {
@@ -140,34 +139,13 @@ public class XOItemTagsProvider extends ItemTagsProvider {
 					}
 					case LEGGINGS -> leggings.add(armorItem);
 					case BOOTS -> boots.add(armorItem);
+					case BODY -> {continue;}
 					default -> throw new IllegalArgumentException(armorItem.getType() + " is not a valid EquipmentSlot for a ArmorItem");
 				}
 			}
 		}
 		
 		this.tag(XOItemTags.SCRAPS).add(NETHERITE_SCRAP).add(ENDERITE_SCRAP.get()).add(NIGHT_SCRAP.get());
-		
-		IntrinsicTagAppender<Item> toolLevel0 = this.tag(XOItemTags.TOOL_LEVEL_0);
-		IntrinsicTagAppender<Item> toolLevel1 = this.tag(XOItemTags.TOOL_LEVEL_1);
-		IntrinsicTagAppender<Item> toolLevel2 = this.tag(XOItemTags.TOOL_LEVEL_2);
-		IntrinsicTagAppender<Item> toolLevel3 = this.tag(XOItemTags.TOOL_LEVEL_3);
-		IntrinsicTagAppender<Item> toolLevel4 = this.tag(XOItemTags.TOOL_LEVEL_4);
-		IntrinsicTagAppender<Item> toolLevel5 = this.tag(XOItemTags.TOOL_LEVEL_5);
-		IntrinsicTagAppender<Item> toolLevel6 = this.tag(XOItemTags.TOOL_LEVEL_6);
-		
-		ForgeRegistries.ITEMS.getValues().stream().filter(item -> item instanceof TieredItem).map(item -> (TieredItem) item).forEach(item -> {
-			switch (item.getTier().getLevel()) {
-				case 0 -> toolLevel0.add(item);
-				case 1 -> toolLevel1.add(item);
-				case 2 -> toolLevel2.add(item);
-				case 3 -> toolLevel3.add(item);
-				case 4 -> toolLevel4.add(item);
-				case 5 -> toolLevel5.add(item);
-				case 6 -> toolLevel6.add(item);
-				default -> {
-				}
-			}
-		});
 		
 		IntrinsicTagAppender<Item> trimmable = this.tag(ItemTags.TRIMMABLE_ARMOR);
 		ITEMS.getEntries().stream().map(RegistryObject::get).filter(item -> item instanceof ArmorItem && !(item instanceof ElytraChestplateItem)).forEach(trimmable::add);

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:elytra"
+  },
+  "base": {
+    "item": "xores:night_chestplate"
+  },
+  "result": {
+    "count": 1,
+    "id": "xores:night_elytra_chestplate"
+  },
+  "template": {
+    "item": "xores:night_upgrade_smithing_template"
+  }
+}

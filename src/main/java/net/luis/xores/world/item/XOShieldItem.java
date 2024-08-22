@@ -38,7 +38,7 @@ public class XOShieldItem extends ShieldItem {
 	
 	private final ResourceLocation shieldTexture;
 	
-	public XOShieldItem(Properties properties, ResourceLocation shieldTexture) {
+	public XOShieldItem(@NotNull Properties properties, @NotNull ResourceLocation shieldTexture) {
 		super(properties);
 		this.shieldTexture = shieldTexture;
 	}

@@ -22,7 +22,7 @@ import net.luis.xores.world.level.levelgen.feature.XOOreFeatures;
 import net.luis.xores.world.level.levelgen.placement.XOOrePlacements;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.features.OreFeatures;
 import net.minecraft.data.worldgen.placement.OrePlacements;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
@@ -43,12 +43,12 @@ import static net.luis.xores.data.provider.level.XOPlacedFeatureProvider.*;
 
 public class XORarerPlacedFeatureProvider {
 	
-	public static void create(@NotNull BootstapContext<PlacedFeature> context) {
+	public static void create(@NotNull BootstrapContext<PlacedFeature> context) {
 		createVanilla(context);
 		createXOres(context);
 	}
 	
-	private static void createVanilla(@NotNull BootstapContext<PlacedFeature> context) {
+	private static void createVanilla(@NotNull BootstrapContext<PlacedFeature> context) {
 		HolderGetter<ConfiguredFeature<?, ?>> registry = context.lookup(Registries.CONFIGURED_FEATURE);
 		context.register(OrePlacements.ORE_COAL_UPPER, new PlacedFeature(registry.getOrThrow(OreFeatures.ORE_COAL), uniformOrePlacement(25, 136, 320))); // 30, 136, 320
 		context.register(OrePlacements.ORE_COAL_LOWER, new PlacedFeature(registry.getOrThrow(OreFeatures.ORE_COAL_BURIED), triangleOrePlacement(17, 0, 192))); // 20, 0, 192
@@ -77,7 +77,7 @@ public class XORarerPlacedFeatureProvider {
 		context.register(OrePlacements.ORE_ANCIENT_DEBRIS_LARGE, new PlacedFeature(registry.getOrThrow(OreFeatures.ORE_ANCIENT_DEBRIS_LARGE), List.of(InSquarePlacement.spread(), RANGE_8_24, BiomeFilter.biome())));
 	}
 	
-	private static void createXOres(@NotNull BootstapContext<PlacedFeature> context) {
+	private static void createXOres(@NotNull BootstrapContext<PlacedFeature> context) {
 		HolderGetter<ConfiguredFeature<?, ?>> registry = context.lookup(Registries.CONFIGURED_FEATURE);
 		context.register(XOOrePlacements.JADE_ORE_UPPER, new PlacedFeature(registry.getOrThrow(XOOreFeatures.JADE_ORE_UPPER), upperOrePlacement(15, 128))); // 20, 128
 		context.register(XOOrePlacements.JADE_ORE_MIDDLE, new PlacedFeature(registry.getOrThrow(XOOreFeatures.JADE_ORE_MIDDLE), uniformOrePlacement(10, -32, 96))); // 14, -32, 96

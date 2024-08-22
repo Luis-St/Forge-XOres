@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "saphire",
+  "ingredients": [
+    {
+      "item": "xores:saphire_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "xores:saphire_ingot"
+  }
+}

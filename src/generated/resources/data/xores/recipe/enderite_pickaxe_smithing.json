@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "xores:enderite_ingot"
+  },
+  "base": {
+    "item": "minecraft:netherite_pickaxe"
+  },
+  "result": {
+    "count": 1,
+    "id": "xores:enderite_pickaxe"
+  },
+  "template": {
+    "item": "xores:enderite_upgrade_smithing_template"
+  }
+}

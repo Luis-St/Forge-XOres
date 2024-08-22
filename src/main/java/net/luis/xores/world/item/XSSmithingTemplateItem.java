@@ -37,16 +37,16 @@ public class XSSmithingTemplateItem extends SmithingTemplateItem {
 	
 	private static final String ENDERITE_TEMPLATE = "item.xores.smithing_template.enderite_upgrade.";
 	private static final String NIGHT_TEMPLATE = "item.xores.smithing_template.night_upgrade.";
-	private static final ResourceLocation EMPTY_SLOT = new ResourceLocation("item/empty_slot_ingot");
-	private static final ResourceLocation EMPTY_HELMET = new ResourceLocation("item/empty_armor_slot_helmet");
-	private static final ResourceLocation EMPTY_CHESTPLATE = new ResourceLocation("item/empty_armor_slot_chestplate");
-	private static final ResourceLocation EMPTY_LEGGINGS = new ResourceLocation("item/empty_armor_slot_leggings");
-	private static final ResourceLocation EMPTY_BOOTS = new ResourceLocation("item/empty_armor_slot_boots");
-	private static final ResourceLocation EMPTY_HOE = new ResourceLocation("item/empty_slot_hoe");
-	private static final ResourceLocation EMPTY_AXE = new ResourceLocation("item/empty_slot_axe");
-	private static final ResourceLocation EMPTY_SWORD = new ResourceLocation("item/empty_slot_sword");
-	private static final ResourceLocation EMPTY_SHOVEL = new ResourceLocation("item/empty_slot_shovel");
-	private static final ResourceLocation EMPTY_PICKAXE = new ResourceLocation("item/empty_slot_pickaxe");
+	private static final ResourceLocation EMPTY_SLOT = ResourceLocation.withDefaultNamespace("item/empty_slot_ingot");
+	private static final ResourceLocation EMPTY_HELMET = ResourceLocation.withDefaultNamespace("item/empty_armor_slot_helmet");
+	private static final ResourceLocation EMPTY_CHESTPLATE = ResourceLocation.withDefaultNamespace("item/empty_armor_slot_chestplate");
+	private static final ResourceLocation EMPTY_LEGGINGS = ResourceLocation.withDefaultNamespace("item/empty_armor_slot_leggings");
+	private static final ResourceLocation EMPTY_BOOTS = ResourceLocation.withDefaultNamespace("item/empty_armor_slot_boots");
+	private static final ResourceLocation EMPTY_HOE = ResourceLocation.withDefaultNamespace("item/empty_slot_hoe");
+	private static final ResourceLocation EMPTY_AXE = ResourceLocation.withDefaultNamespace("item/empty_slot_axe");
+	private static final ResourceLocation EMPTY_SWORD = ResourceLocation.withDefaultNamespace("item/empty_slot_sword");
+	private static final ResourceLocation EMPTY_SHOVEL = ResourceLocation.withDefaultNamespace("item/empty_slot_shovel");
+	private static final ResourceLocation EMPTY_PICKAXE = ResourceLocation.withDefaultNamespace("item/empty_slot_pickaxe");
 	
 	public XSSmithingTemplateItem(@NotNull TemplateType templateType) {
 		super(templateType.appliesTo, templateType.ingredients, templateType.upgrade, templateType.baseSlot, templateType.additionsSlot, templateType.baseSlotIcons, templateType.additionalSlotIcons);
@@ -74,7 +74,7 @@ public class XSSmithingTemplateItem extends SmithingTemplateItem {
 		private final List<ResourceLocation> baseSlotIcons;
 		private final List<ResourceLocation> additionalSlotIcons;
 		
-		TemplateType(Component appliesTo, Component ingredients, Component upgrade, Component baseSlot, Component additionsSlot, List<ResourceLocation> baseSlotIcons, List<ResourceLocation> additionalSlotIcons) {
+		TemplateType(@NotNull Component appliesTo, @NotNull Component ingredients, @NotNull Component upgrade, @NotNull Component baseSlot, @NotNull Component additionsSlot, @NotNull List<ResourceLocation> baseSlotIcons, @NotNull List<ResourceLocation> additionalSlotIcons) {
 			this.appliesTo = appliesTo;
 			this.ingredients = ingredients;
 			this.upgrade = upgrade;

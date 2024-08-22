@@ -43,11 +43,9 @@ public class XOOreFeatures {
 	public static final ResourceKey<ConfiguredFeature<?, ?>> ENDERITE_ORE_RARE = createKey("enderite_ore_rare");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> ENDERITE_ORE_BURIED = createKey("enderite_ore_buried");
 	
-	public static void register() {
+	public static void register() {}
 	
-	}
-	
-	private static @NotNull ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
-		return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(XOres.MOD_ID, name));
+	private static @NotNull ResourceKey<ConfiguredFeature<?, ?>> createKey(@NotNull String name) {
+		return ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, name));
 	}
 }

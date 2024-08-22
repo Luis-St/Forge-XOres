@@ -18,6 +18,7 @@
 
 package net.luis.xores.world.item.ability;
 
+import net.minecraft.core.Holder;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -35,7 +36,7 @@ import static net.luis.xores.world.item.ability.AbilityArmor.*;
 
 public interface NightAbilityArmor extends AbilityArmor {
 	
-	@NotNull ArmorMaterial getAbilityMaterial();
+	@NotNull Holder<ArmorMaterial> getAbilityMaterial();
 	
 	@Override
 	default void onItemApplied(@NotNull LivingEntity entity, @NotNull EquipmentSlot slot, @NotNull ItemStack stack) {

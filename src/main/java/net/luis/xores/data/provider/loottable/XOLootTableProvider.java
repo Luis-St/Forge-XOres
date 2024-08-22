@@ -19,16 +19,21 @@
 package net.luis.xores.data.provider.loottable;
 
 import com.google.common.collect.Lists;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.Registry;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.LootTableProvider;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.ProblemReporter;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.ValidationContext;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
+import java.util.concurrent.CompletableFuture;
 
 /**
  *
@@ -38,12 +43,10 @@ import java.util.Set;
 
 public class XOLootTableProvider extends LootTableProvider {
 	
-	public XOLootTableProvider(@NotNull DataGenerator generator) {
-		super(generator.getPackOutput(), Set.of(), Lists.newArrayList(new SubProviderEntry(XOBlockLootSubProvider::new, LootContextParamSets.BLOCK)));
+	public XOLootTableProvider(@NotNull DataGenerator generator, @NotNull CompletableFuture<HolderLookup.Provider> provider) {
+		super(generator.getPackOutput(), Set.of(), Lists.newArrayList(new SubProviderEntry(XOBlockLootSubProvider::new, LootContextParamSets.BLOCK)), provider);
 	}
 	
 	@Override
-	protected void validate(@NotNull Map<ResourceLocation, LootTable> lootTables, @NotNull ValidationContext validationContext) {
-		
-	}
+	protected void validate(@NotNull Registry<LootTable> map, @NotNull ValidationContext validationcontext, @NotNull ProblemReporter report) {}
 }

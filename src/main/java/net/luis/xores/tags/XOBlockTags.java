@@ -33,20 +33,21 @@ import org.jetbrains.annotations.NotNull;
 
 public class XOBlockTags {
 	
-	public static final TagKey<Block> NEEDS_TOOL_LEVEL_1 = bind(new ResourceLocation(XOres.MOD_ID, "needs_tool_level_1"));
-	public static final TagKey<Block> NEEDS_TOOL_LEVEL_2 = bind(new ResourceLocation(XOres.MOD_ID, "needs_tool_level_2"));
-	public static final TagKey<Block> NEEDS_TOOL_LEVEL_3 = bind(new ResourceLocation(XOres.MOD_ID, "needs_tool_level_3"));
-	public static final TagKey<Block> NEEDS_TOOL_LEVEL_4 = bind(new ResourceLocation(XOres.MOD_ID, "needs_tool_level_4"));
-	public static final TagKey<Block> NEEDS_TOOL_LEVEL_5 = bind(new ResourceLocation(XOres.MOD_ID, "needs_tool_level_5"));
-	public static final TagKey<Block> NEEDS_TOOL_LEVEL_6 = bind(new ResourceLocation(XOres.MOD_ID, "needs_tool_level_6"));
+	public static final TagKey<Block> JADE_ORES = bind(ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "ores/jade_ore"));
+	public static final TagKey<Block> SAPHIRE_ORES = bind(ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "ores/saphire_ore"));
+	public static final TagKey<Block> LIMONITE_ORES = bind(ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "ores/limonite_ore"));
+	public static final TagKey<Block> ENDERITE_ORES = bind(ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "ores/enderite_ore"));
+	public static final TagKey<Block> ORE_BLOCKS = bind(ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "ore_blocks"));
 	
-	public static final TagKey<Block> JADE_ORES = bind(new ResourceLocation(XOres.MOD_ID, "ores/jade_ore"));
-	public static final TagKey<Block> SAPHIRE_ORES = bind(new ResourceLocation(XOres.MOD_ID, "ores/saphire_ore"));
-	public static final TagKey<Block> LIMONITE_ORES = bind(new ResourceLocation(XOres.MOD_ID, "ores/limonite_ore"));
-	public static final TagKey<Block> ENDERITE_ORES = bind(new ResourceLocation(XOres.MOD_ID, "ores/enderite_ore"));
-	public static final TagKey<Block> ORE_BLOCKS = bind(new ResourceLocation(XOres.MOD_ID, "ore_blocks"));
+	public static final TagKey<Block> INCORRECT_FOR_ENDERITE_TOOL = bind(ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "incorrect_for_enderite_tool"));
+	public static final TagKey<Block> INCORRECT_FOR_STEEL_TOOL = bind(ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "incorrect_for_steel_tool"));
 	
-	private static @NotNull TagKey<Block> bind(ResourceLocation location) {
+	public static final TagKey<Block> NEEDS_ENDERITE_TOOL = bind(ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "needs_enderite_tool"));
+	public static final TagKey<Block> NEEDS_STEEL_TOOL = bind(ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "needs_steel_tool"));
+	
+	public static void register() {}
+	
+	private static @NotNull TagKey<Block> bind(@NotNull ResourceLocation location) {
 		return BlockTags.create(location);
 	}
 }

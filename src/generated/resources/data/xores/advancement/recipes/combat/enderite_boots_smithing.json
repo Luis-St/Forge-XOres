@@ -1,0 +1,65 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_enderite_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": "xores:enderite_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_enderite_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "xores:enderite_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_enderite_upgrade_smithing_template": {
+      "conditions": {
+        "items": [
+          {
+            "items": "xores:enderite_upgrade_smithing_template"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_netherite_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:netherite_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "xores:enderite_boots_smithing"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_enderite_upgrade_smithing_template",
+      "has_netherite_boots",
+      "has_enderite_ingot",
+      "has_enderite_boots"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "xores:enderite_boots_smithing"
+    ]
+  }
+}

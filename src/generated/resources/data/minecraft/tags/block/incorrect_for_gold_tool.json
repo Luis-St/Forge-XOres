@@ -1,0 +1,10 @@
+{
+  "values": [
+    "#xores:needs_steel_tool",
+    "#xores:needs_enderite_tool",
+    "#forge:needs_netherite_tool",
+    "#minecraft:needs_diamond_tool",
+    "#minecraft:needs_iron_tool",
+    "#minecraft:needs_stone_tool"
+  ]
+}

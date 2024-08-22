@@ -28,6 +28,7 @@ import net.luis.xores.data.provider.loottable.XOLootTableProvider;
 import net.luis.xores.data.provider.recipe.XORecipeProvider;
 import net.luis.xores.data.provider.tag.XOBlockTagsProvider;
 import net.luis.xores.data.provider.tag.XOItemTagsProvider;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.DatapackBuiltinEntriesProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -41,6 +42,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.*;
 import java.util.*;
+import java.util.concurrent.CompletableFuture;
 
 /**
  *
@@ -58,27 +60,28 @@ public class OnGatherDataEvent {
 	public static void gatherData(@NotNull GatherDataEvent event) throws IOException {
 		DataGenerator generator = event.getGenerator();
 		ExistingFileHelper fileHelper = event.getExistingFileHelper();
+		CompletableFuture<HolderLookup.Provider> provider = event.getLookupProvider();
 		String type = System.getProperty("xores.data.include");
 		if (event.includeDev()) {
 			if ("mod".equalsIgnoreCase(type)) {
 				generator.addProvider(event.includeClient(), new XOBlockStateProvider(generator, fileHelper));
 				generator.addProvider(event.includeClient(), new XOItemModelProvider(generator, fileHelper));
 				generator.addProvider(event.includeClient(), new XOLanguageProvider(generator));
-				generator.addProvider(event.includeServer(), new XOLootTableProvider(generator));
-				generator.addProvider(event.includeServer(), new XORecipeProvider(generator));
-				XOBlockTagsProvider blockTagsProvider = new XOBlockTagsProvider(generator, event.getLookupProvider(), fileHelper);
+				generator.addProvider(event.includeServer(), new XOLootTableProvider(generator, provider));
+				generator.addProvider(event.includeServer(), new XORecipeProvider(generator, provider));
+				XOBlockTagsProvider blockTagsProvider = new XOBlockTagsProvider(generator, provider, fileHelper);
 				generator.addProvider(event.includeServer(), blockTagsProvider);
-				generator.addProvider(event.includeServer(), new XOItemTagsProvider(generator, event.getLookupProvider(), blockTagsProvider.contentsGetter(), fileHelper));
-				generator.addProvider(event.includeServer(), new XOGlobalLootModifierProvider(generator));
-				generator.addProvider(event.includeServer(), new DatapackBuiltinEntriesProvider(generator.getPackOutput(), event.getLookupProvider(), XOBuiltinProvider.createProvider(), Set.of(XOres.MOD_ID)));
+				generator.addProvider(event.includeServer(), new XOItemTagsProvider(generator, provider, blockTagsProvider.contentsGetter(), fileHelper));
+				generator.addProvider(event.includeServer(), new XOGlobalLootModifierProvider(generator, provider));
+				generator.addProvider(event.includeServer(), new DatapackBuiltinEntriesProvider(generator.getPackOutput(), provider, XOBuiltinProvider.createProvider(), Set.of(XOres.MOD_ID)));
 			}
 			if ("rarer".equalsIgnoreCase(type)) {
 				setupDatapackGeneration("xores_rarer_ores");
-				generator.addProvider(event.includeServer(), new DatapackBuiltinEntriesProvider(generator.getPackOutput(), event.getLookupProvider(), XOBuiltinProvider.createRarerPackProvider(), Set.of(XOres.MOD_ID, "minecraft")));
+				generator.addProvider(event.includeServer(), new DatapackBuiltinEntriesProvider(generator.getPackOutput(), provider, XOBuiltinProvider.createRarerPackProvider(), Set.of(XOres.MOD_ID, "minecraft")));
 			}
 			if ("very_rare".equalsIgnoreCase(type)) {
 				setupDatapackGeneration("xores_very_rare_ores");
-				generator.addProvider(event.includeServer(), new DatapackBuiltinEntriesProvider(generator.getPackOutput(), event.getLookupProvider(), XOBuiltinProvider.createVeryRarePackProvider(), Set.of(XOres.MOD_ID, "minecraft")));
+				generator.addProvider(event.includeServer(), new DatapackBuiltinEntriesProvider(generator.getPackOutput(), provider, XOBuiltinProvider.createVeryRarePackProvider(), Set.of(XOres.MOD_ID, "minecraft")));
 			}
 		}
 	}

@@ -43,7 +43,7 @@ public class XOShieldRenderer extends BlockEntityWithoutLevelRenderer {
 	private final ResourceLocation shieldTexture;
 	private final ShieldModel shieldModel;
 	
-	public XOShieldRenderer(BlockEntityRenderDispatcher renderDispatcher, EntityModelSet modelSet, ResourceLocation shieldTexture) {
+	public XOShieldRenderer(@NotNull BlockEntityRenderDispatcher renderDispatcher, @NotNull EntityModelSet modelSet, @NotNull ResourceLocation shieldTexture) {
 		super(renderDispatcher, modelSet);
 		this.shieldTexture = shieldTexture;
 		this.shieldModel = new ShieldModel(modelSet.bakeLayer(ModelLayers.SHIELD));
@@ -54,8 +54,8 @@ public class XOShieldRenderer extends BlockEntityWithoutLevelRenderer {
 		poseStack.pushPose();
 		poseStack.scale(1.0F, -1.0F, -1.0F);
 		VertexConsumer vertexConsumer = ItemRenderer.getFoilBufferDirect(bufferSource, this.shieldModel.renderType(this.shieldTexture), false, stack.hasFoil());
-		this.shieldModel.handle().render(poseStack, vertexConsumer, light, overlay, 1.0F, 1.0F, 1.0F, 1.0F);
-		this.shieldModel.plate().render(poseStack, vertexConsumer, light, overlay, 1.0F, 1.0F, 1.0F, 1.0F);
+		this.shieldModel.handle().render(poseStack, vertexConsumer, light, overlay);
+		this.shieldModel.plate().render(poseStack, vertexConsumer, light, overlay);
 		poseStack.popPose();
 	}
 }

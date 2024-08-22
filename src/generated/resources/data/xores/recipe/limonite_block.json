@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "limonite",
+  "ingredients": [
+    {
+      "item": "xores:limonite_ingot"
+    },
+    {
+      "item": "xores:limonite_ingot"
+    },
+    {
+      "item": "xores:limonite_ingot"
+    },
+    {
+      "item": "xores:limonite_ingot"
+    },
+    {
+      "item": "xores:limonite_ingot"
+    },
+    {
+      "item": "xores:limonite_ingot"
+    },
+    {
+      "item": "xores:limonite_ingot"
+    },
+    {
+      "item": "xores:limonite_ingot"
+    },
+    {
+      "item": "xores:limonite_ingot"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "xores:limonite_block"
+  }
+}

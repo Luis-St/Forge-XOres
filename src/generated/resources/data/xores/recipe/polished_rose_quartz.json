@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "rose_quartz",
+  "ingredients": [
+    {
+      "item": "xores:rose_quartz"
+    },
+    {
+      "item": "xores:rose_quartz"
+    },
+    {
+      "item": "xores:rose_quartz"
+    },
+    {
+      "item": "xores:rose_quartz"
+    },
+    {
+      "item": "xores:rose_quartz"
+    },
+    {
+      "item": "xores:rose_quartz"
+    },
+    {
+      "item": "xores:rose_quartz"
+    },
+    {
+      "item": "xores:rose_quartz"
+    },
+    {
+      "item": "xores:rose_quartz"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "xores:polished_rose_quartz"
+  }
+}

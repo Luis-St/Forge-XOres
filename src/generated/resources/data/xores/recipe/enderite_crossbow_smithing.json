@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "xores:enderite_ingot"
+  },
+  "base": {
+    "item": "xores:netherite_crossbow"
+  },
+  "result": {
+    "count": 1,
+    "id": "xores:enderite_crossbow"
+  },
+  "template": {
+    "item": "xores:enderite_upgrade_smithing_template"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "xores:night_ingot"
+  },
+  "base": {
+    "item": "xores:enderite_helmet"
+  },
+  "result": {
+    "count": 1,
+    "id": "xores:night_helmet"
+  },
+  "template": {
+    "item": "xores:night_upgrade_smithing_template"
+  }
+}

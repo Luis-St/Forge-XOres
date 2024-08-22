@@ -39,7 +39,7 @@ public class XOElytraLayer<T extends LivingEntity, M extends EntityModel<T>> ext
 	private final Item elytraItem;
 	private final ResourceLocation elytraTexture;
 	
-	public XOElytraLayer(RenderLayerParent<T, M> renderParent, EntityModelSet modelSet, Item elytraItem, ResourceLocation elytraTexture) {
+	public XOElytraLayer(@NotNull RenderLayerParent<T, M> renderParent, @NotNull EntityModelSet modelSet, @NotNull Item elytraItem, @NotNull ResourceLocation elytraTexture) {
 		super(renderParent, modelSet);
 		this.elytraItem = elytraItem;
 		this.elytraTexture = elytraTexture;

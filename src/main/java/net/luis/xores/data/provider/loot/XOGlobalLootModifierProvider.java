@@ -24,13 +24,18 @@ import net.luis.xores.world.item.XOItems;
 import net.luis.xores.world.level.storage.loot.SmeltingModifier;
 import net.luis.xores.world.level.storage.loot.TemplateModifier;
 import net.minecraft.advancements.critereon.ItemPredicate;
+import net.minecraft.advancements.critereon.TagPredicate;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraftforge.common.data.GlobalLootModifierProvider;
 import net.minecraftforge.common.loot.LootTableIdCondition;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.concurrent.CompletableFuture;
 
 /**
  *
@@ -40,17 +45,17 @@ import org.jetbrains.annotations.NotNull;
 
 public class XOGlobalLootModifierProvider extends GlobalLootModifierProvider {
 	
-	public XOGlobalLootModifierProvider(@NotNull DataGenerator generator) {
-		super(generator.getPackOutput(), XOres.MOD_ID);
+	public XOGlobalLootModifierProvider(@NotNull DataGenerator generator, @NotNull CompletableFuture<HolderLookup.Provider> registries) {
+		super(generator.getPackOutput(), XOres.MOD_ID, registries);
 	}
 	
 	@Override
-	protected void start() {
+	protected void start(HolderLookup.@NotNull Provider registries) {
 		this.add("smelting_modifier", new SmeltingModifier(new LootItemCondition[] {
 			MatchTool.toolMatches(ItemPredicate.Builder.item().of(XOItemTags.BLAZING)).build()
 		}));
 		this.add("template_modifier", new TemplateModifier(new LootItemCondition[] {
-			LootTableIdCondition.builder(new ResourceLocation("chests/end_city_treasure")).build()
+			LootTableIdCondition.builder(ResourceLocation.withDefaultNamespace("chests/end_city_treasure")).build()
 		}, XOItems.ENDERITE_UPGRADE_SMITHING_TEMPLATE.get(), 0.1));
 	}
 	

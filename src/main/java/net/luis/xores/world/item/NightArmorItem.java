@@ -19,6 +19,7 @@
 package net.luis.xores.world.item;
 
 import net.luis.xores.world.item.ability.NightAbilityArmor;
+import net.minecraft.core.Holder;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import org.jetbrains.annotations.NotNull;
@@ -31,12 +32,12 @@ import org.jetbrains.annotations.NotNull;
 
 public class NightArmorItem extends ArmorItem implements NightAbilityArmor {
 	
-	public NightArmorItem(ArmorMaterial material, Type type, Properties properties) {
+	public NightArmorItem(@NotNull Holder<ArmorMaterial> material, @NotNull Type type, @NotNull Properties properties) {
 		super(material, type, properties);
 	}
 	
 	@Override
-	public @NotNull ArmorMaterial getAbilityMaterial() {
-		return XOArmorMaterials.NIGHT;
+	public @NotNull Holder<ArmorMaterial> getAbilityMaterial() {
+		return XOArmorMaterials.NIGHT.getHolder().orElseThrow();
 	}
 }

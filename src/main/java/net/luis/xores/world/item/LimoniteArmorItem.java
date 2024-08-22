@@ -19,6 +19,7 @@
 package net.luis.xores.world.item;
 
 import net.luis.xores.world.item.ability.AbilityArmor;
+import net.minecraft.core.Holder;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -35,7 +36,7 @@ import static net.luis.xores.world.item.ability.AbilityArmor.*;
 
 public class LimoniteArmorItem extends ArmorItem implements AbilityArmor {
 	
-	public LimoniteArmorItem(ArmorMaterial material, Type type, Properties properties) {
+	public LimoniteArmorItem(@NotNull Holder<ArmorMaterial> material, @NotNull Type type, @NotNull Properties properties) {
 		super(material, type, properties);
 	}
 	

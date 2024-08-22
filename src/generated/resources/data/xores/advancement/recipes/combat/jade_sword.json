@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_jade_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "xores:jade_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_jade_sword": {
+      "conditions": {
+        "items": [
+          {
+            "items": "xores:jade_sword"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "xores:jade_sword"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_jade_ingot",
+      "has_jade_sword"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "xores:jade_sword"
+    ]
+  }
+}
