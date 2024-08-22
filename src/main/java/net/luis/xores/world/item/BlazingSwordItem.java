@@ -34,14 +34,14 @@ public class BlazingSwordItem extends SwordItem {
 	
 	private static final Random RNG = new Random(System.currentTimeMillis());
 	
-	public BlazingSwordItem(Tier tier, int additionalDamage, float attackSpeed, Properties properties) {
-		super(tier, additionalDamage, attackSpeed, properties);
+	public BlazingSwordItem(@NotNull Tier tier, @NotNull Properties properties) {
+		super(tier, properties);
 	}
 	
 	@Override
 	public boolean hurtEnemy(@NotNull ItemStack stack, @NotNull LivingEntity target, @NotNull LivingEntity attacker) {
 		if (!target.fireImmune()) {
-			target.setSecondsOnFire(RNG.nextInt(5) + 2);
+			target.setRemainingFireTicks((RNG.nextInt(5) + 2) * 20);
 		}
 		return super.hurtEnemy(stack, target, attacker);
 	}

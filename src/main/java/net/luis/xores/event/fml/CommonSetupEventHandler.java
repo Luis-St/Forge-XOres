@@ -45,8 +45,8 @@ public class CommonSetupEventHandler {
 		ElytraChestplateItem.register(XOItems.ENDERITE_ELYTRA_CHESTPLATE.get(), 80);
 		ElytraChestplateItem.register(XOItems.NIGHT_ELYTRA_CHESTPLATE.get(), 100);
 		event.enqueueWork(() -> {
-			replaceAttributeValue((RangedAttribute) Attributes.ARMOR, 512.0);
-			replaceAttributeValue((RangedAttribute) Attributes.KNOCKBACK_RESISTANCE, 64.0);
+			replaceAttributeValue((RangedAttribute) Attributes.ARMOR.value(), 512.0);
+			replaceAttributeValue((RangedAttribute) Attributes.KNOCKBACK_RESISTANCE.value(), 64.0);
 		});
 	}
 	

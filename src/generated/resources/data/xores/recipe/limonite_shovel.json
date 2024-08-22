@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "limonite",
+  "key": {
+    "#": {
+      "item": "xores:limonite_ingot"
+    },
+    "I": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    " # ",
+    " I ",
+    " I "
+  ],
+  "result": {
+    "count": 1,
+    "id": "xores:limonite_shovel"
+  }
+}

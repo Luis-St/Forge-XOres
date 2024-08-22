@@ -42,7 +42,7 @@ public class XOBlockStateProvider extends BlockStateProvider {
 	
 	private final ExistingFileHelper existingFileHelper;
 	
-	public XOBlockStateProvider(@NotNull DataGenerator generator, ExistingFileHelper existingFileHelper) {
+	public XOBlockStateProvider(@NotNull DataGenerator generator, @NotNull ExistingFileHelper existingFileHelper) {
 		super(generator.getPackOutput(), XOres.MOD_ID, existingFileHelper);
 		this.existingFileHelper = existingFileHelper;
 	}
@@ -60,14 +60,14 @@ public class XOBlockStateProvider extends BlockStateProvider {
 	}
 	
 	//region Block state helpers
-	private void columnBlock(Block block) {
+	private void columnBlock(@NotNull Block block) {
 		String name = Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).getPath();
-		ModelFile modelFile = this.models().cubeColumn(name, new ResourceLocation(this.blockTexture(block).toString() + "_side"), new ResourceLocation(this.blockTexture(block).toString() + "_top"));
+		ModelFile modelFile = this.models().cubeColumn(name, ResourceLocation.parse(this.blockTexture(block).toString() + "_side"), ResourceLocation.parse(this.blockTexture(block).toString() + "_top"));
 		this.getVariantBuilder(block).partialState().setModels(new ConfiguredModel(modelFile));
 	}
 	//endregion
 	
-	private @NotNull ModelFile getModel(Block block) {
+	private @NotNull ModelFile getModel(@NotNull Block block) {
 		return new ExistingModelFile(this.blockTexture(block), this.existingFileHelper);
 	}
 	

@@ -19,7 +19,9 @@
 package net.luis.xores.data.provider.recipe;
 
 import net.luis.xores.XOres;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -30,6 +32,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
+import java.util.concurrent.CompletableFuture;
 
 import static net.luis.xores.world.item.XOItems.*;
 import static net.luis.xores.world.level.block.XOBlocks.*;
@@ -42,8 +45,8 @@ import static net.luis.xores.world.level.block.XOBlocks.*;
 
 public class XORecipeProvider extends RecipeProvider {
 	
-	public XORecipeProvider(@NotNull DataGenerator generator) {
-		super(generator.getPackOutput());
+	public XORecipeProvider(@NotNull DataGenerator generator, @NotNull CompletableFuture<HolderLookup.Provider> lookup) {
+		super(generator.getPackOutput(), lookup);
 	}
 	
 	@Override
@@ -130,7 +133,7 @@ public class XORecipeProvider extends RecipeProvider {
 		Item enderiteTemplate = ENDERITE_UPGRADE_SMITHING_TEMPLATE.get();
 		this.oreRecipes(output, ENDERITE_ORE.get().asItem(), ENDERITE_SCRAP.get(), 400);
 		this.groupAndUnlock(ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ENDERITE_INGOT.get()).requires(ENDERITE_SCRAP.get(), 9), this.getGroup(ENDERITE_INGOT.get()), ENDERITE_SCRAP.get(), ENDERITE_INGOT.get())
-			.save(output, new ResourceLocation(XOres.MOD_ID, this.getId(ENDERITE_INGOT.get()) + "_from_scrap"));
+			.save(output, ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, this.getId(ENDERITE_INGOT.get()) + "_from_scrap"));
 		this.blockRecipes(output, ENDERITE_INGOT.get(), ENDERITE_BLOCK.get().asItem());
 		this.smithingRecipe(output, enderiteTemplate, Items.NETHERITE_SWORD, ENDERITE_INGOT.get(), RecipeCategory.COMBAT, ENDERITE_SWORD.get());
 		this.smithingRecipe(output, enderiteTemplate, NETHERITE_SHIELD.get(), ENDERITE_INGOT.get(), RecipeCategory.COMBAT, ENDERITE_SHIELD.get());
@@ -182,75 +185,75 @@ public class XORecipeProvider extends RecipeProvider {
 	}
 	
 	//region Recipe helpers
-	private void oreRecipes(@NotNull RecipeOutput output, Item ore, Item ingot) {
+	private void oreRecipes(@NotNull RecipeOutput output, @NotNull Item ore, @NotNull Item ingot) {
 		this.oreRecipes(output, ore, ingot, 200);
 	}
 	
-	private void oreRecipes(@NotNull RecipeOutput output, Item ore, Item ingot, int time) {
+	private void oreRecipes(@NotNull RecipeOutput output, @NotNull Item ore, @NotNull Item ingot, int time) {
 		this.smeltingRecipe(output, Ingredient.of(ore), ingot, time, this.getGroup(ingot), "_from_smelting_" + this.getId(ore));
 		this.blastingRecipe(output, Ingredient.of(ore), ingot, time / 2, this.getGroup(ingot), "_from_blasting_" + this.getId(ore));
 	}
 	
-	private void blockRecipes(@NotNull RecipeOutput output, Item ingot, Item block) {
+	private void blockRecipes(@NotNull RecipeOutput output, @NotNull Item ingot, @NotNull Item block) {
 		this.groupAndUnlock(ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, block).requires(ingot, 9), this.getGroup(ingot), ingot, block).save(output);
 		this.groupAndUnlock(ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ingot, 9).requires(block), this.getGroup(ingot), ingot, block).save(output);
 	}
 	
-	private void swordRecipe(@NotNull RecipeOutput output, Item ingot, Item sword) {
+	private void swordRecipe(@NotNull RecipeOutput output, @NotNull Item ingot, @NotNull Item sword) {
 		this.groupAndUnlock(ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, sword).define('I', Items.STICK).define('#', ingot).pattern(" # ").pattern(" # ").pattern(" I "), this.getGroup(ingot), ingot, sword).save(output);
 	}
 	
-	private void shieldRecipe(@NotNull RecipeOutput output, Item ingot, Item shield) {
+	private void shieldRecipe(@NotNull RecipeOutput output, @NotNull Item ingot, @NotNull Item shield) {
 		this.groupAndUnlock(ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, shield).define('I', Items.IRON_INGOT).define('#', ingot).pattern("#I#").pattern("###").pattern(" # "), this.getGroup(ingot), ingot, shield).save(output);
 	}
 	
-	private void pickaxeRecipe(@NotNull RecipeOutput output, Item ingot, Item pickaxe) {
+	private void pickaxeRecipe(@NotNull RecipeOutput output, @NotNull Item ingot, @NotNull Item pickaxe) {
 		this.groupAndUnlock(ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, pickaxe).define('I', Items.STICK).define('#', ingot).pattern("###").pattern(" I ").pattern(" I "), this.getGroup(ingot), ingot, pickaxe).save(output);
 	}
 	
-	private void axeRecipe(@NotNull RecipeOutput output, Item ingot, Item axe) {
+	private void axeRecipe(@NotNull RecipeOutput output, @NotNull Item ingot, @NotNull Item axe) {
 		this.groupAndUnlock(ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, axe).define('I', Items.STICK).define('#', ingot).pattern("## ").pattern("#I ").pattern(" I "), this.getGroup(ingot), ingot, axe).save(output);
 	}
 	
-	private void shovelRecipe(@NotNull RecipeOutput output, Item ingot, Item shovel) {
+	private void shovelRecipe(@NotNull RecipeOutput output, @NotNull Item ingot, @NotNull Item shovel) {
 		this.groupAndUnlock(ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, shovel).define('I', Items.STICK).define('#', ingot).pattern(" # ").pattern(" I ").pattern(" I "), this.getGroup(ingot), ingot, shovel).save(output);
 	}
 	
-	private void hoeRecipe(@NotNull RecipeOutput output, Item ingot, Item hoe) {
+	private void hoeRecipe(@NotNull RecipeOutput output, @NotNull Item ingot, @NotNull Item hoe) {
 		this.groupAndUnlock(ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, hoe).define('I', Items.STICK).define('#', ingot).pattern("## ").pattern("I  ").pattern("I  "), this.getGroup(ingot), ingot, hoe).save(output);
 	}
 	
-	private void helmetRecipe(@NotNull RecipeOutput output, Item ingot, Item helmet) {
+	private void helmetRecipe(@NotNull RecipeOutput output, @NotNull Item ingot, @NotNull Item helmet) {
 		this.groupAndUnlock(ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, helmet).define('#', ingot).pattern("###").pattern("# #").pattern("   "), this.getGroup(ingot), ingot, helmet).save(output);
 	}
 	
-	private void chestplateRecipe(@NotNull RecipeOutput output, Item ingot, Item chestplate) {
+	private void chestplateRecipe(@NotNull RecipeOutput output, @NotNull Item ingot, @NotNull Item chestplate) {
 		this.groupAndUnlock(ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, chestplate).define('#', ingot).pattern("# #").pattern("###").pattern("###"), this.getGroup(ingot), ingot, chestplate).save(output);
 	}
 	
-	private void elytraChestplateRecipe(@NotNull RecipeOutput output, Item elytraChestplate) {
+	private void elytraChestplateRecipe(@NotNull RecipeOutput output, @NotNull Item elytraChestplate) {
 		this.groupAndUnlock(ShapelessRecipeBuilder.shapeless(RecipeCategory.COMBAT, elytraChestplate).requires(Items.DIAMOND_CHESTPLATE).requires(Items.ELYTRA), this.getGroup(Items.DIAMOND), Items.DIAMOND_CHESTPLATE, Items.ELYTRA, elytraChestplate).save(output);
 	}
 	
-	private void leggingsRecipe(@NotNull RecipeOutput output, Item ingot, Item leggings) {
+	private void leggingsRecipe(@NotNull RecipeOutput output, @NotNull Item ingot, @NotNull Item leggings) {
 		this.groupAndUnlock(ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, leggings).define('#', ingot).pattern("###").pattern("# #").pattern("# #"), this.getGroup(ingot), ingot, leggings).save(output);
 	}
 	
-	private void bootsRecipe(@NotNull RecipeOutput output, Item ingot, Item boots) {
+	private void bootsRecipe(@NotNull RecipeOutput output, @NotNull Item ingot, @NotNull Item boots) {
 		this.groupAndUnlock(ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, boots).define('#', ingot).pattern("   ").pattern("# #").pattern("# #"), this.getGroup(ingot), ingot, boots).save(output);
 	}
 	
-	private void smithingRecipe(@NotNull RecipeOutput output, Item template, Item base, Item addition, RecipeCategory category, Item result) {
+	private void smithingRecipe(@NotNull RecipeOutput output, @NotNull Item template, @NotNull Item base, @NotNull Item addition, @NotNull RecipeCategory category, @NotNull Item result) {
 		this.unlock(SmithingTransformRecipeBuilder.smithing(Ingredient.of(template), Ingredient.of(base), Ingredient.of(addition), category, result), template, base, addition, result)
-			.save(output, new ResourceLocation(XOres.MOD_ID, this.getId(result) + "_smithing"));
+			.save(output, ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, this.getId(result) + "_smithing"));
 	}
 	
-	private void smeltingRecipe(@NotNull RecipeOutput output, Ingredient input, Item result, int time, String group, String prefix) {
-		this.groupAndUnlock(SimpleCookingRecipeBuilder.smelting(input, RecipeCategory.MISC, result, 1.0f, time), group, input, result).save(output, new ResourceLocation(XOres.MOD_ID, this.getId(result) + prefix));
+	private void smeltingRecipe(@NotNull RecipeOutput output, @NotNull Ingredient input, @NotNull Item result, int time, @NotNull String group, @NotNull String prefix) {
+		this.groupAndUnlock(SimpleCookingRecipeBuilder.smelting(input, RecipeCategory.MISC, result, 1.0f, time), group, input, result).save(output, ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, this.getId(result) + prefix));
 	}
 	
-	private void blastingRecipe(@NotNull RecipeOutput output, Ingredient input, Item result, int time, String group, String prefix) {
-		this.groupAndUnlock(SimpleCookingRecipeBuilder.blasting(input, RecipeCategory.MISC, result, 0.75f, time), group, input, result).save(output, new ResourceLocation(XOres.MOD_ID, this.getId(result) + prefix));
+	private void blastingRecipe(@NotNull RecipeOutput output, @NotNull Ingredient input, @NotNull Item result, int time, @NotNull String group, @NotNull String prefix) {
+		this.groupAndUnlock(SimpleCookingRecipeBuilder.blasting(input, RecipeCategory.MISC, result, 0.75f, time), group, input, result).save(output, ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, this.getId(result) + prefix));
 	}
 	//endregion
 	
@@ -259,7 +262,7 @@ public class XORecipeProvider extends RecipeProvider {
 		return Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item.asItem())).getPath();
 	}
 	
-	private String getGroup(Item item) {
+	private @NotNull String getGroup(@NotNull Item item) {
 		String path = this.getId(item);
 		if (!path.contains("_")) {
 			return path;
@@ -271,21 +274,21 @@ public class XORecipeProvider extends RecipeProvider {
 		return pathParts[0];
 	}
 	
-	private @NotNull RecipeBuilder groupAndUnlock(RecipeBuilder builder, String group, ItemLike @NotNull ... unlockCriterions) {
+	private @NotNull RecipeBuilder groupAndUnlock(@NotNull RecipeBuilder builder, @NotNull String group, ItemLike @NotNull ... unlockCriterions) {
 		for (ItemLike unlockCriterion : unlockCriterions) {
 			builder.unlockedBy("has_" + this.getId(unlockCriterion), has(unlockCriterion));
 		}
 		return builder.group(group);
 	}
 	
-	private @NotNull SmithingTransformRecipeBuilder unlock(SmithingTransformRecipeBuilder builder, ItemLike @NotNull ... unlockCriterions) {
+	private @NotNull SmithingTransformRecipeBuilder unlock(@NotNull SmithingTransformRecipeBuilder builder, ItemLike @NotNull ... unlockCriterions) {
 		for (ItemLike unlockCriterion : unlockCriterions) {
 			builder.unlocks("has_" + this.getId(unlockCriterion), has(unlockCriterion));
 		}
 		return builder;
 	}
 	
-	private @NotNull RecipeBuilder groupAndUnlock(RecipeBuilder builder, String group, @NotNull Ingredient ingredientCriterion, Item itemCriterion) {
+	private @NotNull RecipeBuilder groupAndUnlock(@NotNull RecipeBuilder builder, @NotNull String group, @NotNull Ingredient ingredientCriterion, @NotNull Item itemCriterion) {
 		for (Ingredient.Value value : ingredientCriterion.values) {
 			if (value instanceof Ingredient.ItemValue itemValue) {
 				builder.unlockedBy("has_" + this.getId(itemValue.item().getItem()), has(itemValue.item().getItem()));

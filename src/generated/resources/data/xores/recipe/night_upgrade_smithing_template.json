@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "night",
+  "ingredients": [
+    {
+      "item": "minecraft:netherite_upgrade_smithing_template"
+    },
+    {
+      "item": "xores:enderite_upgrade_smithing_template"
+    },
+    {
+      "item": "xores:night_ingot"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "xores:night_upgrade_smithing_template"
+  }
+}

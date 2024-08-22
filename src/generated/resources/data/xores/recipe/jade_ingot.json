@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "jade",
+  "ingredients": [
+    {
+      "item": "xores:jade_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "xores:jade_ingot"
+  }
+}

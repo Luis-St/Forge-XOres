@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "saphire",
+  "ingredients": [
+    {
+      "item": "xores:saphire_ingot"
+    },
+    {
+      "item": "xores:saphire_ingot"
+    },
+    {
+      "item": "xores:saphire_ingot"
+    },
+    {
+      "item": "xores:saphire_ingot"
+    },
+    {
+      "item": "xores:saphire_ingot"
+    },
+    {
+      "item": "xores:saphire_ingot"
+    },
+    {
+      "item": "xores:saphire_ingot"
+    },
+    {
+      "item": "xores:saphire_ingot"
+    },
+    {
+      "item": "xores:saphire_ingot"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "xores:saphire_block"
+  }
+}

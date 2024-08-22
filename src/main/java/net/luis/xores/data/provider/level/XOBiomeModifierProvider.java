@@ -23,7 +23,7 @@ import net.luis.xores.world.level.levelgen.placement.XOOrePlacements;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
@@ -40,7 +40,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class XOBiomeModifierProvider {
 	
-	public static void create(@NotNull BootstapContext<BiomeModifier> context) {
+	public static void create(@NotNull BootstrapContext<BiomeModifier> context) {
 		HolderGetter<PlacedFeature> featureRegistry = context.lookup(Registries.PLACED_FEATURE);
 		HolderGetter<Biome> biomeRegistry = context.lookup(Registries.BIOME);
 		HolderSet<PlacedFeature> overworldFeatures = HolderSet.direct(featureRegistry.getOrThrow(XOOrePlacements.JADE_ORE_MIDDLE), featureRegistry.getOrThrow(XOOrePlacements.SAPHIRE_ORE),

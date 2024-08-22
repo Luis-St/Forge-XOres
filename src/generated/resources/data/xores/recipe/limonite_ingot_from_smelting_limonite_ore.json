@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "group": "limonite",
+  "ingredient": {
+    "item": "xores:limonite_ore"
+  },
+  "result": {
+    "id": "xores:limonite_ingot"
+  }
+}

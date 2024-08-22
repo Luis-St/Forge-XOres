@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "jade",
+  "ingredients": [
+    {
+      "item": "xores:jade_ingot"
+    },
+    {
+      "item": "xores:jade_ingot"
+    },
+    {
+      "item": "xores:jade_ingot"
+    },
+    {
+      "item": "xores:jade_ingot"
+    },
+    {
+      "item": "xores:jade_ingot"
+    },
+    {
+      "item": "xores:jade_ingot"
+    },
+    {
+      "item": "xores:jade_ingot"
+    },
+    {
+      "item": "xores:jade_ingot"
+    },
+    {
+      "item": "xores:jade_ingot"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "xores:jade_block"
+  }
+}

@@ -20,7 +20,7 @@ package net.luis.xores.data.provider.level;
 
 import net.luis.xores.world.level.block.XOBlocks;
 import net.luis.xores.world.level.levelgen.feature.XOOreFeatures;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -84,7 +84,7 @@ public class XOConfiguredFeatureProvider {
 		return List.of(OreConfiguration.target(END_STONE_REPLACEABLES, XOBlocks.ENDERITE_ORE.get().defaultBlockState()));
 	};
 	
-	public static void create(@NotNull BootstapContext<ConfiguredFeature<?, ?>> context) {
+	public static void create(@NotNull BootstrapContext<ConfiguredFeature<?, ?>> context) {
 		context.register(XOOreFeatures.JADE_ORE_UPPER, new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(JADE_ORE_TARGETS.get(), 5)));
 		context.register(XOOreFeatures.JADE_ORE_MIDDLE, new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(JADE_ORE_TARGETS.get(), 7)));
 		context.register(XOOreFeatures.SAPHIRE_ORE_RARE_UPPER, new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(SAPHIRE_ORE_TARGETS.get(), 2)));

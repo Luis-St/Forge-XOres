@@ -19,6 +19,7 @@
 package net.luis.xores.world.level.biome;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.luis.xores.XOres;
 import net.minecraft.core.Holder;
@@ -40,12 +41,12 @@ import org.jetbrains.annotations.NotNull;
  *
  */
 
-public record XOBiomeModifier(HolderSet<Biome> overworldBiomes, HolderSet<PlacedFeature> overworldFeatures, HolderSet<Biome> mountainPeakBiomes, HolderSet<PlacedFeature> mountainPeakFeatures, HolderSet<Biome> endBiomes,
-							  HolderSet<PlacedFeature> endFeatures) implements BiomeModifier {
+public record XOBiomeModifier(@NotNull HolderSet<Biome> overworldBiomes, @NotNull HolderSet<PlacedFeature> overworldFeatures, @NotNull HolderSet<Biome> mountainPeakBiomes, @NotNull HolderSet<PlacedFeature> mountainPeakFeatures,
+							  @NotNull HolderSet<Biome> endBiomes, @NotNull HolderSet<PlacedFeature> endFeatures) implements BiomeModifier {
 	
-	public static final ResourceKey<BiomeModifier> KEY = ResourceKey.create(ForgeRegistries.Keys.BIOME_MODIFIERS, new ResourceLocation(XOres.MOD_ID, "ore_biome_modifier"));
+	public static final ResourceKey<BiomeModifier> KEY = ResourceKey.create(ForgeRegistries.Keys.BIOME_MODIFIERS, ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "ore_biome_modifier"));
 	
-	public static final Codec<XOBiomeModifier> CODEC = RecordCodecBuilder.create((instance) -> {
+	public static final MapCodec<XOBiomeModifier> CODEC = RecordCodecBuilder.mapCodec((instance) -> {
 		return instance.group(Biome.LIST_CODEC.fieldOf("overworld_biomes").forGetter((biomeModifier) -> {
 			return biomeModifier.overworldBiomes();
 		}), PlacedFeature.LIST_CODEC.fieldOf("overworld_features").forGetter((biomeModifier) -> {
@@ -62,7 +63,7 @@ public record XOBiomeModifier(HolderSet<Biome> overworldBiomes, HolderSet<Placed
 	});
 	
 	@Override
-	public void modify(Holder<Biome> biome, Phase phase, Builder builder) {
+	public void modify(@NotNull Holder<Biome> biome, @NotNull Phase phase, @NotNull Builder builder) {
 		if (phase == Phase.ADD) {
 			BiomeGenerationSettingsBuilder generationBuilder = builder.getGenerationSettings();
 			if (this.overworldBiomes.contains(biome)) {
@@ -83,7 +84,7 @@ public record XOBiomeModifier(HolderSet<Biome> overworldBiomes, HolderSet<Placed
 	}
 	
 	@Override
-	public @NotNull Codec<XOBiomeModifier> codec() {
+	public @NotNull MapCodec<XOBiomeModifier> codec() {
 		return XOBiomeModifiers.ORE_BIOME_MODIFIER.get();
 	}
 }

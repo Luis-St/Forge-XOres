@@ -1,0 +1,65 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_enderite_pickaxe": {
+      "conditions": {
+        "items": [
+          {
+            "items": "xores:enderite_pickaxe"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_night_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "xores:night_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_night_pickaxe": {
+      "conditions": {
+        "items": [
+          {
+            "items": "xores:night_pickaxe"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_night_upgrade_smithing_template": {
+      "conditions": {
+        "items": [
+          {
+            "items": "xores:night_upgrade_smithing_template"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "xores:night_pickaxe_smithing"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_night_upgrade_smithing_template",
+      "has_enderite_pickaxe",
+      "has_night_ingot",
+      "has_night_pickaxe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "xores:night_pickaxe_smithing"
+    ]
+  }
+}

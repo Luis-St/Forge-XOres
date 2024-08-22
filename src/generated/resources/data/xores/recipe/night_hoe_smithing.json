@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "xores:night_ingot"
+  },
+  "base": {
+    "item": "xores:enderite_hoe"
+  },
+  "result": {
+    "count": 1,
+    "id": "xores:night_hoe"
+  },
+  "template": {
+    "item": "xores:night_upgrade_smithing_template"
+  }
+}

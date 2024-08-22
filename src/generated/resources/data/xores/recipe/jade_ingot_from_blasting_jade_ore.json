@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.75,
+  "group": "jade",
+  "ingredient": {
+    "item": "xores:jade_ore"
+  },
+  "result": {
+    "id": "xores:jade_ingot"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "rose_quartz",
+  "key": {
+    "#": {
+      "item": "xores:polished_rose_quartz"
+    },
+    "I": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    " # ",
+    " I ",
+    " I "
+  ],
+  "result": {
+    "count": 1,
+    "id": "xores:rose_quartz_shovel"
+  }
+}

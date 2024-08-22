@@ -21,8 +21,7 @@ package net.luis.xores.event.registry;
 import net.luis.xores.XOres;
 import net.luis.xores.world.item.XOItems;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.packs.PackType;
-import net.minecraft.server.packs.PathPackResources;
+import net.minecraft.server.packs.*;
 import net.minecraft.server.packs.repository.Pack;
 import net.minecraft.server.packs.repository.PackSource;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -34,6 +33,7 @@ import net.minecraftforge.fml.common.Mod;
 import org.jetbrains.annotations.NotNull;
 
 import java.nio.file.Path;
+import java.util.Optional;
 
 /**
  *
@@ -72,8 +72,10 @@ public class RegisterModEventHandler {
 	
 	private static void addServerPack(@NotNull AddPackFindersEvent event, @NotNull String packName, @NotNull String displayName) {
 		Path resourcePath = ModList.get().getModFileById(XOres.MOD_ID).getFile().findResource(packName);
-		PathPackResources.PathResourcesSupplier resourcesSupplier = new PathPackResources.PathResourcesSupplier(resourcePath, false);
-		Pack pack = Pack.readMetaAndCreate("builtin/" + packName, Component.literal(displayName), false, resourcesSupplier, PackType.SERVER_DATA, Pack.Position.TOP, PackSource.FEATURE);
+		PathPackResources.PathResourcesSupplier resourcesSupplier = new PathPackResources.PathResourcesSupplier(resourcePath);
+		PackLocationInfo info = new PackLocationInfo("builtin/" + packName, Component.literal(displayName), PackSource.FEATURE, Optional.empty());
+		PackSelectionConfig config = new PackSelectionConfig(false, Pack.Position.TOP, false);
+		Pack pack = Pack.readMetaAndCreate(info, resourcesSupplier, PackType.SERVER_DATA, config);
 		event.addRepositorySource(packConsumer -> packConsumer.accept(pack));
 	}
 }

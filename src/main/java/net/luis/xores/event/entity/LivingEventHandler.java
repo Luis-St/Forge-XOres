@@ -23,11 +23,13 @@ import net.luis.xores.world.item.XOArmorMaterials;
 import net.luis.xores.world.item.ability.AbilityArmor;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -42,7 +44,7 @@ public class LivingEventHandler {
 	@SubscribeEvent
 	public static void livingEquipmentChange(@NotNull LivingEquipmentChangeEvent event) {
 		EquipmentSlot slot = event.getSlot();
-		if (slot.getType() == EquipmentSlot.Type.ARMOR) {
+		if (slot.getType() == EquipmentSlot.Type.HUMANOID_ARMOR) {
 			ItemStack toStack = event.getTo();
 			ItemStack fromStack = event.getFrom();
 			if (toStack.getItem() instanceof AbilityArmor toItem && fromStack.getItem() instanceof AbilityArmor fromItem) {
@@ -63,11 +65,11 @@ public class LivingEventHandler {
 	@SubscribeEvent
 	public static void removeMobEffect(MobEffectEvent.@NotNull Remove event) {
 		LivingEntity entity = event.getEntity();
-		for (XOArmorMaterials material : XOArmorMaterials.values()) {
-			if (material == XOArmorMaterials.JADE) {
+		for (RegistryObject<ArmorMaterial> material : XOArmorMaterials.ARMOR_MATERIALS.getEntries()) {
+			if (material.get() == XOArmorMaterials.JADE.get()) {
 				continue;
 			}
-			AbilityArmor.getArmorPiece(entity, material).filter(piece -> piece.isAbilityEffect(entity, event.getEffect())).ifPresent(piece -> event.setCanceled(true));
+			AbilityArmor.getArmorPiece(entity, material.getHolder().orElseThrow()).filter(piece -> piece.isAbilityEffect(entity, event.getEffect())).ifPresent(piece -> event.setCanceled(true));
 		}
 	}
 }
