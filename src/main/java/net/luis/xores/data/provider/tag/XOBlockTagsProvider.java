@@ -19,7 +19,6 @@
 package net.luis.xores.data.provider.tag;
 
 import net.luis.xores.XOres;
-import net.luis.xores.tags.XOBlockTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.tags.BlockTags;

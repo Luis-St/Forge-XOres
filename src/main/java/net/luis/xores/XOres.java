@@ -31,6 +31,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.jetbrains.annotations.NotNull;
 
 /**
  *
@@ -45,8 +46,8 @@ public class XOres {
 	public static final String MOD_NAME = "XOres";
 	public static final Logger LOGGER = LogManager.getLogger(XOres.class);
 	
-	public XOres() {
-		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+	public XOres(@NotNull FMLJavaModLoadingContext context) {
+		IEventBus modEventBus = context.getModEventBus();
 		XOArmorMaterials.ARMOR_MATERIALS.register(modEventBus);
 		XOBlocks.BLOCKS.register(modEventBus);
 		XOBlocks.ITEMS.register(modEventBus);

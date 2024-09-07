@@ -52,7 +52,7 @@ public class XOGlobalLootModifierProvider extends GlobalLootModifierProvider {
 	@Override
 	protected void start(HolderLookup.@NotNull Provider registries) {
 		this.add("smelting_modifier", new SmeltingModifier(new LootItemCondition[] {
-			MatchTool.toolMatches(ItemPredicate.Builder.item().of(XOItemTags.BLAZING)).build()
+			MatchTool.toolMatches(ItemPredicate.Builder.item().of(XOItems.BLAZING_SWORD.get(), XOItems.BLAZING_PICKAXE.get(), XOItems.BLAZING_AXE.get(), XOItems.BLAZING_SHOVEL.get(), XOItems.BLAZING_HOE.get())).build()
 		}));
 		this.add("template_modifier", new TemplateModifier(new LootItemCondition[] {
 			LootTableIdCondition.builder(ResourceLocation.withDefaultNamespace("chests/end_city_treasure")).build()

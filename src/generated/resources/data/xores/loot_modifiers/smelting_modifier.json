@@ -4,7 +4,13 @@
     {
       "condition": "minecraft:match_tool",
       "predicate": {
-        "tag": "xores:blazing"
+        "items": [
+          "xores:blazing_sword",
+          "xores:blazing_pickaxe",
+          "xores:blazing_axe",
+          "xores:blazing_shovel",
+          "xores:blazing_hoe"
+        ]
       }
     }
   ]
