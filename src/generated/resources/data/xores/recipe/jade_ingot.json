@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "jade",
   "ingredients": [
-    {
-      "item": "xores:jade_block"
-    }
+    "xores:jade_block"
   ],
   "result": {
     "count": 9,

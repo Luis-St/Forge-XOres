@@ -1,0 +1,20 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "xores:night"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "xores:night"
+      }
+    ],
+    "wings": [
+      {
+        "texture": "minecraft:night_elytra",
+        "use_player_texture": true
+      }
+    ]
+  }
+}

@@ -3,33 +3,15 @@
   "category": "misc",
   "group": "steel",
   "ingredients": [
-    {
-      "item": "minecraft:iron_block"
-    },
-    {
-      "item": "minecraft:iron_block"
-    },
-    {
-      "item": "minecraft:iron_block"
-    },
-    {
-      "item": "minecraft:iron_block"
-    },
-    {
-      "item": "minecraft:iron_block"
-    },
-    {
-      "item": "minecraft:iron_block"
-    },
-    {
-      "item": "minecraft:iron_block"
-    },
-    {
-      "item": "minecraft:iron_block"
-    },
-    {
-      "item": "minecraft:iron_block"
-    }
+    "minecraft:iron_block",
+    "minecraft:iron_block",
+    "minecraft:iron_block",
+    "minecraft:iron_block",
+    "minecraft:iron_block",
+    "minecraft:iron_block",
+    "minecraft:iron_block",
+    "minecraft:iron_block",
+    "minecraft:iron_block"
   ],
   "result": {
     "count": 1,

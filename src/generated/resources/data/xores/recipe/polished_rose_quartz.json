@@ -3,33 +3,15 @@
   "category": "misc",
   "group": "rose_quartz",
   "ingredients": [
-    {
-      "item": "xores:rose_quartz"
-    },
-    {
-      "item": "xores:rose_quartz"
-    },
-    {
-      "item": "xores:rose_quartz"
-    },
-    {
-      "item": "xores:rose_quartz"
-    },
-    {
-      "item": "xores:rose_quartz"
-    },
-    {
-      "item": "xores:rose_quartz"
-    },
-    {
-      "item": "xores:rose_quartz"
-    },
-    {
-      "item": "xores:rose_quartz"
-    },
-    {
-      "item": "xores:rose_quartz"
-    }
+    "xores:rose_quartz",
+    "xores:rose_quartz",
+    "xores:rose_quartz",
+    "xores:rose_quartz",
+    "xores:rose_quartz",
+    "xores:rose_quartz",
+    "xores:rose_quartz",
+    "xores:rose_quartz",
+    "xores:rose_quartz"
   ],
   "result": {
     "count": 1,

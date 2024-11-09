@@ -34,8 +34,8 @@ public class BlazingSwordItem extends SwordItem {
 	
 	private static final Random RNG = new Random(System.currentTimeMillis());
 	
-	public BlazingSwordItem(@NotNull Tier tier, @NotNull Properties properties) {
-		super(tier, properties);
+	public BlazingSwordItem(@NotNull ToolMaterial material, float attackDamage, float attackSpeed, @NotNull Properties properties) {
+		super(material, attackDamage, attackSpeed, properties);
 	}
 	
 	@Override

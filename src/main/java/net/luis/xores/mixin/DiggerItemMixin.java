@@ -25,7 +25,7 @@ import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 /**
  *
@@ -34,17 +34,16 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
  */
 
 @Mixin(DiggerItem.class)
-public abstract class DiggerItemMixin extends TieredItem {
+public abstract class DiggerItemMixin extends Item {
 	
-	private DiggerItemMixin(Tier tier, Properties properties) {
-		super(tier, properties);
+	private DiggerItemMixin(Properties properties) {
+		super(properties);
 	}
 	
-	@Inject(method = "hurtEnemy", at = @At("HEAD"), cancellable = true)
-	public void hurtEnemy(@NotNull ItemStack stack, @NotNull LivingEntity target, @NotNull LivingEntity attacker, @NotNull CallbackInfoReturnable<Boolean> info) {
+	@Inject(method = "postHurtEnemy", at = @At("HEAD"), cancellable = true)
+	public void postHurtEnemy(@NotNull ItemStack stack, @NotNull LivingEntity target, @NotNull LivingEntity attacker, @NotNull CallbackInfo info) {
 		if (this.asItem() instanceof AxeItem) {
 			stack.hurtAndBreak(1, attacker, EquipmentSlot.MAINHAND);
-			info.setReturnValue(true);
 			info.cancel();
 		}
 	}

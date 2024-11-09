@@ -3,33 +3,15 @@
   "category": "misc",
   "group": "enderite",
   "ingredients": [
-    {
-      "item": "xores:enderite_scrap"
-    },
-    {
-      "item": "xores:enderite_scrap"
-    },
-    {
-      "item": "xores:enderite_scrap"
-    },
-    {
-      "item": "xores:enderite_scrap"
-    },
-    {
-      "item": "xores:enderite_scrap"
-    },
-    {
-      "item": "xores:enderite_scrap"
-    },
-    {
-      "item": "xores:enderite_scrap"
-    },
-    {
-      "item": "xores:enderite_scrap"
-    },
-    {
-      "item": "xores:enderite_scrap"
-    }
+    "xores:enderite_scrap",
+    "xores:enderite_scrap",
+    "xores:enderite_scrap",
+    "xores:enderite_scrap",
+    "xores:enderite_scrap",
+    "xores:enderite_scrap",
+    "xores:enderite_scrap",
+    "xores:enderite_scrap",
+    "xores:enderite_scrap"
   ],
   "result": {
     "count": 1,

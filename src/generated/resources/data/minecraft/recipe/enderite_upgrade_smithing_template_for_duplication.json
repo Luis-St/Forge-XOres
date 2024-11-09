@@ -3,15 +3,9 @@
   "category": "misc",
   "group": "enderite",
   "key": {
-    "B": {
-      "item": "minecraft:end_stone"
-    },
-    "D": {
-      "item": "minecraft:diamond"
-    },
-    "T": {
-      "item": "xores:enderite_upgrade_smithing_template"
-    }
+    "B": "minecraft:end_stone",
+    "D": "minecraft:diamond",
+    "T": "xores:enderite_upgrade_smithing_template"
   },
   "pattern": [
     "DTD",

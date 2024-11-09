@@ -18,7 +18,6 @@
 
 package net.luis.xores.world.level.biome;
 
-import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.luis.xores.XOres;
@@ -27,9 +26,9 @@ import net.minecraft.core.HolderSet;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.BiomeGenerationSettings;
 import net.minecraft.world.level.levelgen.GenerationStep.Decoration;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.minecraftforge.common.world.BiomeGenerationSettingsBuilder;
 import net.minecraftforge.common.world.BiomeModifier;
 import net.minecraftforge.common.world.ModifiableBiomeInfo.BiomeInfo.Builder;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -65,7 +64,7 @@ public record XOBiomeModifier(@NotNull HolderSet<Biome> overworldBiomes, @NotNul
 	@Override
 	public void modify(@NotNull Holder<Biome> biome, @NotNull Phase phase, @NotNull Builder builder) {
 		if (phase == Phase.ADD) {
-			BiomeGenerationSettingsBuilder generationBuilder = builder.getGenerationSettings();
+			BiomeGenerationSettings.PlainBuilder generationBuilder = builder.getGenerationSettings();
 			if (this.overworldBiomes.contains(biome)) {
 				if (this.mountainPeakBiomes.contains(biome)) {
 					for (Holder<PlacedFeature> holder : this.mountainPeakFeatures) {

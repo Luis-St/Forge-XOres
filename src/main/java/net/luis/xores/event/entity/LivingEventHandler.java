@@ -19,18 +19,19 @@
 package net.luis.xores.event.entity;
 
 import net.luis.xores.XOres;
-import net.luis.xores.world.item.XOArmorMaterials;
+import net.luis.xores.world.item.equipment.XOArmorMaterials;
 import net.luis.xores.world.item.ability.AbilityArmor;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.equipment.ArmorMaterial;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
-import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.List;
 
 /**
  *
@@ -40,6 +41,10 @@ import org.jetbrains.annotations.NotNull;
 
 @EventBusSubscriber(modid = XOres.MOD_ID)
 public class LivingEventHandler {
+	
+	private static final List<ArmorMaterial> ARMOR_MATERIALS = List.of(
+		XOArmorMaterials.JADE, XOArmorMaterials.BLAZING, XOArmorMaterials.SAPHIRE, XOArmorMaterials.LIMONITE, XOArmorMaterials.ENDERITE, XOArmorMaterials.NIGHT
+	);
 	
 	@SubscribeEvent
 	public static void livingEquipmentChange(@NotNull LivingEquipmentChangeEvent event) {
@@ -65,11 +70,11 @@ public class LivingEventHandler {
 	@SubscribeEvent
 	public static void removeMobEffect(MobEffectEvent.@NotNull Remove event) {
 		LivingEntity entity = event.getEntity();
-		for (RegistryObject<ArmorMaterial> material : XOArmorMaterials.ARMOR_MATERIALS.getEntries()) {
-			if (material.get() == XOArmorMaterials.JADE.get()) {
+		for (ArmorMaterial material : ARMOR_MATERIALS) {
+			if (material == XOArmorMaterials.JADE) {
 				continue;
 			}
-			AbilityArmor.getArmorPiece(entity, material.getHolder().orElseThrow()).filter(piece -> piece.isAbilityEffect(entity, event.getEffect())).ifPresent(piece -> event.setCanceled(true));
+			AbilityArmor.getArmorPiece(entity, material).filter(piece -> piece.isAbilityEffect(entity, event.getEffect())).ifPresent(piece -> event.setCanceled(true));
 		}
 	}
 }

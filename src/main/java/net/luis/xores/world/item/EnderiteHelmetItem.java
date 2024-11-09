@@ -18,11 +18,12 @@
 
 package net.luis.xores.world.item;
 
-import net.minecraft.core.Holder;
 import net.minecraft.world.entity.monster.EnderMan;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.equipment.ArmorMaterial;
+import net.minecraft.world.item.equipment.ArmorType;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -33,12 +34,12 @@ import org.jetbrains.annotations.NotNull;
 
 public class EnderiteHelmetItem extends EnderiteArmorItem {
 	
-	public EnderiteHelmetItem(@NotNull Holder<ArmorMaterial> material, @NotNull Properties properties) {
-		super(material, Type.HELMET, properties);
+	public EnderiteHelmetItem(@NotNull ArmorMaterial material, @NotNull Properties properties) {
+		super(material, ArmorType.HELMET, properties);
 	}
 	
 	@Override
-	public boolean isEnderMask(@NotNull ItemStack stack, @NotNull Player player, @NotNull EnderMan enderman) {
-		return true;
+	public boolean isMonsterDisguise(@NotNull ItemStack stack, @NotNull Player player, @NotNull Monster monster) {
+		return monster instanceof EnderMan;
 	}
 }

@@ -18,12 +18,11 @@
 
 package net.luis.xores.world.item.ability;
 
-import net.minecraft.core.Holder;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.equipment.ArmorMaterial;
 import org.jetbrains.annotations.NotNull;
 
 import static net.luis.xores.world.item.ability.AbilityArmor.*;
@@ -36,18 +35,16 @@ import static net.luis.xores.world.item.ability.AbilityArmor.*;
 
 public interface EnderiteAbilityArmor extends AbilityArmor {
 	
-	@NotNull Holder<ArmorMaterial> getAbilityMaterial();
-	
 	@Override
 	default void onItemApplied(@NotNull LivingEntity entity, @NotNull EquipmentSlot slot, @NotNull ItemStack stack) {
-		if (isWearingFullArmor(entity, this.getAbilityMaterial())) {
+		if (isWearingFullAbilityArmor(entity, this.getAbilityMaterial())) {
 			entity.addEffect(new MobEffectInstance(MobEffects.HERO_OF_THE_VILLAGE, -1, 0, false, false, false));
 		}
 	}
 	
 	@Override
 	default void onItemRemoved(@NotNull LivingEntity entity, @NotNull EquipmentSlot slot, @NotNull ItemStack stack) {
-		if (!isWearingFullArmor(entity, this.getAbilityMaterial())) {
+		if (!isWearingFullAbilityArmor(entity, this.getAbilityMaterial())) {
 			entity.removeEffect(MobEffects.HERO_OF_THE_VILLAGE);
 		}
 	}

@@ -3,12 +3,8 @@
   "category": "equipment",
   "group": "diamond",
   "ingredients": [
-    {
-      "item": "minecraft:diamond_chestplate"
-    },
-    {
-      "item": "minecraft:elytra"
-    }
+    "minecraft:diamond_chestplate",
+    "minecraft:elytra"
   ],
   "result": {
     "count": 1,

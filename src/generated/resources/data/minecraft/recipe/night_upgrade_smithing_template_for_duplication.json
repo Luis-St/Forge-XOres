@@ -3,15 +3,9 @@
   "category": "misc",
   "group": "night",
   "key": {
-    "B": {
-      "item": "minecraft:wither_rose"
-    },
-    "D": {
-      "item": "minecraft:diamond"
-    },
-    "T": {
-      "item": "xores:night_upgrade_smithing_template"
-    }
+    "B": "minecraft:wither_rose",
+    "D": "minecraft:diamond",
+    "T": "xores:night_upgrade_smithing_template"
   },
   "pattern": [
     "DTD",

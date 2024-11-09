@@ -1,16 +1,10 @@
 {
   "type": "minecraft:smithing_transform",
-  "addition": {
-    "item": "xores:enderite_ingot"
-  },
-  "base": {
-    "item": "minecraft:netherite_boots"
-  },
+  "addition": "xores:enderite_ingot",
+  "base": "minecraft:netherite_boots",
   "result": {
     "count": 1,
     "id": "xores:enderite_boots"
   },
-  "template": {
-    "item": "xores:enderite_upgrade_smithing_template"
-  }
+  "template": "xores:enderite_upgrade_smithing_template"
 }

@@ -3,9 +3,7 @@
   "category": "equipment",
   "group": "saphire",
   "key": {
-    "#": {
-      "item": "xores:saphire_ingot"
-    }
+    "#": "xores:saphire_ingot"
   },
   "pattern": [
     "   ",

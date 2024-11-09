@@ -3,12 +3,8 @@
   "category": "equipment",
   "group": "steel",
   "key": {
-    "#": {
-      "item": "xores:steel_ingot"
-    },
-    "I": {
-      "item": "minecraft:stick"
-    }
+    "#": "xores:steel_ingot",
+    "I": "minecraft:stick"
   },
   "pattern": [
     " # ",

@@ -1,16 +1,10 @@
 {
   "type": "minecraft:smithing_transform",
-  "addition": {
-    "item": "minecraft:netherite_ingot"
-  },
-  "base": {
-    "item": "minecraft:bow"
-  },
+  "addition": "minecraft:netherite_ingot",
+  "base": "minecraft:bow",
   "result": {
     "count": 1,
     "id": "xores:netherite_bow"
   },
-  "template": {
-    "item": "minecraft:netherite_upgrade_smithing_template"
-  }
+  "template": "minecraft:netherite_upgrade_smithing_template"
 }

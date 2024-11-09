@@ -4,9 +4,7 @@
   "cookingtime": 200,
   "experience": 0.75,
   "group": "enderite",
-  "ingredient": {
-    "item": "xores:enderite_ore"
-  },
+  "ingredient": "xores:enderite_ore",
   "result": {
     "id": "xores:enderite_scrap"
   }

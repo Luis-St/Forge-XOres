@@ -3,12 +3,8 @@
   "category": "equipment",
   "group": "iron",
   "key": {
-    "#": {
-      "item": "minecraft:iron_ingot"
-    },
-    "I": {
-      "item": "minecraft:iron_ingot"
-    }
+    "#": "minecraft:iron_ingot",
+    "I": "minecraft:iron_ingot"
   },
   "pattern": [
     "#I#",

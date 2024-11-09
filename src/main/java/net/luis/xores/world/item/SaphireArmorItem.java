@@ -19,11 +19,14 @@
 package net.luis.xores.world.item;
 
 import net.luis.xores.world.item.ability.AbilityArmor;
-import net.minecraft.core.Holder;
+import net.luis.xores.world.item.equipment.XOArmorMaterials;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.equipment.ArmorMaterial;
+import net.minecraft.world.item.equipment.ArmorType;
 import org.jetbrains.annotations.NotNull;
 
 import static net.luis.xores.world.item.ability.AbilityArmor.*;
@@ -36,13 +39,18 @@ import static net.luis.xores.world.item.ability.AbilityArmor.*;
 
 public class SaphireArmorItem extends ArmorItem implements AbilityArmor {
 	
-	public SaphireArmorItem(@NotNull Holder<ArmorMaterial> material, @NotNull Type type, @NotNull Properties properties) {
+	public SaphireArmorItem(@NotNull ArmorMaterial material, @NotNull ArmorType type, @NotNull Properties properties) {
 		super(material, type, properties);
 	}
 	
 	@Override
+	public @NotNull ArmorMaterial getAbilityMaterial() {
+		return XOArmorMaterials.SAPHIRE;
+	}
+	
+	@Override
 	public void onItemApplied(@NotNull LivingEntity entity, @NotNull EquipmentSlot slot, @NotNull ItemStack stack) {
-		if (isWearingFullArmor(entity, this.getMaterial())) {
+		if (isWearingFullAbilityArmor(entity, this.getAbilityMaterial())) {
 			entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, -1, 1, false, false, false));
 			entity.addEffect(new MobEffectInstance(MobEffects.DOLPHINS_GRACE, -1, 0, false, false, false));
 		}
@@ -50,7 +58,7 @@ public class SaphireArmorItem extends ArmorItem implements AbilityArmor {
 	
 	@Override
 	public void onItemRemoved(@NotNull LivingEntity entity, @NotNull EquipmentSlot slot, @NotNull ItemStack stack) {
-		if (!isWearingFullArmor(entity, this.getMaterial())) {
+		if (!isWearingFullAbilityArmor(entity, this.getAbilityMaterial())) {
 			entity.removeEffect(MobEffects.MOVEMENT_SPEED);
 			entity.removeEffect(MobEffects.DOLPHINS_GRACE);
 		}

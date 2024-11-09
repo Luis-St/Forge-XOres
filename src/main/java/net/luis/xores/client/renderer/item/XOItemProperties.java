@@ -76,7 +76,7 @@ public class XOItemProperties {
 	
 	public static void registerElytraChestplate(@NotNull ElytraChestplateItem elytraChestplate) {
 		ItemProperties.register(elytraChestplate, ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "broken"), (stack, level, livingEntity, seed) -> {
-			return ElytraItem.isFlyEnabled(stack) ? 0.0F : 1.0F;
+			return stack.getMaxDamage() > stack.getDamageValue() ? 0.0F : 1.0F;
 		});
 	}
 }

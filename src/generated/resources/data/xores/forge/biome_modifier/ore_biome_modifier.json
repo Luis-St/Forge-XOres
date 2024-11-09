@@ -18,7 +18,7 @@
     "xores:limonite_ore_buried",
     "xores:limonite_ore_deep_buried"
   ],
-  "peak_biomes": "#forge:is_peak",
+  "peak_biomes": "#c:is_mountain/peak",
   "peak_features": [
     "xores:jade_ore_upper",
     "xores:saphire_ore_rare_upper"

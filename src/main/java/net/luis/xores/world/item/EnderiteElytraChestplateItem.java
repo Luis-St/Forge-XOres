@@ -19,8 +19,8 @@
 package net.luis.xores.world.item;
 
 import net.luis.xores.world.item.ability.EnderiteAbilityArmor;
-import net.minecraft.core.Holder;
-import net.minecraft.world.item.ArmorMaterial;
+import net.luis.xores.world.item.equipment.XOArmorMaterials;
+import net.minecraft.world.item.equipment.ArmorMaterial;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -31,12 +31,12 @@ import org.jetbrains.annotations.NotNull;
 
 public class EnderiteElytraChestplateItem extends ElytraChestplateItem implements EnderiteAbilityArmor {
 	
-	public EnderiteElytraChestplateItem(@NotNull Holder<ArmorMaterial> material, @NotNull Properties properties) {
+	public EnderiteElytraChestplateItem(@NotNull ArmorMaterial material, @NotNull Properties properties) {
 		super(material, properties);
 	}
 	
 	@Override
-	public @NotNull Holder<ArmorMaterial> getAbilityMaterial() {
-		return XOArmorMaterials.ENDERITE.getHolder().orElseThrow();
+	public @NotNull ArmorMaterial getAbilityMaterial() {
+		return XOArmorMaterials.ENDERITE;
 	}
 }

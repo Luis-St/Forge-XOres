@@ -1,0 +1,20 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "xores:enderite"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "xores:enderite"
+      }
+    ],
+    "wings": [
+      {
+        "texture": "minecraft:enderite_elytra",
+        "use_player_texture": true
+      }
+    ]
+  }
+}

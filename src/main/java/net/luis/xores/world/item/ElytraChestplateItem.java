@@ -20,11 +20,15 @@ package net.luis.xores.world.item;
 
 import com.google.common.collect.Maps;
 import net.minecraft.core.Holder;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.Unit;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.equipment.ArmorMaterial;
+import net.minecraft.world.item.equipment.ArmorType;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
@@ -41,17 +45,12 @@ public class ElytraChestplateItem extends ArmorItem {
 	private static final Map<ElytraChestplateItem, Integer> ELYTRA_TIME_DAMAGE_VALUES = Maps.newHashMap();
 	private static final Random RNG = new Random(System.currentTimeMillis());
 	
-	public ElytraChestplateItem(@NotNull Holder<ArmorMaterial> material, @NotNull Properties properties) {
-		super(material, Type.CHESTPLATE, properties);
+	public ElytraChestplateItem(@NotNull ArmorMaterial material, @NotNull Properties properties) {
+		super(material, ArmorType.CHESTPLATE, properties.component(DataComponents.GLIDER, Unit.INSTANCE));
 	}
 	
 	public static void register(@NotNull ElytraChestplateItem elytraChestplate, int damageValue) {
 		ELYTRA_TIME_DAMAGE_VALUES.put(elytraChestplate, damageValue);
-	}
-	
-	@Override
-	public boolean canElytraFly(@NotNull ItemStack stack, @NotNull LivingEntity entity) {
-		return ElytraItem.isFlyEnabled(stack);
 	}
 	
 	@Override
@@ -60,10 +59,5 @@ public class ElytraChestplateItem extends ArmorItem {
 			stack.hurtAndBreak(1, entity, EquipmentSlot.CHEST);
 		}
 		return true;
-	}
-	
-	@Override
-	public @NotNull Holder<SoundEvent> getEquipSound() {
-		return RNG.nextInt(2) == 0 ? SoundEvents.ARMOR_EQUIP_ELYTRA : super.getEquipSound();
 	}
 }

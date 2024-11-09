@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "limonite",
   "ingredients": [
-    {
-      "item": "xores:limonite_block"
-    }
+    "xores:limonite_block"
   ],
   "result": {
     "count": 9,

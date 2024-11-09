@@ -3,12 +3,8 @@
   "category": "equipment",
   "group": "copper",
   "key": {
-    "#": {
-      "item": "minecraft:copper_ingot"
-    },
-    "I": {
-      "item": "minecraft:iron_ingot"
-    }
+    "#": "minecraft:copper_ingot",
+    "I": "minecraft:iron_ingot"
   },
   "pattern": [
     "#I#",

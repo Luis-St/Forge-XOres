@@ -113,7 +113,5 @@
   "item.xores.steel_pickaxe": "Steel Pickaxe",
   "item.xores.steel_shovel": "Steel Shovel",
   "item.xores.steel_sword": "Steel Sword",
-  "item_tab.xores": "XOres",
-  "upgrade.xores.enderite_upgrade": "Enderite Upgrade",
-  "upgrade.xores.night_upgrade": "Night Upgrade"
+  "item_tab.xores": "XOres"
 }

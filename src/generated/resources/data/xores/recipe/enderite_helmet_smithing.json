@@ -1,16 +1,10 @@
 {
   "type": "minecraft:smithing_transform",
-  "addition": {
-    "item": "xores:enderite_ingot"
-  },
-  "base": {
-    "item": "minecraft:netherite_helmet"
-  },
+  "addition": "xores:enderite_ingot",
+  "base": "minecraft:netherite_helmet",
   "result": {
     "count": 1,
     "id": "xores:enderite_helmet"
   },
-  "template": {
-    "item": "xores:enderite_upgrade_smithing_template"
-  }
+  "template": "xores:enderite_upgrade_smithing_template"
 }

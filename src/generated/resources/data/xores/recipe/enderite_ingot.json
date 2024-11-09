@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "enderite",
   "ingredients": [
-    {
-      "item": "xores:enderite_block"
-    }
+    "xores:enderite_block"
   ],
   "result": {
     "count": 9,

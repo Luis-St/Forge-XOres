@@ -53,7 +53,7 @@ public class XOShieldRenderer extends BlockEntityWithoutLevelRenderer {
 	public void renderByItem(@NotNull ItemStack stack, @NotNull ItemDisplayContext context, @NotNull PoseStack poseStack, @NotNull MultiBufferSource bufferSource, int light, int overlay) {
 		poseStack.pushPose();
 		poseStack.scale(1.0F, -1.0F, -1.0F);
-		VertexConsumer vertexConsumer = ItemRenderer.getFoilBufferDirect(bufferSource, this.shieldModel.renderType(this.shieldTexture), false, stack.hasFoil());
+		VertexConsumer vertexConsumer = ItemRenderer.getFoilBuffer(bufferSource, this.shieldModel.renderType(this.shieldTexture), false, stack.hasFoil());
 		this.shieldModel.handle().render(poseStack, vertexConsumer, light, overlay);
 		this.shieldModel.plate().render(poseStack, vertexConsumer, light, overlay);
 		poseStack.popPose();

@@ -3,33 +3,15 @@
   "category": "building",
   "group": "jade",
   "ingredients": [
-    {
-      "item": "xores:jade_ingot"
-    },
-    {
-      "item": "xores:jade_ingot"
-    },
-    {
-      "item": "xores:jade_ingot"
-    },
-    {
-      "item": "xores:jade_ingot"
-    },
-    {
-      "item": "xores:jade_ingot"
-    },
-    {
-      "item": "xores:jade_ingot"
-    },
-    {
-      "item": "xores:jade_ingot"
-    },
-    {
-      "item": "xores:jade_ingot"
-    },
-    {
-      "item": "xores:jade_ingot"
-    }
+    "xores:jade_ingot",
+    "xores:jade_ingot",
+    "xores:jade_ingot",
+    "xores:jade_ingot",
+    "xores:jade_ingot",
+    "xores:jade_ingot",
+    "xores:jade_ingot",
+    "xores:jade_ingot",
+    "xores:jade_ingot"
   ],
   "result": {
     "count": 1,

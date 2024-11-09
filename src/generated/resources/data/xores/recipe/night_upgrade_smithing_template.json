@@ -3,15 +3,9 @@
   "category": "misc",
   "group": "night",
   "ingredients": [
-    {
-      "item": "minecraft:netherite_upgrade_smithing_template"
-    },
-    {
-      "item": "xores:enderite_upgrade_smithing_template"
-    },
-    {
-      "item": "xores:night_ingot"
-    }
+    "minecraft:netherite_upgrade_smithing_template",
+    "xores:enderite_upgrade_smithing_template",
+    "xores:night_ingot"
   ],
   "result": {
     "count": 1,

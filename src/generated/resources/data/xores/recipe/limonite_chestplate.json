@@ -3,9 +3,7 @@
   "category": "equipment",
   "group": "limonite",
   "key": {
-    "#": {
-      "item": "xores:limonite_ingot"
-    }
+    "#": "xores:limonite_ingot"
   },
   "pattern": [
     "# #",

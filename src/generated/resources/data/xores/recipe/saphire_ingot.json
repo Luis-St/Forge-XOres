@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "saphire",
   "ingredients": [
-    {
-      "item": "xores:saphire_block"
-    }
+    "xores:saphire_block"
   ],
   "result": {
     "count": 9,
