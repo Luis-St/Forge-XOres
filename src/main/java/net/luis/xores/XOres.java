@@ -18,8 +18,6 @@
 
 package net.luis.xores;
 
-import net.luis.xores.tags.XOBlockTags;
-import net.luis.xores.tags.XOItemTags;
 import net.luis.xores.world.item.XOCreativeModeTabs;
 import net.luis.xores.world.item.XOItems;
 import net.luis.xores.world.item.equipment.XOToolMaterials;
@@ -50,10 +48,9 @@ public class XOres {
 	
 	public XOres(@NotNull FMLJavaModLoadingContext context) {
 		IEventBus modEventBus = context.getModEventBus();
-		XOItemTags.register();
-		XOBlockTags.register();
-		XOBlocks.Keys.register();
-		XOItems.Keys.register();
+		XOToolMaterials.register();
+		XOBlocks.register();
+		XOItems.register();
 		XOBlocks.BLOCKS.register(modEventBus);
 		XOBlocks.ITEMS.register(modEventBus);
 		XOItems.ITEMS.register(modEventBus);
@@ -62,6 +59,5 @@ public class XOres {
 		XOOreFeatures.register();
 		XOOrePlacements.register();
 		XOBiomeModifiers.BIOME_MODIFIERS.register(modEventBus);
-		XOToolMaterials.register();
 	}
 }

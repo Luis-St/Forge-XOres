@@ -30,8 +30,8 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.CompletableFuture;
 
-import static net.luis.xores.tags.XOBlockTags.*;
 import static net.luis.xores.world.level.block.XOBlocks.*;
+import static net.luis.xores.world.level.block.XOBlocks.Tags.*;
 import static net.minecraft.tags.BlockTags.*;
 
 /**

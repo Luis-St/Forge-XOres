@@ -22,6 +22,7 @@ import net.luis.xores.XOres;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -40,6 +41,11 @@ import java.util.function.Supplier;
 
 @SuppressWarnings("CodeBlock2Expr")
 public class XOBlocks {
+	
+	public static void register() {
+		Keys.register();
+		Tags.register();
+	}
 	
 	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, XOres.MOD_ID);
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, XOres.MOD_ID);
@@ -85,6 +91,41 @@ public class XOBlocks {
 		return blockObject;
 	}
 	
+	//region Tags
+	@SuppressWarnings("NonConstantFieldWithUpperCaseName")
+	public static class Tags {
+		
+		public static TagKey<Block> JADE_ORES;
+		public static TagKey<Block> SAPHIRE_ORES ;
+		public static TagKey<Block> LIMONITE_ORES;
+		public static TagKey<Block> ENDERITE_ORES;
+		public static TagKey<Block> ORE_BLOCKS;
+		
+		public static TagKey<Block> INCORRECT_FOR_ENDERITE_TOOL;
+		public static TagKey<Block> INCORRECT_FOR_STEEL_TOOL;
+		
+		public static TagKey<Block> NEEDS_ENDERITE_TOOL;
+		public static TagKey<Block> NEEDS_STEEL_TOOL;
+		
+		private static void register() {
+			JADE_ORES = bind("ores/jade_ore");
+			SAPHIRE_ORES = bind("ores/saphire_ore");
+			LIMONITE_ORES = bind("ores/limonite_ore");
+			ENDERITE_ORES = bind("ores/enderite_ore");
+			ORE_BLOCKS = bind("ore_blocks");
+			INCORRECT_FOR_ENDERITE_TOOL = bind("incorrect_for_enderite_tool");
+			INCORRECT_FOR_STEEL_TOOL = bind("incorrect_for_steel_tool");
+			NEEDS_ENDERITE_TOOL = bind("needs_enderite_tool");
+			NEEDS_STEEL_TOOL = bind("needs_steel_tool");
+		}
+		
+		private static @NotNull TagKey<Block> bind(@NotNull String name) {
+			return BLOCKS.createTagKey(ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, name));
+		}
+	}
+	//endregion
+	
+	//region Keys
 	public static class Keys {
 		
 		public static final ResourceKey<Block> JADE_ORE = createKey("jade_ore");
@@ -99,10 +140,11 @@ public class XOBlocks {
 		public static final ResourceKey<Block> ENDERITE_ORE = createKey("enderite_ore");
 		public static final ResourceKey<Block> ENDERITE_BLOCK = createKey("enderite_block");
 		
-		public static void register() {}
+		private static void register() {}
 		
 		private static @NotNull ResourceKey<Block> createKey(@NotNull String name) {
 			return ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, name));
 		}
 	}
+	//endregion
 }

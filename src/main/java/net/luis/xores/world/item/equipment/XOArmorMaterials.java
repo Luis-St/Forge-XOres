@@ -19,7 +19,7 @@
 package net.luis.xores.world.item.equipment;
 
 import com.google.common.collect.Maps;
-import net.luis.xores.tags.XOItemTags;
+import net.luis.xores.world.item.XOItems;
 import net.minecraft.Util;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.ItemTags;
@@ -94,15 +94,15 @@ public class XOArmorMaterials {
 		map.put(ArmorType.BODY, 20);
 	});
 	
-	public static final ArmorMaterial JADE = new ArmorMaterial(15, JADE_DEFENSE, 10, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0.0F, XOItemTags.REPAIRS_JADE_ARMOR, XOEquipmentModels.JADE);
-	public static final ArmorMaterial BLAZING = new ArmorMaterial(29, BLAZING_DEFENSE, 9, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0.0F, XOItemTags.REPAIRS_BLAZING_ARMOR, XOEquipmentModels.BLAZING);
-	public static final ArmorMaterial SAPHIRE = new ArmorMaterial(35, SAPHIRE_DEFENSE, 12, SoundEvents.ARMOR_EQUIP_DIAMOND, 2.0F, 0.1F, XOItemTags.REPAIRS_SAPHIRE_ARMOR, XOEquipmentModels.SAPHIRE);
-	public static final ArmorMaterial LIMONITE = new ArmorMaterial(44, LIMONITE_DEFENSE, 15, SoundEvents.ARMOR_EQUIP_IRON, 3.0F, 0.2F, XOItemTags.REPAIRS_LIMONITE_ARMOR, XOEquipmentModels.LIMONITE);
-	public static final ArmorMaterial ENDERITE = new ArmorMaterial(51, DIAMOND_DEFENSE, 26, SoundEvents.ARMOR_EQUIP_NETHERITE, 5.0F, 0.3F, XOItemTags.REPAIRS_ENDERITE_ARMOR, XOEquipmentModels.ENDERITE);
-	public static final ArmorMaterial NIGHT = new ArmorMaterial(59, NETHERITE_DEFENSE, 35, SoundEvents.ARMOR_EQUIP_NETHERITE, 8.0F, 0.4F, XOItemTags.REPAIRS_NIGHT_ARMOR, XOEquipmentModels.NIGHT);
+	public static final ArmorMaterial JADE = new ArmorMaterial(15, JADE_DEFENSE, 10, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0.0F, XOItems.Tags.REPAIRS_JADE_ARMOR, XOEquipmentModels.JADE);
+	public static final ArmorMaterial BLAZING = new ArmorMaterial(29, BLAZING_DEFENSE, 9, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0.0F, XOItems.Tags.REPAIRS_BLAZING_ARMOR, XOEquipmentModels.BLAZING);
+	public static final ArmorMaterial SAPHIRE = new ArmorMaterial(35, SAPHIRE_DEFENSE, 12, SoundEvents.ARMOR_EQUIP_DIAMOND, 2.0F, 0.1F, XOItems.Tags.REPAIRS_SAPHIRE_ARMOR, XOEquipmentModels.SAPHIRE);
+	public static final ArmorMaterial LIMONITE = new ArmorMaterial(44, LIMONITE_DEFENSE, 15, SoundEvents.ARMOR_EQUIP_IRON, 3.0F, 0.2F, XOItems.Tags.REPAIRS_LIMONITE_ARMOR, XOEquipmentModels.LIMONITE);
+	public static final ArmorMaterial ENDERITE = new ArmorMaterial(51, DIAMOND_DEFENSE, 26, SoundEvents.ARMOR_EQUIP_NETHERITE, 5.0F, 0.3F, XOItems.Tags.REPAIRS_ENDERITE_ARMOR, XOEquipmentModels.ENDERITE);
+	public static final ArmorMaterial NIGHT = new ArmorMaterial(59, NETHERITE_DEFENSE, 35, SoundEvents.ARMOR_EQUIP_NETHERITE, 8.0F, 0.4F, XOItems.Tags.REPAIRS_NIGHT_ARMOR, XOEquipmentModels.NIGHT);
 	
 	public static final ArmorMaterial DIAMOND_WINGS = new ArmorMaterial(33, DIAMOND_DEFENSE, 10, SoundEvents.ARMOR_EQUIP_DIAMOND, 2.0F, 0.0F, ItemTags.REPAIRS_DIAMOND_ARMOR, EquipmentModels.DIAMOND);
 	public static final ArmorMaterial NETHERITE_WINGS = new ArmorMaterial(37, NETHERITE_DEFENSE, 15, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, ItemTags.REPAIRS_NETHERITE_ARMOR, EquipmentModels.NETHERITE);
-	public static final ArmorMaterial ENDERITE_WINGS = new ArmorMaterial(51, DIAMOND_DEFENSE, 26, SoundEvents.ARMOR_EQUIP_NETHERITE, 5.0F, 0.3F, XOItemTags.REPAIRS_ENDERITE_ARMOR, XOEquipmentModels.ENDERITE_WINGS);
-	public static final ArmorMaterial NIGHT_WINGS = new ArmorMaterial(59, NETHERITE_DEFENSE, 35, SoundEvents.ARMOR_EQUIP_NETHERITE, 8.0F, 0.4F, XOItemTags.REPAIRS_NIGHT_ARMOR, XOEquipmentModels.NIGHT_WINGS);
+	public static final ArmorMaterial ENDERITE_WINGS = new ArmorMaterial(51, DIAMOND_DEFENSE, 26, SoundEvents.ARMOR_EQUIP_NETHERITE, 5.0F, 0.3F, XOItems.Tags.REPAIRS_ENDERITE_ARMOR, XOEquipmentModels.ENDERITE_WINGS);
+	public static final ArmorMaterial NIGHT_WINGS = new ArmorMaterial(59, NETHERITE_DEFENSE, 35, SoundEvents.ARMOR_EQUIP_NETHERITE, 8.0F, 0.4F, XOItems.Tags.REPAIRS_NIGHT_ARMOR, XOEquipmentModels.NIGHT_WINGS);
 }

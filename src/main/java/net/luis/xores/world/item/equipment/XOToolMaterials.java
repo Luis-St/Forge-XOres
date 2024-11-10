@@ -18,8 +18,8 @@
 
 package net.luis.xores.world.item.equipment;
 
-import net.luis.xores.tags.XOBlockTags;
-import net.luis.xores.tags.XOItemTags;
+import net.luis.xores.world.item.XOItems;
+import net.luis.xores.world.level.block.XOBlocks;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.ToolMaterial;
 
@@ -31,14 +31,14 @@ import net.minecraft.world.item.ToolMaterial;
 
 public interface XOToolMaterials {
 	
-	static final ToolMaterial JADE = new ToolMaterial(BlockTags.INCORRECT_FOR_IRON_TOOL, 190, 5.0F, 5.0F, 28, XOItemTags.REPAIRS_JADE_TOOLS);
-	static final ToolMaterial BLAZING = new ToolMaterial(BlockTags.INCORRECT_FOR_IRON_TOOL, 905, 7.0F, 6.0F, 12, XOItemTags.REPAIRS_BLAZING_TOOLS);
-	static final ToolMaterial SAPHIRE = new ToolMaterial(BlockTags.INCORRECT_FOR_DIAMOND_TOOL, 1718, 8.0F, 8.0F, 42, XOItemTags.REPAIRS_SAPHIRE_TOOLS);
-	static final ToolMaterial LIMONITE = new ToolMaterial(XOBlockTags.INCORRECT_FOR_ENDERITE_TOOL, 3178, 10.0F, 10.0F, 26, XOItemTags.REPAIRS_LIMONITE_TOOLS);
-	static final ToolMaterial ROSE_QUARTZ = new ToolMaterial(BlockTags.INCORRECT_FOR_NETHERITE_TOOL, 7693, 11.0F, 12.0F, 17, XOItemTags.REPAIRS_ROSE_QUARTZ_TOOLS);
-	static final ToolMaterial ENDERITE = new ToolMaterial(XOBlockTags.INCORRECT_FOR_ENDERITE_TOOL, 10770, 14.0F, 16.0F, 18, XOItemTags.REPAIRS_ENDERITE_TOOLS);
-	static final ToolMaterial STEEL = new ToolMaterial(XOBlockTags.INCORRECT_FOR_STEEL_TOOL, 12924, 18.0F, 5.0F, 9, XOItemTags.REPAIRS_STEEL_TOOLS);
-	static final ToolMaterial NIGHT = new ToolMaterial(XOBlockTags.INCORRECT_FOR_ENDERITE_TOOL, 16801, 15.0F, 19.0F, 56, XOItemTags.REPAIRS_NIGHT_TOOLS);
+	ToolMaterial JADE = new ToolMaterial(BlockTags.INCORRECT_FOR_IRON_TOOL, 190, 5.0F, 5.0F, 28, XOItems.Tags.REPAIRS_JADE_TOOLS);
+	ToolMaterial BLAZING = new ToolMaterial(BlockTags.INCORRECT_FOR_IRON_TOOL, 905, 7.0F, 6.0F, 12, XOItems.Tags.REPAIRS_BLAZING_TOOLS);
+	ToolMaterial SAPHIRE = new ToolMaterial(BlockTags.INCORRECT_FOR_DIAMOND_TOOL, 1718, 8.0F, 8.0F, 42, XOItems.Tags.REPAIRS_SAPHIRE_TOOLS);
+	ToolMaterial LIMONITE = new ToolMaterial(XOBlocks.Tags.INCORRECT_FOR_ENDERITE_TOOL, 3178, 10.0F, 10.0F, 26, XOItems.Tags.REPAIRS_LIMONITE_TOOLS);
+	ToolMaterial ROSE_QUARTZ = new ToolMaterial(BlockTags.INCORRECT_FOR_NETHERITE_TOOL, 7693, 11.0F, 12.0F, 17, XOItems.Tags.REPAIRS_ROSE_QUARTZ_TOOLS);
+	ToolMaterial ENDERITE = new ToolMaterial(XOBlocks.Tags.INCORRECT_FOR_ENDERITE_TOOL, 10770, 14.0F, 16.0F, 18, XOItems.Tags.REPAIRS_ENDERITE_TOOLS);
+	ToolMaterial STEEL = new ToolMaterial(XOBlocks.Tags.INCORRECT_FOR_STEEL_TOOL, 12924, 18.0F, 5.0F, 9, XOItems.Tags.REPAIRS_STEEL_TOOLS);
+	ToolMaterial NIGHT = new ToolMaterial(XOBlocks.Tags.INCORRECT_FOR_ENDERITE_TOOL, 16801, 15.0F, 19.0F, 56, XOItems.Tags.REPAIRS_NIGHT_TOOLS);
 	
 	static void register() {}
 }
