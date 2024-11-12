@@ -34,17 +34,17 @@ import java.util.function.BiConsumer;
 
 public interface XOEquipmentModels {
 	
-	static final ResourceLocation JADE = ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "jade");
-	static final ResourceLocation BLAZING = ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "blazing");
-	static final ResourceLocation SAPHIRE = ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "saphire");
-	static final ResourceLocation LIMONITE = ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "limonite");
-	static final ResourceLocation ENDERITE = ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "enderite");
-	static final ResourceLocation NIGHT = ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "night");
+	ResourceLocation JADE = ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "jade");
+	ResourceLocation BLAZING = ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "blazing");
+	ResourceLocation SAPHIRE = ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "saphire");
+	ResourceLocation LIMONITE = ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "limonite");
+	ResourceLocation ENDERITE = ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "enderite");
+	ResourceLocation NIGHT = ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "night");
 	
-	static final ResourceLocation DIAMOND_WINGS = ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "diamond_wings");
-	static final ResourceLocation NETHERITE_WINGS = ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "netherite_wings");
-	static final ResourceLocation ENDERITE_WINGS = ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "enderite_wings");
-	static final ResourceLocation NIGHT_WINGS = ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "night_wings");
+	ResourceLocation DIAMOND_WINGS = ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "diamond_wings");
+	ResourceLocation NETHERITE_WINGS = ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "netherite_wings");
+	ResourceLocation ENDERITE_WINGS = ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "enderite_wings");
+	ResourceLocation NIGHT_WINGS = ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "night_wings");
 	
 	static void register(@NotNull BiConsumer<ResourceLocation, EquipmentModel> consumer) {
 		consumer.accept(JADE, onlyHumanoid(JADE));

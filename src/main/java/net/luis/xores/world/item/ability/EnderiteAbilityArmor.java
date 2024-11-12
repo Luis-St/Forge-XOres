@@ -22,7 +22,6 @@ import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.equipment.ArmorMaterial;
 import org.jetbrains.annotations.NotNull;
 
 import static net.luis.xores.world.item.ability.AbilityArmor.*;

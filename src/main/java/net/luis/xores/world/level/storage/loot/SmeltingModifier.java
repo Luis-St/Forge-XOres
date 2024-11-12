@@ -43,7 +43,7 @@ public class SmeltingModifier extends LootModifier {
 	
 	private static final Method RECIPE_RESULT;
 	public static final MapCodec<SmeltingModifier> CODEC = RecordCodecBuilder.mapCodec((instance) -> {
-		return LootModifier.codecStart(instance).apply(instance, SmeltingModifier::new);
+		return codecStart(instance).apply(instance, SmeltingModifier::new);
 	});
 	
 	public SmeltingModifier(LootItemCondition @NotNull [] lootConditions) {
@@ -78,7 +78,7 @@ public class SmeltingModifier extends LootModifier {
 			.orElse(stack);
 	}
 	
-	static  {
+	static {
 		RECIPE_RESULT = ObfuscationReflectionHelper.findMethod(SingleItemRecipe.class, "result");
 	}
 }

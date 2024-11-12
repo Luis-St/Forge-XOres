@@ -36,7 +36,7 @@ import java.util.Set;
 
 public class XOBlockLootSubProvider extends BlockLootSubProvider {
 	
-	XOBlockLootSubProvider(HolderLookup. @NotNull Provider provider) {
+	XOBlockLootSubProvider(HolderLookup.@NotNull Provider provider) {
 		super(Set.of(), FeatureFlags.REGISTRY.allFlags(), provider);
 	}
 	

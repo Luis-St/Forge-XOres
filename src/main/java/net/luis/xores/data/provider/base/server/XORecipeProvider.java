@@ -188,7 +188,7 @@ public class XORecipeProvider extends RecipeProvider {
 	}
 	
 	//region Recipe helpers
-	private void oreRecipes( @NotNull Item ore, @NotNull Item ingot) {
+	private void oreRecipes(@NotNull Item ore, @NotNull Item ingot) {
 		this.oreRecipes(ore, ingot, 200);
 	}
 	

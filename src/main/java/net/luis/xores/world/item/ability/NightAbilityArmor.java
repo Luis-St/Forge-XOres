@@ -35,8 +35,6 @@ import static net.luis.xores.world.item.ability.AbilityArmor.*;
 
 public interface NightAbilityArmor extends AbilityArmor {
 	
-	@NotNull ArmorMaterial getAbilityMaterial();
-	
 	@Override
 	default void onItemApplied(@NotNull LivingEntity entity, @NotNull EquipmentSlot slot, @NotNull ItemStack stack) {
 		if (isWearingFullAbilityArmor(entity, this.getAbilityMaterial())) {

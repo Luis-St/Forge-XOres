@@ -19,8 +19,8 @@
 package net.luis.xores.event.entity;
 
 import net.luis.xores.XOres;
-import net.luis.xores.world.item.equipment.XOArmorMaterials;
 import net.luis.xores.world.item.ability.AbilityArmor;
+import net.luis.xores.world.item.equipment.XOArmorMaterials;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;

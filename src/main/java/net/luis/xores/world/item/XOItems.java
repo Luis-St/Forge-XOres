@@ -24,13 +24,10 @@ import net.luis.xores.world.item.equipment.XOToolMaterials;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.equipment.ArmorType;
 import net.minecraftforge.registries.*;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.Set;
 
 /**
  *
@@ -40,11 +37,6 @@ import java.util.Set;
 
 @SuppressWarnings("CodeBlock2Expr")
 public class XOItems {
-	
-	public static void register() {
-		Keys.register();
-		Tags.register();
-	}
 	
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, XOres.MOD_ID);
 	
@@ -343,110 +335,6 @@ public class XOItems {
 		return new NightArmorItem(XOArmorMaterials.NIGHT, ArmorType.BOOTS, new Item.Properties().setId(Keys.NIGHT_BOOTS));
 	});
 	
-	//region Tags
-	@SuppressWarnings("NonConstantFieldWithUpperCaseName")
-	public static class Tags {
-		
-		public static TagKey<Item> WOOD;
-		public static TagKey<Item> LEATHER;
-		public static TagKey<Item> STONE;
-		public static TagKey<Item> CHAINMAIL;
-		public static TagKey<Item> COPPER;
-		public static TagKey<Item> GOLDEN;
-		public static TagKey<Item> IRON;
-		public static TagKey<Item> DIAMOND;
-		public static TagKey<Item> NETHERITE;
-		public static TagKey<Item> JADE;
-		public static TagKey<Item> BLAZING;
-		public static TagKey<Item> SAPHIRE;
-		public static TagKey<Item> LIMONITE;
-		public static TagKey<Item> ROSE_QUARTZ ;
-		public static TagKey<Item> ENDERITE;
-		public static TagKey<Item> STEEL;
-		public static TagKey<Item> NIGHT;
-		
-		public static TagKey<Item> JADE_ORES;
-		public static TagKey<Item> SAPHIRE_ORES;
-		public static TagKey<Item> LIMONITE_ORES;
-		public static TagKey<Item> ENDERITE_ORES;
-		public static TagKey<Item> ORE_BLOCKS;
-		
-		public static TagKey<Item> SHIELDS;
-		public static TagKey<Item> BOWS;
-		public static TagKey<Item> CROSSBOWS;
-		
-		public static TagKey<Item> ARMOR;
-		public static TagKey<Item> ELYTRA_CHESTPLATES;
-		
-		public static TagKey<Item> REPAIRS_JADE_ARMOR;
-		public static TagKey<Item> REPAIRS_BLAZING_ARMOR;
-		public static TagKey<Item> REPAIRS_SAPHIRE_ARMOR;
-		public static TagKey<Item> REPAIRS_LIMONITE_ARMOR;
-		public static TagKey<Item> REPAIRS_ENDERITE_ARMOR;
-		public static TagKey<Item> REPAIRS_NIGHT_ARMOR;
-		
-		public static TagKey<Item> REPAIRS_JADE_TOOLS;
-		public static TagKey<Item> REPAIRS_BLAZING_TOOLS;
-		public static TagKey<Item> REPAIRS_SAPHIRE_TOOLS;
-		public static TagKey<Item> REPAIRS_LIMONITE_TOOLS;
-		public static TagKey<Item> REPAIRS_ROSE_QUARTZ_TOOLS;
-		public static TagKey<Item> REPAIRS_ENDERITE_TOOLS;
-		public static TagKey<Item> REPAIRS_STEEL_TOOLS;
-		public static TagKey<Item> REPAIRS_NIGHT_TOOLS;
-		
-		public static final TagKey<Item> SCRAPS = bind("scraps");
-		
-		private static void register() {
-			WOOD = bind("wood");
-			LEATHER = bind("leather");
-			STONE = bind("stone");
-			CHAINMAIL = bind("chainmail");
-			COPPER = bind("copper");
-			GOLDEN = bind("golden");
-			IRON = bind("iron");
-			DIAMOND = bind("diamond");
-			NETHERITE = bind("netherite");
-			JADE = bind("jade");
-			BLAZING = bind("blazing");
-			SAPHIRE = bind("saphire");
-			LIMONITE = bind("limonite");
-			ROSE_QUARTZ = bind("rose_quartz");
-			ENDERITE = bind("enderite");
-			STEEL = bind("steel");
-			NIGHT = bind("night");
-			JADE_ORES = bind("ores/jade_ore");
-			SAPHIRE_ORES = bind("ores/saphire_ore");
-			LIMONITE_ORES = bind("ores/limonite_ore");
-			ENDERITE_ORES = bind("ores/enderite_ore");
-			ORE_BLOCKS = bind("ore_blocks");
-			SHIELDS = bind("weapons/shield");
-			BOWS = bind("weapons/bow");
-			CROSSBOWS = bind("weapons/crossbow");
-			ARMOR = bind("armors/armor");
-			ELYTRA_CHESTPLATES = bind("armors/elytra_chestplate");
-			REPAIRS_JADE_ARMOR = bind("repairs_jade_armor");
-			REPAIRS_BLAZING_ARMOR = bind("repairs_blazing_armor");
-			REPAIRS_SAPHIRE_ARMOR = bind("repairs_saphire_armor");
-			REPAIRS_LIMONITE_ARMOR = bind("repairs_limonite_armor");
-			REPAIRS_ENDERITE_ARMOR = bind("repairs_enderite_armor");
-			REPAIRS_NIGHT_ARMOR = bind("repairs_night_armor");
-			REPAIRS_JADE_TOOLS = bind("repairs_jade_tools");
-			REPAIRS_BLAZING_TOOLS = bind("repairs_blazing_tools");
-			REPAIRS_SAPHIRE_TOOLS = bind("repairs_saphire_tools");
-			REPAIRS_LIMONITE_TOOLS = bind("repairs_limonite_tools");
-			REPAIRS_ROSE_QUARTZ_TOOLS = bind("repairs_rose_quartz_tools");
-			REPAIRS_ENDERITE_TOOLS = bind("repairs_enderite_tools");
-			REPAIRS_STEEL_TOOLS = bind("repairs_steel_tools");
-			REPAIRS_NIGHT_TOOLS = bind("repairs_night_tools");
-		}
-		
-		private static @NotNull TagKey<Item> bind(@NotNull String name) {
-			return ITEMS.createOptionalTagKey(name, Set.of());
-		}
-	}
-	//endregion
-	
-	//region Keys
 	public static class Keys {
 		
 		public static final ResourceKey<Item> ENDERITE_UPGRADE_SMITHING_TEMPLATE = createKey("enderite_upgrade_smithing_template");
@@ -554,11 +442,10 @@ public class XOItems {
 		public static final ResourceKey<Item> NIGHT_LEGGINGS = createKey("night_leggings");
 		public static final ResourceKey<Item> NIGHT_BOOTS = createKey("night_boots");
 		
-		private static void register() {}
+		public static void register() {}
 		
 		private static @NotNull ResourceKey<Item> createKey(@NotNull String name) {
 			return ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, name));
 		}
 	}
-	//endregion
 }

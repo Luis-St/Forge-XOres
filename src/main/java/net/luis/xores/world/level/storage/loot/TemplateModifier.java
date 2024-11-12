@@ -40,7 +40,7 @@ import org.jetbrains.annotations.NotNull;
 public class TemplateModifier extends LootModifier {
 	
 	public static final MapCodec<TemplateModifier> CODEC = RecordCodecBuilder.mapCodec((instance) -> {
-		return LootModifier.codecStart(instance).and(instance.group(ForgeRegistries.ITEMS.getCodec().fieldOf("template").forGetter(modifier -> {
+		return codecStart(instance).and(instance.group(ForgeRegistries.ITEMS.getCodec().fieldOf("template").forGetter(modifier -> {
 			return modifier.template;
 		}), Codec.DOUBLE.fieldOf("chance").forGetter(modifier -> {
 			return modifier.chance;

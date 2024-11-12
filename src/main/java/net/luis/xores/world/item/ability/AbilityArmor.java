@@ -18,7 +18,6 @@
 
 package net.luis.xores.world.item.ability;
 
-import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.EquipmentSlot;

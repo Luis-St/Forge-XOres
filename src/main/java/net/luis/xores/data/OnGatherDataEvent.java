@@ -21,9 +21,7 @@ package net.luis.xores.data;
 import net.luis.xores.XOres;
 import net.luis.xores.data.provider.XOBuiltinProvider;
 import net.luis.xores.data.provider.base.client.*;
-import net.luis.xores.data.provider.base.server.XOGlobalLootModifierProvider;
-import net.luis.xores.data.provider.base.server.XOLootTableProvider;
-import net.luis.xores.data.provider.base.server.XORecipeProvider;
+import net.luis.xores.data.provider.base.server.*;
 import net.luis.xores.data.provider.base.server.tag.XOBlockTagsProvider;
 import net.luis.xores.data.provider.base.server.tag.XOItemTagsProvider;
 import net.minecraft.core.HolderLookup;
@@ -48,7 +46,7 @@ import java.util.concurrent.CompletableFuture;
  *
  */
 
-@SuppressWarnings({"resource", "ResultOfMethodCallIgnored"})
+@SuppressWarnings({ "resource", "ResultOfMethodCallIgnored" })
 @EventBusSubscriber(modid = XOres.MOD_ID, bus = Bus.MOD)
 public class OnGatherDataEvent {
 	

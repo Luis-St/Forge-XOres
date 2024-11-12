@@ -29,7 +29,7 @@ import net.minecraft.world.level.storage.loot.ValidationContext;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.*;
+import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
 /**
