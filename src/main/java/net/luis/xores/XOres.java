@@ -49,8 +49,8 @@ public class XOres {
 	public XOres(@NotNull FMLJavaModLoadingContext context) {
 		IEventBus modEventBus = context.getModEventBus();
 		XOToolMaterials.register();
-		XOBlocks.register();
-		XOItems.register();
+		XOBlocks.Keys.register();
+		XOItems.Keys.register();
 		XOBlocks.BLOCKS.register(modEventBus);
 		XOBlocks.ITEMS.register(modEventBus);
 		XOItems.ITEMS.register(modEventBus);
