@@ -36,7 +36,7 @@ import java.util.Map;
 
 public class XOArmorMaterials {
 	
-	private static final Map<ArmorType, Integer> DIAMOND_DEFENSE = Util.make(new EnumMap<>(ArmorType.class), map -> {
+	private static final Map<ArmorType, Integer> DIAMOND_DEFENSE = Util.make(Maps.newEnumMap(ArmorType.class), map -> {
 		map.put(ArmorType.BOOTS, 3);
 		map.put(ArmorType.LEGGINGS, 6);
 		map.put(ArmorType.CHESTPLATE, 8);
@@ -105,4 +105,6 @@ public class XOArmorMaterials {
 	public static final ArmorMaterial NETHERITE_WINGS = new ArmorMaterial(37, NETHERITE_DEFENSE, 15, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, ItemTags.REPAIRS_NETHERITE_ARMOR, EquipmentModels.NETHERITE);
 	public static final ArmorMaterial ENDERITE_WINGS = new ArmorMaterial(51, DIAMOND_DEFENSE, 26, SoundEvents.ARMOR_EQUIP_NETHERITE, 5.0F, 0.3F, XOItemTags.REPAIRS_ENDERITE_ARMOR, XOEquipmentModels.ENDERITE_WINGS);
 	public static final ArmorMaterial NIGHT_WINGS = new ArmorMaterial(59, NETHERITE_DEFENSE, 35, SoundEvents.ARMOR_EQUIP_NETHERITE, 8.0F, 0.4F, XOItemTags.REPAIRS_NIGHT_ARMOR, XOEquipmentModels.NIGHT_WINGS);
+	
+	public static void register() {}
 }
