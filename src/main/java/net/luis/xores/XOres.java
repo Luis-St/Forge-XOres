@@ -53,8 +53,6 @@ public class XOres {
 		IEventBus modEventBus = context.getModEventBus();
 		XOToolMaterials.register();
 		XOArmorMaterials.register();
-		XOBlocks.Keys.register();
-		XOItems.Keys.register();
 		XOBlocks.BLOCKS.register(modEventBus);
 		XOBlocks.ITEMS.register(modEventBus);
 		XOItems.ITEMS.register(modEventBus);

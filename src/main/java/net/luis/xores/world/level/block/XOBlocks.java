@@ -30,7 +30,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.registries.*;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.function.Supplier;
+import java.util.function.Function;
 
 /**
  *
@@ -44,65 +44,46 @@ public class XOBlocks {
 	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, XOres.MOD_ID);
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, XOres.MOD_ID);
 	
-	public static final RegistryObject<Block> JADE_ORE = register("jade_ore", () -> {
-		return new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).requiresCorrectToolForDrops().setId(Keys.JADE_ORE));
+	public static final RegistryObject<Block> JADE_ORE = register("jade_ore", BlockBehaviour.Properties.ofFullCopy(Blocks.STONE), (properties) -> {
+		return new Block(properties.requiresCorrectToolForDrops());
 	});
-	public static final RegistryObject<Block> DEEPSLATE_JADE_ORE = register("deepslate_jade_ore", () -> {
-		return new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE).requiresCorrectToolForDrops().setId(Keys.DEEPSLATE_JADE_ORE));
+	public static final RegistryObject<Block> DEEPSLATE_JADE_ORE = register("deepslate_jade_ore", BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE), (properties) -> {
+		return new Block(properties.requiresCorrectToolForDrops());
 	});
-	public static final RegistryObject<Block> JADE_BLOCK = register("jade_block", () -> {
-		return new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).requiresCorrectToolForDrops().setId(Keys.JADE_BLOCK));
+	public static final RegistryObject<Block> JADE_BLOCK = register("jade_block", BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK), (properties) -> {
+		return new Block(properties.requiresCorrectToolForDrops());
 	});
-	public static final RegistryObject<Block> SAPHIRE_ORE = register("saphire_ore", () -> {
-		return new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).requiresCorrectToolForDrops().setId(Keys.SAPHIRE_ORE));
+	public static final RegistryObject<Block> SAPHIRE_ORE = register("saphire_ore", BlockBehaviour.Properties.ofFullCopy(Blocks.STONE), (properties) -> {
+		return new Block(properties.requiresCorrectToolForDrops());
 	});
-	public static final RegistryObject<Block> DEEPSLATE_SAPHIRE_ORE = register("deepslate_saphire_ore", () -> {
-		return new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE).requiresCorrectToolForDrops().setId(Keys.DEEPSLATE_SAPHIRE_ORE));
+	public static final RegistryObject<Block> DEEPSLATE_SAPHIRE_ORE = register("deepslate_saphire_ore", BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE), (properties) -> {
+		return new Block(properties.requiresCorrectToolForDrops());
 	});
-	public static final RegistryObject<Block> SAPHIRE_BLOCK = register("saphire_block", () -> {
-		return new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_BLOCK).requiresCorrectToolForDrops().setId(Keys.SAPHIRE_BLOCK));
+	public static final RegistryObject<Block> SAPHIRE_BLOCK = register("saphire_block", BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_BLOCK), (properties) -> {
+		return new Block(properties.requiresCorrectToolForDrops());
 	});
-	public static final RegistryObject<Block> LIMONITE_ORE = register("limonite_ore", () -> {
-		return new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).requiresCorrectToolForDrops().setId(Keys.LIMONITE_ORE));
+	public static final RegistryObject<Block> LIMONITE_ORE = register("limonite_ore", BlockBehaviour.Properties.ofFullCopy(Blocks.STONE), (properties) -> {
+		return new Block(properties.requiresCorrectToolForDrops());
 	});
-	public static final RegistryObject<Block> DEEPSLATE_LIMONITE_ORE = register("deepslate_limonite_ore", () -> {
-		return new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE).requiresCorrectToolForDrops().setId(Keys.DEEPSLATE_LIMONITE_ORE));
+	public static final RegistryObject<Block> DEEPSLATE_LIMONITE_ORE = register("deepslate_limonite_ore", BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE), (properties) -> {
+		return new Block(properties.requiresCorrectToolForDrops());
 	});
-	public static final RegistryObject<Block> LIMONITE_BLOCK = register("limonite_block", () -> {
-		return new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_BLOCK).requiresCorrectToolForDrops().setId(Keys.LIMONITE_BLOCK));
+	public static final RegistryObject<Block> LIMONITE_BLOCK = register("limonite_block", BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_BLOCK), (properties) -> {
+		return new Block(properties.requiresCorrectToolForDrops());
 	});
-	public static final RegistryObject<Block> ENDERITE_ORE = register("enderite_ore", () -> {
-		return new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.ANCIENT_DEBRIS).requiresCorrectToolForDrops().setId(Keys.ENDERITE_ORE));
+	public static final RegistryObject<Block> ENDERITE_ORE = register("enderite_ore", BlockBehaviour.Properties.ofFullCopy(Blocks.ANCIENT_DEBRIS), (properties) -> {
+		return new Block(properties.requiresCorrectToolForDrops());
 	});
-	public static final RegistryObject<Block> ENDERITE_BLOCK = register("enderite_block", () -> {
-		return new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.NETHERITE_BLOCK).requiresCorrectToolForDrops().setId(Keys.ENDERITE_BLOCK));
+	public static final RegistryObject<Block> ENDERITE_BLOCK = register("enderite_block", BlockBehaviour.Properties.ofFullCopy(Blocks.NETHERITE_BLOCK), (properties) -> {
+		return new Block(properties.requiresCorrectToolForDrops());
 	});
 	
-	private static <T extends Block> @NotNull RegistryObject<T> register(@NotNull String name, @NotNull Supplier<T> blockSupplier) {
-		RegistryObject<T> blockObject = BLOCKS.register(name, blockSupplier);
-		ResourceKey<Item> key = ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, name));
-		ITEMS.register(name, () -> new BlockItem(blockObject.get(), new Item.Properties().setId(key)));
+	private static <T extends Block> @NotNull RegistryObject<T> register(@NotNull String name, BlockBehaviour.@NotNull Properties properties, @NotNull Function<BlockBehaviour.Properties, T> block) {
+		ResourceKey<Block> blockKey = ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, name));
+		ResourceKey<Item> itemKey = ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, name));
+		
+		RegistryObject<T> blockObject = BLOCKS.register(name, () -> block.apply(properties.setId(blockKey)));
+		ITEMS.register(name, () -> new BlockItem(blockObject.get(), new Item.Properties().setId(itemKey)));
 		return blockObject;
-	}
-	
-	public static class Keys {
-		
-		public static final ResourceKey<Block> JADE_ORE = createKey("jade_ore");
-		public static final ResourceKey<Block> DEEPSLATE_JADE_ORE = createKey("deepslate_jade_ore");
-		public static final ResourceKey<Block> JADE_BLOCK = createKey("jade_block");
-		public static final ResourceKey<Block> SAPHIRE_ORE = createKey("saphire_ore");
-		public static final ResourceKey<Block> DEEPSLATE_SAPHIRE_ORE = createKey("deepslate_saphire_ore");
-		public static final ResourceKey<Block> SAPHIRE_BLOCK = createKey("saphire_block");
-		public static final ResourceKey<Block> LIMONITE_ORE = createKey("limonite_ore");
-		public static final ResourceKey<Block> DEEPSLATE_LIMONITE_ORE = createKey("deepslate_limonite_ore");
-		public static final ResourceKey<Block> LIMONITE_BLOCK = createKey("limonite_block");
-		public static final ResourceKey<Block> ENDERITE_ORE = createKey("enderite_ore");
-		public static final ResourceKey<Block> ENDERITE_BLOCK = createKey("enderite_block");
-		
-		public static void register() {}
-		
-		private static @NotNull ResourceKey<Block> createKey(@NotNull String name) {
-			return ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, name));
-		}
 	}
 }
