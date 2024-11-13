@@ -21,16 +21,12 @@ package net.luis.xores.world.item;
 import com.google.common.collect.Maps;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.util.Unit;
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.equipment.ArmorMaterial;
 import net.minecraft.world.item.equipment.ArmorType;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
-import java.util.Random;
 
 /**
  *
@@ -41,7 +37,6 @@ import java.util.Random;
 public class ElytraChestplateItem extends ArmorItem {
 	
 	private static final Map<ElytraChestplateItem, Integer> ELYTRA_TIME_DAMAGE_VALUES = Maps.newHashMap();
-	private static final Random RNG = new Random(System.currentTimeMillis());
 	
 	public ElytraChestplateItem(@NotNull ArmorMaterial material, @NotNull Properties properties) {
 		super(material, ArmorType.CHESTPLATE, properties.component(DataComponents.GLIDER, Unit.INSTANCE));
@@ -51,11 +46,7 @@ public class ElytraChestplateItem extends ArmorItem {
 		ELYTRA_TIME_DAMAGE_VALUES.put(elytraChestplate, damageValue);
 	}
 	
-	@Override
-	public boolean elytraFlightTick(@NotNull ItemStack stack, @NotNull LivingEntity entity, int flightTicks) {
-		if (!entity.level().isClientSide && (flightTicks + 1) % ELYTRA_TIME_DAMAGE_VALUES.getOrDefault(this, 20) == 0) {
-			stack.hurtAndBreak(1, entity, EquipmentSlot.CHEST);
-		}
-		return true;
+	public static int getDamageTimeValue(@NotNull ElytraChestplateItem elytraChestplate) {
+		return ELYTRA_TIME_DAMAGE_VALUES.getOrDefault(elytraChestplate, 20);
 	}
 }
