@@ -148,7 +148,7 @@ jar {
 			"Implementation-Timestamp": new Date().format("yyyy-MM-dd HH:mm:ssZ"),
 			"Mod-Author": "Luis-st",
 			"Mod-ID": "xores",
-			"MixinConfigs": "mixins.xores.json",
+			"MixinConfigs": "xores.mixins.json",
 		])
 	}
 }
