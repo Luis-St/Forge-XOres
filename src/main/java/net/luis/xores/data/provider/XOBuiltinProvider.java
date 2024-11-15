@@ -18,11 +18,11 @@
 
 package net.luis.xores.data.provider;
 
-import net.luis.xores.data.provider.level.*;
-import net.luis.xores.data.provider.level.rarer.XORarerConfiguredFeatureProvider;
-import net.luis.xores.data.provider.level.rarer.XORarerPlacedFeatureProvider;
-import net.luis.xores.data.provider.level.very.XOVeryRareConfiguredFeatureProvider;
-import net.luis.xores.data.provider.level.very.XOVeryRarePlacedFeatureProvider;
+import net.luis.xores.data.provider.base.server.*;
+import net.luis.xores.data.provider.rarer.XORarerConfiguredFeatureProvider;
+import net.luis.xores.data.provider.rarer.XORarerPlacedFeatureProvider;
+import net.luis.xores.data.provider.very.XOVeryRareConfiguredFeatureProvider;
+import net.luis.xores.data.provider.very.XOVeryRarePlacedFeatureProvider;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 import net.minecraftforge.registries.ForgeRegistries;

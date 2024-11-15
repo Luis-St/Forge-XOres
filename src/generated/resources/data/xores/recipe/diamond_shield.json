@@ -3,12 +3,8 @@
   "category": "equipment",
   "group": "diamond",
   "key": {
-    "#": {
-      "item": "minecraft:diamond"
-    },
-    "I": {
-      "item": "minecraft:iron_ingot"
-    }
+    "#": "minecraft:diamond",
+    "I": "minecraft:iron_ingot"
   },
   "pattern": [
     "#I#",

@@ -3,33 +3,15 @@
   "category": "building",
   "group": "saphire",
   "ingredients": [
-    {
-      "item": "xores:saphire_ingot"
-    },
-    {
-      "item": "xores:saphire_ingot"
-    },
-    {
-      "item": "xores:saphire_ingot"
-    },
-    {
-      "item": "xores:saphire_ingot"
-    },
-    {
-      "item": "xores:saphire_ingot"
-    },
-    {
-      "item": "xores:saphire_ingot"
-    },
-    {
-      "item": "xores:saphire_ingot"
-    },
-    {
-      "item": "xores:saphire_ingot"
-    },
-    {
-      "item": "xores:saphire_ingot"
-    }
+    "xores:saphire_ingot",
+    "xores:saphire_ingot",
+    "xores:saphire_ingot",
+    "xores:saphire_ingot",
+    "xores:saphire_ingot",
+    "xores:saphire_ingot",
+    "xores:saphire_ingot",
+    "xores:saphire_ingot",
+    "xores:saphire_ingot"
   ],
   "result": {
     "count": 1,

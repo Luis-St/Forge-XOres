@@ -18,11 +18,12 @@
 
 package net.luis.xores.world.item.ability;
 
-import net.minecraft.core.Holder;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.equipment.ArmorMaterial;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
@@ -41,38 +42,43 @@ public interface AbilityArmor {
 		return Stream.of(EquipmentSlot.values()).filter(EquipmentSlot::isArmor).map(entity::getItemBySlot).filter(stack -> !stack.isEmpty()).collect(Collectors.toList());
 	}
 	
-	static boolean isWearingFullArmor(@NotNull LivingEntity entity, @NotNull Holder<ArmorMaterial> material) {
-		return isWearingFullArmor(getArmorItems(entity), material);
+	static boolean isWearingFullAbilityArmor(@NotNull LivingEntity entity, @NotNull ArmorMaterial material) {
+		return isWearingFullAbilityArmor(getArmorItems(entity), material);
 	}
 	
-	static boolean isWearingFullArmor(@NotNull List<ItemStack> stacks, @NotNull Holder<ArmorMaterial> material) {
+	static boolean isWearingFullAbilityArmor(@NotNull List<ItemStack> stacks, @NotNull ArmorMaterial material) {
 		if (stacks.size() != 4) {
 			return false;
 		}
-		Set<ArmorItem.Type> types = EnumSet.noneOf(ArmorItem.Type.class);
+		Set<EquipmentSlot> types = EnumSet.noneOf(EquipmentSlot.class);
 		for (ItemStack stack : stacks) {
-			if (!(stack.getItem() instanceof ArmorItem item)) {
+			if (!(stack.getItem() instanceof AbilityArmor abilityArmor)) {
 				return false;
 			}
-			if (item.getMaterial().value() != material.value()) {
+			if (abilityArmor.getAbilityMaterial() != material) {
 				return false;
 			}
-			if (!types.add(item.getType())) {
+			if (!stack.has(DataComponents.EQUIPPABLE)) {
+				return false;
+			}
+			if (!types.add(stack.get(DataComponents.EQUIPPABLE).slot())) {
 				return false;
 			}
 		}
 		return types.size() == 4;
 	}
 	
-	static Optional<AbilityArmor> getArmorPiece(@NotNull LivingEntity entity, @NotNull Holder<ArmorMaterial> material) {
+	static Optional<AbilityArmor> getArmorPiece(@NotNull LivingEntity entity, @NotNull ArmorMaterial material) {
 		List<ItemStack> stacks = getArmorItems(entity);
-		if (stacks.size() != 4 || !isWearingFullArmor(stacks, material)) {
+		if (stacks.size() != 4 || !isWearingFullAbilityArmor(stacks, material)) {
 			return Optional.empty();
 		}
-		return stacks.stream().map(ItemStack::getItem).filter(ArmorItem.class::isInstance).map(ArmorItem.class::cast).filter((item) -> {
-			return item.getMaterial().value() == material.value();
-		}).map(AbilityArmor.class::cast).findAny();
+		return stacks.stream().map(ItemStack::getItem).filter(AbilityArmor.class::isInstance).map(AbilityArmor.class::cast).filter(abilityArmor -> {
+			return abilityArmor.getAbilityMaterial() == material;
+		}).findAny();
 	}
+	
+	@NotNull ArmorMaterial getAbilityMaterial();
 	
 	void onItemApplied(@NotNull LivingEntity entity, @NotNull EquipmentSlot slot, @NotNull ItemStack stack);
 	

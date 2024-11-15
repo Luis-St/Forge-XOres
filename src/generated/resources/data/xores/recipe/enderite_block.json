@@ -3,33 +3,15 @@
   "category": "building",
   "group": "enderite",
   "ingredients": [
-    {
-      "item": "xores:enderite_ingot"
-    },
-    {
-      "item": "xores:enderite_ingot"
-    },
-    {
-      "item": "xores:enderite_ingot"
-    },
-    {
-      "item": "xores:enderite_ingot"
-    },
-    {
-      "item": "xores:enderite_ingot"
-    },
-    {
-      "item": "xores:enderite_ingot"
-    },
-    {
-      "item": "xores:enderite_ingot"
-    },
-    {
-      "item": "xores:enderite_ingot"
-    },
-    {
-      "item": "xores:enderite_ingot"
-    }
+    "xores:enderite_ingot",
+    "xores:enderite_ingot",
+    "xores:enderite_ingot",
+    "xores:enderite_ingot",
+    "xores:enderite_ingot",
+    "xores:enderite_ingot",
+    "xores:enderite_ingot",
+    "xores:enderite_ingot",
+    "xores:enderite_ingot"
   ],
   "result": {
     "count": 1,

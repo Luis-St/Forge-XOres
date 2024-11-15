@@ -48,36 +48,27 @@ public class XSSmithingTemplateItem extends SmithingTemplateItem {
 	private static final ResourceLocation EMPTY_SHOVEL = ResourceLocation.withDefaultNamespace("item/empty_slot_shovel");
 	private static final ResourceLocation EMPTY_PICKAXE = ResourceLocation.withDefaultNamespace("item/empty_slot_pickaxe");
 	
-	public XSSmithingTemplateItem(@NotNull TemplateType templateType) {
-		super(templateType.appliesTo, templateType.ingredients, templateType.upgrade, templateType.baseSlot, templateType.additionsSlot, templateType.baseSlotIcons, templateType.additionalSlotIcons);
-	}
-	
-	@Override
-	public @NotNull String getDescriptionId() {
-		return this.getOrCreateDescriptionId();
+	public XSSmithingTemplateItem(@NotNull Properties properties, @NotNull TemplateType templateType) {
+		super(templateType.appliesTo, templateType.ingredients, templateType.baseSlot, templateType.additionsSlot, templateType.baseSlotIcons, templateType.additionalSlotIcons, properties);
 	}
 	
 	public enum TemplateType {
 		
 		ENDERITE(Component.translatable(ENDERITE_TEMPLATE + "applies_to").withStyle(ChatFormatting.BLUE), Component.translatable(ENDERITE_TEMPLATE + "ingredients").withStyle(ChatFormatting.BLUE),
-			Component.translatable("upgrade.xores.enderite_upgrade").withStyle(ChatFormatting.GRAY), Component.translatable(ENDERITE_TEMPLATE + "base_slot_description"),
-			Component.translatable(ENDERITE_TEMPLATE + "additions_slot_description"), TemplateType.createIcons(), List.of(EMPTY_SLOT)),
+			Component.translatable(ENDERITE_TEMPLATE + "base_slot_description"), Component.translatable(ENDERITE_TEMPLATE + "additions_slot_description"), createIcons(), List.of(EMPTY_SLOT)),
 		NIGHT(Component.translatable(NIGHT_TEMPLATE + "applies_to").withStyle(ChatFormatting.BLUE), Component.translatable(NIGHT_TEMPLATE + "ingredients").withStyle(ChatFormatting.BLUE),
-			Component.translatable("upgrade.xores.night_upgrade").withStyle(ChatFormatting.GRAY), Component.translatable(NIGHT_TEMPLATE + "base_slot_description"), Component.translatable(NIGHT_TEMPLATE + "additions_slot_description"),
-			TemplateType.createIcons(), List.of(EMPTY_SLOT));
+			Component.translatable(NIGHT_TEMPLATE + "base_slot_description"), Component.translatable(NIGHT_TEMPLATE + "additions_slot_description"), createIcons(), List.of(EMPTY_SLOT));
 		
 		private final Component appliesTo;
 		private final Component ingredients;
-		private final Component upgrade;
 		private final Component baseSlot;
 		private final Component additionsSlot;
 		private final List<ResourceLocation> baseSlotIcons;
 		private final List<ResourceLocation> additionalSlotIcons;
 		
-		TemplateType(@NotNull Component appliesTo, @NotNull Component ingredients, @NotNull Component upgrade, @NotNull Component baseSlot, @NotNull Component additionsSlot, @NotNull List<ResourceLocation> baseSlotIcons, @NotNull List<ResourceLocation> additionalSlotIcons) {
+		TemplateType(@NotNull Component appliesTo, @NotNull Component ingredients, @NotNull Component baseSlot, @NotNull Component additionsSlot, @NotNull List<ResourceLocation> baseSlotIcons, @NotNull List<ResourceLocation> additionalSlotIcons) {
 			this.appliesTo = appliesTo;
 			this.ingredients = ingredients;
-			this.upgrade = upgrade;
 			this.baseSlot = baseSlot;
 			this.additionsSlot = additionsSlot;
 			this.baseSlotIcons = baseSlotIcons;

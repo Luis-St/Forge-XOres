@@ -3,12 +3,8 @@
   "category": "equipment",
   "group": "limonite",
   "key": {
-    "#": {
-      "item": "xores:limonite_ingot"
-    },
-    "I": {
-      "item": "minecraft:stick"
-    }
+    "#": "xores:limonite_ingot",
+    "I": "minecraft:stick"
   },
   "pattern": [
     " # ",

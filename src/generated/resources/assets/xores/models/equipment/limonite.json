@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "xores:limonite"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "xores:limonite"
+      }
+    ]
+  }
+}

@@ -19,11 +19,14 @@
 package net.luis.xores.world.item;
 
 import net.luis.xores.world.item.ability.AbilityArmor;
-import net.minecraft.core.Holder;
+import net.luis.xores.world.item.equipment.XOArmorMaterials;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.equipment.ArmorMaterial;
+import net.minecraft.world.item.equipment.ArmorType;
 import org.jetbrains.annotations.NotNull;
 
 import static net.luis.xores.world.item.ability.AbilityArmor.*;
@@ -36,20 +39,25 @@ import static net.luis.xores.world.item.ability.AbilityArmor.*;
 
 public class LimoniteArmorItem extends ArmorItem implements AbilityArmor {
 	
-	public LimoniteArmorItem(@NotNull Holder<ArmorMaterial> material, @NotNull Type type, @NotNull Properties properties) {
+	public LimoniteArmorItem(@NotNull ArmorMaterial material, @NotNull ArmorType type, @NotNull Properties properties) {
 		super(material, type, properties);
 	}
 	
 	@Override
+	public @NotNull ArmorMaterial getAbilityMaterial() {
+		return XOArmorMaterials.LIMONITE;
+	}
+	
+	@Override
 	public void onItemApplied(@NotNull LivingEntity entity, @NotNull EquipmentSlot slot, @NotNull ItemStack stack) {
-		if (isWearingFullArmor(entity, this.getMaterial())) {
+		if (isWearingFullAbilityArmor(entity, this.getAbilityMaterial())) {
 			entity.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED, -1, 1, false, false, false));
 		}
 	}
 	
 	@Override
 	public void onItemRemoved(@NotNull LivingEntity entity, @NotNull EquipmentSlot slot, @NotNull ItemStack stack) {
-		if (!isWearingFullArmor(entity, this.getMaterial())) {
+		if (!isWearingFullAbilityArmor(entity, this.getAbilityMaterial())) {
 			entity.removeEffect(MobEffects.DIG_SPEED);
 		}
 	}

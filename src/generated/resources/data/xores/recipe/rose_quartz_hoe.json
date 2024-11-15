@@ -3,12 +3,8 @@
   "category": "equipment",
   "group": "rose_quartz",
   "key": {
-    "#": {
-      "item": "xores:polished_rose_quartz"
-    },
-    "I": {
-      "item": "minecraft:stick"
-    }
+    "#": "xores:polished_rose_quartz",
+    "I": "minecraft:stick"
   },
   "pattern": [
     "## ",

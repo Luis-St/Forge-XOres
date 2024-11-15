@@ -25,8 +25,8 @@ import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
-import net.minecraftforge.common.loot.IGlobalLootModifier;
 import net.minecraftforge.common.loot.LootModifier;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
@@ -40,7 +40,7 @@ import org.jetbrains.annotations.NotNull;
 public class TemplateModifier extends LootModifier {
 	
 	public static final MapCodec<TemplateModifier> CODEC = RecordCodecBuilder.mapCodec((instance) -> {
-		return LootModifier.codecStart(instance).and(instance.group(ForgeRegistries.ITEMS.getCodec().fieldOf("template").forGetter(modifier -> {
+		return codecStart(instance).and(instance.group(ForgeRegistries.ITEMS.getCodec().fieldOf("template").forGetter(modifier -> {
 			return modifier.template;
 		}), Codec.DOUBLE.fieldOf("chance").forGetter(modifier -> {
 			return modifier.chance;
@@ -62,7 +62,7 @@ public class TemplateModifier extends LootModifier {
 	}
 	
 	@Override
-	protected @NotNull ObjectArrayList<ItemStack> doApply(@NotNull ObjectArrayList<ItemStack> generatedLoot, @NotNull LootContext context) {
+	protected @NotNull ObjectArrayList<ItemStack> doApply(@NotNull LootTable table, @NotNull ObjectArrayList<ItemStack> generatedLoot, @NotNull LootContext context) {
 		if (this.chance > context.getRandom().nextDouble()) {
 			generatedLoot.add(new ItemStack(this.template));
 		}

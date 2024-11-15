@@ -3,9 +3,7 @@
   "category": "equipment",
   "group": "blazing",
   "key": {
-    "#": {
-      "item": "xores:blazing_ingot"
-    }
+    "#": "xores:blazing_ingot"
   },
   "pattern": [
     "# #",

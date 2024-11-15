@@ -22,66 +22,23 @@ minecraft {
 	
 	runs {
 		configureEach {
+			workingDirectory project.file("run")
+			
 			property "forge.logging.markers", "REGISTRIES"
 			property "forge.logging.console.level", "debug"
+			property "forge.enabledGameTestNamespaces", "xores"
 		}
 		
-		client {
-			workingDirectory project.file("run")
-			
-			property "forge.enabledGameTestNamespaces", "xores"
-			property "mixin.env.remapRefMap", "true"
-			property "mixin.env.refMapRemappingFile", "${buildDir}/createSrgToMcp/output.srg"
-			
-			mods {
-				xores {
-					source sourceSets.main
-				}
-			}
-		}
+		client {}
 		
-		server {
-			workingDirectory project.file("run")
-			
-			property "forge.enabledGameTestNamespaces", "xores"
-			property "mixin.env.remapRefMap", "true"
-			property "mixin.env.refMapRemappingFile", "${buildDir}/createSrgToMcp/output.srg"
-			
-			mods {
-				xores {
-					source sourceSets.main
-				}
-			}
-		}
+		server {}
 		
-		gameTestServer {
-			workingDirectory project.file("run")
-			
-			property "forge.enabledGameTestNamespaces", "xores"
-			property "mixin.env.remapRefMap", "true"
-			property "mixin.env.refMapRemappingFile", "${buildDir}/createSrgToMcp/output.srg"
-			
-			mods {
-				xores {
-					source sourceSets.main
-				}
-			}
-		}
+		gameTestServer {}
 		
 		data {
-			workingDirectory project.file("run")
-			
-			property "mixin.env.remapRefMap", "true"
-			property "mixin.env.refMapRemappingFile", "${buildDir}/createSrgToMcp/output.srg"
 			property "xores.data.include", "mod"
 			
 			args "--mod", "xores", "--all", "--output", file("src/generated/resources/"), "--existing", file("src/main/resources/")
-			
-			mods {
-				xores {
-					source sourceSets.main
-				}
-			}
 		}
 		
 		dataPackRarer {
@@ -99,7 +56,6 @@ minecraft {
 }
 
 mixin {
-	add sourceSets.main, "mixins.xores.refmap.json"
 	config "xores.mixins.json"
 	debug.export = true
 }
@@ -111,7 +67,7 @@ dependencies {
 	
 	implementation('net.sf.jopt-simple:jopt-simple:5.0.4') { version { strictly '5.0.4' } }
 	
-	annotationProcessor "org.spongepowered:mixin:0.8.5:processor"
+	annotationProcessor "org.spongepowered:mixin:0.8.7:processor"
 }
 
 compileJava.dependsOn(updateLicenses)

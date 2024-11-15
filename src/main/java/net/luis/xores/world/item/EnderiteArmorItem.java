@@ -19,9 +19,10 @@
 package net.luis.xores.world.item;
 
 import net.luis.xores.world.item.ability.EnderiteAbilityArmor;
-import net.minecraft.core.Holder;
+import net.luis.xores.world.item.equipment.XOArmorMaterials;
 import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.equipment.ArmorMaterial;
+import net.minecraft.world.item.equipment.ArmorType;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -32,12 +33,12 @@ import org.jetbrains.annotations.NotNull;
 
 public class EnderiteArmorItem extends ArmorItem implements EnderiteAbilityArmor {
 	
-	public EnderiteArmorItem(@NotNull Holder<ArmorMaterial> material, @NotNull Type type, @NotNull Properties properties) {
+	public EnderiteArmorItem(@NotNull ArmorMaterial material, @NotNull ArmorType type, @NotNull Properties properties) {
 		super(material, type, properties);
 	}
 	
 	@Override
-	public @NotNull Holder<ArmorMaterial> getAbilityMaterial() {
-		return XOArmorMaterials.ENDERITE.getHolder().orElseThrow();
+	public @NotNull ArmorMaterial getAbilityMaterial() {
+		return XOArmorMaterials.ENDERITE;
 	}
 }

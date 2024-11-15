@@ -1,7 +1,6 @@
 {
   "values": [
     "minecraft:turtle_helmet",
-    "minecraft:wolf_armor",
     "minecraft:leather_helmet",
     "minecraft:leather_chestplate",
     "minecraft:leather_leggings",
@@ -26,10 +25,6 @@
     "minecraft:netherite_chestplate",
     "minecraft:netherite_leggings",
     "minecraft:netherite_boots",
-    "minecraft:iron_horse_armor",
-    "minecraft:golden_horse_armor",
-    "minecraft:diamond_horse_armor",
-    "minecraft:leather_horse_armor",
     "xores:diamond_elytra_chestplate",
     "xores:netherite_elytra_chestplate",
     "xores:jade_helmet",

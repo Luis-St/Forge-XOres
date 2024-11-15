@@ -64,6 +64,22 @@ public class XOItemTags {
 	public static final TagKey<Item> ARMOR = bind(ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "armors/armor"));
 	public static final TagKey<Item> ELYTRA_CHESTPLATES = bind(ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "armors/elytra_chestplate"));
 	
+	public static final TagKey<Item> REPAIRS_JADE_ARMOR = bind(ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "repairs_jade_armor"));
+	public static final TagKey<Item> REPAIRS_BLAZING_ARMOR = bind(ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "repairs_blazing_armor"));
+	public static final TagKey<Item> REPAIRS_SAPHIRE_ARMOR = bind(ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "repairs_saphire_armor"));
+	public static final TagKey<Item> REPAIRS_LIMONITE_ARMOR = bind(ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "repairs_limonite_armor"));
+	public static final TagKey<Item> REPAIRS_ENDERITE_ARMOR = bind(ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "repairs_enderite_armor"));
+	public static final TagKey<Item> REPAIRS_NIGHT_ARMOR = bind(ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "repairs_night_armor"));
+	
+	public static final TagKey<Item> REPAIRS_JADE_TOOLS = bind(ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "repairs_jade_tools"));
+	public static final TagKey<Item> REPAIRS_BLAZING_TOOLS = bind(ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "repairs_blazing_tools"));
+	public static final TagKey<Item> REPAIRS_SAPHIRE_TOOLS = bind(ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "repairs_saphire_tools"));
+	public static final TagKey<Item> REPAIRS_LIMONITE_TOOLS = bind(ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "repairs_limonite_tools"));
+	public static final TagKey<Item> REPAIRS_ROSE_QUARTZ_TOOLS = bind(ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "repairs_rose_quartz_tools"));
+	public static final TagKey<Item> REPAIRS_ENDERITE_TOOLS = bind(ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "repairs_enderite_tools"));
+	public static final TagKey<Item> REPAIRS_STEEL_TOOLS = bind(ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "repairs_steel_tools"));
+	public static final TagKey<Item> REPAIRS_NIGHT_TOOLS = bind(ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "repairs_night_tools"));
+	
 	public static final TagKey<Item> SCRAPS = bind(ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, "scraps"));
 	
 	public static void register() {}

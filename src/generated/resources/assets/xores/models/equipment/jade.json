@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "xores:jade"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "xores:jade"
+      }
+    ]
+  }
+}

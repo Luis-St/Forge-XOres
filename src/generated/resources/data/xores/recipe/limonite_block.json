@@ -3,33 +3,15 @@
   "category": "building",
   "group": "limonite",
   "ingredients": [
-    {
-      "item": "xores:limonite_ingot"
-    },
-    {
-      "item": "xores:limonite_ingot"
-    },
-    {
-      "item": "xores:limonite_ingot"
-    },
-    {
-      "item": "xores:limonite_ingot"
-    },
-    {
-      "item": "xores:limonite_ingot"
-    },
-    {
-      "item": "xores:limonite_ingot"
-    },
-    {
-      "item": "xores:limonite_ingot"
-    },
-    {
-      "item": "xores:limonite_ingot"
-    },
-    {
-      "item": "xores:limonite_ingot"
-    }
+    "xores:limonite_ingot",
+    "xores:limonite_ingot",
+    "xores:limonite_ingot",
+    "xores:limonite_ingot",
+    "xores:limonite_ingot",
+    "xores:limonite_ingot",
+    "xores:limonite_ingot",
+    "xores:limonite_ingot",
+    "xores:limonite_ingot"
   ],
   "result": {
     "count": 1,

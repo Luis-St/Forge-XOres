@@ -18,48 +18,46 @@
 
 package net.luis.xores.client.gui.overlay;
 
+import net.minecraft.client.DeltaTracker;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.LayeredDraw;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.resources.ResourceLocation;
+import org.jetbrains.annotations.NotNull;
+
 /**
  *
  * @author Luis-St
  *
  */
 
-public class XOArmorOverlay /*implements IGuiOverlay*/ {
+public class XOArmorOverlay implements LayeredDraw.Layer {
 	
-	/*private static final ResourceLocation ARMOR_EMPTY = ResourceLocation.withDefaultNamespace("hud/armor_empty");
-	private static final ResourceLocation ARMOR_HALF = ResourceLocation.withDefaultNamespace("hud/armor_half");
-	private static final ResourceLocation ARMOR_FULL = ResourceLocation.withDefaultNamespace("hud/armor_full");
+	private static final ResourceLocation ARMOR_EMPTY_SPRITE = ResourceLocation.withDefaultNamespace("hud/armor_empty");
+	private static final ResourceLocation ARMOR_HALF_SPRITE = ResourceLocation.withDefaultNamespace("hud/armor_half");
+	private static final ResourceLocation ARMOR_FULL_SPRITE = ResourceLocation.withDefaultNamespace("hud/armor_full");
 	
 	private final Minecraft minecraft;
 	
-	public XOArmorOverlay(@NotNull Minecraft minecraft) {
-		this.minecraft = minecraft;
+	public XOArmorOverlay() {
+		this.minecraft = Minecraft.getInstance();
 	}
 	
 	@Override
-	public void render(@NotNull ForgeGui gui, @NotNull GuiGraphics graphics, float partialTicks, int width, int height) {
-		if (!this.minecraft.options.hideGui && gui.shouldDrawSurvivalElements()) {
-			gui.setupOverlayRenderState(true, false);
-			this.renderArmor(gui, graphics, partialTicks, width, height);
-		}
-	}
-	
-	private void renderArmor(@NotNull ForgeGui gui, @NotNull GuiGraphics graphics, float partialTicks, int width, int height) {
-		RenderSystem.enableBlend();
-		int left = width / 2 - 91;
-		int top = height - gui.leftHeight;
+	public void render(@NotNull GuiGraphics graphics, @NotNull DeltaTracker deltaTracker) {
+		int left = graphics.guiWidth() / 2 - 91;
+		int top = graphics.guiHeight() - 59;
 		int level = this.minecraft.player != null ? this.minecraft.player.getArmorValue() : 0;
 		for (int i = 21; level > 20 && i < 40; i += 2) {
 			if (i < level) {
-				graphics.blitSprite(ARMOR_FULL, left, top, 9, 9); // full armor icon
+				graphics.blitSprite(RenderType::guiTextured, ARMOR_FULL_SPRITE, left, top, 9, 9); // full armor icon
 			} else if (i == level) {
-				graphics.blitSprite(ARMOR_HALF, left, top, 9, 9); // half armor icon
+				graphics.blitSprite(RenderType::guiTextured, ARMOR_HALF_SPRITE, left, top, 9, 9); // half armor icon
 			} else {
-				graphics.blitSprite(ARMOR_EMPTY, left, top, 9, 9); // empty (no) armor icon
+				graphics.blitSprite(RenderType::guiTextured, ARMOR_EMPTY_SPRITE, left, top, 9, 9); // empty (no) armor icon
 			}
 			left += 8;
 		}
-		gui.leftHeight += 10;
-		RenderSystem.disableBlend();
-	}*/
+	}
 }
