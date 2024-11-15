@@ -19,9 +19,13 @@
 package net.luis.xores.event.fml;
 
 import net.luis.xores.XOres;
+import net.luis.xores.client.gui.overlay.XOArmorOverlay;
 import net.luis.xores.client.renderer.item.XOItemProperties;
 import net.luis.xores.world.item.ElytraChestplateItem;
 import net.luis.xores.world.item.XOItems;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.LayeredDraw;
+import net.minecraft.world.entity.vehicle.Minecart;
 import net.minecraft.world.item.*;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -55,5 +59,9 @@ public class ClientSetupEventHandler {
 				}
 			}
 		});
+		Minecraft minecraft = Minecraft.getInstance();
+		LayeredDraw layeredDraw = new LayeredDraw();
+		layeredDraw.add(new XOArmorOverlay());
+		minecraft.gui.layers.add(layeredDraw, () -> !minecraft.options.hideGui);
 	}
 }

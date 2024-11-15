@@ -3,7 +3,8 @@
 	"package": "net.luis.xores.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"DiggerItemMixin"
+		"DiggerItemMixin",
+		"LivingEntityMixin"
 	],
 	"client": [
 	],

@@ -12,7 +12,7 @@
     ],
     "wings": [
       {
-        "texture": "minecraft:netherite_elytra",
+        "texture": "xores:netherite_elytra",
         "use_player_texture": true
       }
     ]

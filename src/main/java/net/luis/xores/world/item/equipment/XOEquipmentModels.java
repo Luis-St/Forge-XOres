@@ -67,7 +67,7 @@ public interface XOEquipmentModels {
 	private static @NotNull EquipmentModel onlyHumanoidWings(@NotNull ResourceLocation location, @NotNull String wings) {
 		return EquipmentModel.builder()
 			.addHumanoidLayers(location)
-			.addLayers(EquipmentModel.LayerType.WINGS, new EquipmentModel.Layer(ResourceLocation.withDefaultNamespace(wings + "_elytra"), Optional.empty(), true))
+			.addLayers(EquipmentModel.LayerType.WINGS, new EquipmentModel.Layer(ResourceLocation.fromNamespaceAndPath(XOres.MOD_ID, wings + "_elytra"), Optional.empty(), true))
 			.build();
 	}
 }
