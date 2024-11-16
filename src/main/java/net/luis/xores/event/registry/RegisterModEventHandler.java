@@ -72,10 +72,9 @@ public class RegisterModEventHandler {
 	
 	private static void addServerPack(@NotNull AddPackFindersEvent event, @NotNull String packName, @NotNull String displayName) {
 		Path resourcePath = ModList.get().getModFileById(XOres.MOD_ID).getFile().findResource(packName);
-		PathPackResources.PathResourcesSupplier resourcesSupplier = new PathPackResources.PathResourcesSupplier(resourcePath);
 		PackLocationInfo info = new PackLocationInfo("builtin/" + packName, Component.literal(displayName), PackSource.FEATURE, Optional.empty());
 		PackSelectionConfig config = new PackSelectionConfig(false, Pack.Position.TOP, false);
-		Pack pack = Pack.readMetaAndCreate(info, resourcesSupplier, PackType.SERVER_DATA, config);
+		Pack pack = Pack.readMetaAndCreate(info, new PathPackResources.PathResourcesSupplier(resourcePath), PackType.SERVER_DATA, config);
 		event.addRepositorySource(packConsumer -> packConsumer.accept(pack));
 	}
 }
