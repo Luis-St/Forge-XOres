@@ -41,7 +41,7 @@ minecraft {
 			args "--mod", "xores", "--all", "--output", file("src/generated/resources/"), "--existing", file("src/main/resources/")
 		}
 		
-		dataPackRarer {
+			dataPackRarer {
 			parent runs.data
 			
 			property "xores.data.include", "rarer"
