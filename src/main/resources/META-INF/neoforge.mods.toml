@@ -1,5 +1,5 @@
-modLoader = "javafml"
-loaderVersion = "${ForgeLoaderRange}"
+modLoader = "lowcodefml"
+loaderVersion = "${NeoForgeLoaderRange}"
 license = "All rights reserved"
 
 [[mods]]
@@ -32,9 +32,9 @@ XOres Development Team
 '''
 
 [[dependencies.xores]]
-modId = "forge"
+modId = "neoforge"
 mandatory = true
-versionRange = "${ForgeVersionRange}"
+versionRange = "${NeoForgeVersionRange}"
 ordering = "NONE"
 side = "BOTH"
 

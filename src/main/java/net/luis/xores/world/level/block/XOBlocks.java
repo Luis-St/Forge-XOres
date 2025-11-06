@@ -27,7 +27,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraftforge.registries.*;
+import net.neoforged.neoforge.registries.*;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Function;

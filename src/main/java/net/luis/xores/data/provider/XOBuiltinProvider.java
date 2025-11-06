@@ -25,7 +25,7 @@ import net.luis.xores.data.provider.very.XOVeryRareConfiguredFeatureProvider;
 import net.luis.xores.data.provider.very.XOVeryRarePlacedFeatureProvider;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.neoforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
 
 /**

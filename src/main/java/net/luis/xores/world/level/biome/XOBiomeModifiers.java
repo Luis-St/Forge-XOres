@@ -20,8 +20,8 @@ package net.luis.xores.world.level.biome;
 
 import com.mojang.serialization.MapCodec;
 import net.luis.xores.XOres;
-import net.minecraftforge.common.world.BiomeModifier;
-import net.minecraftforge.registries.*;
+import net.neoforged.neoforge.common.world.BiomeModifier;
+import net.neoforged.neoforge.registries.*;
 
 /**
  *

@@ -20,8 +20,8 @@ package net.luis.xores.world.level.storage.loot;
 
 import com.mojang.serialization.MapCodec;
 import net.luis.xores.XOres;
-import net.minecraftforge.common.loot.IGlobalLootModifier;
-import net.minecraftforge.registries.*;
+import net.neoforged.neoforge.common.loot.IGlobalLootModifier;
+import net.neoforged.neoforge.registries.*;
 
 /**
  *

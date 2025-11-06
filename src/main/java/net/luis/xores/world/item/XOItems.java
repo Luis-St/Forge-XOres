@@ -26,7 +26,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.equipment.ArmorType;
-import net.minecraftforge.registries.*;
+import net.neoforged.neoforge.registries.*;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Function;
