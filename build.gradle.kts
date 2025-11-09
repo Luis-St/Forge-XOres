@@ -22,10 +22,10 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 println("Java: ${System.getProperty("java.version")}, JVM: ${System.getProperty("java.vm.version")} (${System.getProperty("java.vendor")}), Arch: ${System.getProperty("os.arch")}")
 
 minecraft {
-	mappings("official", property("MinecraftVersion").toString())
-
-	reobf = false
-	copyIdeResources = true
+	mappings {
+		channel = "official"
+		version = property("MinecraftVersion").toString()
+	}
 
 	accessTransformers {
 		file("src/main/resources/META-INF/accesstransformer.cfg")
@@ -35,9 +35,9 @@ minecraft {
 		configureEach {
 			workingDirectory(project.file("run"))
 
-			property("neoforge.logging.markers", "REGISTRIES")
-			property("neoforge.logging.console.level", "debug")
-			property("neoforge.enabledGameTestNamespaces", "xores")
+			systemProperty("neoforge.logging.markers", "REGISTRIES")
+			systemProperty("neoforge.logging.console.level", "debug")
+			systemProperty("neoforge.enabledGameTestNamespaces", "xores")
 		}
 		
 		create("client").apply {
@@ -59,8 +59,8 @@ minecraft {
 		}
 		
 		create("serverData").apply {
-			property("xores.data.include", "mod")
-			
+			systemProperty("xores.data.include", "mod")
+
 			arguments.addAll(
 				"--mod", "xores",
 				"--all",
@@ -69,21 +69,23 @@ minecraft {
 			)
 		}
 
-		create("dataPackRarer") {
-			property("xores.data.include", "rarer")
-			parent(runs["serverData"])
+		create("dataPackRarer").apply {
+			systemProperty("xores.data.include", "rarer")
+			parent(named("serverData"))
 		}
 
-		create("dataPackVeryRare") {
-			property("xores.data.include", "very_rare")
-			parent(runs["serverData"])
+		create("dataPackVeryRare").apply {
+			systemProperty("xores.data.include", "very_rare")
+			parent(named("serverData"))
 		}
 	}
 }
 
 mixin {
 	config("xores.mixins.json")
-	debug.export = true
+	debug {
+		export = true
+	}
 }
 
 sourceSets {
