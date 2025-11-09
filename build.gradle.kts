@@ -2,8 +2,10 @@ import java.text.SimpleDateFormat
 import java.util.Date
 
 plugins {
-	idea
-	`maven-publish`
+	id("idea")
+	id("net.luis.lm")
+	id("java-library")
+	id("maven-publish")
 	id("net.neoforged.gradle.userdev") version "7.0.+"
 	id("org.spongepowered.mixin") version "0.7.+"
 	id("com.github.joschi.licenser") version "0.6.0"
@@ -36,32 +38,44 @@ minecraft {
 			property("neoforge.logging.console.level", "debug")
 			property("neoforge.enabledGameTestNamespaces", "xores")
 		}
-
-		create("client")
-
-		create("server")
-
-		create("gameTestServer")
-
-		create("data") {
-			property("xores.data.include", "mod")
-
-			programArguments.addAll(
+		
+		create("client").apply {
+			systemProperty("neoforge.enabledGameTestNamespaces", "xores")
+		}
+		
+		create("server").apply {
+			systemProperty("neoforge.enabledGameTestNamespaces", "xores")
+			arguments("--nogui")
+		}
+		
+		create("clientData").apply {
+			arguments.addAll(
 				"--mod", "xores",
 				"--all",
-				"--output", file("src/generated/resources/").absolutePath,
-				"--existing", file("src/main/resources/").absolutePath
+				"--output", file("src/generated/resources").absolutePath,
+				"--existing", file("src/generated/resources/").absolutePath,
+			)
+		}
+		
+		create("serverData").apply {
+			property("xores.data.include", "mod")
+			
+			arguments.addAll(
+				"--mod", "xores",
+				"--all",
+				"--output", file("src/generated/resources").absolutePath,
+				"--existing", file("src/generated/resources/").absolutePath,
 			)
 		}
 
 		create("dataPackRarer") {
 			property("xores.data.include", "rarer")
-			parent(runs["data"])
+			parent(runs["serverData"])
 		}
 
 		create("dataPackVeryRare") {
 			property("xores.data.include", "very_rare")
-			parent(runs["data"])
+			parent(runs["serverData"])
 		}
 	}
 }
@@ -95,9 +109,19 @@ tasks.compileJava {
 	dependsOn(tasks.updateLicenses)
 }
 
-license {
-	header = file("header.txt")
+licenseManager {
+	header = "header.txt"
+	lineEnding = LineEnding.LF
+	spacingAfterHeader = 1
+	
+	variable("year", Year.now())
+	variable("author", "Luis Staudt")
+	variable("project", rootProject.name)
+	
+	sourceSets = listOf("main", "test")
+	
 	include("**/*.java")
+	exclude("**/Main.java")
 }
 
 java {
