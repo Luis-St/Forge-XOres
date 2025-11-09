@@ -1,14 +1,15 @@
 import java.text.SimpleDateFormat
-import java.util.Date
+import net.luis.lm.LineEnding
+import java.time.Year
+import java.util.*
 
 plugins {
 	id("idea")
-	id("net.luis.lm")
+	id("net.luis.lm") version "1.1.0"
 	id("java-library")
 	id("maven-publish")
 	id("net.neoforged.gradle.userdev") version "7.0.+"
 	id("org.spongepowered.mixin") version "0.7.+"
-	id("com.github.joschi.licenser") version "0.6.0"
 	id("io.github.themrmilchmann.curseforge-publish") version "0.6.1"
 }
 
