@@ -32,7 +32,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod.EventBusSubscriber;
 import net.neoforged.fml.common.Mod.EventBusSubscriber.Bus;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
-import net.neoforged.neoforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -47,7 +47,7 @@ public class ClientSetupEventHandler {
 	@SubscribeEvent
 	public static void clientSetup(@NotNull FMLClientSetupEvent event) {
 		event.enqueueWork(() -> {
-			for (Item item : XOItems.ITEMS.getEntries().stream().map(RegistryObject::get).toList()) {
+			for (Item item : XOItems.ITEMS.getEntries().stream().map(DeferredHolder::get).toList()) {
 				if (item instanceof BowItem bow) {
 					XOItemProperties.registerBow(bow);
 				} else if (item instanceof CrossbowItem crossbow) {

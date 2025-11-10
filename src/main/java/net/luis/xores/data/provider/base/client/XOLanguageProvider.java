@@ -26,8 +26,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.LanguageProvider;
-import net.neoforged.neoforge.registries.ForgeRegistries;
-import net.neoforged.neoforge.registries.RegistryObject;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
@@ -46,10 +46,10 @@ public class XOLanguageProvider extends LanguageProvider {
 	
 	@Override
 	protected void addTranslations() {
-		for (Block block : XOBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).toList()) {
+		for (Block block : XOBlocks.BLOCKS.getEntries().stream().map(DeferredHolder::get).toList()) {
 			this.add(block, this.getName(Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block))));
 		}
-		for (Item item : XOItems.ITEMS.getEntries().stream().map(RegistryObject::get).toList()) {
+		for (Item item : XOItems.ITEMS.getEntries().stream().map(DeferredHolder::get).toList()) {
 			this.add(item, this.getName(Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item))));
 		}
 		this.add("item_tab.xores", "XOres");

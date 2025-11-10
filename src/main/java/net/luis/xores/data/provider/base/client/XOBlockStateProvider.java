@@ -23,11 +23,12 @@ import net.luis.xores.world.level.block.XOBlocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.*;
 import net.neoforged.neoforge.client.model.generators.ModelFile.ExistingModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
-import net.neoforged.neoforge.registries.ForgeRegistries;
-import net.neoforged.neoforge.registries.RegistryObject;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
@@ -49,7 +50,7 @@ public class XOBlockStateProvider extends BlockStateProvider {
 	
 	@Override
 	protected void registerStatesAndModels() {
-		for (Block block : XOBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).toList()) {
+		for (Block block : XOBlocks.BLOCKS.getEntries().stream().map(DeferredHolder::get).toList()) {
 			if (block == XOBlocks.ENDERITE_ORE.get()) {
 				this.columnBlock(block);
 			} else {
@@ -58,10 +59,10 @@ public class XOBlockStateProvider extends BlockStateProvider {
 			this.simpleBlockItem(block, this.getModel(block));
 		}
 	}
-	
+
 	//region Block state helpers
 	private void columnBlock(@NotNull Block block) {
-		String name = Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).getPath();
+		String name = Objects.requireNonNull(BuiltInRegistries.BLOCK.getKey(block)).getPath();
 		ModelFile modelFile = this.models().cubeColumn(name, ResourceLocation.parse(this.blockTexture(block).toString() + "_side"), ResourceLocation.parse(this.blockTexture(block).toString() + "_top"));
 		this.getVariantBuilder(block).partialState().setModels(new ConfiguredModel(modelFile));
 	}

@@ -34,8 +34,8 @@ import net.neoforged.neoforge.client.model.generators.*;
 import net.neoforged.neoforge.client.model.generators.ModelFile.ExistingModelFile;
 import net.neoforged.neoforge.client.model.generators.ModelFile.UncheckedModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
-import net.neoforged.neoforge.registries.ForgeRegistries;
-import net.neoforged.neoforge.registries.RegistryObject;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
@@ -64,7 +64,7 @@ public class XOItemModelProvider extends ItemModelProvider {
 				this.existingFileHelper.trackGenerated(ResourceLocation.withDefaultNamespace("trims/items/" + this.getArmorType(type.getSlot()) + "_trim_" + trim), PackType.CLIENT_RESOURCES, ".png", "textures");
 			}
 		}
-		for (Item item : XOItems.ITEMS.getEntries().stream().map(RegistryObject::get).toList()) {
+		for (Item item : XOItems.ITEMS.getEntries().stream().map(DeferredHolder::get).toList()) {
 			switch (item) {
 				case SwordItem swordItem -> this.handheldItem(swordItem);
 				case DiggerItem diggerItem -> this.handheldItem(diggerItem);

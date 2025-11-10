@@ -34,8 +34,8 @@ import net.minecraft.world.item.equipment.Equippable;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
-import net.neoforged.neoforge.registries.ForgeRegistries;
-import net.neoforged.neoforge.registries.RegistryObject;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -170,7 +170,7 @@ public class XOItemTagsProvider extends ItemTagsProvider {
 		this.tag(XOItemTags.SCRAPS).add(NETHERITE_SCRAP).add(ENDERITE_SCRAP.get()).add(NIGHT_SCRAP.get());
 		
 		IntrinsicTagAppender<Item> trimmable = this.tag(ItemTags.TRIMMABLE_ARMOR);
-		ITEMS.getEntries().stream().map(RegistryObject::get).filter(item -> item instanceof ArmorItem && !(item instanceof ElytraChestplateItem)).forEach(trimmable::add);
+		ITEMS.getEntries().stream().map(DeferredHolder::get).filter(item -> item instanceof ArmorItem && !(item instanceof ElytraChestplateItem)).forEach(trimmable::add);
 	}
 	
 	@Override

@@ -25,7 +25,7 @@ import net.luis.xores.data.provider.very.XOVeryRareConfiguredFeatureProvider;
 import net.luis.xores.data.provider.very.XOVeryRarePlacedFeatureProvider;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
-import net.neoforged.neoforge.registries.ForgeRegistries;
+import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -40,7 +40,7 @@ public class XOBuiltinProvider {
 		RegistrySetBuilder builder = new RegistrySetBuilder();
 		builder.add(Registries.CONFIGURED_FEATURE, XOConfiguredFeatureProvider::create);
 		builder.add(Registries.PLACED_FEATURE, XOPlacedFeatureProvider::create);
-		builder.add(ForgeRegistries.Keys.BIOME_MODIFIERS, XOBiomeModifierProvider::create);
+		builder.add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, XOBiomeModifierProvider::create);
 		return builder;
 	}
 	

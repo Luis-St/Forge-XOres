@@ -23,7 +23,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
-import net.neoforged.neoforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Set;
@@ -42,13 +42,13 @@ public class XOBlockLootSubProvider extends BlockLootSubProvider {
 	
 	@Override
 	protected void generate() {
-		for (Block block : XOBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).toList()) {
+		for (Block block : XOBlocks.BLOCKS.getEntries().stream().map(DeferredHolder::get).toList()) {
 			this.dropSelf(block);
 		}
 	}
 	
 	@Override
 	protected @NotNull Iterable<Block> getKnownBlocks() {
-		return XOBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).toList();
+		return XOBlocks.BLOCKS.getEntries().stream().map(DeferredHolder::get).toList();
 	}
 }

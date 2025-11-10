@@ -9,7 +9,6 @@ plugins {
 	id("java-library")
 	id("maven-publish")
 	id("net.neoforged.gradle.userdev") version "7.0.+"
-	id("org.spongepowered.mixin") version "0.7.+"
 	id("io.github.themrmilchmann.curseforge-publish") version "0.6.1"
 }
 
@@ -42,36 +41,8 @@ runs {
 		systemProperty("neoforge.enabledGameTestNamespaces", "xores")
 		arguments("--nogui")
 	}
-	
-	create("clientData").apply {
-		arguments.addAll(
-			"--mod", "xbackpack",
-			"--all",
-			"--output", file("src/generated/resources").absolutePath,
-			"--existing", file("src/generated/resources/").absolutePath,
-		)
-	}
-	
-	create("serverData").apply {
-		systemProperty("xores.data.include", "mod")
-		
-		arguments.addAll(
-			"--mod", "xores",
-			"--all",
-			"--output", file("src/generated/resources").absolutePath,
-			"--existing", file("src/generated/resources/").absolutePath,
-		)
-	}
-	
-	create("dataPackRarer").apply {
-		systemProperty("xores.data.include", "rarer")
-		parent(named("serverData"))
-	}
-	
-	create("dataPackVeryRare").apply {
-		systemProperty("xores.data.include", "very_rare")
-		parent(named("serverData"))
-	}
+
+	// TODO: Add back datagen runs once base build works
 }
 
 sourceSets.main.configure {
@@ -97,8 +68,6 @@ dependencies {
 			strictly("5.0.4")
 		}
 	}
-
-	annotationProcessor("org.spongepowered:mixin:0.8.7:processor")
 }
 
 tasks.compileJava {
@@ -128,7 +97,9 @@ java {
 	withSourcesJar()
 }
 
-val ver = "${property("MinecraftVersion")}-${property("ModVersion")}"
+val modVersion = project.property("ModVersion").toString()
+val minecraftVersion = project.property("MinecraftVersion").toString()
+val ver = "$minecraftVersion-$modVersion"
 
 curseforge {
 	apiToken = token ?: ""
@@ -190,7 +161,7 @@ tasks.jar {
 		attributes(
 			mapOf(
 				"Specification-Title" to "XOres",
-				"Specification-Version" to property("ModVersion"),
+				"Specification-Version" to modVersion,
 				"Implementation-Title" to project.name,
 				"Implementation-Timestamp" to SimpleDateFormat("yyyy-MM-dd HH:mm:ssZ").format(Date()),
 				"Mod-Author" to "Luis-st",

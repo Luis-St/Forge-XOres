@@ -25,7 +25,7 @@ import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
-import net.neoforged.neoforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.CompletableFuture;
@@ -66,7 +66,7 @@ public class XOBlockTagsProvider extends BlockTagsProvider {
 		this.tag(INCORRECT_FOR_WOODEN_TOOL).addTag(NEEDS_STEEL_TOOL).addTag(NEEDS_ENDERITE_TOOL).addTag(Tags.Blocks.NEEDS_NETHERITE_TOOL).addTag(NEEDS_DIAMOND_TOOL).addTag(NEEDS_IRON_TOOL).addTag(NEEDS_STONE_TOOL);
 		
 		IntrinsicTagAppender<Block> pickaxeMinable = this.tag(MINEABLE_WITH_PICKAXE);
-		for (Block block : BLOCKS.getEntries().stream().map(RegistryObject::get).toList()) {
+		for (Block block : BLOCKS.getEntries().stream().map(DeferredHolder::get).toList()) {
 			pickaxeMinable.add(block);
 		}
 		
