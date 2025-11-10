@@ -1,5 +1,5 @@
-import java.text.SimpleDateFormat
 import net.luis.lm.LineEnding
+import java.text.SimpleDateFormat
 import java.time.Year
 import java.util.*
 
@@ -13,86 +13,79 @@ plugins {
 	id("io.github.themrmilchmann.curseforge-publish") version "0.6.1"
 }
 
-val mavenUsername: String? = System.getenv("MAVEN_USERNAME")
-val mavenPassword: String? = System.getenv("MAVEN_PASSWORD")
-val curseforgeToken: String? = System.getenv("CURSEFORGE_TOKEN")
+val username: String? = System.getenv("MAVEN_USERNAME")
+val password: String? = System.getenv("MAVEN_PASSWORD")
+val token: String? = System.getenv("CURSEFORGE_TOKEN")
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
 println("Java: ${System.getProperty("java.version")}, JVM: ${System.getProperty("java.vm.version")} (${System.getProperty("java.vendor")}), Arch: ${System.getProperty("os.arch")}")
 
-minecraft {
-	mappings {
-		channel = "official"
-		version = property("MinecraftVersion").toString()
+minecraft.accessTransformers.file(rootProject.file("src/main/resources/META-INF/accesstransformer.cfg"))
+
+runs {
+	configureEach {
+		workingDirectory(project.file("run"))
+		
+		systemProperty("neoforge.logging.markers", "REGISTRIES")
+		systemProperty("neoforge.logging.console.level", "debug")
+		systemProperty("neoforge.enabledGameTestNamespaces", "xbackpack")
+		
+		modSource(project.sourceSets.main.get())
 	}
-
-	accessTransformers {
-		file("src/main/resources/META-INF/accesstransformer.cfg")
+	
+	create("client").apply {
+		systemProperty("neoforge.enabledGameTestNamespaces", "xores")
 	}
-
-	runs {
-		configureEach {
-			workingDirectory(project.file("run"))
-
-			systemProperty("neoforge.logging.markers", "REGISTRIES")
-			systemProperty("neoforge.logging.console.level", "debug")
-			systemProperty("neoforge.enabledGameTestNamespaces", "xores")
-		}
+	
+	create("server").apply {
+		systemProperty("neoforge.enabledGameTestNamespaces", "xores")
+		arguments("--nogui")
+	}
+	
+	create("clientData").apply {
+		arguments.addAll(
+			"--mod", "xbackpack",
+			"--all",
+			"--output", file("src/generated/resources").absolutePath,
+			"--existing", file("src/generated/resources/").absolutePath,
+		)
+	}
+	
+	create("serverData").apply {
+		systemProperty("xores.data.include", "mod")
 		
-		create("client").apply {
-			systemProperty("neoforge.enabledGameTestNamespaces", "xores")
-		}
-		
-		create("server").apply {
-			systemProperty("neoforge.enabledGameTestNamespaces", "xores")
-			arguments("--nogui")
-		}
-		
-		create("clientData").apply {
-			arguments.addAll(
-				"--mod", "xores",
-				"--all",
-				"--output", file("src/generated/resources").absolutePath,
-				"--existing", file("src/generated/resources/").absolutePath,
-			)
-		}
-		
-		create("serverData").apply {
-			systemProperty("xores.data.include", "mod")
-
-			arguments.addAll(
-				"--mod", "xores",
-				"--all",
-				"--output", file("src/generated/resources").absolutePath,
-				"--existing", file("src/generated/resources/").absolutePath,
-			)
-		}
-
-		create("dataPackRarer").apply {
-			systemProperty("xores.data.include", "rarer")
-			parent(named("serverData"))
-		}
-
-		create("dataPackVeryRare").apply {
-			systemProperty("xores.data.include", "very_rare")
-			parent(named("serverData"))
-		}
+		arguments.addAll(
+			"--mod", "xores",
+			"--all",
+			"--output", file("src/generated/resources").absolutePath,
+			"--existing", file("src/generated/resources/").absolutePath,
+		)
+	}
+	
+	create("dataPackRarer").apply {
+		systemProperty("xores.data.include", "rarer")
+		parent(named("serverData"))
+	}
+	
+	create("dataPackVeryRare").apply {
+		systemProperty("xores.data.include", "very_rare")
+		parent(named("serverData"))
 	}
 }
 
-mixin {
-	config("xores.mixins.json")
-	debug {
-		export = true
-	}
+sourceSets.main.configure {
+	resources.srcDir("src/generated/resources")
 }
 
-sourceSets {
-	main {
-		resources {
-			srcDir("src/generated/resources")
-		}
+repositories {
+	maven {
+		name = "Jared's maven"
+		url = uri("https://maven.blamejared.com/")
+	}
+	maven {
+		name = "ModMaven"
+		url = uri("https://modmaven.dev/")
 	}
 }
 
@@ -127,6 +120,10 @@ licenseManager {
 	exclude("**/Main.java")
 }
 
+tasks.compileJava {
+	dependsOn(tasks.named("updateLicenses"))
+}
+
 java {
 	withSourcesJar()
 }
@@ -134,7 +131,7 @@ java {
 val ver = "${property("MinecraftVersion")}-${property("ModVersion")}"
 
 curseforge {
-	apiToken = curseforgeToken ?: ""
+	apiToken = token ?: ""
 	publications {
 		register("curseForge") {
 			projectId = "584702"
@@ -158,42 +155,37 @@ publishing {
 		}
 	}
 	repositories {
-		if (mavenUsername != null && mavenPassword != null) {
+		if (username != null && password != null) {
 			maven {
 				url = uri("https://maven.luis-st.net/forge/")
-				credentials {
-					username = mavenUsername
-					password = mavenPassword
-				}
+				credentials.username = username
+				credentials.password = password
 			}
 		} else {
-			println("No credentials provided. Publishing to maven.luis-st.net not possible.")
+			logger.error("No credentials provided. Publishing to maven.luis-st.net not possible.")
 		}
 	}
 }
 
-val resourceTargets = listOf("META-INF/neoforge.mods.toml")
+val resourceTargets = listOf("META-INF/neoforge.mods.toml", "pack.mcmeta")
 val replaceProperties = mapOf(
 	"MinecraftVersion" to property("MinecraftVersion"),
 	"MinecraftVersionRange" to property("MinecraftVersionRange"),
 	"NeoForgeVersion" to property("NeoForgeVersion"),
 	"NeoForgeVersionRange" to property("NeoForgeVersionRange"),
-	"NeoForgeLoaderRange" to property("NeoForgeLoaderRange"),
 	"ModVersion" to property("ModVersion")
 )
 
 tasks.processResources {
 	inputs.properties(replaceProperties)
-	val modifiedProperties = replaceProperties.toMutableMap()
-	modifiedProperties["project"] = project
-
+	
 	filesMatching(resourceTargets) {
-		expand(modifiedProperties)
+		expand(replaceProperties)
 	}
 }
 
 tasks.jar {
-	archiveFileName = "XOres-$ver.jar"
+	archiveFileName.set("XOres-$ver.jar")
 	manifest {
 		attributes(
 			mapOf(
@@ -217,8 +209,9 @@ tasks.withType<JavaCompile>().configureEach {
 	options.encoding = "UTF-8"
 }
 
-sourceSets.forEach {
-	val dir = layout.buildDirectory.dir("sourcesSets/${it.name}")
-	it.output.setResourcesDir(dir)
-	it.java.destinationDirectory = dir
+idea {
+	module {
+		isDownloadSources = true
+		isDownloadJavadoc = true
+	}
 }
